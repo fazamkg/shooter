@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Faza
@@ -12,11 +10,13 @@ namespace Faza
         [SerializeField] private float _acceleration;
         [SerializeField] private float _friction;
         [SerializeField] private float _gravity;
+        [SerializeField] private float _jumpSpeed;
 
         private float _pitch;
         private float _yaw;
 
         private Vector3 _velocity;
+        private float _verticalVelocity;
 
         private void Awake()
         {
@@ -48,10 +48,23 @@ namespace Faza
 
             _velocity -= Time.deltaTime * _friction * _velocity;
 
+            _verticalVelocity -= Time.deltaTime * _gravity;
+
             _characterController.Move(_velocity * Time.deltaTime);
             var returnedVelocity = _characterController.velocity;
             _velocity.x = returnedVelocity.x;
             _velocity.z = returnedVelocity.z;
+
+            _characterController.Move(_verticalVelocity * Time.deltaTime * Vector3.up);
+            returnedVelocity = _characterController.velocity;
+            _verticalVelocity = returnedVelocity.y;
+
+            var isGrounded = _characterController.isGrounded;
+
+            if (isGrounded && Input.GetButton("Jump"))
+            {
+                _verticalVelocity = _jumpSpeed;
+            }
         }
     }
 }

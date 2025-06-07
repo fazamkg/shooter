@@ -4315,6 +4315,8 @@ MonoBehaviour:
   _sensitivity: 6
   _acceleration: 20
   _friction: 4
+  _gravity: 20
+  _jumpSpeed: 12
 --- !u!143 &1678777973
 CharacterController:
   m_ObjectHideFlags: 0
