@@ -19,6 +19,8 @@ namespace Faza
         private Vector3 _velocity;
         private float _verticalVelocity;
 
+        public float HorizontalSpeed => _velocity.magnitude;
+
         private void Update()
         {
             var camX = _characterInput.GetCameraX();
