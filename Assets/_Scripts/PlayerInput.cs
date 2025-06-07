@@ -36,5 +36,10 @@ namespace Faza
         {
             return Input.GetButton("Jump");
         }
+
+        public override bool GetUse()
+        {
+            return Input.GetKeyDown(KeyCode.E);
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace Faza
         public abstract float GetVertical();
 
         public abstract bool GetJump();
+
+        public abstract bool GetUse();
     } 
 }

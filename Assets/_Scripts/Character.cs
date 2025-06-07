@@ -11,6 +11,7 @@ namespace Faza
         [SerializeField] private float _friction;
         [SerializeField] private float _gravity;
         [SerializeField] private float _jumpSpeed;
+        [SerializeField] private float _useDistance;
 
         private float _pitch;
         private float _yaw;
@@ -58,6 +59,21 @@ namespace Faza
             if (isGrounded && _characterInput.GetJump())
             {
                 _verticalVelocity = _jumpSpeed;
+            }
+
+            if (_characterInput.GetUse())
+            {
+                var ray = new Ray(_camera.transform.position, _camera.transform.forward);
+                var hit = Physics.Raycast(ray, out var hitInfo, _useDistance);
+
+                if (hit)
+                {
+                    var worldButton = hitInfo.transform.GetComponent<WorldButton>();
+                    if (worldButton != null)
+                    {
+                        worldButton.Use();
+                    }
+                }
             }
         }
     } 
