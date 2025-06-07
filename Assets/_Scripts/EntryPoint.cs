@@ -5,6 +5,8 @@ namespace Faza
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private EnemyInput _enemyInput;
+        [SerializeField] private Camera _mainCamera;
+        [SerializeField] private Camera _enemyCamera;
 
         private void Awake()
         {
@@ -19,6 +21,9 @@ namespace Faza
             Console.AddButton("Vert -1", () => _enemyInput.SetVertical(-1f));
             Console.AddButton("Vert 0", () => _enemyInput.SetVertical(0f));
             Console.AddButton("Vert +1", () => _enemyInput.SetVertical(1f));
+
+            Console.AddButton("Main cam", () => CameraTracker.Activate("main"));
+            Console.AddButton("Enemy cam", () => CameraTracker.Activate("enemy"));
         }
     } 
 }

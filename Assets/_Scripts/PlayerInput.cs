@@ -15,6 +15,11 @@ namespace Faza
             _locked = true;
         }
 
+        private void Start()
+        {
+            CameraTracker.Activate("main");
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
