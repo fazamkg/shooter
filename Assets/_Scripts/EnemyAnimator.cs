@@ -39,6 +39,10 @@ namespace Faza
             _animator.SetFloat("MouseX", _cameraX);
 
             transform.rotation = Quaternion.Euler(0f, _character.Yaw, 0f);
+
+            _animator.SetBool("Jump", _input.GetJump());
+
+            _animator.SetBool("Falling", _character.IsFalling);
         }
     } 
 }

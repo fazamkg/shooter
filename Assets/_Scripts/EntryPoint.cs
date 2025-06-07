@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Faza
@@ -24,6 +25,27 @@ namespace Faza
 
             Console.AddButton("Main cam", () => CameraTracker.Activate("main"));
             Console.AddButton("Enemy cam", () => CameraTracker.Activate("enemy"));
+
+            Console.AddButton("Jump True", () => _enemyInput.SetJump(true));
+            Console.AddButton("Jump False", () => _enemyInput.SetJump(false));
+
+            Console.AddButton("0.1", () => Time.timeScale = 0.1f);
+            Console.AddButton("0.2", () => Time.timeScale = 0.2f);
+            Console.AddButton("0.5", () => Time.timeScale = 0.5f);
+            Console.AddButton("0.75", () => Time.timeScale = 0.75f);
+
+            Console.AddButton("Pause", () => Time.timeScale = 0f);
+            Console.AddButton("Continue", () => Time.timeScale = 1f);
+            Console.AddButton("1 Frame", () =>
+            {
+                IEnumerator playOneFrame()
+                {
+                    Time.timeScale = 1f;
+                    yield return null;
+                    Time.timeScale = 0f;
+                }
+                Console.StartCoroutine_(playOneFrame());
+            });
         }
     } 
 }

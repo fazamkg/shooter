@@ -18,9 +18,11 @@ namespace Faza
 
         private Vector3 _velocity;
         private float _verticalVelocity;
+        private bool _isGrounded;
 
         public float HorizontalSpeed => _velocity.magnitude;
         public float Yaw => _yaw;
+        public bool IsFalling => _isGrounded == false && _verticalVelocity < 0f;
 
         private void Update()
         {
@@ -57,9 +59,9 @@ namespace Faza
             returnedVelocity = _characterController.velocity;
             _verticalVelocity = returnedVelocity.y;
 
-            var isGrounded = _characterController.isGrounded;
+            _isGrounded = _characterController.isGrounded;
 
-            if (isGrounded && _characterInput.GetJump())
+            if (_isGrounded && _characterInput.GetJump())
             {
                 _verticalVelocity = _jumpSpeed;
             }

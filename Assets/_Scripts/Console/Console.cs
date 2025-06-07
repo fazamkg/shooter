@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +41,16 @@ namespace Faza
         public static void AddButton(string name, Action action)
         {
             _instance.AddButtonInternal(name, action);
+        }
+
+        public static Coroutine StartCoroutine_(IEnumerator routine)
+        {
+            return _instance.StartCoroutine(routine);
+        }
+
+        public static void StopCoroutine_(IEnumerator routine)
+        {
+            _instance.StopCoroutine(routine);
         }
     } 
 }
