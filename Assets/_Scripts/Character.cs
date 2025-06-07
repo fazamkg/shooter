@@ -20,6 +20,7 @@ namespace Faza
         private float _verticalVelocity;
 
         public float HorizontalSpeed => _velocity.magnitude;
+        public float Yaw => _yaw;
 
         private void Update()
         {

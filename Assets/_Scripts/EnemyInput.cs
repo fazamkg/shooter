@@ -4,6 +4,8 @@ namespace Faza
 {
     public class EnemyInput : CharacterInput
     {
+        [SerializeField] private float _sensitivity;
+
         private float _cameraX;
         private float _cameraY;
         private float _horizontal;
@@ -13,12 +15,12 @@ namespace Faza
 
         public override float GetCameraX()
         {
-            return _cameraX;
+            return _cameraX * _sensitivity;
         }
 
         public override float GetCameraY()
         {
-            return _cameraY;
+            return _cameraY * _sensitivity;
         }
 
         public override float GetHorizontal()

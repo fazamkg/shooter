@@ -4,6 +4,7 @@ namespace Faza
 {
     public class EnemyAnimator : MonoBehaviour
     {
+        [SerializeField] private Character _character;
         [SerializeField] private CharacterInput _input;
         [SerializeField] private Animator _animator;
         [SerializeField] private float _smoothSpeed;
@@ -21,6 +22,8 @@ namespace Faza
 
             _animator.SetFloat("InputHorizontal", _horizontal);
             _animator.SetFloat("InputVertical", _vertical);
+
+            transform.rotation = Quaternion.Euler(0f, _character.Yaw, 0f);
         }
     } 
 }
