@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HumanDummy_Orange
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 2100000, guid: aaddffe38381a60428eb1aeab1ba8b85, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -28,6 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0.8125}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Glossiness: 0.612
+    - _Metallic: 1
     m_Colors: []
   m_BuildTextureStacks: []

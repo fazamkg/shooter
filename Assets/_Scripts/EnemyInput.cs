@@ -5,6 +5,8 @@ namespace Faza
     public class EnemyInput : CharacterInput
     {
         [SerializeField] private float _sensitivity;
+        [SerializeField] private Transform _look;
+        [SerializeField] private float _stoppingDistance;
 
         private float _cameraX;
         private float _cameraY;
@@ -12,6 +14,8 @@ namespace Faza
         private float _vertical;
         private bool _jump;
         private bool _use;
+
+        private Waypoint _currentWaypoint;
 
         public override float GetCameraX()
         {
@@ -71,6 +75,39 @@ namespace Faza
         public void SetUse(bool value)
         {
             _use = value;
+        }
+
+        public void SetWaypoint(Waypoint waypoint)
+        {
+            _currentWaypoint = waypoint;
+        }
+
+        private void Update()
+        {
+            if (_currentWaypoint == null) return;
+
+            var lookForward = _look.forward.WithY(0f);
+            var wpPosition = _currentWaypoint.transform.position.WithY(0f);
+            var position = transform.position.WithY(0f);
+            var distanceToWp = (wpPosition - position).sqrMagnitude;
+            if (distanceToWp < _stoppingDistance)
+            {
+                _cameraX = 0f;
+                _horizontal = 0f;
+                _vertical = 0f;
+                return;
+            }
+
+            var directionToWp = (wpPosition - position).normalized;
+
+            var cross = Vector3.Cross(lookForward, directionToWp);
+
+            _cameraX = cross.y.IsZero() ? 0f : Mathf.Sign(cross.y);
+
+            var localDirectionToWp = _look.InverseTransformDirection(directionToWp);
+
+            _horizontal = localDirectionToWp.x;
+            _vertical = localDirectionToWp.z;
         }
     }
 }

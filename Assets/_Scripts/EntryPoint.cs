@@ -46,6 +46,35 @@ namespace Faza
                 }
                 Console.StartCoroutine_(playOneFrame());
             });
+
+            Console.AddButton("Create waypoint", () =>
+            {
+                var player = Tracker.Get<Character>("player");
+                var hit = player.GetCrosshairInfo(out var hitInfo);
+                if (hit)
+                {
+                    var waypoint = Resources.Load<Waypoint>("Waypoint");
+                    var pos = hitInfo.point + hitInfo.normal * 0.5f;
+                    var instance = Instantiate(waypoint, pos, Quaternion.identity);
+                    instance.Init();
+                }
+            });
+
+            Console.AddButton("Assign waypoint", () =>
+            {
+                var player = Tracker.Get<Character>("player");
+                var hit = player.GetCrosshairInfo(out var hitInfo);
+                if (hit)
+                {
+                    var enemyInput = hitInfo.transform.GetComponent<EnemyInput>();
+                    if (enemyInput != null)
+                    {
+                        var lastWaypoint = Waypoint.LastCreatedWaypoint;
+                        var start = lastWaypoint.GetStart();
+                        enemyInput.SetWaypoint(start);
+                    }
+                }
+            });
         }
     } 
 }

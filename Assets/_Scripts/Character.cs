@@ -69,8 +69,7 @@ namespace Faza
 
             if (_characterInput.GetUse())
             {
-                var ray = new Ray(_camera.transform.position, _camera.transform.forward);
-                var hit = Physics.Raycast(ray, out var hitInfo, _useDistance);
+                var hit = GetCrosshairInfo(out var hitInfo);
 
                 if (hit)
                 {
@@ -87,6 +86,12 @@ namespace Faza
         {
             var ray = new Ray(transform.position, Vector3.down);
             return Physics.Raycast(ray, out var hitInfo, 2f);
+        }
+
+        public bool GetCrosshairInfo(out RaycastHit hitInfo)
+        {
+            var ray = new Ray(_camera.transform.position, _camera.transform.forward);
+            return Physics.Raycast(ray, out hitInfo, _useDistance);
         }
     } 
 }
