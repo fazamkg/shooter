@@ -6,19 +6,45 @@ namespace Faza
     {
         [SerializeField] private float _sensitivity;
 
+        private bool _locked;
+
         private void Awake()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            _locked = true;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                _locked = !_locked;
+
+                if (_locked)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+            }
         }
 
         public override float GetCameraX()
         {
+            if (_locked == false) return 0f;
+
             return Input.GetAxisRaw("Mouse X") * _sensitivity;
         }
 
         public override float GetCameraY()
         {
+            if (_locked == false) return 0f;
+
             return -Input.GetAxisRaw("Mouse Y") * _sensitivity;
         }
 
