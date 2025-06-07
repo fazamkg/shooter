@@ -12,6 +12,7 @@ namespace Faza
         private float _horizontal;
         private float _vertical;
         private float _cameraX;
+        private float _y;
 
         private void Update()
         {
@@ -40,9 +41,9 @@ namespace Faza
 
             transform.rotation = Quaternion.Euler(0f, _character.Yaw, 0f);
 
-            _animator.SetBool("Jump", _input.GetJump());
+            _y = Mathf.MoveTowards(_y, _character.IsGrouned ? 0f : 1f, Time.deltaTime * _smoothSpeed);
 
-            _animator.SetBool("Falling", _character.IsFalling);
+            _animator.SetFloat("Vertical", _y);
         }
     } 
 }

@@ -23,6 +23,7 @@ namespace Faza
         public float HorizontalSpeed => _velocity.magnitude;
         public float Yaw => _yaw;
         public bool IsFalling => _isGrounded == false && _verticalVelocity < 0f;
+        public bool IsGrouned => _isGrounded;
 
         private void Update()
         {
@@ -80,6 +81,12 @@ namespace Faza
                     }
                 }
             }
+        }
+
+        public bool IsAboutToLand()
+        {
+            var ray = new Ray(transform.position, Vector3.down);
+            return Physics.Raycast(ray, out var hitInfo, 2f);
         }
     } 
 }
