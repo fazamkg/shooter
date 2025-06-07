@@ -11,6 +11,7 @@ namespace Faza
 
         private float _horizontal;
         private float _vertical;
+        private float _cameraX;
 
         private void Update()
         {
@@ -22,6 +23,20 @@ namespace Faza
 
             _animator.SetFloat("InputHorizontal", _horizontal);
             _animator.SetFloat("InputVertical", _vertical);
+
+            var cameraX = _input.GetCameraX();
+            if (cameraX > 0.01f)
+            {
+                cameraX = 1f;
+            }
+            else if (cameraX < -0.01f)
+            {
+                cameraX = -1f;
+            }
+
+            _cameraX = Mathf.MoveTowards(_cameraX, cameraX, Time.deltaTime * _smoothSpeed);
+
+            _animator.SetFloat("MouseX", _cameraX);
 
             transform.rotation = Quaternion.Euler(0f, _character.Yaw, 0f);
         }
