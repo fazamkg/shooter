@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Faza
 {
-    public class Player : MonoBehaviour
+    public class Character : MonoBehaviour
     {
+        [SerializeField] private CharacterInput _characterInput;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private Transform _camera;
-        [SerializeField] private float _sensitivity;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _friction;
         [SerializeField] private float _gravity;
@@ -18,27 +18,21 @@ namespace Faza
         private Vector3 _velocity;
         private float _verticalVelocity;
 
-        private void Awake()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         private void Update()
         {
-            var mouseX = Input.GetAxisRaw("Mouse X");
-            var mouseY = Input.GetAxisRaw("Mouse Y");
+            var camX = _characterInput.GetCameraX();
+            var camY = _characterInput.GetCameraY();
 
-            _pitch -= mouseY * _sensitivity;
+            _pitch += camY;
             _pitch = Mathf.Clamp(_pitch, -90f, 90f);
 
-            _yaw += mouseX * _sensitivity;
+            _yaw += camX;
             _yaw = Mathf.Repeat(_yaw, 360f);
 
             _camera.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
 
-            var horizontal = Input.GetAxisRaw("Horizontal");
-            var vertical = Input.GetAxisRaw("Vertical");
+            var horizontal = _characterInput.GetHorizontal();
+            var vertical = _characterInput.GetVertical();
 
             var inputDirection = new Vector3(horizontal, 0f, vertical);
 
@@ -61,10 +55,10 @@ namespace Faza
 
             var isGrounded = _characterController.isGrounded;
 
-            if (isGrounded && Input.GetButton("Jump"))
+            if (isGrounded && _characterInput.GetJump())
             {
                 _verticalVelocity = _jumpSpeed;
             }
         }
-    }
+    } 
 }
