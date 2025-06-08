@@ -92,6 +92,7 @@ namespace Faza
             var distanceToWp = (wpPosition - position).sqrMagnitude;
             if (distanceToWp < _stoppingDistance)
             {
+                _currentWaypoint = _currentWaypoint.Next;
                 _cameraX = 0f;
                 _horizontal = 0f;
                 _vertical = 0f;

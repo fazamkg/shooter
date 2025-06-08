@@ -12,6 +12,7 @@ namespace Faza
         private Waypoint _prev;
 
         public static Waypoint LastCreatedWaypoint => _lastCreatedWaypoint;
+        public Waypoint Next => _next;
 
         public void Init()
         {
