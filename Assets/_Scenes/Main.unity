@@ -18863,7 +18863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93a74541f3c331499c37b7378490f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 1
+  _sensitivity: 1.5
   _look: {fileID: 405179061}
   _stoppingDistance: 0.5
 --- !u!1660057539 &9223372036854775807
