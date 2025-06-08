@@ -149,6 +149,7 @@ namespace Faza
         private void BindInternal(KeyCode keyCode, string expression)
         {
             _binds[keyCode] = expression;
+            Log($"Bind '{keyCode}' to '{expression}'");
         }
 
         private void LogInternal(string message)
