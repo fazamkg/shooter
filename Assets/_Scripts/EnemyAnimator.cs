@@ -15,6 +15,7 @@ namespace Faza
         private float _vertical;
         private float _cameraX;
         private float _y;
+        private float _horizontalSpeed;
 
         private void Update()
         {
@@ -47,7 +48,10 @@ namespace Faza
 
             _animator.SetFloat("Vertical", _y);
 
-            var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _character.HorizontalSpeed);
+            _horizontalSpeed = Mathf.MoveTowards(_horizontalSpeed, _character.HorizontalSpeed,
+                Time.deltaTime * _smoothSpeed);
+
+            var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _horizontalSpeed);
             _animator.SetFloat("HorizontalSpeed", hSpeed);
         }
     } 

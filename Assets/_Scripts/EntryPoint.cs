@@ -35,6 +35,11 @@ namespace Faza
                 var enemy = Tracker.Get<Character>("enemy");
                 enemy.SetFriction(args[0].ToFloat());
             });
+            Console.AddCommand("enemy_maxspeed", (args) =>
+            {
+                var enemy = Tracker.Get<Character>("enemy");
+                enemy.SetMaxSpeed(args[0].ToFloat());
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");

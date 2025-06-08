@@ -9,6 +9,7 @@ namespace Faza
         [SerializeField] private Transform _camera;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _friction;
+        [SerializeField] private float _maxSpeed;
         [SerializeField] private float _gravity;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private float _useDistance;
@@ -48,6 +49,8 @@ namespace Faza
             _velocity += Time.deltaTime * _acceleration * inputDirection;
 
             _velocity -= Time.deltaTime * _friction * _velocity;
+
+            _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
 
             _verticalVelocity -= Time.deltaTime * _gravity;
 
@@ -103,5 +106,10 @@ namespace Faza
         {
             _friction = value;
         }
-    } 
+
+        public void SetMaxSpeed(float value)
+        {
+            _maxSpeed = value;
+        }
+    }
 }

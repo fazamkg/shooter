@@ -14629,6 +14629,7 @@ MonoBehaviour:
   _camera: {fileID: 963194228}
   _acceleration: 20
   _friction: 4
+  _maxSpeed: 10
   _gravity: 20
   _jumpSpeed: 12
   _useDistance: 3
@@ -18905,6 +18906,7 @@ MonoBehaviour:
   _camera: {fileID: 405179061}
   _acceleration: 20
   _friction: 4
+  _maxSpeed: 10
   _gravity: 20
   _jumpSpeed: 12
   _useDistance: 3
