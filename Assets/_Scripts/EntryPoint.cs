@@ -15,7 +15,8 @@ namespace Faza
             Console.AddCommand("enemy_horizontal", (args) => _enemyInput.SetHorizontal(args[0].ToFloat()));
             Console.AddCommand("enemy_vertical", (args) => _enemyInput.SetVertical(args[0].ToFloat()));
             Console.AddCommand("main_camera", (args) => CameraTracker.Activate("main"));
-            Console.AddCommand("enemy_camera", (args) => CameraTracker.Activate("enemy"));
+            Console.AddCommand("enemy_camera_fp", (args) => CameraTracker.Activate("enemy_fp"));
+            Console.AddCommand("enemy_camera_tp", (args) => CameraTracker.Activate("enemy_tp"));
             Console.AddCommand("enemy_jump", (args) => _enemyInput.SetJump(args[0].ToBool()));
             Console.AddCommand("time_scale", (args) => Time.timeScale = args[0].ToFloat());
             Console.AddCommand("one_frame", (args) => Console.PlayOneFrame());

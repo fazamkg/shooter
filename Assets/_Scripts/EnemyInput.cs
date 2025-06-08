@@ -7,6 +7,7 @@ namespace Faza
         [SerializeField] private float _sensitivity;
         [SerializeField] private Transform _look;
         [SerializeField] private float _stoppingDistance;
+        [SerializeField] private float _turningCap;
 
         private float _cameraX;
         private float _cameraY;
@@ -89,6 +90,7 @@ namespace Faza
             var lookForward = _look.forward.WithY(0f);
             var wpPosition = _currentWaypoint.transform.position.WithY(0f);
             var position = transform.position.WithY(0f);
+
             var distanceToWp = (wpPosition - position).sqrMagnitude;
             if (distanceToWp < _stoppingDistance)
             {
@@ -102,8 +104,7 @@ namespace Faza
             var directionToWp = (wpPosition - position).normalized;
 
             var cross = Vector3.Cross(lookForward, directionToWp);
-
-            _cameraX = cross.y.IsZero() ? 0f : Mathf.Sign(cross.y);
+            _cameraX = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
 
             var localDirectionToWp = _look.InverseTransformDirection(directionToWp);
 

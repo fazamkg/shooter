@@ -44,5 +44,10 @@ namespace Faza
         {
             return Enum.Parse<KeyCode>(value, true);
         }
+
+        public static float Abs(this float value)
+        {
+            return Mathf.Abs(value);
+        }
     }
 }
