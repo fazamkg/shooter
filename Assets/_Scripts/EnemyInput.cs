@@ -8,6 +8,8 @@ namespace Faza
         [SerializeField] private Transform _look;
         [SerializeField] private float _stoppingDistance;
         [SerializeField] private float _turningCap;
+        [SerializeField] private GameObject _fpCamera;
+        [SerializeField] private GameObject _tpCamera;
 
         private float _cameraX;
         private float _cameraY;
@@ -17,6 +19,9 @@ namespace Faza
         private bool _use;
 
         private Waypoint _currentWaypoint;
+
+        public GameObject FpCamera => _fpCamera;
+        public GameObject TpCamera => _tpCamera;
 
         public override float GetCameraX()
         {

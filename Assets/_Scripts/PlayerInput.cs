@@ -5,8 +5,11 @@ namespace Faza
     public class PlayerInput : CharacterInput
     {
         [SerializeField] private float _sensitivity;
+        [SerializeField] private GameObject _camera;
 
         private bool _locked;
+
+        public GameObject Camera => _camera;
 
         private void Awake()
         {

@@ -49,5 +49,13 @@ namespace Faza
         {
             return Mathf.Abs(value);
         }
+
+        private static GameObject _lastActive;
+        public static void ActivateSingle(this GameObject gameObject)
+        {
+            if (_lastActive != null) _lastActive.SetActive(false);
+            gameObject.SetActive(true);
+            _lastActive = gameObject;
+        }
     }
 }
