@@ -18768,6 +18768,8 @@ MonoBehaviour:
   _input: {fileID: 2061509787}
   _animator: {fileID: 2054057506}
   _smoothSpeed: 5
+  _maxSpeed: 6
+  _minSpeed: 2
 --- !u!1 &2061509782
 GameObject:
   m_ObjectHideFlags: 0

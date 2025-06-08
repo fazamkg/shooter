@@ -8,6 +8,8 @@ namespace Faza
         [SerializeField] private CharacterInput _input;
         [SerializeField] private Animator _animator;
         [SerializeField] private float _smoothSpeed;
+        [SerializeField] private float _maxSpeed;
+        [SerializeField] private float _minSpeed;
 
         private float _horizontal;
         private float _vertical;
@@ -44,6 +46,9 @@ namespace Faza
             _y = Mathf.MoveTowards(_y, _character.IsGrouned ? 0f : 1f, Time.deltaTime * _smoothSpeed);
 
             _animator.SetFloat("Vertical", _y);
+
+            var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _character.HorizontalSpeed);
+            _animator.SetFloat("HorizontalSpeed", hSpeed);
         }
     } 
 }

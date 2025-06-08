@@ -34,6 +34,7 @@ namespace Faza
             DontDestroyOnLoad(_instance.gameObject);
 
             AddCommand("bind", (args) => Bind(args[0].ToKeyCode(), args[1]));
+            AddCommand("quit", (args) => Application.Quit());
         }
 
         private void Awake()
