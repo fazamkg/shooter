@@ -24,6 +24,16 @@ namespace Faza
             Console.AddCommand("assign_waypoint", (args) => AssignWaypoint());
             Console.AddCommand("show_waypoints", (args) => Waypoint.ShowAll());
             Console.AddCommand("hide_waypoints", (args) => Waypoint.HideAll());
+            Console.AddCommand("enemy_acceleration", (args) =>
+            {
+                var enemy = Tracker.Get<Character>("enemy");
+                enemy.SetAccelration(args[0].ToFloat());
+            });
+            Console.AddCommand("enemy_friction", (args) =>
+            {
+                var enemy = Tracker.Get<Character>("enemy");
+                enemy.SetFriction(args[0].ToFloat());
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");

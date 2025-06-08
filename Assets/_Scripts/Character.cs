@@ -41,7 +41,7 @@ namespace Faza
             var horizontal = _characterInput.GetHorizontal();
             var vertical = _characterInput.GetVertical();
 
-            var inputDirection = new Vector3(horizontal, 0f, vertical);
+            var inputDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
             inputDirection = Quaternion.Euler(0f, _yaw, 0f) * inputDirection;
 
@@ -92,6 +92,16 @@ namespace Faza
         {
             var ray = new Ray(_camera.transform.position, _camera.transform.forward);
             return Physics.Raycast(ray, out hitInfo, _useDistance);
+        }
+
+        public void SetAccelration(float value)
+        {
+            _acceleration = value;
+        }
+
+        public void SetFriction(float value)
+        {
+            _friction = value;
         }
     } 
 }
