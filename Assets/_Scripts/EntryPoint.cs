@@ -22,6 +22,8 @@ namespace Faza
             Console.AddCommand("waypoint", (args) => CreateWaypoint());
             Console.AddCommand("loop_waypoint", (args) => Waypoint.LoopLastWaypoint());
             Console.AddCommand("assign_waypoint", (args) => AssignWaypoint());
+            Console.AddCommand("show_waypoints", (args) => Waypoint.ShowAll());
+            Console.AddCommand("hide_waypoints", (args) => Waypoint.HideAll());
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");

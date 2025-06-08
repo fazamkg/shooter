@@ -18,6 +18,7 @@ namespace Faza
         [SerializeField] private GameObject _toggleObject;
         [SerializeField] private TMP_InputField _inputField;
         [SerializeField] private TMP_Text _console;
+        [SerializeField] private ScrollRect _scrollRect;
 
         private Dictionary<string, Command> _commands = new();
         private Dictionary<KeyCode, string> _binds = new();
@@ -156,6 +157,7 @@ namespace Faza
         {
             Debug.Log(message);
             _console.text += $"{message}\n";
+            _scrollRect.normalizedPosition = Vector2.zero;
         }
 
         public static void AddButton(string name, Action action)

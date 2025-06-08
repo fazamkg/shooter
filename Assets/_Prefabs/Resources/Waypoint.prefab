@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 3321467121716652874}
+  _meshRenderer: {fileID: 2727431671259262090}
 --- !u!120 &3321467121716652874
 LineRenderer:
   serializedVersion: 2
