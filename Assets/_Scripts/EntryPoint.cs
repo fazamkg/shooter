@@ -21,6 +21,7 @@ namespace Faza
             Console.AddCommand("time_scale", (args) => Time.timeScale = args[0].ToFloat());
             Console.AddCommand("one_frame", (args) => Console.PlayOneFrame());
             Console.AddCommand("waypoint", (args) => CreateWaypoint());
+            Console.AddCommand("loop_waypoint", (args) => Waypoint.LoopLastWaypoint());
             Console.AddCommand("assign_waypoint", (args) => AssignWaypoint());
             #endregion
 

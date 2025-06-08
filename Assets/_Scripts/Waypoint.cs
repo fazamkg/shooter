@@ -6,6 +6,7 @@ namespace Faza
     {
         [SerializeField] private LineRenderer _lineRenderer;
 
+        private static Waypoint _firstCreatedWaypoint;
         private static Waypoint _lastCreatedWaypoint;
 
         private Waypoint _next;
@@ -16,6 +17,11 @@ namespace Faza
 
         public void Init()
         {
+            if (_firstCreatedWaypoint == null)
+            {
+                _firstCreatedWaypoint = this;
+            }
+
             if (_lastCreatedWaypoint != null)
             {
                 _lastCreatedWaypoint._next = this;
@@ -32,6 +38,8 @@ namespace Faza
 
         public Waypoint GetStart()
         {
+            return _firstCreatedWaypoint;
+
             var start = this;
 
             while (start._prev != null)
@@ -52,6 +60,18 @@ namespace Faza
             }
 
             return end;
+        }
+
+        public static void LoopLastWaypoint()
+        {
+            var start = _lastCreatedWaypoint.GetStart();
+
+            _lastCreatedWaypoint._next = start;
+            start._prev = _lastCreatedWaypoint;
+
+            var renderer = _lastCreatedWaypoint._lineRenderer;
+            var positions = new Vector3[] { renderer.transform.position, start.transform.position };
+            renderer.SetPositions(positions);
         }
     }
 }
