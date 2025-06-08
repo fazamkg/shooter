@@ -32,12 +32,14 @@ namespace Faza
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
                     Console.StartReadingBinds();
+                    Console.CloseConsole();
                 }
                 else
                 {
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
                     Console.StopReadingBinds();
+                    Console.OpenConsole();
                 }
             }
         }

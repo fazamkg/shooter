@@ -101,6 +101,16 @@ namespace Faza
             _isReadingBinds = false;
         }
 
+        private void OpenConsoleInternal()
+        {
+            _toggleObject.SetActive(true);
+        }
+
+        private void CloseConsoleInternal()
+        {
+            _toggleObject.SetActive(false);
+        }
+
         private void AddButtonInternal(string name, Action action)
         {
             var button = Instantiate(_buttonPrefab, _buttonParent);
@@ -161,6 +171,16 @@ namespace Faza
         public static void StopReadingBinds()
         {
             _instance.StopReadingBindsInteral();
+        }
+
+        public static void OpenConsole()
+        {
+            _instance.OpenConsoleInternal();
+        }
+
+        public static void CloseConsole()
+        {
+            _instance.CloseConsoleInternal();
         }
 
         public static void PlayOneFrame()
