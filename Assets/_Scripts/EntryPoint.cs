@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Faza
@@ -23,6 +22,10 @@ namespace Faza
             Console.AddCommand("waypoint", (args) => CreateWaypoint());
             Console.AddCommand("loop_waypoint", (args) => Waypoint.LoopLastWaypoint());
             Console.AddCommand("assign_waypoint", (args) => AssignWaypoint());
+
+            Console.Bind(KeyCode.Q, "waypoint");
+            Console.Bind(KeyCode.R, "loop_waypoint");
+            Console.Bind(KeyCode.T, "assign_waypoint");
             #endregion
 
             /*

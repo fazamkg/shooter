@@ -44,13 +44,35 @@ namespace Faza
 
         private void Update()
         {
-            if (_isReadingBinds == false) return;
-
-            foreach (var bind in _binds)
+            if (_isReadingBinds)
             {
-                if (Input.GetKeyDown(bind.Key))
+                foreach (var bind in _binds)
                 {
-                    ExecuteExpressionInternal(bind.Value);
+                    if (Input.GetKeyDown(bind.Key))
+                    {
+                        ExecuteExpressionInternal(bind.Value);
+                    }
+                }
+            }
+
+            AutoCompleteCommand();
+        }
+
+        private void AutoCompleteCommand()
+        {
+            if (_inputField.IsActive() == false) return;
+            if (Input.GetKeyDown(KeyCode.Tab) == false) return;
+
+            var text = _inputField.text;
+            if (string.IsNullOrEmpty(text)) return;
+
+            foreach (var command in _commands)
+            {
+                if (command.Key.StartsWith(text))
+                {
+                    _inputField.text = command.Key;
+                    _inputField.MoveToEndOfLine(false, false);
+                    break;
                 }
             }
         }
@@ -64,6 +86,7 @@ namespace Faza
         {
             _inputField.text = "";
             ExecuteExpressionInternal(text);
+            _inputField.ActivateInputField();
         }
 
         private void ExecuteExpressionInternal(string expression)
@@ -104,6 +127,7 @@ namespace Faza
         private void OpenConsoleInternal()
         {
             _toggleObject.SetActive(true);
+            _inputField.ActivateInputField();
         }
 
         private void CloseConsoleInternal()
