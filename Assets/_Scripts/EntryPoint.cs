@@ -11,6 +11,21 @@ namespace Faza
 
         private void Awake()
         {
+            #region Commands
+            Console.AddCommand("enemy_camera_x", (args) => _enemyInput.SetCameraX(args[0].ToFloat()));
+            Console.AddCommand("enemy_horizontal", (args) => _enemyInput.SetHorizontal(args[0].ToFloat()));
+            Console.AddCommand("enemy_vertical", (args) => _enemyInput.SetVertical(args[0].ToFloat()));
+            Console.AddCommand("main_camera", (args) => CameraTracker.Activate("main"));
+            Console.AddCommand("enemy_camera", (args) => CameraTracker.Activate("enemy"));
+            Console.AddCommand("enemy_jump", (args) => _enemyInput.SetJump(args[0].ToBool()));
+            Console.AddCommand("time_scale", (args) => Time.timeScale = args[0].ToFloat());
+            Console.AddCommand("one_frame", (args) => Console.PlayOneFrame());
+            Console.AddCommand("waypoint", (args) => CreateWaypoint());
+            Console.AddCommand("assign_waypoint", (args) => AssignWaypoint());
+            #endregion
+
+            /*
+            #region Buttons
             Console.AddButton("Camera X -1", () => _enemyInput.SetCameraX(-1f));
             Console.AddButton("Camera X 0", () => _enemyInput.SetCameraX(0f));
             Console.AddButton("Camera X +1", () => _enemyInput.SetCameraX(1f));
@@ -36,45 +51,41 @@ namespace Faza
 
             Console.AddButton("Pause", () => Time.timeScale = 0f);
             Console.AddButton("Continue", () => Time.timeScale = 1f);
-            Console.AddButton("1 Frame", () =>
-            {
-                IEnumerator playOneFrame()
-                {
-                    Time.timeScale = 1f;
-                    yield return null;
-                    Time.timeScale = 0f;
-                }
-                Console.StartCoroutine_(playOneFrame());
-            });
+            Console.AddButton("1 Frame", () => Console.PlayOneFrame());
 
-            Console.AddButton("Create waypoint", () =>
-            {
-                var player = Tracker.Get<Character>("player");
-                var hit = player.GetCrosshairInfo(out var hitInfo);
-                if (hit)
-                {
-                    var waypoint = Resources.Load<Waypoint>("Waypoint");
-                    var pos = hitInfo.point + hitInfo.normal * 0.5f;
-                    var instance = Instantiate(waypoint, pos, Quaternion.identity);
-                    instance.Init();
-                }
-            });
+            Console.AddButton("Create waypoint", () => CreateWaypoint());
+            Console.AddButton("Assign waypoint", () => AssignWaypoint());
+            #endregion
+            */
+        }
 
-            Console.AddButton("Assign waypoint", () =>
+        private void CreateWaypoint()
+        {
+            var player = Tracker.Get<Character>("player");
+            var hit = player.GetCrosshairInfo(out var hitInfo);
+            if (hit)
             {
-                var player = Tracker.Get<Character>("player");
-                var hit = player.GetCrosshairInfo(out var hitInfo);
-                if (hit)
+                var waypoint = Resources.Load<Waypoint>("Waypoint");
+                var pos = hitInfo.point + hitInfo.normal * 0.5f;
+                var instance = Instantiate(waypoint, pos, Quaternion.identity);
+                instance.Init();
+            }
+        }
+
+        private void AssignWaypoint()
+        {
+            var player = Tracker.Get<Character>("player");
+            var hit = player.GetCrosshairInfo(out var hitInfo);
+            if (hit)
+            {
+                var enemyInput = hitInfo.transform.GetComponent<EnemyInput>();
+                if (enemyInput != null)
                 {
-                    var enemyInput = hitInfo.transform.GetComponent<EnemyInput>();
-                    if (enemyInput != null)
-                    {
-                        var lastWaypoint = Waypoint.LastCreatedWaypoint;
-                        var start = lastWaypoint.GetStart();
-                        enemyInput.SetWaypoint(start);
-                    }
+                    var lastWaypoint = Waypoint.LastCreatedWaypoint;
+                    var start = lastWaypoint.GetStart();
+                    enemyInput.SetWaypoint(start);
                 }
-            });
+            }
         }
     } 
 }

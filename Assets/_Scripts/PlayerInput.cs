@@ -13,6 +13,7 @@ namespace Faza
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             _locked = true;
+            Console.StartReadingBinds();
         }
 
         private void Start()
@@ -30,11 +31,13 @@ namespace Faza
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
+                    Console.StartReadingBinds();
                 }
                 else
                 {
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
+                    Console.StopReadingBinds();
                 }
             }
         }
@@ -55,21 +58,29 @@ namespace Faza
 
         public override float GetHorizontal()
         {
+            if (_locked == false) return 0f;
+
             return Input.GetAxisRaw("Horizontal");
         }
 
         public override float GetVertical()
         {
+            if (_locked == false) return 0f;
+
             return Input.GetAxisRaw("Vertical");
         }
 
         public override bool GetJump()
         {
+            if (_locked == false) return false;
+
             return Input.GetButton("Jump");
         }
 
         public override bool GetUse()
         {
+            if (_locked == false) return false;
+
             return Input.GetKeyDown(KeyCode.E);
         }
     }
