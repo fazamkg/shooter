@@ -36,8 +36,23 @@ namespace Faza
             {
                 GetAtCrosshair<EnemyInput>().SetJump(args[0].ToBool());
             });
+            Console.AddCommand("enemy_stop_all", (args) =>
+            {
+                var enemies = FindObjectsOfType<EnemyInput>();
+                foreach (var enemy in enemies)
+                {
+                    enemy.SetWaypoint(null);
+                }
+            });
+            Console.AddCommand("enemy_switch_animation_set", (args) =>
+            {
+                var name = GetAtCrosshair<EnemyAnimator>().IncrementAnimationSet();
+                Console.Log(name);
+            });
+
             Console.AddCommand("time_scale", (args) => Time.timeScale = args[0].ToFloat());
             Console.AddCommand("one_frame", (args) => Console.PlayOneFrame());
+
             Console.AddCommand("waypoint", CreateWaypoint);
             Console.AddCommand("loop_waypoint", (args) => Waypoint.LoopLastWaypoint());
             Console.AddCommand("assign_waypoint", (args) =>
@@ -49,6 +64,7 @@ namespace Faza
             });
             Console.AddCommand("show_waypoints", (args) => Waypoint.ShowAll());
             Console.AddCommand("hide_waypoints", (args) => Waypoint.HideAll());
+
             Console.AddCommand("target_acceleration", (args) =>
             {
                 GetAtCrosshair<Character>().SetAccelration(args[0].ToFloat());
@@ -61,11 +77,18 @@ namespace Faza
             {
                 GetAtCrosshair<Character>().SetMaxSpeed(args[0].ToFloat());
             });
+            Console.AddCommand("player_scaled_time", (args) =>
+            {
+                var player = Tracker.Get<Character>("player");
+                player.DeltaTimeScaled = args[0].ToBool();
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");
             Console.Bind(KeyCode.T, "assign_waypoint");
             Console.Bind(KeyCode.J, "waypoint jump");
+            Console.Bind(KeyCode.Z, "enemy_switch_animation_set");
+            Console.Bind(KeyCode.X, "enemy_stop_all");
             #endregion
 
             /*
@@ -107,7 +130,11 @@ namespace Faza
         {
             var player = Tracker.Get<Character>("player");
             player.GetCrosshairInfo(out var hitInfo);
-            return hitInfo.transform.GetComponent<T>();
+
+            var root = hitInfo.transform.GetComponent<T>();
+            if (root) return root;
+
+            return hitInfo.transform.GetComponentInChildren<T>();
         }
 
         private void CreateWaypoint(params string[] args)

@@ -88,6 +88,13 @@ namespace Faza
         public void SetWaypoint(Waypoint waypoint)
         {
             _currentWaypoint = waypoint;
+
+            if (_currentWaypoint == null)
+            {
+                _cameraX = 0f;
+                _horizontal = 0f;
+                _vertical = 0f;
+            }
         }
 
         private void Update()

@@ -10,12 +10,22 @@ namespace Faza
         [SerializeField] private float _smoothSpeed;
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _minSpeed;
+        [SerializeField] private RuntimeAnimatorController[] _animationSets;
 
+        private int _animationSetIndex;
         private float _horizontal;
         private float _vertical;
         private float _cameraX;
         private float _y;
         private float _horizontalSpeed;
+
+        public string IncrementAnimationSet()
+        {
+            _animationSetIndex++;
+            _animationSetIndex %= _animationSets.Length;
+            _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
+            return _animator.runtimeAnimatorController.name;
+        }
 
         private void Update()
         {

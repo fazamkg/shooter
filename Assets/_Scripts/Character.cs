@@ -21,6 +21,7 @@ namespace Faza
         private float _verticalVelocity;
         private bool _isGrounded;
 
+        public bool DeltaTimeScaled { get; set; } = true;
         public float HorizontalSpeed => _velocity.magnitude;
         public float Yaw => _yaw;
         public bool IsFalling => _isGrounded == false && _verticalVelocity < 0f;
@@ -28,6 +29,8 @@ namespace Faza
 
         private void Update()
         {
+            var delta = DeltaTimeScaled ? Time.deltaTime : Time.unscaledDeltaTime;
+
             var camX = _characterInput.GetCameraX();
             var camY = _characterInput.GetCameraY();
 
@@ -46,20 +49,20 @@ namespace Faza
 
             inputDirection = Quaternion.Euler(0f, _yaw, 0f) * inputDirection;
 
-            _velocity += Time.deltaTime * _acceleration * inputDirection;
+            _velocity += delta * _acceleration * inputDirection;
 
-            _velocity -= Time.deltaTime * _friction * _velocity;
+            _velocity -= delta * _friction * _velocity;
 
             _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
 
-            _verticalVelocity -= Time.deltaTime * _gravity;
+            _verticalVelocity -= delta * _gravity;
 
-            _characterController.Move(_velocity * Time.deltaTime);
+            _characterController.Move(_velocity * delta);
             var returnedVelocity = _characterController.velocity;
             _velocity.x = returnedVelocity.x;
             _velocity.z = returnedVelocity.z;
 
-            _characterController.Move(_verticalVelocity * Time.deltaTime * Vector3.up);
+            _characterController.Move(_verticalVelocity * delta * Vector3.up);
             returnedVelocity = _characterController.velocity;
             _verticalVelocity = returnedVelocity.y;
 
