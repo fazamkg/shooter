@@ -38,7 +38,7 @@ namespace Faza
             });
             Console.AddCommand("time_scale", (args) => Time.timeScale = args[0].ToFloat());
             Console.AddCommand("one_frame", (args) => Console.PlayOneFrame());
-            Console.AddCommand("waypoint", (args) => CreateWaypoint());
+            Console.AddCommand("waypoint", CreateWaypoint);
             Console.AddCommand("loop_waypoint", (args) => Waypoint.LoopLastWaypoint());
             Console.AddCommand("assign_waypoint", (args) =>
             {
@@ -65,6 +65,7 @@ namespace Faza
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");
             Console.Bind(KeyCode.T, "assign_waypoint");
+            Console.Bind(KeyCode.J, "waypoint jump");
             #endregion
 
             /*
@@ -109,8 +110,10 @@ namespace Faza
             return hitInfo.transform.GetComponent<T>();
         }
 
-        private void CreateWaypoint()
+        private void CreateWaypoint(params string[] args)
         {
+            var command = args.Length > 0 ? args[0] : "";
+
             var player = Tracker.Get<Character>("player");
             var hit = player.GetCrosshairInfo(out var hitInfo);
             if (hit)
@@ -118,7 +121,7 @@ namespace Faza
                 var waypoint = Resources.Load<Waypoint>("Waypoint");
                 var pos = hitInfo.point + hitInfo.normal * 0.5f;
                 var instance = Instantiate(waypoint, pos, Quaternion.identity);
-                instance.Init();
+                instance.Init(command);
             }
         }
     } 

@@ -15,11 +15,13 @@ namespace Faza
 
         private Waypoint _next;
         private Waypoint _prev;
+        private string _command;
 
         public static Waypoint LastCreatedWaypoint => _lastCreatedWaypoint;
         public Waypoint Next => _next;
+        public string Command => _command;
 
-        public void Init()
+        public void Init(string command)
         {
             if (_firstCreatedWaypoint == null)
             {
@@ -40,6 +42,8 @@ namespace Faza
             _lastCreatedWaypoint = this;
 
             _all.Add(this);
+
+            _command = command;
         }
 
         public Waypoint GetStart()

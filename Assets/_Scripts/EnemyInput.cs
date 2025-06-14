@@ -45,7 +45,9 @@ namespace Faza
 
         public override bool GetJump()
         {
-            return _jump;
+            var value = _jump;
+            _jump = false;
+            return value;
         }
 
         public override bool GetUse()
@@ -99,6 +101,12 @@ namespace Faza
             var distanceToWp = (wpPosition - position).sqrMagnitude;
             if (distanceToWp < _stoppingDistance)
             {
+                var command = _currentWaypoint.Command.ToLower();
+                if (command == "jump")
+                {
+                    _jump = true;
+                }
+
                 _currentWaypoint = _currentWaypoint.Next;
                 _cameraX = 0f;
                 _horizontal = 0f;
