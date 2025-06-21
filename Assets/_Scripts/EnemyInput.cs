@@ -125,7 +125,7 @@ namespace Faza
         {
             if (_currentWaypoint == null) return;
 
-            var lookForward = _look.forward.WithY(0f);
+            var lookForward = _look.forward.WithY(0f).normalized;
             var wpPosition = _currentWaypoint.Pos.WithY(0f);
             var position = transform.position.WithY(0f);
 
@@ -156,7 +156,23 @@ namespace Faza
             var directionToWp = (wpPosition - position).normalized;
 
             var cross = Vector3.Cross(lookForward, directionToWp);
-            _cameraX = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
+            var dot = Vector3.Dot(lookForward, directionToWp);
+
+            if (EntryPoint.IsDebugOn)
+            {
+                Line.DrawRay(transform.position, lookForward, Color.blue);
+                Line.DrawRay(transform.position, directionToWp, Color.green);
+                Line.DrawRay(transform.position, cross, Color.yellow);
+            }
+
+            if (dot < -0.95f)
+            {
+                _cameraX = -1f;
+            }
+            else
+            {
+                _cameraX = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
+            }
 
             var localDirectionToWp = _look.InverseTransformDirection(directionToWp);
 

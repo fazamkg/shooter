@@ -37,5 +37,16 @@ namespace Faza
             line.endColor = color ?? Color.red;
             _activeLines.Push(line);
         }
+
+        public static void DrawRay(Vector3 from, Vector3 direction, Color? color = null)
+        {
+            var line = Pool.Get<LineRenderer>("line");
+            _positions[0] = from;
+            _positions[1] = from + direction;
+            line.SetPositions(_positions);
+            line.startColor = color ?? Color.red;
+            line.endColor = color ?? Color.red;
+            _activeLines.Push(line);
+        }
     } 
 }

@@ -9,6 +9,8 @@ namespace Faza
         private EnemyInput _enemy;
         private Vector3 _position;
 
+        public static bool IsDebugOn { get; private set; }
+
         private void Awake()
         {
             #region Commands
@@ -128,6 +130,10 @@ namespace Faza
                 {
                     _position = hitInfo.point;
                 }
+            });
+            Console.AddCommand("debug", (args) =>
+            {
+                IsDebugOn = !IsDebugOn;
             });
 
             Console.Bind(KeyCode.Q, "waypoint");
