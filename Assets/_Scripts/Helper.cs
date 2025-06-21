@@ -57,5 +57,10 @@ namespace Faza
             gameObject.SetActive(true);
             _lastActive = gameObject;
         }
+
+        public static float SqrDist(Vector3 a, Vector3 b)
+        {
+            return (a - b).sqrMagnitude;
+        }
     }
 }

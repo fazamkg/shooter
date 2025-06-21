@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Faza
@@ -19,6 +20,7 @@ namespace Faza
         private bool _use;
 
         private Waypoint _currentWaypoint;
+        private Queue<Waypoint> _currentPath;
 
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
@@ -97,6 +99,26 @@ namespace Faza
             }
         }
 
+        public void SetDestination(Vector3 destination)
+        {
+            var from = Waypoint.Closest(transform.position);
+            var to = Waypoint.Closest(destination);
+
+            _currentPath = new Queue<Waypoint>(from.FindPath(to));
+
+            foreach (var wp in Waypoint.All)
+            {
+                wp.IsMarked = false;
+            }
+
+            foreach (var wp in _currentPath)
+            {
+                wp.IsMarked = true;
+            }
+
+            _currentWaypoint = _currentPath.Dequeue();
+        }
+
         private void Update()
         {
             if (_currentWaypoint == null) return;
@@ -114,7 +136,15 @@ namespace Faza
                     _jump = true;
                 }
 
-                _currentWaypoint = _currentWaypoint.Next;
+                if (_currentPath.Count == 0)
+                {
+                    _currentWaypoint = null;
+                }
+                else
+                {
+                    _currentWaypoint = _currentPath.Dequeue();
+                }
+
                 _cameraX = 0f;
                 _horizontal = 0f;
                 _vertical = 0f;

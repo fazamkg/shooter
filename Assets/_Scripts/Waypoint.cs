@@ -1,11 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Faza
 {
     public class Waypoint : MonoBehaviour
     {
-        [SerializeField] private LineRenderer _lineRenderer;
+        [SerializeField] private string _command = "";
+        [SerializeField] private List<Waypoint> _connections;
         [SerializeField] private MeshRenderer _meshRenderer;
 
         private static List<Waypoint> _all = new();
@@ -15,11 +21,42 @@ namespace Faza
 
         private Waypoint _next;
         private Waypoint _prev;
-        private string _command;
+
+        private Waypoint _parent;
+        private float _g;
+        private float _h;
+        private float _f = float.MaxValue;
+        private bool _isMarked;
 
         public static Waypoint LastCreatedWaypoint => _lastCreatedWaypoint;
         public Waypoint Next => _next;
         public string Command => _command;
+        public Vector3 Pos => transform.position;
+        public static List<Waypoint> All => _all;
+        public bool IsMarked
+        {
+            get => _isMarked;
+            set
+            {
+                _isMarked = value;
+
+                if (_isMarked)
+                {
+                    var mpb = new MaterialPropertyBlock();
+                    mpb.SetColor("_BaseColor", Color.yellow);
+                    _meshRenderer.SetPropertyBlock(mpb);
+                }
+                else
+                {
+                    _meshRenderer.SetPropertyBlock(null);
+                }
+            }
+        }
+
+        private void Awake()
+        {
+            _all.Add(this);
+        }
 
         public void Init(string command)
         {
@@ -32,16 +69,9 @@ namespace Faza
             {
                 _lastCreatedWaypoint._next = this;
                 _prev = _lastCreatedWaypoint;
-
-                var renderer = _lastCreatedWaypoint._lineRenderer;
-
-                var positions = new Vector3[] { renderer.transform.position, transform.position };
-                renderer.SetPositions(positions);
             }
 
             _lastCreatedWaypoint = this;
-
-            _all.Add(this);
 
             _command = command;
         }
@@ -78,21 +108,15 @@ namespace Faza
 
             _lastCreatedWaypoint._next = start;
             start._prev = _lastCreatedWaypoint;
-
-            var renderer = _lastCreatedWaypoint._lineRenderer;
-            var positions = new Vector3[] { renderer.transform.position, start.transform.position };
-            renderer.SetPositions(positions);
         }
 
         public void Show()
         {
-            _lineRenderer.enabled = true;
             _meshRenderer.enabled = true;
         }
 
         public void Hide()
         {
-            _lineRenderer.enabled = false;
             _meshRenderer.enabled = false;
         }
 
@@ -111,5 +135,119 @@ namespace Faza
                 wp.Show();
             }
         }
+
+        public static Waypoint Closest(Vector3 to)
+        {
+            var result = _all[0];
+            var distance = float.MaxValue;
+
+            foreach (var wp in _all)
+            {
+                var newDistance = (to - wp.transform.position).sqrMagnitude;
+                if (newDistance < distance)
+                {
+                    result = wp;
+                    distance = newDistance;
+                }
+            }
+
+            return result;
+        }
+
+        public List<Waypoint> FindPath(Waypoint target)
+        {
+            foreach (var wp in _all)
+            {
+                wp._f = float.MaxValue;
+                wp._h = 0f;
+                wp._g = 0f;
+                wp._parent = null;
+            }
+
+            var open = new HashSet<Waypoint>();
+            var closed = new HashSet<Waypoint>();
+            open.Add(this);
+
+            while (open.Count != 0)
+            {
+                var current = open.OrderBy(x => x._f).First();
+                open.Remove(current);
+                closed.Add(current);
+
+                if (current == target)
+                {
+                    var path = new List<Waypoint>();
+                    var n = target;
+                    while (n != null)
+                    {
+                        path.Add(n);
+                        n = n._parent;
+                    }
+                    path.Reverse();
+                    return path;
+                }
+
+                foreach (var neighbour in current._connections)
+                {
+                    if (closed.Contains(neighbour))
+                    {
+                        continue;
+                    }
+
+                    var g = current._g + Vector3.Distance(current.Pos, neighbour.Pos);
+                    var h = Vector3.Distance(neighbour.Pos, target.Pos);
+                    var f = g + h;
+
+                    if (f < neighbour._f || open.Contains(neighbour) == false)
+                    {
+                        neighbour._g = g;
+                        neighbour._h = h;
+                        neighbour._f = f;
+                        neighbour._parent = current;
+
+                        open.Add(neighbour);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public void AddConnection(Waypoint waypoint)
+        {
+            if (_connections.Contains(waypoint)) return;
+
+            _connections.Add(waypoint);
+        }
+
+        public void RemoveConnection(Waypoint waypoint)
+        {
+            if (_connections.Contains(waypoint) == false) return;
+
+            _connections.Remove(waypoint);
+        }
+
+        private void Update()
+        {
+            if (_meshRenderer.enabled == false) return;
+
+            foreach (var connection in _connections)
+            {
+                var color = IsMarked && connection.IsMarked ? Color.yellow : Color.red;
+                Line.Draw(Pos, connection.Pos, color);
+            }
+        }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            foreach (var connection in _connections)
+            {
+                Handles.zTest = UnityEngine.Rendering.CompareFunction.Less;
+                Handles.color = Color.red;
+                Handles.DrawLine(transform.position, connection.transform.position, 2f);
+            }
+        }
+#endif
     }
 }

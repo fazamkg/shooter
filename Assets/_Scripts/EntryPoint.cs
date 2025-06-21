@@ -4,6 +4,10 @@ namespace Faza
 {
     public class EntryPoint : MonoBehaviour
     {
+        private Waypoint _from;
+        private Waypoint _to;
+        private EnemyInput _enemy;
+
         private void Awake()
         {
             #region Commands
@@ -82,6 +86,39 @@ namespace Faza
                 var player = Tracker.Get<Character>("player");
                 player.DeltaTimeScaled = args[0].ToBool();
             });
+            Console.AddCommand("wp_set_from", (args) =>
+            {
+                _from = GetAtCrosshair<Waypoint>();
+            });
+            Console.AddCommand("wp_set_to", (args) =>
+            {
+                _to = GetAtCrosshair<Waypoint>();
+            });
+            Console.AddCommand("wp_find_path", (args) =>
+            {
+                var path = _from.FindPath(_to);
+                foreach (var wp in Waypoint.All)
+                {
+                    wp.IsMarked = false;
+                }
+                foreach (var wp in path)
+                {
+                    wp.IsMarked = true;
+                }
+            });
+            Console.AddCommand("set_enemy", (args) =>
+            {
+                _enemy = GetAtCrosshair<EnemyInput>();
+            });
+            Console.AddCommand("enemy_set_destination", (args) =>
+            {
+                var player = Tracker.Get<Character>("player");
+                var hit = player.GetCrosshairInfo(out var hitInfo);
+                if (hit)
+                {
+                    _enemy.SetDestination(hitInfo.point);
+                }
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");
@@ -89,6 +126,8 @@ namespace Faza
             Console.Bind(KeyCode.J, "waypoint jump");
             Console.Bind(KeyCode.Z, "enemy_switch_animation_set");
             Console.Bind(KeyCode.X, "enemy_stop_all");
+            Console.Bind(KeyCode.V, "set_enemy");
+            Console.Bind(KeyCode.B, "enemy_set_destination");
             #endregion
 
             /*
