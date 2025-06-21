@@ -7,6 +7,7 @@ namespace Faza
         private Waypoint _from;
         private Waypoint _to;
         private EnemyInput _enemy;
+        private Vector3 _position;
 
         private void Awake()
         {
@@ -117,6 +118,15 @@ namespace Faza
                 if (hit)
                 {
                     _enemy.SetDestination(hitInfo.point);
+                }
+            });
+            Console.AddCommand("set_pos", (args) =>
+            {
+                var player = Tracker.Get<Character>("player");
+                var hit = player.GetCrosshairInfo(out var hitInfo);
+                if (hit)
+                {
+                    _position = hitInfo.point;
                 }
             });
 

@@ -19,8 +19,8 @@ namespace Faza
         private bool _jump;
         private bool _use;
 
-        private Waypoint _currentWaypoint;
-        private Queue<Waypoint> _currentPath;
+        private IWaypoint _currentWaypoint;
+        private Queue<IWaypoint> _currentPath;
 
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
@@ -104,7 +104,7 @@ namespace Faza
             var from = Waypoint.Closest(transform.position);
             var to = Waypoint.Closest(destination);
 
-            _currentPath = new Queue<Waypoint>(from.FindPath(to));
+            _currentPath = new Queue<IWaypoint>(from.FindPath(to));
 
             foreach (var wp in Waypoint.All)
             {
@@ -116,6 +116,8 @@ namespace Faza
                 wp.IsMarked = true;
             }
 
+            _currentPath.Enqueue(new ScriptedWaypoint(destination));
+
             _currentWaypoint = _currentPath.Dequeue();
         }
 
@@ -124,7 +126,7 @@ namespace Faza
             if (_currentWaypoint == null) return;
 
             var lookForward = _look.forward.WithY(0f);
-            var wpPosition = _currentWaypoint.transform.position.WithY(0f);
+            var wpPosition = _currentWaypoint.Pos.WithY(0f);
             var position = transform.position.WithY(0f);
 
             var distanceToWp = (wpPosition - position).sqrMagnitude;

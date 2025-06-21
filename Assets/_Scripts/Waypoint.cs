@@ -8,7 +8,7 @@ using UnityEditor;
 
 namespace Faza
 {
-    public class Waypoint : MonoBehaviour
+    public class Waypoint : MonoBehaviour, IWaypoint
     {
         [SerializeField] private string _command = "";
         [SerializeField] private List<Waypoint> _connections;
@@ -139,15 +139,25 @@ namespace Faza
         public static Waypoint Closest(Vector3 to)
         {
             var result = _all[0];
-            var distance = float.MaxValue;
 
-            foreach (var wp in _all)
+            var order = _all.OrderByDescending(x => (to - x.Pos).sqrMagnitude);
+            var orderedWaypoints = new Stack<Waypoint>(order);
+
+            while (orderedWaypoints.Count != 0)
             {
-                var newDistance = (to - wp.transform.position).sqrMagnitude;
-                if (newDistance < distance)
+                result = orderedWaypoints.Pop();
+                var direction = (result.Pos - to).normalized;
+
+                var ray = new Ray(to, direction);
+                var hit = Physics.Raycast(ray, out var hitInfo, 1000f);
+                if (hit)
                 {
-                    result = wp;
-                    distance = newDistance;
+                    var isWp = hitInfo.collider.GetComponent<Waypoint>();
+                    if (isWp) break;
+                }
+                else
+                {
+                    break;
                 }
             }
 
