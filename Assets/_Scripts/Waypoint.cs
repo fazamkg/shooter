@@ -56,6 +56,8 @@ namespace Faza
         private void Awake()
         {
             _all.Add(this);
+
+            Hide();
         }
 
         public void Init(string command)
