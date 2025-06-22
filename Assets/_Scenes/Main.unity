@@ -24347,8 +24347,8 @@ MonoBehaviour:
   _slide: {fileID: 4940303192605424}
   _trigger: {fileID: 4414920640463872}
   _rotationX: 17.64
-  _rotationDuration: 0.3
-  _rotationDuration2: 0.4
+  _rotationDuration: 0.15
+  _rotationDuration2: 0.2
 --- !u!114 &4952726976667072
 MonoBehaviour:
   m_ObjectHideFlags: 0
