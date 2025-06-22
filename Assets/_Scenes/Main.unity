@@ -24331,7 +24331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 1678777975}
   _weaponAnim: {fileID: 4952726976667071}
-  _shootCooldown: 1
+  _shootCooldown: 0.18
+  _origin: {fileID: 963194228}
+  _bulletHolePrefab: {fileID: 2876906742476425956, guid: 5657092f8d16cc54281a53d8962e8462, type: 3}
 --- !u!4 &4994602660145386
 Transform:
   m_ObjectHideFlags: 0
