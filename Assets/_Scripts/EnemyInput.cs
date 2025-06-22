@@ -207,5 +207,10 @@ namespace Faza
             _horizontal = localDirectionToWp.x;
             _vertical = localDirectionToWp.z;
         }
+
+        public override bool IsFire()
+        {
+            return false;
+        }
     }
 }

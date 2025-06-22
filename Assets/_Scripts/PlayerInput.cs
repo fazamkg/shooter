@@ -88,5 +88,10 @@ namespace Faza
 
             return Input.GetKeyDown(KeyCode.E);
         }
+
+        public override bool IsFire()
+        {
+            return Input.GetMouseButton(0);
+        }
     }
 }

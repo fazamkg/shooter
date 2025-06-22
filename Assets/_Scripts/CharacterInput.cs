@@ -13,5 +13,7 @@ namespace Faza
         public abstract bool GetJump();
 
         public abstract bool GetUse();
-    } 
+
+        public abstract bool IsFire();
+    }
 }
