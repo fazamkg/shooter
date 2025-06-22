@@ -140,6 +140,10 @@ namespace Faza
                 var player = Tracker.Get<Character>("player");
                 player.IsNoclip = !player.IsNoclip;
             });
+            Console.AddCommand("destroy", (args) =>
+            {
+                Destroy(GetAtCrosshair<Transform>().gameObject);
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");
