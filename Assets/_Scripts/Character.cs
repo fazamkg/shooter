@@ -14,6 +14,8 @@ namespace Faza
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private float _useDistance;
 
+        private bool _isNoclip;
+
         private float _pitch;
         private float _yaw;
 
@@ -26,6 +28,15 @@ namespace Faza
         public float Yaw => _yaw;
         public bool IsFalling => _isGrounded == false && _verticalVelocity < 0f;
         public bool IsGrouned => _isGrounded;
+        public bool IsNoclip
+        {
+            get => _isNoclip;
+            set
+            {
+                _isNoclip = value;
+                _characterController.enabled = !value;
+            }
+        }
 
         private void Update()
         {
@@ -45,32 +56,42 @@ namespace Faza
             var horizontal = _characterInput.GetHorizontal();
             var vertical = _characterInput.GetVertical();
 
-            var inputDirection = new Vector3(horizontal, 0f, vertical).normalized;
+            var input = new Vector3(horizontal, 0f, vertical).normalized;
 
-            inputDirection = Quaternion.Euler(0f, _yaw, 0f) * inputDirection;
+            var inputDirection = Quaternion.Euler(0f, _yaw, 0f) * input;
 
-            _velocity += delta * _acceleration * inputDirection;
-
-            _velocity -= delta * _friction * _velocity;
-
-            _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
-
-            _verticalVelocity -= delta * _gravity;
-
-            _characterController.Move(_velocity * delta);
-            var returnedVelocity = _characterController.velocity;
-            _velocity.x = returnedVelocity.x;
-            _velocity.z = returnedVelocity.z;
-
-            _characterController.Move(_verticalVelocity * delta * Vector3.up);
-            returnedVelocity = _characterController.velocity;
-            _verticalVelocity = returnedVelocity.y;
-
-            _isGrounded = _characterController.isGrounded;
-
-            if (_isGrounded && _characterInput.GetJump())
+            if (IsNoclip == false)
             {
-                _verticalVelocity = _jumpSpeed;
+                #region Physics
+                _velocity += delta * _acceleration * inputDirection;
+
+                _velocity -= delta * _friction * _velocity;
+
+                _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
+
+                _verticalVelocity -= delta * _gravity;
+
+                _characterController.Move(_velocity * delta);
+                var returnedVelocity = _characterController.velocity;
+                _velocity.x = returnedVelocity.x;
+                _velocity.z = returnedVelocity.z;
+
+                _characterController.Move(_verticalVelocity * delta * Vector3.up);
+                returnedVelocity = _characterController.velocity;
+                _verticalVelocity = returnedVelocity.y;
+
+                _isGrounded = _characterController.isGrounded;
+
+                if (_isGrounded && _characterInput.GetJump())
+                {
+                    _verticalVelocity = _jumpSpeed;
+                }
+                #endregion
+            }
+            else
+            {
+                var dir = Quaternion.Euler(_pitch, _yaw, 0f) * input;
+                transform.position += _maxSpeed * delta * dir;
             }
 
             if (_characterInput.GetUse())

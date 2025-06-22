@@ -135,6 +135,11 @@ namespace Faza
             {
                 IsDebugOn = !IsDebugOn;
             });
+            Console.AddCommand("noclip", (args) =>
+            {
+                var player = Tracker.Get<Character>("player");
+                player.IsNoclip = !player.IsNoclip;
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");
