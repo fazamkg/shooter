@@ -11,6 +11,8 @@ namespace Faza
         [SerializeField] private float _turningCap;
         [SerializeField] private GameObject _fpCamera;
         [SerializeField] private GameObject _tpCamera;
+        [SerializeField] private float _jumpCheckDelta = 0.1f;
+        [SerializeField] private float _jumpCheckDistance = 1f;
 
         private float _cameraX;
         private float _cameraY;
@@ -119,6 +121,30 @@ namespace Faza
             _currentPath.Enqueue(new ScriptedWaypoint(destination));
 
             _currentWaypoint = _currentPath.Dequeue();
+            if (NeedsToJump(transform.position)) _jump = true;
+        }
+
+        private bool NeedsToJump(Vector3 pos)
+        {
+            var targetPos = _currentWaypoint.Pos;
+            var direction = (targetPos - pos).normalized;
+            var distance = Vector3.Distance(pos, targetPos);
+            var current = 0f;
+
+            while (current < distance)
+            {
+                var from = pos + direction * current;
+                var ray = new Ray(from, Vector3.down);
+                var hit = Physics.Raycast(ray, _jumpCheckDistance);
+                if (EntryPoint.IsDebugOn)
+                {
+                    Line.DrawRayPermanent(from, Vector3.down * _jumpCheckDistance, Color.green);
+                }
+                if (hit == false) return true;
+                current += _jumpCheckDelta;
+            }
+
+            return false;
         }
 
         private void Update()
@@ -144,7 +170,9 @@ namespace Faza
                 }
                 else
                 {
+                    var pos = _currentWaypoint.Pos;
                     _currentWaypoint = _currentPath.Dequeue();
+                    if (NeedsToJump(pos)) _jump = true;
                 }
 
                 _cameraX = 0f;

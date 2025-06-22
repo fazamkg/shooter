@@ -378,6 +378,8 @@ MonoBehaviour:
   _turningCap: 0.1
   _fpCamera: {fileID: 51571144384109868}
   _tpCamera: {fileID: 4454417100905597761}
+  _jumpCheckDelta: 0.1
+  _jumpCheckDistance: 2
 --- !u!1 &8087302341561472613
 GameObject:
   m_ObjectHideFlags: 0

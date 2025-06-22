@@ -3619,7 +3619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _command
-      value: jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _connections.Array.size
@@ -15261,7 +15261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _command
-      value: jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _connections.Array.size
@@ -16124,7 +16124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _command
-      value: jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7697351850452798533, guid: 5f46964e82acb754398d84d14ae7889e, type: 3}
       propertyPath: _connections.Array.size
