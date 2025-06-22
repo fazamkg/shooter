@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -9,6 +10,10 @@ namespace Faza
         [SerializeField] private float _shootCooldown;
         [SerializeField] private Transform _origin;
         [SerializeField] private GameObject _bulletHolePrefab;
+        [SerializeField] private GameObject _trailPrefab;
+        [SerializeField] private Transform _bulletOrigin;
+        [SerializeField] private float _trailDistance = 100f;
+        [SerializeField] private float _trailDuration = 0.3f;
 
         private float _cooldown;
 
@@ -30,6 +35,10 @@ namespace Faza
                 _cooldown = _shootCooldown;
 
                 _weaponAnim.Play();
+                var trail = Instantiate(_trailPrefab, _bulletOrigin.position, Quaternion.identity);
+                var trailEndPos = _origin.position + _origin.forward * _trailDistance;
+                trail.transform.DOMove(trailEndPos, _trailDuration).SetEase(Ease.Linear)
+                    .OnComplete(() => trail.SetActive(false));
 
                 var ray = new Ray(_origin.position, _origin.forward);
                 var hit = Physics.Raycast(ray, out var info);

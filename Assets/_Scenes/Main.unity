@@ -5998,6 +5998,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4ab9d5c12b569438c7abceb993da62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &396842167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396842168}
+  m_Layer: 6
+  m_Name: BulletOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396842168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396842167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.124, z: -0.2682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4952726976667070}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408554122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 51571144384109868, guid: 4b9c3743de12d7649bcd0a7bc1b43f36, type: 3}
@@ -24295,6 +24326,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4827498168912608}
+  - {fileID: 396842168}
   m_Father: {fileID: 1939467753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4952726976667071
@@ -24334,6 +24366,10 @@ MonoBehaviour:
   _shootCooldown: 0.18
   _origin: {fileID: 963194228}
   _bulletHolePrefab: {fileID: 2876906742476425956, guid: 5657092f8d16cc54281a53d8962e8462, type: 3}
+  _trailPrefab: {fileID: 1167827158629432283, guid: 438f73e07334956488416838fd99eec1, type: 3}
+  _bulletOrigin: {fileID: 396842168}
+  _trailDistance: 5
+  _trailDuration: 0.2
 --- !u!4 &4994602660145386
 Transform:
   m_ObjectHideFlags: 0
