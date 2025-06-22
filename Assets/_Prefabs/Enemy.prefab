@@ -354,8 +354,8 @@ MonoBehaviour:
   _characterInput: {fileID: 423074385074755497}
   _characterController: {fileID: 5559805724060976056}
   _camera: {fileID: 5774055898149711907}
-  _acceleration: 20
-  _friction: 4
+  _acceleration: 40
+  _friction: 8
   _maxSpeed: 10
   _gravity: 20
   _jumpSpeed: 12
