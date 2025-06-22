@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Faza
 {
@@ -143,6 +144,10 @@ namespace Faza
             Console.AddCommand("destroy", (args) =>
             {
                 Destroy(GetAtCrosshair<Transform>().gameObject);
+            });
+            Console.AddCommand("reload_scene", (args) =>
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             });
 
             Console.Bind(KeyCode.Q, "waypoint");

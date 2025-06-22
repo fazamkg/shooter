@@ -30,6 +30,8 @@ namespace Faza
 
         public static void Release(string id, GameObject gameObject)
         {
+            if (gameObject == null) return;
+
             var pool = _pools[id];
             gameObject.SetActive(false);
             pool.Push(gameObject);
@@ -47,6 +49,8 @@ namespace Faza
 
         public static void Release<T>(string id, T component) where T : Component
         {
+            if (component == null) return;
+
             Release(id, component.gameObject);
         }
     } 
