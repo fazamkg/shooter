@@ -68,7 +68,7 @@ namespace Faza
             }
             else
             {
-                result = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
+                result = cross.y.Abs() < _turningCap ? 0f : cross.y;
             }
 
             return result * Time.deltaTime * _rotationSpeed;
@@ -79,24 +79,25 @@ namespace Faza
             return 0f;
         }
 
-        public override float GetHorizontal()
+        public override Vector3 GetMove()
         {
-            if (_locked == false) return 0f;
+            if (_locked == false) return Vector3.zero;
 
-            var joy = Joystick.GetInput("move").x;
-            var kb = Input.GetAxisRaw("Horizontal");
+            var kbV = Input.GetAxisRaw("Vertical");
+            var kbH = Input.GetAxisRaw("Horizontal");
+            var keyboard = new Vector3(kbH, 0f, kbV).normalized;
 
-            return Mathf.Min(1f, joy + kb);
-        }
+            var joy = Joystick.GetInput("move");
 
-        public override float GetVertical()
-        {
-            if (_locked == false) return 0f;
+            var input = new Vector3(keyboard.x + joy.x, 0f, keyboard.z + joy.y);
 
-            var joy = Joystick.GetInput("move").y;
-            var kb = Input.GetAxisRaw("Vertical");
+            var lookRight = _camera.transform.right;
+            var lookForward = _camera.transform.forward;
 
-            return Mathf.Min(1f, joy + kb);
+            var hDot = Vector3.Dot(lookRight, input);
+            var vDot = Vector3.Dot(lookForward, input);
+
+            return new Vector3(hDot, 0f, vDot);
         }
 
         public override bool GetJump()

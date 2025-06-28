@@ -17,6 +17,12 @@ namespace Faza
             return vector;
         }
 
+        public static Vector3 WithZ(this Vector3 vector, float z)
+        {
+            vector.z = z;
+            return vector;
+        }
+
         public static bool IsZero(this float value)
         {
             return Mathf.Approximately(value, 0f);

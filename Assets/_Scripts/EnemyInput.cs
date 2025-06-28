@@ -37,14 +37,9 @@ namespace Faza
             return _cameraY * _sensitivity;
         }
 
-        public override float GetHorizontal()
+        public override Vector3 GetMove()
         {
-            return _horizontal;
-        }
-
-        public override float GetVertical()
-        {
-            return _vertical;
+            return new Vector3(_horizontal, 0f, _vertical);
         }
 
         public override bool GetJump()

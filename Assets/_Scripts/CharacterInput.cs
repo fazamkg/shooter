@@ -7,8 +7,7 @@ namespace Faza
         public abstract float GetCameraX();
         public abstract float GetCameraY();
 
-        public abstract float GetHorizontal();
-        public abstract float GetVertical();
+        public abstract Vector3 GetMove();
 
         public abstract bool GetJump();
 

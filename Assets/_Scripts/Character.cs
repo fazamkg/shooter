@@ -54,10 +54,7 @@ namespace Faza
 
             _camera.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
 
-            var horizontal = _characterInput.GetHorizontal();
-            var vertical = _characterInput.GetVertical();
-
-            var input = new Vector3(horizontal, 0f, vertical).normalized;
+            var input = _characterInput.GetMove();
 
             var inputDirection = _cameraBasedInput ? Quaternion.Euler(0f, _yaw, 0f) * input : input;
 

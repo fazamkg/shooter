@@ -19468,13 +19468,13 @@ MonoBehaviour:
   _characterInput: {fileID: 1678777975}
   _characterController: {fileID: 1678777973}
   _camera: {fileID: 963194228}
-  _acceleration: 20
-  _friction: 4
+  _acceleration: 50
+  _friction: 8
   _maxSpeed: 10
   _gravity: 20
   _jumpSpeed: 12
   _useDistance: 3
-  _cameraBasedInput: 0
+  _cameraBasedInput: 1
 --- !u!114 &1678777977
 MonoBehaviour:
   m_ObjectHideFlags: 0

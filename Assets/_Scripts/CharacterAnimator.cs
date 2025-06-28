@@ -29,8 +29,10 @@ namespace Faza
 
         private void Update()
         {
-            var horizontal = _input.GetHorizontal();
-            var vertical = _input.GetVertical();
+            var move = _input.GetMove();
+
+            var horizontal = move.x;
+            var vertical = move.z;
 
             _horizontal = Mathf.MoveTowards(_horizontal, horizontal, Time.deltaTime * _smoothSpeed);
             _vertical = Mathf.MoveTowards(_vertical, vertical, Time.deltaTime * _smoothSpeed);
