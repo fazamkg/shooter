@@ -56,9 +56,7 @@ namespace Faza
 
         public override float GetCameraY()
         {
-            if (_locked == false) return 0f;
-
-            return -Input.GetAxisRaw("Mouse Y") * _sensitivity;
+            return 0f;
         }
 
         public override float GetHorizontal()
