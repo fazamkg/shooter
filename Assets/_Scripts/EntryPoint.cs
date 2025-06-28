@@ -54,7 +54,7 @@ namespace Faza
             });
             Console.AddCommand("enemy_switch_animation_set", (args) =>
             {
-                var name = GetAtCrosshair<EnemyAnimator>().IncrementAnimationSet();
+                var name = GetAtCrosshair<CharacterAnimator>().IncrementAnimationSet();
                 Console.Log(name);
             });
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Faza
 {
-    public class EnemyAnimator : MonoBehaviour
+    public class CharacterAnimator : MonoBehaviour
     {
         [SerializeField] private Character _character;
         [SerializeField] private CharacterInput _input;
