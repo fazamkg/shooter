@@ -10,14 +10,24 @@ namespace Faza
         [SerializeField] private float _shootCooldown;
         [SerializeField] private Transform _origin;
         [SerializeField] private GameObject _bulletHolePrefab;
-        [SerializeField] private GameObject _trailPrefab;
+        [SerializeField] private LineRenderer _line;
         [SerializeField] private Transform _bulletOrigin;
-        [SerializeField] private float _trailDistance = 100f;
-        [SerializeField] private float _trailDuration = 0.3f;
+        [SerializeField] private float _lineShowDuration;
 
         private float _cooldown;
 
-        private void Update()
+        private void Awake()
+        {
+            var positions = new Vector3[2];
+            var end = _origin.position + _origin.forward * 3.78f;
+            end = _line.transform.InverseTransformPoint(end);
+            positions[0] = end;
+            positions[1] = Vector3.zero;
+
+            _line.SetPositions(positions);
+        }
+
+        private void LateUpdate()
         {
             _cooldown -= Time.deltaTime;
             if (_cooldown < 0f)
@@ -35,10 +45,12 @@ namespace Faza
                 _cooldown = _shootCooldown;
 
                 _weaponAnim.Play();
-                var trail = Instantiate(_trailPrefab, _bulletOrigin.position, Quaternion.identity);
-                var trailEndPos = _origin.position + _origin.forward * _trailDistance;
-                trail.transform.DOMove(trailEndPos, _trailDuration).SetEase(Ease.Linear)
-                    .OnComplete(() => trail.SetActive(false));
+
+                _line.gameObject.SetActive(true);
+
+                var seq = DOTween.Sequence();
+                seq.AppendInterval(_lineShowDuration);
+                seq.AppendCallback(() => _line.gameObject.SetActive(false));
 
                 var ray = new Ray(_origin.position, _origin.forward);
                 var hit = Physics.Raycast(ray, out var info);
@@ -46,7 +58,8 @@ namespace Faza
                 {
                     var pos = info.point + info.normal * 0.1f;
                     var rot = Quaternion.LookRotation(-info.normal);
-                    Instantiate(_bulletHolePrefab, pos, rot, info.collider.transform);
+                    var bulletHole = Instantiate(_bulletHolePrefab, pos, rot, info.collider.transform);
+                    bulletHole.transform.Rotate(0f, 0f, Random.Range(0f, 360f), Space.Self);
                 }
             }
         }
