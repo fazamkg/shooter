@@ -13,6 +13,7 @@ namespace Faza
         [SerializeField] private float _gravity;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private float _useDistance;
+        [SerializeField] private bool _cameraBasedInput = true;
 
         private bool _isNoclip;
 
@@ -58,7 +59,7 @@ namespace Faza
 
             var input = new Vector3(horizontal, 0f, vertical).normalized;
 
-            var inputDirection = Quaternion.Euler(0f, _yaw, 0f) * input;
+            var inputDirection = _cameraBasedInput ? Quaternion.Euler(0f, _yaw, 0f) * input : input;
 
             if (IsNoclip == false)
             {

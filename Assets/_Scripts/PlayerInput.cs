@@ -13,8 +13,6 @@ namespace Faza
 
         private void Awake()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
             _locked = true;
             Console.StartReadingBinds();
         }
@@ -32,15 +30,11 @@ namespace Faza
 
                 if (_locked)
                 {
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
                     Console.StartReadingBinds();
                     Console.CloseConsole();
                 }
                 else
                 {
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
                     Console.StopReadingBinds();
                     Console.OpenConsole();
                 }
@@ -63,14 +57,20 @@ namespace Faza
         {
             if (_locked == false) return 0f;
 
-            return Input.GetAxisRaw("Horizontal");
+            var joy = Joystick.GetInput("move").x;
+            var kb = Input.GetAxisRaw("Horizontal");
+
+            return Mathf.Min(1f, joy + kb);
         }
 
         public override float GetVertical()
         {
             if (_locked == false) return 0f;
 
-            return Input.GetAxisRaw("Vertical");
+            var joy = Joystick.GetInput("move").y;
+            var kb = Input.GetAxisRaw("Vertical");
+
+            return Mathf.Min(1f, joy + kb);
         }
 
         public override bool GetJump()
