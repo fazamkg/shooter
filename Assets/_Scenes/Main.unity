@@ -15046,8 +15046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e2cee22e3f87c4a8527632dc4c4d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 70
+  _radius: 62
   _name: move
+  _rectTransform: {fileID: 1206349979}
 --- !u!1001 &1238530717
 PrefabInstance:
   m_ObjectHideFlags: 0

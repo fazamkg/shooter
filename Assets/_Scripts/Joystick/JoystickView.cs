@@ -7,26 +7,25 @@ namespace Faza
     {
         [SerializeField] private float _radius;
         [SerializeField] private string _name;
+        [SerializeField] private RectTransform _rectTransform;
 
         private bool _isUpdating;
-        private Vector3 _originalPosition;
-
-        private void Awake()
-        {
-            _originalPosition = transform.position;
-        }
 
         private void Update()
         {
             if (_isUpdating == false) return;
 
-            var mousePos = Input.mousePosition;
-            var vector = mousePos - _originalPosition;
-            var clamped = Vector3.ClampMagnitude(vector, _radius);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle
+                ((RectTransform)_rectTransform.parent,
+                Input.mousePosition,
+                null,
+                out var result);
+
+            var clamped = Vector3.ClampMagnitude(result, _radius);
 
             Joystick.SetInput(_name, clamped / _radius);
 
-            transform.position = _originalPosition + clamped;
+            _rectTransform.anchoredPosition = clamped;
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -40,7 +39,7 @@ namespace Faza
 
             Joystick.SetInput(_name, Vector3.zero);
 
-            transform.position = _originalPosition;
+            _rectTransform.anchoredPosition = Vector2.zero;
         }
     } 
 }
