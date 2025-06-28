@@ -195,11 +195,11 @@ namespace Faza
 
             if (dot < -0.95f)
             {
-                _cameraX = -1f;
+                _cameraX = -1f * Time.deltaTime;
             }
             else
             {
-                _cameraX = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
+                _cameraX = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y) * Time.deltaTime;
             }
 
             var localDirectionToWp = _look.InverseTransformDirection(directionToWp);

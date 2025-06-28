@@ -7,6 +7,7 @@ namespace Faza
         [SerializeField] private float _sensitivity;
         [SerializeField] private GameObject _camera;
         [SerializeField] private float _turningCap;
+        [SerializeField] private float _rotationSpeed;
 
         private bool _locked;
 
@@ -59,15 +60,18 @@ namespace Faza
 
             var cross = Vector3.Cross(lookForward, direction);
             var dot = Vector3.Dot(lookForward, direction);
+            var result = 0f;
 
             if (dot < -0.95f)
             {
-                return -1f;
+                result = -1f;
             }
             else
             {
-                return cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
+                result = cross.y.Abs() < _turningCap ? 0f : Mathf.Sign(cross.y);
             }
+
+            return result * Time.deltaTime * _rotationSpeed;
         }
 
         public override float GetCameraY()
@@ -97,21 +101,17 @@ namespace Faza
 
         public override bool GetJump()
         {
-            if (_locked == false) return false;
-
-            return Input.GetButton("Jump");
+            return false;
         }
 
         public override bool GetUse()
         {
-            if (_locked == false) return false;
-
-            return Input.GetKeyDown(KeyCode.E);
+            return false;
         }
 
         public override bool IsFire()
         {
-            return Input.GetMouseButton(0);
+            return false;
         }
     }
 }
