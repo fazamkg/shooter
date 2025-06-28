@@ -11,6 +11,8 @@ namespace Faza
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _minSpeed;
         [SerializeField] private RuntimeAnimatorController[] _animationSets;
+        [SerializeField] private Shooter _shooter;
+        [SerializeField] private Health _health;
 
         private int _animationSetIndex;
         private float _horizontal;
@@ -25,6 +27,19 @@ namespace Faza
             _animationSetIndex %= _animationSets.Length;
             _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
             return _animator.runtimeAnimatorController.name;
+        }
+
+        private void Awake()
+        {
+            if (_health != null)
+            {
+                _health.OnDeath += Health_OnDeath;
+            }
+        }
+
+        private void Health_OnDeath()
+        {
+            _animator.CrossFade("Death", 0.3f);
         }
 
         private void Update()
@@ -65,6 +80,12 @@ namespace Faza
 
             var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _horizontalSpeed);
             _animator.SetFloat("HorizontalSpeed", hSpeed);
+
+            if (_shooter != null)
+            {
+                _animator.SetBool("Shoot", _shooter.IsShooting);
+                _shooter.IsShooting = false;
+            }
         }
     } 
 }

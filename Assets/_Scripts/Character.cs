@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Faza
 {
@@ -104,6 +105,41 @@ namespace Faza
                         worldButton.Use();
                     }
                 }
+            }
+        }
+
+        public void RotateTowards(Vector3 target)
+        {
+            StartCoroutine(RotateTowardsCoroutine(target));
+        }
+
+        private IEnumerator RotateTowardsCoroutine(Vector3 target)
+        {
+            target = target.WithY(0f);
+            var crossY = 1f;
+
+            while (crossY.Abs() > 0.1f)
+            {
+                var lookForward = _camera.transform.forward;
+                var direction = (target - transform.position.WithY(0f)).normalized;
+
+                var cross = Vector3.Cross(lookForward, direction);
+                var dot = Vector3.Dot(lookForward, direction);
+                var result = 0f;
+                crossY = cross.y;
+
+                if (dot < -0.95f)
+                {
+                    result = -1f;
+                }
+                else
+                {
+                    result = crossY;
+                }
+
+                _yaw += result;
+
+                yield return null;
             }
         }
 

@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 5559805724060976056}
   - component: {fileID: 2565205057089287655}
   - component: {fileID: 423074385074755497}
+  - component: {fileID: 3563820535122673875}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -360,6 +361,7 @@ MonoBehaviour:
   _gravity: 20
   _jumpSpeed: 12
   _useDistance: 3
+  _cameraBasedInput: 1
 --- !u!114 &423074385074755497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +382,19 @@ MonoBehaviour:
   _tpCamera: {fileID: 4454417100905597761}
   _jumpCheckDelta: 0.1
   _jumpCheckDistance: 2
+--- !u!114 &3563820535122673875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393931286829031114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34940a644e122e4aa03d6934e8c1563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startHealth: 100
 --- !u!1 &8087302341561472613
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +612,8 @@ MonoBehaviour:
   _maxSpeed: 6
   _minSpeed: 2
   _animationSets: []
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!95 &839547210138496852 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95862797137694222, guid: c816c50f1076b564bbe9891c3e74b00e, type: 3}
@@ -698,6 +715,8 @@ MonoBehaviour:
   _maxSpeed: 6
   _minSpeed: 2
   _animationSets: []
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!4 &600582465502903251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1929787907488324609, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
@@ -818,6 +837,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 581d51d7425340043acfa7f7a51a9689, type: 2}
   - {fileID: 9100000, guid: 859a599f68c38734393b99caed392bc8, type: 2}
   - {fileID: 9100000, guid: 6bd2281102ea06747bb247c9ba28216c, type: 2}
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!1001 &2790634850915405844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -914,6 +935,8 @@ MonoBehaviour:
   _maxSpeed: 6
   _minSpeed: 2
   _animationSets: []
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!4 &2041629939150174227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4246612975235524615, guid: 25d2a9cf34a2f824696580ea08b248e2, type: 3}
@@ -1030,6 +1053,8 @@ MonoBehaviour:
   _maxSpeed: 6
   _minSpeed: 2
   _animationSets: []
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!1001 &7796899122723048654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1135,6 +1160,8 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 8cd7eecb79d6fbf449a84828af9ee358, type: 2}
   - {fileID: 9100000, guid: 581d51d7425340043acfa7f7a51a9689, type: 2}
   - {fileID: 9100000, guid: 859a599f68c38734393b99caed392bc8, type: 2}
+  _shooter: {fileID: 0}
+  _health: {fileID: 3563820535122673875}
 --- !u!4 &7763817682625571621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}

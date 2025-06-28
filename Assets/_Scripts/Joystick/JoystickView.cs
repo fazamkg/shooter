@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -8,6 +9,7 @@ namespace Faza
         [SerializeField] private float _radius;
         [SerializeField] private string _name;
         [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private float _tweenDuration;
 
         private bool _isUpdating;
 
@@ -39,7 +41,7 @@ namespace Faza
 
             Joystick.SetInput(_name, Vector3.zero);
 
-            _rectTransform.anchoredPosition = Vector2.zero;
+            _rectTransform.DOAnchorPos(Vector2.zero, _tweenDuration).SetEase(Ease.InOutCirc);
         }
     } 
 }
