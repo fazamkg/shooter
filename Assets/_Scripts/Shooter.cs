@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private Character _character;
         [SerializeField] private float _speed;
         [SerializeField] private float _damage;
+        [SerializeField] private float _rotationSpeed;
 
         private bool _shoot;
 
@@ -41,7 +42,7 @@ namespace Faza
 
         private IEnumerator ShootCoroutine(Vector3 target)
         {
-            yield return _character.RotateTowardsCoroutine(target);
+            yield return _character.RotateTowardsCoroutine(target, _rotationSpeed);
 
             IsShooting = true;
         }

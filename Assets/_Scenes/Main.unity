@@ -18205,6 +18205,7 @@ MonoBehaviour:
   _health: {fileID: 0}
   _bulletOrigin: {fileID: 452179483}
   _bulletPrefab: {fileID: 89754544282707423, guid: 14dc0fa2b32b8ac4dbc24a0d072d7a8d, type: 3}
+  _healthbarPoint: {fileID: 0}
 --- !u!1 &1455927482
 GameObject:
   m_ObjectHideFlags: 0
@@ -19787,6 +19788,7 @@ MonoBehaviour:
   _character: {fileID: 1678777976}
   _speed: 10
   _damage: 10
+  _rotationSpeed: 720
 --- !u!1001 &1697597213
 PrefabInstance:
   m_ObjectHideFlags: 0

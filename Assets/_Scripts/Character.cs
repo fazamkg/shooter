@@ -108,12 +108,7 @@ namespace Faza
             }
         }
 
-        public void RotateTowards(Vector3 target)
-        {
-            StartCoroutine(RotateTowardsCoroutine(target));
-        }
-
-        public IEnumerator RotateTowardsCoroutine(Vector3 target)
+        public IEnumerator RotateTowardsCoroutine(Vector3 target, float speed)
         {
             target = target.WithY(0f);
             var crossY = 1f;
@@ -137,7 +132,7 @@ namespace Faza
                     result = crossY;
                 }
 
-                _yaw += result;
+                _yaw += result * speed * Time.deltaTime;
 
                 yield return null;
             }
