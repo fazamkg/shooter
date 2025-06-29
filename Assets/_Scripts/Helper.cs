@@ -23,6 +23,20 @@ namespace Faza
             return vector;
         }
 
+        public static void SetAnchorX(this RectTransform rt, float x)
+        {
+            var pos = rt.anchoredPosition;
+            pos.x = x;
+            rt.anchoredPosition = pos;
+        }
+
+        public static void SetAnchorY(this RectTransform rt, float y)
+        {
+            var pos = rt.anchoredPosition;
+            pos.y = y;
+            rt.anchoredPosition = pos;
+        }
+
         public static bool IsZero(this float value)
         {
             return Mathf.Approximately(value, 0f);
