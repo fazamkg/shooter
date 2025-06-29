@@ -15303,6 +15303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e2cee22e3f87c4a8527632dc4c4d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 1000
   _radius: 62
   _name: move
   _rectTransform: {fileID: 1206349979}

@@ -6,6 +6,7 @@ namespace Faza
 {
     public class JoystickView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
+        [SerializeField] private float _speed;
         [SerializeField] private float _radius;
         [SerializeField] private string _name;
         [SerializeField] private RectTransform _rectTransform;
@@ -27,7 +28,8 @@ namespace Faza
 
             Joystick.SetInput(_name, clamped / _radius);
 
-            _rectTransform.anchoredPosition = clamped;
+            _rectTransform.anchoredPosition = Vector3.MoveTowards
+                (_rectTransform.anchoredPosition, clamped, Time.deltaTime * _speed);
         }
 
         public void OnPointerDown(PointerEventData eventData)
