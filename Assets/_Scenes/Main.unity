@@ -19786,8 +19786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 1678777976}
-  _speed: 10
-  _damage: 10
+  _speed: 20
+  _damage: 40
   _rotationSpeed: 720
 --- !u!1001 &1697597213
 PrefabInstance:

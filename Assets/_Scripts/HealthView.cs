@@ -38,6 +38,12 @@ namespace Faza
             return _fill.DOAnchorPosX(percent * _width, 0.3f).SetEase(Ease.InOutCirc);
         }
 
+        public Tween TweenDisappear()
+        {
+            return transform.DOScale(0f, 0.3f).SetEase(Ease.InBack)
+                .OnComplete(() => Destroy(gameObject));
+        }
+
         private void LateUpdate()
         {
             var pos = _target.position + _offset;

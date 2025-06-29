@@ -6,6 +6,7 @@ namespace Faza
     public class Health : MonoBehaviour
     {
         public static event Action<Health> OnHealthCreated;
+        public static event Action<Health> OnHealthDestroyed;
 
         public event Action OnDeath;
         public event Action OnHealthChanged;
@@ -31,6 +32,7 @@ namespace Faza
             {
                 CurrentHealth = 0f;
                 OnDeath?.Invoke();
+                OnHealthDestroyed?.Invoke(this);
             }
 
             OnHealthChanged?.Invoke();
