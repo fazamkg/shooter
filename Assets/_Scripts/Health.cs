@@ -12,11 +12,10 @@ namespace Faza
 
         [SerializeField] private float _startHealth;
         [SerializeField] private float _maxHealth;
-        [SerializeField] private Transform _healthbarPoint;
 
         public float CurrentHealth { get; private set; }
         public float MaxHealth { get; private set; }
-        public Transform HealthbarPoint => _healthbarPoint;
+        public Transform HealthbarPoint => GetComponentInChildren<CharacterAnimator>().HealthbarPoint;
 
         private void Awake()
         {

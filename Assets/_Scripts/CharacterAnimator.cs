@@ -15,6 +15,7 @@ namespace Faza
         [SerializeField] private Health _health;
         [SerializeField] private Transform _bulletOrigin;
         [SerializeField] private Projectile _bulletPrefab;
+        [SerializeField] private Transform _healthbarPoint;
 
         private int _animationSetIndex;
         private float _horizontal;
@@ -22,6 +23,8 @@ namespace Faza
         private float _cameraX;
         private float _y;
         private float _horizontalSpeed;
+
+        public Transform HealthbarPoint => _healthbarPoint;
 
         public string IncrementAnimationSet()
         {

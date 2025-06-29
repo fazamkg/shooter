@@ -300,12 +300,43 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6115152750487970333}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.68, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8124546288765955915}
+  m_Father: {fileID: 7351650608170316359}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7276140247524379405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5287530095003635871}
+  m_Layer: 0
+  m_Name: HealthbarPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5287530095003635871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7276140247524379405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7763817682625571621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7393931286829031114
 GameObject:
@@ -343,7 +374,6 @@ Transform:
   - {fileID: 5774055898149711907}
   - {fileID: 7313137993417855251}
   - {fileID: 4523552635233505652}
-  - {fileID: 2009149575449998221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &5559805724060976056
@@ -428,7 +458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startHealth: 100
   _maxHealth: 100
-  _healthbarPoint: {fileID: 2009149575449998221}
 --- !u!1 &8087302341561472613
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +677,9 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 0}
 --- !u!95 &839547210138496852 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95862797137694222, guid: c816c50f1076b564bbe9891c3e74b00e, type: 3}
@@ -751,6 +783,9 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 0}
 --- !u!4 &600582465502903251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1929787907488324609, guid: b91f2cacb0bef7f4bac8f61b0f00b4c6, type: 3}
@@ -827,7 +862,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8468617057500289297, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2009149575449998221}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9137032837993464747, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
       insertIndex: -1
@@ -873,6 +911,9 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 6bd2281102ea06747bb247c9ba28216c, type: 2}
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 2009149575449998221}
 --- !u!1001 &2790634850915405844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -971,6 +1012,9 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 0}
 --- !u!4 &2041629939150174227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4246612975235524615, guid: 25d2a9cf34a2f824696580ea08b248e2, type: 3}
@@ -1089,6 +1133,9 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 0}
 --- !u!1001 &7796899122723048654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1155,7 +1202,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5287530095003635871}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
       insertIndex: -1
@@ -1196,6 +1246,9 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 859a599f68c38734393b99caed392bc8, type: 2}
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
+  _bulletOrigin: {fileID: 0}
+  _bulletPrefab: {fileID: 0}
+  _healthbarPoint: {fileID: 5287530095003635871}
 --- !u!4 &7763817682625571621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
