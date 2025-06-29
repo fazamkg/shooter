@@ -13,6 +13,8 @@ namespace Faza
         [SerializeField] private RuntimeAnimatorController[] _animationSets;
         [SerializeField] private Shooter _shooter;
         [SerializeField] private Health _health;
+        [SerializeField] private Transform _bulletOrigin;
+        [SerializeField] private Projectile _bulletPrefab;
 
         private int _animationSetIndex;
         private float _horizontal;
@@ -27,6 +29,15 @@ namespace Faza
             _animationSetIndex %= _animationSets.Length;
             _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
             return _animator.runtimeAnimatorController.name;
+        }
+
+        public void Fire()
+        {
+            var bullet = Instantiate(_bulletPrefab);
+            bullet.transform.position = _bulletOrigin.position;
+            var direction = (_shooter.Target.position.WithY(0f) - transform.position.WithY(0f)).normalized;
+            bullet.Init(_shooter.Damage, _shooter.Damage, direction);
+            _shooter.FinishFire();
         }
 
         private void Awake()

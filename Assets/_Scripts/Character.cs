@@ -113,7 +113,7 @@ namespace Faza
             StartCoroutine(RotateTowardsCoroutine(target));
         }
 
-        private IEnumerator RotateTowardsCoroutine(Vector3 target)
+        public IEnumerator RotateTowardsCoroutine(Vector3 target)
         {
             target = target.WithY(0f);
             var crossY = 1f;
