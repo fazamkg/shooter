@@ -31,6 +31,10 @@ namespace Faza
             if (CurrentHealth <= 0f)
             {
                 CurrentHealth = 0f;
+
+                // todo: do not use getcomponent
+                GetComponent<CharacterController>().enabled = false;
+
                 OnDeath?.Invoke();
                 OnHealthDestroyed?.Invoke(this);
             }
