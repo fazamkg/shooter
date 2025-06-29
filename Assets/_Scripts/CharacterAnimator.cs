@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Faza
 {
+    // todo: use hash for animation states instead of strings
     public class CharacterAnimator : MonoBehaviour
     {
         [SerializeField] private Character _character;
@@ -48,7 +49,14 @@ namespace Faza
             if (_health != null)
             {
                 _health.OnDeath += Health_OnDeath;
+                _health.OnHealthChanged += Health_OnHealthChanged;
             }
+        }
+
+        private void Health_OnHealthChanged()
+        {
+            if (_health.CurrentHealth <= 0f) return;
+            _animator.CrossFade("Hit", 0.3f);
         }
 
         private void Health_OnDeath()
