@@ -112,14 +112,15 @@ namespace Faza
         {
             target = target.WithY(0f);
             var crossY = 1f;
+            var dot = -1f;
 
-            while (crossY.Abs() > 0.1f)
+            while (crossY.Abs() > 0.1f || dot < -0.95f)
             {
                 var lookForward = _camera.transform.forward;
                 var direction = (target - transform.position.WithY(0f)).normalized;
 
                 var cross = Vector3.Cross(lookForward, direction);
-                var dot = Vector3.Dot(lookForward, direction);
+                dot = Vector3.Dot(lookForward, direction);
                 var result = 0f;
                 crossY = cross.y;
 
