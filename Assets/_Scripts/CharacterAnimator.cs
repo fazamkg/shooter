@@ -61,7 +61,7 @@ namespace Faza
 
         private void Health_OnDeath()
         {
-            _animator.CrossFade("Death", 0.3f);
+            _animator.CrossFade("Death", 0.05f);
         }
 
         private void Update()
