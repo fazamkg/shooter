@@ -4,6 +4,9 @@ namespace Faza
 {
     public class Projectile : MonoBehaviour
     {
+        [SerializeField] private MeshRenderer _renderer;
+        [SerializeField] private ParticleSystem _hitEffect;
+
         private float _damage;
         private float _speed;
         private Vector3 _direction;
@@ -29,7 +32,9 @@ namespace Faza
             var health = other.GetComponent<Health>();
             health.TakeDamage(_damage);
 
-            gameObject.SetActive(false);
+            enabled = false;
+            _renderer.enabled = false;
+            _hitEffect.Play();
         }
     } 
 }
