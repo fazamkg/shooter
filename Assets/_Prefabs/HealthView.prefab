@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 136.56, y: 0}
-  m_SizeDelta: {x: 373.40002, y: 38.7}
+  m_SizeDelta: {x: 373.40002, y: 22.28}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4084326642223388904
 CanvasRenderer:
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3.2
+  m_PixelsPerUnitMultiplier: 7.6
 --- !u!1 &2047781304276495879
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 175.9}
-  m_SizeDelta: {x: 239.65, y: 44.2}
+  m_SizeDelta: {x: 180.2, y: 31.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5740426407752662659
 CanvasRenderer:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3.44
+  m_PixelsPerUnitMultiplier: 5.2
 --- !u!114 &1491540547582020170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fill: {fileID: 7406728959839496078}
-  _width: 230
+  _width: 170
   _offset: {x: 0, y: 1, z: 0}
   _screenOffset: {x: 0, y: 60, z: 0}
 --- !u!1 &5174451220169400716
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 4.47
+  m_PixelsPerUnitMultiplier: 8.71
 --- !u!114 &4342027251575548562
 MonoBehaviour:
   m_ObjectHideFlags: 0
