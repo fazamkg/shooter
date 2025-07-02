@@ -19788,7 +19788,7 @@ MonoBehaviour:
   _character: {fileID: 1678777976}
   _speed: 20
   _damage: 40
-  _rotationSpeed: 720
+  _rotationSpeed: 1440
 --- !u!1001 &1697597213
 PrefabInstance:
   m_ObjectHideFlags: 0
