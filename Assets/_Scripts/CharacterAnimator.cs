@@ -35,6 +35,7 @@ namespace Faza
             return _animator.runtimeAnimatorController.name;
         }
 
+        // called from animation event
         public void Fire()
         {
             var bullet = Instantiate(_bulletPrefab);
@@ -103,9 +104,9 @@ namespace Faza
             var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _horizontalSpeed);
             _animator.SetFloat("HorizontalSpeed", hSpeed);
 
-            if (_shooter != null)
+            if (_shooter != null && _shooter.IsShooting)
             {
-                _animator.SetBool("Shoot", _shooter.IsShooting);
+                _animator.CrossFadeInFixedTime("Attack", 0.05f);
                 _shooter.IsShooting = false;
             }
         }
