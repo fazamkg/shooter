@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private RectTransform _fill;
         [SerializeField] private float _width = 230f;
         [SerializeField] private Vector3 _offset;
+        [SerializeField] private Vector3 _screenOffset;
 
         private Transform _target;
         private Health _health;
@@ -47,7 +48,7 @@ namespace Faza
         private void LateUpdate()
         {
             var pos = _target.position + _offset;
-            transform.position = Camera.main.WorldToScreenPoint(pos);
+            transform.position = Camera.main.WorldToScreenPoint(pos) + _screenOffset;
         }
     }
 }

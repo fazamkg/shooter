@@ -167,6 +167,7 @@ MonoBehaviour:
   _fill: {fileID: 7406728959839496078}
   _width: 230
   _offset: {x: 0, y: 1, z: 0}
+  _screenOffset: {x: 0, y: 60, z: 0}
 --- !u!1 &5174451220169400716
 GameObject:
   m_ObjectHideFlags: 0
