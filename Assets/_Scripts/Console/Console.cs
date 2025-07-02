@@ -35,6 +35,13 @@ namespace Faza
 
             AddCommand("bind", (args) => Bind(args[0].ToKeyCode(), args[1]));
             AddCommand("quit", (args) => Application.Quit());
+            AddCommand("list_cmds", (args) =>
+            {
+                foreach (var command in _instance._commands)
+                {
+                    Log(command.Key);
+                }
+            });
         }
 
         private void Awake()
