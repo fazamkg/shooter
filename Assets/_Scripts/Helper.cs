@@ -37,6 +37,20 @@ namespace Faza
             rt.anchoredPosition = pos;
         }
 
+        public static void SetWidth(this RectTransform rt, float width)
+        {
+            var temp = rt.sizeDelta;
+            temp.x = width;
+            rt.sizeDelta = temp;
+        }
+
+        public static void SetHeight(this RectTransform rt, float height)
+        {
+            var temp = rt.sizeDelta;
+            temp.y = height;
+            rt.sizeDelta = temp;
+        }
+
         public static bool IsZero(this float value)
         {
             return Mathf.Approximately(value, 0f);

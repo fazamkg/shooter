@@ -19737,7 +19737,7 @@ MonoBehaviour:
   _sensitivity: 6
   _camera: {fileID: 963194225}
   _turningCap: 0.1
-  _rotationSpeed: 360
+  _rotationSpeed: 900
 --- !u!114 &1678777976
 MonoBehaviour:
   m_ObjectHideFlags: 0
