@@ -56,12 +56,12 @@ namespace Faza
         private void Health_OnHealthChanged()
         {
             if (_health.CurrentHealth <= 0f) return;
-            _animator.CrossFade("Hit", 0.3f);
+            _animator.CrossFadeInFixedTime("Hit", 0.05f);
         }
 
         private void Health_OnDeath()
         {
-            _animator.CrossFade("Death", 0.05f);
+            _animator.CrossFadeInFixedTime("Death", 0.05f);
         }
 
         private void Update()
