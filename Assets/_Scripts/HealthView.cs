@@ -22,10 +22,6 @@ namespace Faza
         {
             _health = health;
             _target = health.HealthbarPoint;
-            if (_target == null)
-            {
-                Debug.LogError("no target");
-            }
             InstantUpdateView(health.CurrentHealth, health.MaxHealth);
 
             health.OnHealthChanged += Health_OnHealthChanged;
@@ -43,7 +39,7 @@ namespace Faza
             var x = current / max * _width;
 
             _fill.SetAnchorX(x);
-            _gloss.SetWidth(x - 5.3f * 2f);
+            _gloss.SetWidth(x - 2.1f * 2f);
         }
 
         public Tween UpdateView(float current, float max)
@@ -54,7 +50,7 @@ namespace Faza
             seq.Append(_fill.DOAnchorPosX(x, 0.15f).SetEase(Ease.InOutCirc));
 
             var temp = _gloss.sizeDelta;
-            temp.x = x - 5.3f * 2f;
+            temp.x = x - 2.1f * 2f;
             seq.Join(_gloss.DOSizeDelta(temp, 0.15f).SetEase(Ease.InOutCirc));
 
             return seq;

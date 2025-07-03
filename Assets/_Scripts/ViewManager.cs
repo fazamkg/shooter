@@ -9,6 +9,8 @@ namespace Faza
     {
         [SerializeField] private HealthView _healthViewPrefab;
         [SerializeField] private Transform _healthViewParent;
+        [SerializeField] private HealthView _playerHealthView;
+        [SerializeField] private Health _playerHealth;
 
         private Dictionary<Health, HealthView> _healths = new();
 
@@ -18,8 +20,15 @@ namespace Faza
             Health.OnHealthDestroyed += Health_OnHealthDestroyed;
         }
 
+        private void Start()
+        {
+            _playerHealthView.Init(_playerHealth);
+        }
+
         private void Health_OnHealthCreated(Health health)
         {
+            if (health.AllowViewCreation == false) return;
+
             var view = Instantiate(_healthViewPrefab, _healthViewParent);
             view.Init(health);
 
@@ -28,6 +37,8 @@ namespace Faza
 
         private void Health_OnHealthDestroyed(Health health)
         {
+            if (health.AllowViewCreation == false) return;
+
             _healths[health].TweenDisappear();
             _healths.Remove(health);
         }

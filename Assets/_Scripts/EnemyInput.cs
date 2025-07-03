@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.AI;
 
 namespace Faza
 {
@@ -13,6 +15,8 @@ namespace Faza
         [SerializeField] private GameObject _tpCamera;
         [SerializeField] private float _jumpCheckDelta = 0.1f;
         [SerializeField] private float _jumpCheckDistance = 1f;
+        [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private Health _health;
 
         private float _cameraX;
         private float _cameraY;
@@ -23,9 +27,35 @@ namespace Faza
 
         private IWaypoint _currentWaypoint;
         private Queue<IWaypoint> _currentPath;
+        private int _currentPathIndex;
+        private Vector3 _oldCorner;
 
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
+
+        private void Awake()
+        {
+            _health.OnDeath += Health_OnDeath;
+
+            _agent.updateRotation = false;
+            _agent.updatePosition = false;
+
+            StartCoroutine(FollowPlayerCoroutine());
+        }
+
+        private void Health_OnDeath()
+        {
+            enabled = false;
+        }
+
+        private IEnumerator FollowPlayerCoroutine()
+        {
+            while (true)
+            {
+                yield return null;
+                _agent.SetDestination(PlayerInput.Instance.transform.position);
+            }
+        }
 
         public override float GetCameraX()
         {
@@ -142,7 +172,7 @@ namespace Faza
             return false;
         }
 
-        private void Update()
+        private void MoveByCustomWaypoints()
         {
             if (_currentWaypoint == null) return;
 
@@ -201,6 +231,69 @@ namespace Faza
 
             _horizontal = localDirectionToWp.x;
             _vertical = localDirectionToWp.z;
+        }
+
+        private void MoveByUnityAgent()
+        {
+            if (_agent.pathPending) return;
+
+            var currentWp = _agent.steeringTarget;
+            var lookForward = _look.forward.WithY(0f).normalized;
+            var position = transform.position.WithY(0f);
+            var wpPosition = currentWp.WithY(0f);
+
+            //var distanceToWp = (wpPosition - position).sqrMagnitude;
+            //if (distanceToWp < _stoppingDistance)
+            //{
+            //    if (_currentPathIndex == corners.Length - 1)
+            //    {
+            //        _agent.ResetPath();
+            //    }
+            //    else
+            //    {
+            //        _currentPathIndex++;
+            //        var pos = corners[_currentPathIndex];
+            //        //if (NeedsToJump(pos)) _jump = true;
+            //    }
+
+            //    _cameraX = 0f;
+            //    _horizontal = 0f;
+            //    _vertical = 0f;
+            //    return;
+            //}
+
+            var directionToWp = (wpPosition - position).normalized;
+
+            var cross = Vector3.Cross(lookForward, directionToWp);
+            var dot = Vector3.Dot(lookForward, directionToWp);
+
+            if (EntryPoint.IsDebugOn)
+            {
+                Line.DrawRay(transform.position, lookForward, Color.blue);
+                Line.DrawRay(transform.position, directionToWp, Color.green);
+                Line.DrawRay(transform.position, cross, Color.yellow);
+            }
+
+            var camX = 0f;
+            if (dot < -0.95f)
+            {
+                camX = -1f;
+            }
+            else
+            {
+                camX = cross.y;
+            }
+            _cameraX = camX * Time.deltaTime;
+
+            var localDirectionToWp = _look.InverseTransformDirection(directionToWp);
+
+            _horizontal = localDirectionToWp.x;
+            _vertical = localDirectionToWp.z;
+        }
+
+        private void Update()
+        {
+            MoveByUnityAgent();
         }
 
         public override bool IsFire()

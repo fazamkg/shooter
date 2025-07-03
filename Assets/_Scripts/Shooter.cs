@@ -23,7 +23,7 @@ namespace Faza
 
             if (Input.GetMouseButtonDown(0) == false) return;
 
-            if (_character.HorizontalSpeed > 0.05f) return;
+            if (_character.HorizontalSpeed > 1f) return;
 
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 

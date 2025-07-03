@@ -12,11 +12,14 @@ namespace Faza
         private bool _locked;
 
         public GameObject Camera => _camera;
+        public static PlayerInput Instance { get; private set; }
 
         private void Awake()
         {
             _locked = true;
             Console.StartReadingBinds();
+
+            Instance = this;
         }
 
         private void Start()
