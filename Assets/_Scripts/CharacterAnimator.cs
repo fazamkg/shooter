@@ -17,6 +17,7 @@ namespace Faza
         [SerializeField] private Transform _bulletOrigin;
         [SerializeField] private Projectile _bulletPrefab;
         [SerializeField] private Transform _healthbarPoint;
+        [SerializeField] private MeleeAttack _meleeAttack;
 
         private int _animationSetIndex;
         private float _horizontal;
@@ -43,6 +44,19 @@ namespace Faza
             var direction = (_shooter.Target.position.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(_shooter.Damage, _shooter.BulletSpeed, direction);
             _shooter.FinishFire();
+        }
+
+        // animation event
+        public void MeleeAttack()
+        {
+            var health = _meleeAttack.Target.GetComponent<Health>();
+            health.TakeDamage(_meleeAttack.Damage);
+        }
+
+        // animation event
+        public void FinishMeleeAttack()
+        {
+            _meleeAttack.FinishAttack();
         }
 
         private void Awake()
@@ -108,6 +122,12 @@ namespace Faza
             {
                 _animator.CrossFadeInFixedTime("Attack", 0.05f);
                 _shooter.IsShooting = false;
+            }
+
+            if (_meleeAttack != null && _meleeAttack.StartAttack)
+            {
+                _animator.CrossFadeInFixedTime("MeleeAttack", 0.05f);
+                _meleeAttack.StartAttack = false;
             }
         }
     } 
