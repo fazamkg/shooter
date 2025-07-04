@@ -237,6 +237,8 @@ namespace Faza
         {
             if (_agent.pathPending) return;
 
+            _agent.nextPosition = transform.position;
+
             var currentWp = _agent.steeringTarget;
             var lookForward = _look.forward.WithY(0f).normalized;
             var position = transform.position.WithY(0f);
