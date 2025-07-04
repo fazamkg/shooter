@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 4813155372337569324}
   _hitEffect: {fileID: 3367665500235280206}
+  _collider: {fileID: 7686462964846600935}
 --- !u!135 &7686462964846600935
 SphereCollider:
   m_ObjectHideFlags: 0

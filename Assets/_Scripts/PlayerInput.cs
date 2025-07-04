@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private GameObject _camera;
         [SerializeField] private float _turningCap;
         [SerializeField] private float _rotationSpeed;
+        [SerializeField] private Health _health;
 
         private bool _locked;
 
@@ -20,6 +21,13 @@ namespace Faza
             Console.StartReadingBinds();
 
             Instance = this;
+
+            _health.OnDeath += Health_OnDeath;
+        }
+
+        private void Health_OnDeath()
+        {
+            enabled = false;
         }
 
         private void Start()
@@ -48,6 +56,7 @@ namespace Faza
 
         public override float GetCameraX()
         {
+            if (enabled == false) return 0f;
             if (_locked == false) return 0f;
 
             var joyV = Joystick.GetInput("move").y;
@@ -84,6 +93,7 @@ namespace Faza
 
         public override Vector3 GetMove()
         {
+            if (enabled == false) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
 
             var kbV = Input.GetAxisRaw("Vertical");

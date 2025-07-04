@@ -421,7 +421,7 @@ MonoBehaviour:
   _camera: {fileID: 5774055898149711907}
   _acceleration: 50
   _friction: 8
-  _maxSpeed: 12
+  _maxSpeed: 2
   _gravity: 20
   _jumpSpeed: 12
   _useDistance: 3

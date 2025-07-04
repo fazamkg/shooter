@@ -6,6 +6,7 @@ namespace Faza
     {
         [SerializeField] private MeshRenderer _renderer;
         [SerializeField] private ParticleSystem _hitEffect;
+        [SerializeField] private Collider _collider;
 
         private float _damage;
         private float _speed;
@@ -34,6 +35,7 @@ namespace Faza
 
             enabled = false;
             _renderer.enabled = false;
+            _collider.enabled = false;
             _hitEffect.Play();
         }
     } 

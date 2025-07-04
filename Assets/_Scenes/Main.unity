@@ -18535,10 +18535,11 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 581d51d7425340043acfa7f7a51a9689, type: 2}
   - {fileID: 9100000, guid: 859a599f68c38734393b99caed392bc8, type: 2}
   _shooter: {fileID: 1678777978}
-  _health: {fileID: 0}
+  _health: {fileID: 1678777979}
   _bulletOrigin: {fileID: 452179483}
   _bulletPrefab: {fileID: 89754544282707423, guid: 14dc0fa2b32b8ac4dbc24a0d072d7a8d, type: 3}
   _healthbarPoint: {fileID: 0}
+  _meleeAttack: {fileID: 0}
 --- !u!1 &1455927482
 GameObject:
   m_ObjectHideFlags: 0
@@ -20237,6 +20238,7 @@ MonoBehaviour:
   _camera: {fileID: 963194225}
   _turningCap: 0.1
   _rotationSpeed: 900
+  _health: {fileID: 1678777979}
 --- !u!114 &1678777976
 MonoBehaviour:
   m_ObjectHideFlags: 0
