@@ -19,6 +19,7 @@ namespace Faza
         public float MaxHealth { get; private set; }
         public Transform HealthbarPoint => GetComponentInChildren<CharacterAnimator>().HealthbarPoint;
         public bool AllowViewCreation => _allowViewCreation;
+        public bool IsDead => CurrentHealth <= 0f;
 
         private void Awake()
         {

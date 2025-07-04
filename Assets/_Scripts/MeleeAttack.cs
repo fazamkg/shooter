@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private Character _character;
         [SerializeField] private float _range;
         [SerializeField] private float _damage;
+        [SerializeField] private Health _health;
 
         private Collider[] _colliders = new Collider[32];
 
@@ -15,6 +16,16 @@ namespace Faza
         public bool StartAttack { get; set; }
         public float Damage => _damage;
         public Transform Target { get; set; }
+
+        private void Awake()
+        {
+            _health.OnDeath += Health_OnDeath;
+        }
+
+        private void Health_OnDeath()
+        {
+            enabled = false;
+        }
 
         private void Update()
         {

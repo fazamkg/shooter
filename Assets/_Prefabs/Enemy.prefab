@@ -500,6 +500,7 @@ MonoBehaviour:
   _character: {fileID: 2565205057089287655}
   _range: 3
   _damage: 20
+  _health: {fileID: 3563820535122673875}
 --- !u!1 &8087302341561472613
 GameObject:
   m_ObjectHideFlags: 0

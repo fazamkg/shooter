@@ -12,12 +12,22 @@ namespace Faza
 
         private bool _shoot;
 
+        public Vector3 Target { get; private set; }
         public bool IsShooting { get; set; }
         public float BulletSpeed => _speed;
         public float Damage => _damage;
-        public Transform Target { get; set; }
 
-        private void Update()
+        private void Awake()
+        {
+            ShootingTapArea.OnTap += ShootingTapArea_OnTap;
+        }
+
+        private void OnDestroy()
+        {
+            ShootingTapArea.OnTap -= ShootingTapArea_OnTap;
+        }
+
+        private void ShootingTapArea_OnTap()
         {
             if (_shoot) return;
 
@@ -30,14 +40,11 @@ namespace Faza
             var hit = Physics.Raycast(ray, out var info, 100f, ~0);
             if (hit == false) return;
 
-            var enemy = info.collider.GetComponent<EnemyInput>();
-            if (enemy == false) return;
-
             _shoot = true;
 
-            Target = enemy.transform;
+            Target = info.point;
 
-            StartCoroutine(ShootCoroutine(enemy.transform.position));
+            StartCoroutine(ShootCoroutine(info.point));
         }
 
         private IEnumerator ShootCoroutine(Vector3 target)

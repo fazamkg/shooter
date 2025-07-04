@@ -21,13 +21,6 @@ namespace Faza
             Console.StartReadingBinds();
 
             Instance = this;
-
-            _health.OnDeath += Health_OnDeath;
-        }
-
-        private void Health_OnDeath()
-        {
-            enabled = false;
         }
 
         private void Start()
@@ -43,11 +36,13 @@ namespace Faza
 
                 if (_locked)
                 {
+                    Time.timeScale = 1f;
                     Console.StartReadingBinds();
                     Console.CloseConsole();
                 }
                 else
                 {
+                    Time.timeScale = 0f;
                     Console.StopReadingBinds();
                     Console.OpenConsole();
                 }
@@ -56,7 +51,7 @@ namespace Faza
 
         public override float GetCameraX()
         {
-            if (enabled == false) return 0f;
+            if (_health.IsDead) return 0f;
             if (_locked == false) return 0f;
 
             var joyV = Joystick.GetInput("move").y;
@@ -93,7 +88,7 @@ namespace Faza
 
         public override Vector3 GetMove()
         {
-            if (enabled == false) return Vector3.zero;
+            if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
 
             var kbV = Input.GetAxisRaw("Vertical");

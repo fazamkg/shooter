@@ -41,7 +41,7 @@ namespace Faza
         {
             var bullet = Instantiate(_bulletPrefab);
             bullet.transform.position = _bulletOrigin.position;
-            var direction = (_shooter.Target.position.WithY(0f) - transform.position.WithY(0f)).normalized;
+            var direction = (_shooter.Target.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(_shooter.Damage, _shooter.BulletSpeed, direction);
             _shooter.FinishFire();
         }
