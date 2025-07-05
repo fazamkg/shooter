@@ -98,7 +98,9 @@ namespace Faza
 
             var joy = Joystick.GetInput("move");
 
-            var input = new Vector3(keyboard.x + joy.x, 0f, keyboard.z + joy.y);
+            var h = Mathf.Clamp(keyboard.x + joy.x, -1f, 1f);
+            var v = Mathf.Clamp(keyboard.z + joy.y, -1f, 1f);
+            var input = new Vector3(h, 0f, v);
 
             var lookRight = _camera.transform.right;
             var lookForward = _camera.transform.forward;

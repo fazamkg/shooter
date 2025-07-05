@@ -29,16 +29,19 @@ namespace Faza
 
             if (_character.HorizontalSpeed > 1f) return;
 
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var mouse = Input.mousePosition;
+            mouse.z = 0f;
+            var playerScreen = Camera.main.WorldToScreenPoint(transform.position);
+            playerScreen.z = 0f;
+            var screenDirection = (Input.mousePosition - playerScreen).normalized;
 
-            var hit = Physics.Raycast(ray, out var info, 100f, ~0);
-            if (hit == false) return;
+            var target = transform.position + new Vector3(screenDirection.x, 0f, screenDirection.y);
 
             _shoot = true;
 
-            Target = info.point;
+            Target = target;
 
-            StartCoroutine(ShootCoroutine(info.point));
+            StartCoroutine(ShootCoroutine(target));
         }
 
         private IEnumerator ShootCoroutine(Vector3 target)

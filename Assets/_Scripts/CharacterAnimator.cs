@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Faza
@@ -43,7 +44,20 @@ namespace Faza
             bullet.transform.position = _bulletOrigin.position;
             var direction = (_shooter.Target.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(_shooter.Damage, _shooter.BulletSpeed, direction, _shooter.Gravity, _shooter.Decay);
+
+            StartCoroutine(FinishFireCoroutine());
+        }
+
+        private IEnumerator FinishFireCoroutine()
+        {
+            yield return new WaitForSeconds(0.75f);
             _shooter.FinishFire();
+        }
+
+        // animation event
+        public void FinishFire()
+        {
+            //_shooter.FinishFire();
         }
 
         // animation event
