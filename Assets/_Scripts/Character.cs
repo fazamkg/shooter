@@ -3,6 +3,7 @@ using System.Collections;
 
 namespace Faza
 {
+    [SelectionBase]
     public class Character : MonoBehaviour
     {
         [SerializeField] private CharacterInput _characterInput;

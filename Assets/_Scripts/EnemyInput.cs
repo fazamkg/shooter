@@ -17,6 +17,7 @@ namespace Faza
         [SerializeField] private float _jumpCheckDistance = 1f;
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Health _health;
+        [SerializeField] private float _visionRadius;
 
         private float _cameraX;
         private float _cameraY;
@@ -29,6 +30,7 @@ namespace Faza
         private Queue<IWaypoint> _currentPath;
         private int _currentPathIndex;
         private Vector3 _oldCorner;
+        private Collider[] _colliders = new Collider[32];
 
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
@@ -53,7 +55,18 @@ namespace Faza
             while (true)
             {
                 yield return null;
-                _agent.SetDestination(PlayerInput.Instance.transform.position);
+
+                var amount = Physics.OverlapSphereNonAlloc(transform.position, _visionRadius, _colliders);
+                for (var i = 0; i < amount; i++)
+                {
+                    var player = _colliders[i].GetComponent<PlayerInput>();
+
+                    if (player != false)
+                    {
+                        _agent.SetDestination(PlayerInput.Instance.transform.position);
+                        break;
+                    }
+                }
 
                 if (PlayerInput.Instance.Health.IsDead)
                 {

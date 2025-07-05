@@ -448,6 +448,7 @@ MonoBehaviour:
   _jumpCheckDistance: 2
   _agent: {fileID: 4362213404679236505}
   _health: {fileID: 3563820535122673875}
+  _visionRadius: 5
 --- !u!114 &3563820535122673875
 MonoBehaviour:
   m_ObjectHideFlags: 0
