@@ -19152,6 +19152,7 @@ MonoBehaviour:
   _speed: 20
   _damage: 40
   _rotationSpeed: 1440
+  _gravity: 15
 --- !u!114 &1678777979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19167,6 +19168,7 @@ MonoBehaviour:
   _startHealth: 100
   _maxHealth: 100
   _allowViewCreation: 0
+  _character: {fileID: 0}
 --- !u!1001 &1697597213
 PrefabInstance:
   m_ObjectHideFlags: 0

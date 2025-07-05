@@ -24,6 +24,7 @@ namespace Faza
         private Vector3 _velocity;
         private float _verticalVelocity;
         private bool _isGrounded;
+        private Coroutine _stopCoroutine;
 
         public bool DeltaTimeScaled { get; set; } = true;
         public float HorizontalSpeed => _velocity.magnitude;
@@ -106,6 +107,23 @@ namespace Faza
                     }
                 }
             }
+        }
+
+        public void Stop(float duration)
+        {
+            if (_stopCoroutine != null)
+            {
+                StopCoroutine(_stopCoroutine);
+            }
+            _stopCoroutine = StartCoroutine(StopCharacterCoroutine(duration));
+        }
+
+        private IEnumerator StopCharacterCoroutine(float duration)
+        {
+            _velocity = Vector3.zero;
+            enabled = false;
+            yield return new WaitForSeconds(duration);
+            enabled = true;
         }
 
         public IEnumerator RotateTowardsCoroutine(Vector3 target, float speed)

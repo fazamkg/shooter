@@ -13,6 +13,7 @@ namespace Faza
         private bool _locked;
 
         public GameObject Camera => _camera;
+        public Health Health => _health;
         public static PlayerInput Instance { get; private set; }
 
         private void Awake()

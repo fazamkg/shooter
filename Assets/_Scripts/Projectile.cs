@@ -11,18 +11,24 @@ namespace Faza
         private float _damage;
         private float _speed;
         private Vector3 _direction;
+        private float _verticalSpeed;
+        private float _gravity;
 
-        public void Init(float damage, float speed, Vector3 direction)
+        public void Init(float damage, float speed, Vector3 direction, float gravity)
         {
             _damage = damage;
             _speed = speed;
             _direction = direction;
+            _gravity = gravity;
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
         private void Update()
         {
+            _verticalSpeed -= _gravity * Time.deltaTime;
+
             transform.position += _speed * Time.deltaTime * _direction;
+            transform.position += _verticalSpeed * Time.deltaTime * Vector3.up;
         }
 
         private void OnTriggerEnter(Collider other)

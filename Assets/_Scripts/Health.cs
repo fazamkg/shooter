@@ -14,6 +14,7 @@ namespace Faza
         [SerializeField] private float _startHealth;
         [SerializeField] private float _maxHealth;
         [SerializeField] private bool _allowViewCreation = true;
+        [SerializeField] private Character _character;
 
         public float CurrentHealth { get; private set; }
         public float MaxHealth { get; private set; }
@@ -31,6 +32,12 @@ namespace Faza
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+
+            if (_character != null)
+            {
+                _character.Stop(0.5f);
+            }
+
             if (CurrentHealth <= 0f)
             {
                 CurrentHealth = 0f;

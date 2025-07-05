@@ -54,6 +54,12 @@ namespace Faza
             {
                 yield return null;
                 _agent.SetDestination(PlayerInput.Instance.transform.position);
+
+                if (PlayerInput.Instance.Health.IsDead)
+                {
+                    _agent.ResetPath();
+                    yield break;
+                }
             }
         }
 

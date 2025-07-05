@@ -463,6 +463,7 @@ MonoBehaviour:
   _startHealth: 300
   _maxHealth: 300
   _allowViewCreation: 1
+  _character: {fileID: 2565205057089287655}
 --- !u!195 &4362213404679236505
 NavMeshAgent:
   m_ObjectHideFlags: 0
