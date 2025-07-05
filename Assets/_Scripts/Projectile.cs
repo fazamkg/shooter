@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private Collider _collider;
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private GameObject _bulletHolePrefab;
 
         private float _damage;
         private float _speed;
@@ -15,6 +16,9 @@ namespace Faza
         private float _verticalSpeed;
         private float _gravity;
         private float _decay;
+
+        private Vector3 _hitPosition;
+        private Vector3 _hitNormal;
 
         public void Init(float damage, float speed, Vector3 direction, float gravity, float decay)
         {
@@ -43,6 +47,9 @@ namespace Faza
             var hit = _rigidbody.SweepTest(vector.normalized, out var info, vector.magnitude);
             if (hit)
             {
+                _hitPosition = info.point;
+                _hitNormal = info.normal;
+
                 _rigidbody.MovePosition(info.point);
             }
             else
@@ -66,6 +73,14 @@ namespace Faza
                 _renderer.enabled = false;
                 _collider.enabled = false;
                 _hitEffect.Play();
+
+                if (enemy == false)
+                {
+                    var pos = _hitPosition + _hitNormal * 0.1f;
+                    var rot = Quaternion.LookRotation(-_hitNormal);
+                    var bulletHole = Instantiate(_bulletHolePrefab, pos, rot);
+                    bulletHole.transform.Rotate(0f, 0f, Random.Range(0f, 360f), Space.Self);
+                }
             }
         }
     } 

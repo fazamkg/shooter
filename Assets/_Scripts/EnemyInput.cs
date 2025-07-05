@@ -18,6 +18,7 @@ namespace Faza
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private Health _health;
         [SerializeField] private float _visionRadius;
+        [SerializeField] private Transform[] _patrolPoints;
 
         private float _cameraX;
         private float _cameraY;
@@ -31,6 +32,7 @@ namespace Faza
         private int _currentPathIndex;
         private Vector3 _oldCorner;
         private Collider[] _colliders = new Collider[32];
+        private int _patrolIndex;
 
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
@@ -52,6 +54,8 @@ namespace Faza
 
         private IEnumerator FollowPlayerCoroutine()
         {
+            var playerFound = false;
+
             while (true)
             {
                 yield return null;
@@ -64,9 +68,24 @@ namespace Faza
                     if (player != false)
                     {
                         _agent.SetDestination(PlayerInput.Instance.transform.position);
+                        playerFound = true;
                         break;
                     }
                 }
+
+                if (playerFound == false && _patrolPoints != null && _patrolPoints.Length != 0)
+                {
+                    var nextPatrolPoint = _patrolPoints[_patrolIndex].position;
+                    _agent.SetDestination(nextPatrolPoint);
+
+                    if (Vector3.Distance(transform.position, nextPatrolPoint) < 1f)
+                    {
+                        _patrolIndex++;
+                        _patrolIndex %= _patrolPoints.Length;
+                    }
+                }
+
+                playerFound = false;
 
                 if (PlayerInput.Instance.Health.IsDead)
                 {

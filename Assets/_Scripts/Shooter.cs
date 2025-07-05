@@ -11,6 +11,9 @@ namespace Faza
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _gravity;
         [SerializeField] private float _decay;
+        [SerializeField] private ParticleSystem _muzzleEffect;
+        [SerializeField] private Transform _bulletOrigin;
+        [SerializeField] private Projectile _bulletPrefab;
 
         private bool _shoot;
 
@@ -54,6 +57,24 @@ namespace Faza
         public void FinishFire()
         {
             _shoot = false;
+        }
+
+        public void FireBullet()
+        {
+            _muzzleEffect.Play();
+
+            var bullet = Instantiate(_bulletPrefab);
+            bullet.transform.position = _bulletOrigin.position;
+            var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
+            bullet.Init(Damage, BulletSpeed, direction, Gravity, Decay);
+
+            StartCoroutine(FinishFireCoroutine());
+        }
+
+        private IEnumerator FinishFireCoroutine()
+        {
+            yield return new WaitForSeconds(0.75f);
+            FinishFire();
         }
     } 
 }

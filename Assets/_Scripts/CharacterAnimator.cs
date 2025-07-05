@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -15,10 +16,15 @@ namespace Faza
         [SerializeField] private RuntimeAnimatorController[] _animationSets;
         [SerializeField] private Shooter _shooter;
         [SerializeField] private Health _health;
-        [SerializeField] private Transform _bulletOrigin;
-        [SerializeField] private Projectile _bulletPrefab;
+        
         [SerializeField] private Transform _healthbarPoint;
         [SerializeField] private MeleeAttack _meleeAttack;
+
+        [Header("Random Idle")]
+        [SerializeField] private bool _switchIdle;
+        [SerializeField] private float _switchIdleMinDuration;
+        [SerializeField] private float _switchIdleMaxDuration;
+        [SerializeField] private float[] _idles;
 
         private int _animationSetIndex;
         private float _horizontal;
@@ -40,18 +46,7 @@ namespace Faza
         // called from animation event
         public void Fire()
         {
-            var bullet = Instantiate(_bulletPrefab);
-            bullet.transform.position = _bulletOrigin.position;
-            var direction = (_shooter.Target.WithY(0f) - transform.position.WithY(0f)).normalized;
-            bullet.Init(_shooter.Damage, _shooter.BulletSpeed, direction, _shooter.Gravity, _shooter.Decay);
-
-            StartCoroutine(FinishFireCoroutine());
-        }
-
-        private IEnumerator FinishFireCoroutine()
-        {
-            yield return new WaitForSeconds(0.75f);
-            _shooter.FinishFire();
+            _shooter.FireBullet();
         }
 
         // animation event
@@ -79,6 +74,23 @@ namespace Faza
             {
                 _health.OnDeath += Health_OnDeath;
                 _health.OnHealthChanged += Health_OnHealthChanged;
+            }
+
+            if (_switchIdle)
+            {
+                _animator.SetFloat("IdleVariant", _idles.GetRandom());
+                StartCoroutine(SwitchIdle());
+            }
+        }
+
+        private IEnumerator SwitchIdle()
+        {
+            while (true)
+            {
+                var randomDuration = Random.Range(_switchIdleMinDuration, _switchIdleMaxDuration);
+                yield return new WaitForSeconds(randomDuration);
+
+                _animator.DOFloat("IdleVariant", _idles.GetRandom(), 0.3f);
             }
         }
 

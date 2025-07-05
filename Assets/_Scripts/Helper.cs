@@ -1,11 +1,24 @@
 using System;
 using System.Globalization;
 using UnityEngine;
+using DG.Tweening;
+using Random = UnityEngine.Random;
 
 namespace Faza
 {
     public static class Helper
     {
+        public static T GetRandom<T>(this T[] array)
+        {
+            return array[Random.Range(0, array.Length)];
+        }
+
+        public static Tween DOFloat(this Animator animator, string property, float to, float duration)
+        {
+            return DOTween.To(() => animator.GetFloat(property),
+                x => animator.SetFloat(property, x), to, duration);
+        }
+
         public static void Toggle(this GameObject gameObject)
         {
             gameObject.SetActive(!gameObject.activeSelf);
