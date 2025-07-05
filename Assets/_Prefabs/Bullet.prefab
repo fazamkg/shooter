@@ -207,6 +207,7 @@ MonoBehaviour:
   _renderer: {fileID: 4813155372337569324}
   _hitEffect: {fileID: 3367665500235280206}
   _collider: {fileID: 7686462964846600935}
+  _rigidbody: {fileID: 4673705852912115904}
 --- !u!135 &7686462964846600935
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!1001 &3205754887383787846
@@ -379,7 +380,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114324878773532104, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

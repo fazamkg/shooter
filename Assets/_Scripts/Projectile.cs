@@ -7,6 +7,7 @@ namespace Faza
         [SerializeField] private MeshRenderer _renderer;
         [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private Collider _collider;
+        [SerializeField] private Rigidbody _rigidbody;
 
         private float _damage;
         private float _speed;
@@ -23,15 +24,31 @@ namespace Faza
             _gravity = gravity;
             _decay = decay;
             transform.rotation = Quaternion.LookRotation(direction);
+            _rigidbody.position = transform.position;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            _verticalSpeed -= _gravity * Time.deltaTime;
-            _speed -= _decay * Time.deltaTime;
+            _verticalSpeed -= _gravity * Time.fixedDeltaTime;
+            _speed -= _decay * Time.fixedDeltaTime;
 
-            transform.position += _speed * Time.deltaTime * _direction;
-            transform.position += _verticalSpeed * Time.deltaTime * Vector3.up;
+            var position = _rigidbody.position;
+
+            position += _speed * Time.fixedDeltaTime * _direction;
+            position += _verticalSpeed * Time.fixedDeltaTime * Vector3.up;
+
+            _rigidbody.MovePosition(position);
+
+            var vector = position - _rigidbody.position;
+            var hit = _rigidbody.SweepTest(vector.normalized, out var info, vector.magnitude);
+            if (hit)
+            {
+                _rigidbody.MovePosition(info.point);
+            }
+            else
+            {
+                _rigidbody.MovePosition(position);
+            }
         }
 
         private void OnTriggerEnter(Collider other)
