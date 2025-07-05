@@ -34,15 +34,19 @@ namespace Faza
         private void OnTriggerEnter(Collider other)
         {
             var enemy = other.GetComponent<EnemyInput>();
-            if (enemy == false) return;
+            if (enemy != false)
+            {
+                var health = other.GetComponent<Health>();
+                health.TakeDamage(_damage);
+            }
 
-            var health = other.GetComponent<Health>();
-            health.TakeDamage(_damage);
-
-            enabled = false;
-            _renderer.enabled = false;
-            _collider.enabled = false;
-            _hitEffect.Play();
+            if (other.GetComponent<PlayerInput>() == false)
+            {
+                enabled = false;
+                _renderer.enabled = false;
+                _collider.enabled = false;
+                _hitEffect.Play();
+            }
         }
     } 
 }

@@ -4,13 +4,23 @@ using UnityEngine.EventSystems;
 
 namespace Faza
 {
-    public class ShootingTapArea : MonoBehaviour, IPointerDownHandler
+    public class ShootingTapArea : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        public static event Action OnTap;
+        public static event Action OnDown;
+        public static event Action OnUp;
+
+        public static bool IsDown { get; private set; }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            OnTap?.Invoke();
+            IsDown = true;
+            OnDown?.Invoke();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            IsDown = false;
+            OnUp?.Invoke();
         }
     }
 }

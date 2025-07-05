@@ -19,21 +19,11 @@ namespace Faza
         public float Damage => _damage;
         public float Gravity => _gravity;
 
-        private void Awake()
-        {
-            ShootingTapArea.OnTap += ShootingTapArea_OnTap;
-        }
-
-        private void OnDestroy()
-        {
-            ShootingTapArea.OnTap -= ShootingTapArea_OnTap;
-        }
-
-        private void ShootingTapArea_OnTap()
+        private void Update()
         {
             if (_shoot) return;
 
-            if (Input.GetMouseButtonDown(0) == false) return;
+            if (ShootingTapArea.IsDown == false) return;
 
             if (_character.HorizontalSpeed > 1f) return;
 
