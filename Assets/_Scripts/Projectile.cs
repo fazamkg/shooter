@@ -13,19 +13,22 @@ namespace Faza
         private Vector3 _direction;
         private float _verticalSpeed;
         private float _gravity;
+        private float _decay;
 
-        public void Init(float damage, float speed, Vector3 direction, float gravity)
+        public void Init(float damage, float speed, Vector3 direction, float gravity, float decay)
         {
             _damage = damage;
             _speed = speed;
             _direction = direction;
             _gravity = gravity;
+            _decay = decay;
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
         private void Update()
         {
             _verticalSpeed -= _gravity * Time.deltaTime;
+            _speed -= _decay * Time.deltaTime;
 
             transform.position += _speed * Time.deltaTime * _direction;
             transform.position += _verticalSpeed * Time.deltaTime * Vector3.up;

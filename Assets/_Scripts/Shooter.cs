@@ -10,6 +10,7 @@ namespace Faza
         [SerializeField] private float _damage;
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _gravity;
+        [SerializeField] private float _decay;
 
         private bool _shoot;
 
@@ -18,6 +19,7 @@ namespace Faza
         public float BulletSpeed => _speed;
         public float Damage => _damage;
         public float Gravity => _gravity;
+        public float Decay => _decay;
 
         private void Update()
         {
