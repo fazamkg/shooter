@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Faza
@@ -16,6 +15,7 @@ namespace Faza
         public bool StartAttack { get; set; }
         public float Damage => _damage;
         public Transform Target { get; set; }
+        public float Range => _range;
 
         private void Awake()
         {
@@ -30,7 +30,6 @@ namespace Faza
         private void Update()
         {
             if (WithinAttack) return;
-            if (_character.HorizontalSpeed > 1f) return;
             
             var amount = Physics.OverlapSphereNonAlloc(transform.position, _range, _colliders);
             for (var i = 0; i < amount; i++)

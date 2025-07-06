@@ -7,6 +7,7 @@ namespace Faza
 {
     public class EnemyInput : CharacterInput
     {
+        [SerializeField] private MeleeAttack _meleeAttack;
         [SerializeField] private float _sensitivity;
         [SerializeField] private Transform _look;
         [SerializeField] private float _stoppingDistance;
@@ -59,6 +60,12 @@ namespace Faza
             while (true)
             {
                 yield return null;
+
+                if (_meleeAttack.WithinAttack)
+                {
+                    _agent.ResetPath();
+                    continue;
+                }
 
                 var amount = Physics.OverlapSphereNonAlloc(transform.position, _visionRadius, _colliders);
                 for (var i = 0; i < amount; i++)

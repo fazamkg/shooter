@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93a74541f3c331499c37b7378490f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meleeAttack: {fileID: 2010111956292457944}
   _sensitivity: 900
   _look: {fileID: 5774055898149711907}
   _stoppingDistance: 0.5
@@ -501,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 2565205057089287655}
-  _range: 3
+  _range: 1
   _damage: 20
   _health: {fileID: 3563820535122673875}
 --- !u!1 &8087302341561472613
