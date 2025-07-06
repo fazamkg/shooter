@@ -18,11 +18,12 @@ namespace Faza
         private bool _shoot;
 
         public Vector3 Target { get; private set; }
-        public bool IsShooting { get; set; }
+        public bool StartedShooting { get; set; }
         public float BulletSpeed => _speed;
         public float Damage => _damage;
         public float Gravity => _gravity;
         public float Decay => _decay;
+        public bool WithinShooting => _shoot;
 
         private void Update()
         {
@@ -51,7 +52,7 @@ namespace Faza
         {
             yield return _character.RotateTowardsCoroutine(target, _rotationSpeed);
 
-            IsShooting = true;
+            StartedShooting = true;
         }
 
         public void FinishFire()

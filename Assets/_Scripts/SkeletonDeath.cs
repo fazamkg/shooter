@@ -206,7 +206,7 @@ namespace Faza
                 var meshCollider = go.AddComponent<BoxCollider>();
                 meshCollider.sharedMaterial = Resources.Load<PhysicMaterial>("Gib");
 
-                var horizontalSpeed = Random.Range(6f, 8f);
+                var horizontalSpeed = Random.Range(3f, 5f);
                 var verticalSpeed = Random.Range(10f, 14f);
 
                 var angle = Random.Range(-10f, 10f);

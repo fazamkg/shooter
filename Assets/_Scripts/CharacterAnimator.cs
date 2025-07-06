@@ -145,10 +145,10 @@ namespace Faza
             var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _horizontalSpeed);
             _animator.SetFloat("HorizontalSpeed", hSpeed);
 
-            if (_shooter != null && _shooter.IsShooting)
+            if (_shooter != null && _shooter.StartedShooting)
             {
                 _animator.CrossFadeInFixedTime("Attack", 0.05f);
-                _shooter.IsShooting = false;
+                _shooter.StartedShooting = false;
             }
 
             if (_meleeAttack != null && _meleeAttack.StartAttack)

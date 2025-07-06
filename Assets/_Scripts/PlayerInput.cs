@@ -9,6 +9,7 @@ namespace Faza
         [SerializeField] private float _turningCap;
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private Health _health;
+        [SerializeField] private Shooter _shooter;
 
         private bool _locked;
 
@@ -52,6 +53,7 @@ namespace Faza
 
         public override float GetCameraX()
         {
+            if (_shooter.WithinShooting) return 0f;
             if (_health.IsDead) return 0f;
             if (_locked == false) return 0f;
 
@@ -89,6 +91,7 @@ namespace Faza
 
         public override Vector3 GetMove()
         {
+            if (_shooter.WithinShooting) return Vector3.zero;
             if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
 

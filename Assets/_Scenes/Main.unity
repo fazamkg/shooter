@@ -15948,6 +15948,7 @@ MonoBehaviour:
   _turningCap: 0.1
   _rotationSpeed: 900
   _health: {fileID: 1678777979}
+  _shooter: {fileID: 1678777978}
 --- !u!114 &1678777976
 MonoBehaviour:
   m_ObjectHideFlags: 0
