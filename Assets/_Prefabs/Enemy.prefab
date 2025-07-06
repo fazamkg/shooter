@@ -449,6 +449,7 @@ MonoBehaviour:
   _agent: {fileID: 4362213404679236505}
   _health: {fileID: 3563820535122673875}
   _visionRadius: 10
+  _patrolPoints: []
 --- !u!114 &3563820535122673875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,8 +723,6 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 0}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 0
@@ -833,8 +832,6 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 0}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 0
@@ -925,10 +922,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9137032837993464747, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3700325441464111189}
+    - targetCorrespondingSourceObject: {fileID: 9137032837993464747, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8240466509657580375}
   m_SourcePrefab: {fileID: 100100000, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
 --- !u!95 &3523613243651876925 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2550935751187727211, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
+  m_PrefabInstance: {fileID: 1405366210561370966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6435755660793220762 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5391011836006163916, guid: 4534b9cc6330aed499be54b02abf5283, type: 3}
   m_PrefabInstance: {fileID: 1405366210561370966}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7351650608170316359 stripped
@@ -966,14 +971,26 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 6bd2281102ea06747bb247c9ba28216c, type: 2}
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 2009149575449998221}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 0
   _switchIdleMinDuration: 0
   _switchIdleMaxDuration: 0
   _idles: []
+--- !u!114 &8240466509657580375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876127157665589501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a80ddab692123408cef31df2d9ef0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 3563820535122673875}
+  _skin: {fileID: 6435755660793220762}
 --- !u!1001 &2790634850915405844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1072,8 +1089,6 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 0}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 0
@@ -1198,8 +1213,6 @@ MonoBehaviour:
   _animationSets: []
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 0}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 0
@@ -1254,6 +1267,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5832218441682878519, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -1280,10 +1297,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9200234962398403512}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5745965153551005422}
   m_SourcePrefab: {fileID: 100100000, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
 --- !u!95 &4422169627719037279 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
+  m_PrefabInstance: {fileID: 7796899122723048654}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4844723433964319495 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5832218441682878519, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
   m_PrefabInstance: {fileID: 7796899122723048654}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6986577949230854559 stripped
@@ -1316,8 +1341,6 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 859a599f68c38734393b99caed392bc8, type: 2}
   _shooter: {fileID: 0}
   _health: {fileID: 3563820535122673875}
-  _bulletOrigin: {fileID: 0}
-  _bulletPrefab: {fileID: 0}
   _healthbarPoint: {fileID: 5287530095003635871}
   _meleeAttack: {fileID: 2010111956292457944}
   _switchIdle: 1
@@ -1326,6 +1349,20 @@ MonoBehaviour:
   _idles:
   - 0.5
   - 1
+--- !u!114 &5745965153551005422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986577949230854559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a80ddab692123408cef31df2d9ef0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 3563820535122673875}
+  _skin: {fileID: 4844723433964319495}
 --- !u!4 &7763817682625571621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
