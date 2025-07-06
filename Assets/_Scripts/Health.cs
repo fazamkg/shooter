@@ -21,6 +21,7 @@ namespace Faza
         public Transform HealthbarPoint => GetComponentInChildren<CharacterAnimator>().HealthbarPoint;
         public bool AllowViewCreation => _allowViewCreation;
         public bool IsDead => CurrentHealth <= 0f;
+        public Vector3 LastDamageDirection { get; private set; }
 
         private void Awake()
         {
@@ -29,8 +30,10 @@ namespace Faza
             OnHealthCreated?.Invoke(this);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, Vector3 damageDirection)
         {
+            LastDamageDirection = damageDirection;
+
             CurrentHealth -= damage;
 
             if (_character != null)

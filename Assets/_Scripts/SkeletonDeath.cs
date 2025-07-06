@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 namespace Faza
 {
@@ -7,6 +8,8 @@ namespace Faza
     {
         [SerializeField] private Health _health;
         [SerializeField] private SkinnedMeshRenderer _skin;
+
+        private List<Rigidbody> _created = new();
 
         private void Awake()
         {
@@ -20,9 +23,21 @@ namespace Faza
             SplitMeshIntoIslands(baked);
 
             _skin.enabled = false;
+
+            StartCoroutine(DisableGibs());
         }
 
-        public void SplitMeshIntoIslands(Mesh mesh)
+        private IEnumerator DisableGibs()
+        {
+            yield return new WaitForSeconds(10f);
+            foreach (var thing in _created)
+            {
+                thing.constraints = RigidbodyConstraints.FreezeAll;
+                thing.detectCollisions = false;
+            }
+        }
+
+        private void SplitMeshIntoIslands(Mesh mesh)
         {
             var verts = mesh.vertices;
             var tris = mesh.triangles;
@@ -174,6 +189,8 @@ namespace Faza
                 var meshFilter = go.AddComponent<MeshFilter>();
                 var meshRenderer = go.AddComponent<MeshRenderer>();
 
+                go.layer = LayerMask.NameToLayer("Gibs");
+
                 meshFilter.sharedMesh = newMesh;
                 meshRenderer.sharedMaterial = _skin.sharedMaterial;
 
@@ -182,10 +199,23 @@ namespace Faza
                 go.transform.localScale = _skin.transform.localScale;
 
                 var rigidbody = go.AddComponent<Rigidbody>();
-                var meshCollider = go.AddComponent<MeshCollider>();
-                meshCollider.convex = true;
+                rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+                rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                rigidbody.angularDrag = 0f;
 
-                rigidbody.AddExplosionForce(10f, _skin.transform.position, 3f);
+                var meshCollider = go.AddComponent<BoxCollider>();
+                meshCollider.sharedMaterial = Resources.Load<PhysicMaterial>("Gib");
+
+                var horizontalSpeed = Random.Range(6f, 8f);
+                var verticalSpeed = Random.Range(10f, 14f);
+
+                var angle = Random.Range(-10f, 10f);
+                var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
+                rigidbody.AddForce(direction * horizontalSpeed, ForceMode.VelocityChange);
+                rigidbody.AddForce(Vector3.up * verticalSpeed, ForceMode.VelocityChange);
+                rigidbody.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
+
+                _created.Add(rigidbody);
             }
         }
     }

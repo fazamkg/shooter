@@ -64,7 +64,7 @@ namespace Faza
             if (enemy != false)
             {
                 var health = other.GetComponent<Health>();
-                health.TakeDamage(_damage);
+                health.TakeDamage(_damage, _direction);
             }
 
             if (other.GetComponent<PlayerInput>() == false)

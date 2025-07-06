@@ -30,6 +30,12 @@ namespace Faza
             return vector;
         }
 
+        public static Vector3 DeltaY(this Vector3 vector, float delta)
+        {
+            vector.y += delta;
+            return vector;
+        }
+
         public static Vector3 WithZ(this Vector3 vector, float z)
         {
             vector.z = z;

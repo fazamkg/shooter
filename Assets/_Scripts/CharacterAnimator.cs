@@ -59,7 +59,8 @@ namespace Faza
         public void MeleeAttack()
         {
             var health = _meleeAttack.Target.GetComponent<Health>();
-            health.TakeDamage(_meleeAttack.Damage);
+            var direction = Quaternion.Euler(0f, _character.Yaw, 0f) * Vector3.forward;
+            health.TakeDamage(_meleeAttack.Damage, direction);
         }
 
         // animation event

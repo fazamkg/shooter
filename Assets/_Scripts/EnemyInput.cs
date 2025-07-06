@@ -65,7 +65,7 @@ namespace Faza
                 {
                     var player = _colliders[i].GetComponent<PlayerInput>();
 
-                    if (player != false)
+                    if (player != false && player.Health.IsDead == false)
                     {
                         _agent.SetDestination(PlayerInput.Instance.transform.position);
                         playerFound = true;
@@ -84,14 +84,12 @@ namespace Faza
                         _patrolIndex %= _patrolPoints.Length;
                     }
                 }
-
-                playerFound = false;
-
-                if (PlayerInput.Instance.Health.IsDead)
+                else if (playerFound == false)
                 {
                     _agent.ResetPath();
-                    yield break;
                 }
+
+                playerFound = false;
             }
         }
 
