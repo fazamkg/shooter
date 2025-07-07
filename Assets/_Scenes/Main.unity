@@ -16058,6 +16058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dce08bff82151944a388e026355e6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _detectionRadius: 7
+  _cooldown: 0.3
   _character: {fileID: 1678777976}
   _speed: 25
   _damage: 40

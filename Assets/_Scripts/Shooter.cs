@@ -5,6 +5,8 @@ namespace Faza
 {
     public class Shooter : MonoBehaviour
     {
+        [SerializeField] private float _detectionRadius;
+        [SerializeField] private float _cooldown;
         [SerializeField] private Character _character;
         [SerializeField] private float _speed;
         [SerializeField] private float _damage;
@@ -16,6 +18,8 @@ namespace Faza
         [SerializeField] private Projectile _bulletPrefab;
 
         private bool _shoot;
+        private bool _inCooldown;
+        private Collider[] _colliders = new Collider[32];
 
         public Vector3 Target { get; private set; }
         public bool StartedShooting { get; set; }
@@ -28,18 +32,35 @@ namespace Faza
         private void Update()
         {
             if (_shoot) return;
-
-            if (ShootingTapArea.IsDown == false) return;
+            if (_inCooldown) return;
 
             if (_character.HorizontalSpeed > 1f) return;
 
-            var mouse = Input.mousePosition;
-            mouse.z = 0f;
-            var playerScreen = Camera.main.WorldToScreenPoint(transform.position);
-            playerScreen.z = 0f;
-            var screenDirection = (Input.mousePosition - playerScreen).normalized;
+            var amount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _colliders);
+            var minDistance = float.MaxValue;
+            EnemyInput closest = null;
 
-            var target = transform.position + new Vector3(screenDirection.x, 0f, screenDirection.y);
+            if (amount == 0) return;
+
+            for (var i = 0; i < amount; i++)
+            {
+                var collider = _colliders[i];
+
+                var enemy = collider.GetComponent<EnemyInput>();
+                if (enemy == false) continue;
+
+                var distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                if (distance < minDistance)
+                {
+                    closest = enemy;
+                    minDistance = distance;
+                }
+            }
+
+            if (closest == null) return;
+
+            var target = closest.transform.position;
 
             _shoot = true;
 
@@ -58,6 +79,14 @@ namespace Faza
         public void FinishFire()
         {
             _shoot = false;
+            _inCooldown = true;
+            StartCoroutine(Cooldown());
+        }
+
+        private IEnumerator Cooldown()
+        {
+            yield return new WaitForSeconds(_cooldown);
+            _inCooldown = false;
         }
 
         public void FireBullet()
