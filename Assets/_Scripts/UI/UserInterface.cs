@@ -5,13 +5,17 @@ namespace Faza
 {
     public class UserInterface : MonoBehaviour
     {
+        [SerializeField] private Health _playerHealth;
         [SerializeField] private MyButton _settingsButton;
         [SerializeField] private SettingsPanel _settingsPanel;
         [SerializeField] private RectTransform _leftJoystick;
         [SerializeField] private RectTransform _rightJoystick;
+        [SerializeField] private LoseScreen _loseScreen;
 
         private void Awake()
         {
+            _playerHealth.OnDeath += PlayerHealth_OnDeath;
+
             Settings.OnIsLeftyChanged += Settings_OnIsLeftyChanged;
 
             _settingsButton.OnUp += SettingsButton_OnUp;
@@ -27,6 +31,11 @@ namespace Faza
                 _leftJoystick.localScale = Vector3.zero;
                 _rightJoystick.localScale = Vector3.one;
             }
+        }
+
+        private void PlayerHealth_OnDeath()
+        {
+            _loseScreen.Appear();
         }
 
         private void Settings_OnIsLeftyChanged()

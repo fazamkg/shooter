@@ -70,7 +70,7 @@ namespace Faza
         // animation event
         public void FinishMeleeAttack()
         {
-            _meleeAttack.FinishAttack();
+            //_meleeAttack.FinishAttack();
         }
 
         private void Awake()
@@ -159,6 +159,7 @@ namespace Faza
             {
                 _animator.CrossFadeInFixedTime("MeleeAttack", 0.05f);
                 _meleeAttack.StartAttack = false;
+                _meleeAttack.FinishAttack();
             }
         }
     } 

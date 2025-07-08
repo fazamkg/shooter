@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Faza
@@ -8,6 +9,7 @@ namespace Faza
         [SerializeField] private float _range;
         [SerializeField] private float _damage;
         [SerializeField] private Health _health;
+        [SerializeField] private float _finishDelay;
 
         private Collider[] _colliders = new Collider[32];
 
@@ -46,9 +48,15 @@ namespace Faza
             }
         }
 
+        private IEnumerator FinishAttackCoroutine()
+        {
+            yield return new WaitForSeconds(_finishDelay);
+            WithinAttack = false;
+        }
+
         public void FinishAttack()
         {
-            WithinAttack = false;
+            StartCoroutine(FinishAttackCoroutine());
         }
     } 
 }
