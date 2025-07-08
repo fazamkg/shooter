@@ -17664,7 +17664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 7
-  _cooldown: 0.3
+  _cooldown: 1
+  _movementDelay: 0.4
   _character: {fileID: 1678777976}
   _speed: 25
   _damage: 50

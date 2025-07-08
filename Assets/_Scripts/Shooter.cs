@@ -7,6 +7,7 @@ namespace Faza
     {
         [SerializeField] private float _detectionRadius;
         [SerializeField] private float _cooldown;
+        [SerializeField] private float _movementDelay;
         [SerializeField] private Character _character;
         [SerializeField] private float _speed;
         [SerializeField] private float _damage;
@@ -74,19 +75,24 @@ namespace Faza
             yield return _character.RotateTowardsCoroutine(target, _rotationSpeed);
 
             StartedShooting = true;
-        }
 
-        public void FinishFire()
-        {
-            _shoot = false;
             _inCooldown = true;
+            _shoot = true;
+
             StartCoroutine(Cooldown());
+            StartCoroutine(FinishFireCoroutine());
         }
 
         private IEnumerator Cooldown()
         {
             yield return new WaitForSeconds(_cooldown);
             _inCooldown = false;
+        }
+
+        private IEnumerator FinishFireCoroutine()
+        {
+            yield return new WaitForSeconds(_movementDelay);
+            _shoot = false;
         }
 
         public void FireBullet()
@@ -97,14 +103,6 @@ namespace Faza
             bullet.transform.position = _bulletOrigin.position;
             var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(Damage, BulletSpeed, direction, Gravity, Decay);
-
-            StartCoroutine(FinishFireCoroutine());
-        }
-
-        private IEnumerator FinishFireCoroutine()
-        {
-            yield return new WaitForSeconds(0.75f);
-            FinishFire();
         }
     } 
 }

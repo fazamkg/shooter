@@ -112,6 +112,8 @@ namespace Faza
 
         private void Update()
         {
+            _animator.SetBool("InterruptAttack", false);
+
             var move = _input.GetMove();
 
             var horizontal = move.x;
@@ -160,6 +162,11 @@ namespace Faza
                 _animator.CrossFadeInFixedTime("MeleeAttack", 0.05f);
                 _meleeAttack.StartAttack = false;
                 _meleeAttack.FinishAttack();
+            }
+
+            if (_character.HorizontalSpeed > 0.5f)
+            {
+                _animator.SetBool("InterruptAttack", true);
             }
         }
     } 
