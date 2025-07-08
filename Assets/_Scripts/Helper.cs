@@ -42,6 +42,12 @@ namespace Faza
             return vector;
         }
 
+        public static Color WithA(this Color color, float a)
+        {
+            color.a = a;
+            return color;
+        }
+
         public static void SetAnchorX(this RectTransform rt, float x)
         {
             var pos = rt.anchoredPosition;

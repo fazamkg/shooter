@@ -17029,7 +17029,7 @@ MonoBehaviour:
   _cooldown: 0.3
   _character: {fileID: 1678777976}
   _speed: 25
-  _damage: 40
+  _damage: 50
   _rotationSpeed: 1700
   _gravity: 15
   _decay: 25

@@ -7,6 +7,7 @@ namespace Faza
 {
     public class EnemyInput : CharacterInput
     {
+        [SerializeField] private LayerMask _aggroMask;
         [SerializeField] private MeleeAttack _meleeAttack;
         [SerializeField] private float _sensitivity;
         [SerializeField] private Transform _look;
@@ -67,7 +68,8 @@ namespace Faza
                     continue;
                 }
 
-                var amount = Physics.OverlapSphereNonAlloc(transform.position, _visionRadius, _colliders);
+                var amount = Physics.OverlapSphereNonAlloc
+                    (transform.position, _visionRadius, _colliders, _aggroMask.value);
                 for (var i = 0; i < amount; i++)
                 {
                     var player = _colliders[i].GetComponent<PlayerInput>();
@@ -344,6 +346,12 @@ namespace Faza
         public override bool IsFire()
         {
             return false;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red.WithA(0.3f);
+            Gizmos.DrawSphere(transform.position, _visionRadius);
         }
     }
 }
