@@ -20,6 +20,12 @@ namespace Faza
             Health.OnHealthDestroyed += Health_OnHealthDestroyed;
         }
 
+        private void OnDestroy()
+        {
+            Health.OnHealthCreated -= Health_OnHealthCreated;
+            Health.OnHealthDestroyed -= Health_OnHealthDestroyed;
+        }
+
         private void Start()
         {
             _playerHealthView.Init(_playerHealth);

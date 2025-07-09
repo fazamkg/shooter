@@ -35,6 +35,11 @@ namespace Faza
             }
         }
 
+        private void OnDestroy()
+        {
+            Health.OnDeathGlobal -= Health_OnDeathGlobal;
+        }
+
         private void Health_OnDeathGlobal()
         {
             if (EnemyInput.IsEveryoneDead)

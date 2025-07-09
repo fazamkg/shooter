@@ -151,6 +151,14 @@ namespace Faza
             });
             Console.AddCommand("clear_lines", (args) => Line.ClearLines());
             Console.AddCommand("max_fps", (args) => Application.targetFrameRate = args[0].ToInt());
+            Console.AddCommand("kill_all_enemies", (args) =>
+            {
+                var enemies = FindObjectsOfType<EnemyInput>();
+                foreach (var enemy in enemies)
+                {
+                    enemy.Health.TakeDamage(100_000f, Vector3.zero);
+                }
+            });
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");

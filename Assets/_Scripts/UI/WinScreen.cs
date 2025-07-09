@@ -20,7 +20,8 @@ namespace Faza
 
         private void NextButton_OnUp()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            var nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadScene(nextIndex);
         }
 
         public void Appear()
