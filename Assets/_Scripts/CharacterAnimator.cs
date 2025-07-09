@@ -108,6 +108,7 @@ namespace Faza
         private void Health_OnDeath()
         {
             _animator.CrossFadeInFixedTime("Death", 0.05f);
+            enabled = false;
         }
 
         private void Update()

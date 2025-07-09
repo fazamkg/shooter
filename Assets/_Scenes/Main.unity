@@ -18581,6 +18581,7 @@ MonoBehaviour:
   _muzzleEffect: {fileID: 206299095}
   _bulletOrigin: {fileID: 396842168}
   _bulletPrefab: {fileID: 89754544282707423, guid: 14dc0fa2b32b8ac4dbc24a0d072d7a8d, type: 3}
+  _health: {fileID: 1678777979}
 --- !u!114 &1678777979
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ namespace Faza
         [SerializeField] private ParticleSystem _muzzleEffect;
         [SerializeField] private Transform _bulletOrigin;
         [SerializeField] private Projectile _bulletPrefab;
+        [SerializeField] private Health _health;
 
         private bool _shoot;
         private bool _inCooldown;
@@ -34,6 +35,8 @@ namespace Faza
         {
             if (_shoot) return;
             if (_inCooldown) return;
+
+            if (_health.IsDead) return;
 
             if (_character.HorizontalSpeed > 1f) return;
 
