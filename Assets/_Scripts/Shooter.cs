@@ -5,6 +5,7 @@ namespace Faza
 {
     public class Shooter : MonoBehaviour
     {
+        [SerializeField] private LayerMask _layerMask;
         [SerializeField] private float _detectionRadius;
         [SerializeField] private float _cooldown;
         [SerializeField] private float _movementDelay;
@@ -40,7 +41,8 @@ namespace Faza
 
             if (_character.HorizontalSpeed > 1f) return;
 
-            var amount = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _colliders);
+            var amount = Physics.OverlapSphereNonAlloc
+                (transform.position, _detectionRadius, _colliders, _layerMask);
             var minDistance = float.MaxValue;
             EnemyInput closest = null;
 
@@ -53,7 +55,14 @@ namespace Faza
                 var enemy = collider.GetComponent<EnemyInput>();
                 if (enemy == false) continue;
 
-                var distance = Vector3.Distance(transform.position, enemy.transform.position);
+                var vector = (enemy.transform.position - transform.position);
+
+                var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
+                var hit = Physics.Raycast(ray, out var hitInfo);
+                if (hit == false) continue;
+                if (hitInfo.collider.GetComponent<EnemyInput>() == false) continue;
+
+                var distance = vector.magnitude;
 
                 if (distance < minDistance)
                 {

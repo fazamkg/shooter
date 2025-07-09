@@ -88,12 +88,20 @@ namespace Faza
                 {
                     var player = _colliders[i].GetComponent<PlayerInput>();
 
-                    if (player != false && player.Health.IsDead == false)
-                    {
-                        _agent.SetDestination(PlayerInput.Instance.transform.position);
-                        playerFound = true;
-                        break;
-                    }
+                    if (player == false) continue;
+                    if (player.Health.IsDead) continue;
+
+                    var vector = (player.transform.position - transform.position);
+
+                    var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
+                    var hit = Physics.Raycast(ray, out var hitInfo);
+                    if (hit == false) continue;
+
+                    if (hitInfo.collider.GetComponent<PlayerInput>() == false) continue;
+
+                    _agent.SetDestination(PlayerInput.Instance.transform.position);
+                    playerFound = true;
+                    break;
                 }
 
                 if (playerFound == false && _patrolPoints != null && _patrolPoints.Length != 0)
@@ -362,10 +370,10 @@ namespace Faza
             return false;
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red.WithA(0.3f);
-            Gizmos.DrawSphere(transform.position, _visionRadius);
-        }
+        //private void OnDrawGizmos()
+        //{
+        //    Gizmos.color = Color.red.WithA(0.3f);
+        //    Gizmos.DrawSphere(transform.position, _visionRadius);
+        //}
     }
 }
