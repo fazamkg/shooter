@@ -5,6 +5,8 @@ namespace Faza
 {
     public class Health : MonoBehaviour
     {
+        public static event Action OnDeathGlobal;
+
         public static event Action<Health> OnHealthCreated;
         public static event Action<Health> OnHealthDestroyed;
 
@@ -49,6 +51,7 @@ namespace Faza
                 GetComponent<CharacterController>().enabled = false;
 
                 OnDeath?.Invoke();
+                OnDeathGlobal?.Invoke();
                 OnHealthDestroyed?.Invoke(this);
             }
 

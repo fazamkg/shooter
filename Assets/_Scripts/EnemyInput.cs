@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
+using System.Linq;
 
 namespace Faza
 {
@@ -29,6 +30,8 @@ namespace Faza
         private bool _jump;
         private bool _use;
 
+        private static HashSet<EnemyInput> _allEnemies = new();
+
         private IWaypoint _currentWaypoint;
         private Queue<IWaypoint> _currentPath;
         private int _currentPathIndex;
@@ -39,6 +42,10 @@ namespace Faza
         public GameObject FpCamera => _fpCamera;
         public GameObject TpCamera => _tpCamera;
 
+        public Health Health => _health;
+
+        public static bool IsEveryoneDead => _allEnemies.All(x => x.Health.IsDead);
+
         private void Awake()
         {
             _health.OnDeath += Health_OnDeath;
@@ -47,6 +54,13 @@ namespace Faza
             _agent.updatePosition = false;
 
             StartCoroutine(FollowPlayerCoroutine());
+
+            _allEnemies.Add(this);
+        }
+
+        private void OnDestroy()
+        {
+            _allEnemies.Remove(this);
         }
 
         private void Health_OnDeath()

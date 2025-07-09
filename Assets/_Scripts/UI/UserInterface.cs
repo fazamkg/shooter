@@ -11,10 +11,12 @@ namespace Faza
         [SerializeField] private RectTransform _leftJoystick;
         [SerializeField] private RectTransform _rightJoystick;
         [SerializeField] private LoseScreen _loseScreen;
+        [SerializeField] private WinScreen _winScreen;
 
         private void Awake()
         {
             _playerHealth.OnDeath += PlayerHealth_OnDeath;
+            Health.OnDeathGlobal += Health_OnDeathGlobal;
 
             Settings.OnIsLeftyChanged += Settings_OnIsLeftyChanged;
 
@@ -30,6 +32,14 @@ namespace Faza
             {
                 _leftJoystick.localScale = Vector3.zero;
                 _rightJoystick.localScale = Vector3.one;
+            }
+        }
+
+        private void Health_OnDeathGlobal()
+        {
+            if (EnemyInput.IsEveryoneDead)
+            {
+                _winScreen.Appear();
             }
         }
 
