@@ -46,6 +46,8 @@ namespace Faza
 
         public static bool IsEveryoneDead => _allEnemies.All(x => x.Health.IsDead);
 
+        public static HashSet<EnemyInput> AllEnemies => _allEnemies;
+
         private void Awake()
         {
             _health.OnDeath += Health_OnDeath;

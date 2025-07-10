@@ -11,6 +11,7 @@ namespace Faza
         [SerializeField] private Transform _healthViewParent;
         [SerializeField] private HealthView _playerHealthView;
         [SerializeField] private Health _playerHealth;
+        [SerializeField] private SkullsView _skullsView;
 
         private Dictionary<Health, HealthView> _healths = new();
 
@@ -29,6 +30,7 @@ namespace Faza
         private void Start()
         {
             _playerHealthView.Init(_playerHealth);
+            _skullsView.Init();
         }
 
         private void Health_OnHealthCreated(Health health)
