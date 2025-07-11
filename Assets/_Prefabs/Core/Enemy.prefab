@@ -4092,7 +4092,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aggroMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
+  _visibilityMask:
+    serializedVersion: 2
+    m_Bits: 4097
   _meleeAttack: {fileID: 2010111956292457944}
   _sensitivity: 900
   _look: {fileID: 5774055898149711907}

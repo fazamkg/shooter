@@ -9,6 +9,7 @@ namespace Faza
     public class EnemyInput : CharacterInput
     {
         [SerializeField] private LayerMask _aggroMask;
+        [SerializeField] private LayerMask _visibilityMask;
         [SerializeField] private MeleeAttack _meleeAttack;
         [SerializeField] private float _sensitivity;
         [SerializeField] private Transform _look;
@@ -96,7 +97,7 @@ namespace Faza
                     var vector = (player.transform.position - transform.position);
 
                     var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
-                    var hit = Physics.Raycast(ray, out var hitInfo);
+                    var hit = Physics.Raycast(ray, out var hitInfo, _visionRadius, _visibilityMask);
                     if (hit == false) continue;
 
                     if (hitInfo.collider.GetComponent<PlayerInput>() == false) continue;
