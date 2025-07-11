@@ -89,6 +89,25 @@ namespace Faza
             return 0f;
         }
 
+        public Vector3 GetRawMove()
+        {
+            if (_shooter.WithinShooting) return Vector3.zero;
+            if (_health.IsDead) return Vector3.zero;
+            if (_locked == false) return Vector3.zero;
+
+            var kbV = Input.GetAxisRaw("Vertical");
+            var kbH = Input.GetAxisRaw("Horizontal");
+            var keyboard = new Vector3(kbH, 0f, kbV).normalized;
+
+            var joy = Joystick.GetInput("move");
+
+            var h = Mathf.Clamp(keyboard.x + joy.x, -1f, 1f);
+            var v = Mathf.Clamp(keyboard.z + joy.y, -1f, 1f);
+            var input = new Vector3(h, 0f, v);
+
+            return input;
+        }
+
         public override Vector3 GetMove()
         {
             if (_shooter.WithinShooting) return Vector3.zero;
