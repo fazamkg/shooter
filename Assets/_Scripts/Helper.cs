@@ -109,6 +109,11 @@ namespace Faza
             return Mathf.Abs(value);
         }
 
+        public static float Sign(this float value)
+        {
+            return Mathf.Sign(value);
+        }
+
         private static GameObject _lastActive;
         public static void ActivateSingle(this GameObject gameObject)
         {

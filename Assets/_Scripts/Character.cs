@@ -138,6 +138,8 @@ namespace Faza
                 var lookForward = _camera.transform.forward;
                 var direction = (target - transform.position.WithY(0f)).normalized;
 
+                var targetYaw = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+
                 var cross = Vector3.Cross(lookForward, direction);
                 dot = Vector3.Dot(lookForward, direction);
                 var result = 0f;
@@ -152,7 +154,13 @@ namespace Faza
                     result = crossY;
                 }
 
-                _yaw += result * speed * Time.deltaTime;
+                var delta = result * speed * Time.deltaTime;
+                var maxDelta = Mathf.DeltaAngle(_yaw, targetYaw);
+                var min = Mathf.Min(delta.Abs(), maxDelta.Abs());
+                delta = min * delta.Sign();
+
+                _yaw += delta;
+                _yaw = Mathf.Repeat(_yaw, 360f);
 
                 yield return null;
             }
