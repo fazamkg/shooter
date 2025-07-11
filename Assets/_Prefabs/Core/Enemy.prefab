@@ -996,6 +996,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 3563820535122673875}
   _skin: {fileID: 6435755660793220762}
+  _coinPrefab: {fileID: 0}
+  _coinVerticalCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _coinHorizontalCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2790634850915405844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,6 +1381,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 3563820535122673875}
   _skin: {fileID: 4844723433964319495}
+  _coinPrefab: {fileID: 4773422433050442455, guid: b59a8b112d051a34e96740f663f75548, type: 3}
+  _coinVerticalCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _coinHorizontalCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &7763817682625571621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}

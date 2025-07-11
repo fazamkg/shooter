@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -8,6 +9,9 @@ namespace Faza
     {
         [SerializeField] private Health _health;
         [SerializeField] private SkinnedMeshRenderer _skin;
+        [SerializeField] private Coin _coinPrefab;
+        [SerializeField] private AnimationCurve _coinVerticalCurve;
+        [SerializeField] private AnimationCurve _coinHorizontalCurve;
 
         private List<Rigidbody> _created = new();
 
@@ -216,6 +220,16 @@ namespace Faza
                 rigidbody.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
 
                 _created.Add(rigidbody);
+            }
+
+            for (var i = 0; i < 3; i++)
+            {
+                var angle = Random.Range(-10f, 10f);
+                var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
+                var pos = transform.position.DeltaY(1f) + direction * 4f;
+
+                var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
+                coin.transform.DOJump(pos, 1f, 5, 1.5f).SetEase(Ease.Linear);
             }
         }
     }
