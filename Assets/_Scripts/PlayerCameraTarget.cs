@@ -7,6 +7,7 @@ namespace Faza
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private float _speed;
         [SerializeField] private float _radius;
+        [SerializeField] private float _distance;
 
         private Vector3 _originalPosition;
 
@@ -18,7 +19,7 @@ namespace Faza
         private void Update()
         {
             var move = _playerInput.GetRawMove() * _radius;
-            var target = _originalPosition + move;
+            var target = _originalPosition + move + Vector3.up * move.magnitude * _distance;
             var distance = Vector3.Distance(transform.localPosition, target);
             var speed = _speed * distance * Time.deltaTime;
 

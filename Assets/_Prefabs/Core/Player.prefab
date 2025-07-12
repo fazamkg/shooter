@@ -773,8 +773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 4853704115935725154}
-  _speed: 8
-  _radius: 2
+  _speed: 5
+  _radius: 1
+  _distance: 3
 --- !u!1 &2474795142235341821
 GameObject:
   m_ObjectHideFlags: 0
