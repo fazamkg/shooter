@@ -5,6 +5,10 @@ namespace Faza
 {
     public class EntryPoint : MonoBehaviour
     {
+        [SerializeField] private GameObject[] _uis;
+        [SerializeField] private SkinnedMeshRenderer _playerSMR;
+        [SerializeField] private Animator _playerAnimator;
+
         private Waypoint _from;
         private Waypoint _to;
         private EnemyInput _enemy;
@@ -14,6 +18,8 @@ namespace Faza
 
         private void Awake()
         {
+            Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+
             #region Commands
             Console.AddCommand("enemy_camera_x", (args) =>
             {
@@ -168,6 +174,79 @@ namespace Faza
             Console.Bind(KeyCode.X, "enemy_stop_all");
             Console.Bind(KeyCode.V, "set_enemy");
             Console.Bind(KeyCode.B, "enemy_set_destination");
+            #endregion
+
+            #region Buttons
+            Console.AddButton("low", () =>
+            {
+                QualitySettings.SetQualityLevel(0);
+            });
+            Console.AddButton("med", () =>
+            {
+                QualitySettings.SetQualityLevel(1);
+            });
+            Console.AddButton("high", () =>
+            {
+                QualitySettings.SetQualityLevel(2);
+            });
+            Console.AddButton("toggle ui", () =>
+            {
+                foreach (var ui in _uis)
+                {
+                    ui.Toggle();
+                }
+            });
+            Console.AddButton("toggle enemies", () =>
+            {
+                var enemies = FindObjectsOfType<EnemyInput>(true);
+                foreach (var enemy in enemies)
+                {
+                    enemy.gameObject.Toggle();
+                }
+            });
+            Console.AddButton("swap material", () =>
+            {
+                var things = FindObjectsOfType<MaterialSwap>(true);
+                foreach (var thing in things)
+                {
+                    var rend = thing.GetComponent<MeshRenderer>();
+
+                    var mat = rend.sharedMaterial;
+                    if (mat.name == "Default")
+                    {
+                        rend.sharedMaterial = Resources.Load<Material>("DefaultUnlit");
+                    }
+                    else
+                    {
+                        rend.sharedMaterial = Resources.Load<Material>("Default");
+                    }
+                }
+            });
+            Console.AddButton("toggle cam", () =>
+            {
+                var cams = FindObjectsOfType<Camera>(true);
+                foreach (var cam in cams)
+                {
+                    if (cam.gameObject.name == "MainCamera")
+                    {
+                        cam.enabled = !cam.enabled;
+                        break;
+                    }
+                }
+            });
+            Console.AddButton("toggle player", () =>
+            {
+                var player = Tracker.Get<Character>("player");
+                player.gameObject.Toggle();
+            });
+            Console.AddButton("toggle player smr", () =>
+            {
+                _playerSMR.enabled = !_playerSMR.enabled;
+            });
+            Console.AddButton("toggle player animator", () =>
+            {
+                _playerAnimator.enabled = !_playerAnimator.enabled;
+            });
             #endregion
 
             /*

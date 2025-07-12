@@ -18,6 +18,8 @@ namespace Faza
         private Transform _target;
         private Health _health;
 
+        private Camera _camera;
+
         public void Init(Health health)
         {
             _health = health;
@@ -66,8 +68,13 @@ namespace Faza
         {
             if (_target == null) return;
 
+            if (_camera == null)
+            {
+                _camera = Camera.main;
+            }
+
             var pos = _target.position + _offset;
-            transform.position = Camera.main.WorldToScreenPoint(pos) + _screenOffset;
+            transform.position = _camera.WorldToScreenPoint(pos) + _screenOffset;
         }
     }
 }
