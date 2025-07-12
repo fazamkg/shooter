@@ -7,8 +7,17 @@ namespace Faza
         [SerializeField] private Transform _transform;
         [SerializeField] private float _speed;
 
+        private Rigidbody _target;
+
+        public void SetTarget(Rigidbody rb)
+        {
+            _target = rb;
+        }
+
         private void Update()
         {
+            transform.position = _target.worldCenterOfMass + Vector3.up;
+
             _transform.Rotate(0f, Time.deltaTime * _speed, 0f, Space.World);
         }
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using System.Linq;
 
 namespace Faza
 {
@@ -11,6 +12,7 @@ namespace Faza
         [SerializeField] private Coin _coinPrefab;
         [SerializeField] private GameObject _gibHolder;
         [SerializeField] private Rigidbody[] _gibs;
+        [SerializeField] private AnimationCurve _curve;
 
         private void Awake()
         {
@@ -51,15 +53,38 @@ namespace Faza
                 gib.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
             }
 
-            for (var i = 0; i < 3; i++)
+            var gibs = _gibs.OrderBy(x => Random.value);
+
+            var i = 0;
+            foreach (var gib in gibs)
             {
-                var angle = Random.Range(-10f, 10f);
-                var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
-                var pos = transform.position.DeltaY(1f) + direction * 4f;
+                if (i >= 3) break;
 
                 var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
-                coin.transform.DOJump(pos, 1f, 5, 1.5f).SetEase(Ease.Linear);
+                coin.SetTarget(gib);
+                gib.GetComponent<MeshRenderer>().enabled = false;
+
+                i++;
             }
+
+            //for (var i = 0; i < 3; i++)
+            //{
+            //    var angle = Random.Range(-10f, 10f);
+            //    var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
+
+            //    var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
+            //    var pos = transform.position.DeltaY(0.5f);
+
+            //    var seq = DOTween.Sequence();
+
+            //    for (var j = 1; j <= 3; j++)
+            //    {
+            //        pos += direction * (1f / j) * 0.9f;
+            //        var force = (1f / j) * 3f;
+            //        var dur = (1f / Mathf.Pow(j, 1.5f));
+            //        seq.Append(coin.transform.DOJump(pos, force, 1, dur).SetEase(Ease.Linear));
+            //    }
+            //}
         }
     }
 }

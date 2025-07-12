@@ -4920,6 +4920,12 @@ MonoBehaviour:
   _coinPrefab: {fileID: 0}
   _gibHolder: {fileID: 0}
   _gibs: []
+  _curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2790634850915405844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5324,6 +5330,48 @@ MonoBehaviour:
   - {fileID: 4564296497913139466}
   - {fileID: 4027760438169652403}
   - {fileID: 2783136626780058221}
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -13.801017
+      outSlope: -13.801017
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.21969259
+    - serializedVersion: 3
+      time: 0.11534863
+      value: 0.252962
+      inSlope: -2.9483795
+      outSlope: -2.9483795
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.37272638
+    - serializedVersion: 3
+      time: 0.24425507
+      value: 0.05402632
+      inSlope: -0.13853674
+      outSlope: -0.13853674
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.20292859
+    - serializedVersion: 3
+      time: 0.9958191
+      value: -0.0029907227
+      inSlope: -0.024720812
+      outSlope: -0.024720812
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22589721
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &7763817682625571621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}
