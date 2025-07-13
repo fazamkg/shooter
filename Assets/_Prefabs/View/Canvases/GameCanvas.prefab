@@ -169,7 +169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -300, y: 500}
+  m_AnchoredPosition: {x: -300, y: 600}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6904422354584022662
@@ -579,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 500}
+  m_AnchoredPosition: {x: 300, y: 600}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4652484181546104895
@@ -1019,7 +1019,6 @@ MonoBehaviour:
   - {fileID: 4881500389705676301}
   - {fileID: 9030969680791757279}
   _coinPrefab: {fileID: 6489220428745569382, guid: 7f89a391ee1564b43b8f68db51ce4ec5, type: 3}
-  _newCoinsParent: {fileID: 0}
 --- !u!1 &8595306853918596040
 GameObject:
   m_ObjectHideFlags: 0
