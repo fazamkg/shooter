@@ -56,6 +56,7 @@ namespace Faza
             var gibs = _gibs.OrderBy(x => Random.value);
 
             var i = 0;
+            var allDead = EnemyInput.AllEnemies.All(x => x.Health.IsDead);
             foreach (var gib in gibs)
             {
                 if (i >= 5) break;
@@ -63,6 +64,11 @@ namespace Faza
                 var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
                 coin.SetTarget(gib);
                 gib.GetComponent<MeshRenderer>().enabled = false;
+
+                if (allDead)
+                {
+                    coin.AutoMagnet();
+                }
 
                 i++;
             }

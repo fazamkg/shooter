@@ -1,5 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
 
 namespace Faza
 {
@@ -15,6 +14,12 @@ namespace Faza
         public void SetTarget(Rigidbody rb)
         {
             _target = rb;
+        }
+
+        public void AutoMagnet()
+        {
+            _picked = true;
+            _player = PlayerInput.Instance;
         }
 
         private void Update()
