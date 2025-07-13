@@ -53,24 +53,27 @@ namespace Faza
                 gib.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
             }
 
-            var gibs = _gibs.OrderBy(x => Random.value);
-
-            var i = 0;
-            var allDead = EnemyInput.AllEnemies.All(x => x.Health.IsDead);
-            foreach (var gib in gibs)
+            if (_coinPrefab != null)
             {
-                if (i >= 5) break;
+                var gibs = _gibs.OrderBy(x => Random.value);
 
-                var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
-                coin.SetTarget(gib);
-                gib.GetComponent<MeshRenderer>().enabled = false;
-
-                if (allDead)
+                var i = 0;
+                var allDead = EnemyInput.AllEnemies.All(x => x.Health.IsDead);
+                foreach (var gib in gibs)
                 {
-                    coin.AutoMagnet();
-                }
+                    if (i >= 5) break;
 
-                i++;
+                    var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
+                    coin.SetTarget(gib);
+                    gib.GetComponent<MeshRenderer>().enabled = false;
+
+                    if (allDead)
+                    {
+                        coin.AutoMagnet();
+                    }
+
+                    i++;
+                }
             }
 
             //for (var i = 0; i < 3; i++)

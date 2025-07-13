@@ -44,6 +44,8 @@ namespace Faza
 
         private void Update()
         {
+            if (_characterController.enabled == false) return;
+
             var delta = DeltaTimeScaled ? Time.deltaTime : Time.unscaledDeltaTime;
 
             var camX = _characterInput.GetCameraX();

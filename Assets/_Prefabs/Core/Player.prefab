@@ -5168,6 +5168,12 @@ MonoBehaviour:
   - {fileID: 8237698661227760453}
   - {fileID: 7524137426352637525}
   - {fileID: 6700966143367912570}
+  _curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &5343661315409090265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 504158339318998692, guid: c0e8ec4be6a4d554881a5c8bb6d0c0cf, type: 3}

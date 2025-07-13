@@ -9,6 +9,7 @@ namespace Faza
         [SerializeField] private RectTransform _icon;
         [SerializeField] private TMP_Text[] _texts;
         [SerializeField] private RectTransform _coinPrefab;
+        [SerializeField] private bool _instantUpdate;
 
         private void Awake()
         {
@@ -27,6 +28,15 @@ namespace Faza
 
         private void Currency_OnCoinsAdded(float oldValue, float newValue, Vector3 worldPosition)
         {
+            if (_instantUpdate)
+            {
+                foreach (var text in _texts)
+                {
+                    text.text = Currency.Coins.ToString();
+                }
+                return;
+            }
+
             var coin = Instantiate(_coinPrefab, transform);
 
             coin.position = Camera.main.WorldToScreenPoint(worldPosition);

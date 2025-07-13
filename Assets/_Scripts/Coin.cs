@@ -31,11 +31,12 @@ namespace Faza
             _player = PlayerInput.Instance;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (_picked == false)
             {
-                transform.position = _target.worldCenterOfMass + Vector3.up;
+                var pos = _target.position + _target.rotation * _target.centerOfMass;
+                transform.position = pos + Vector3.up;
             }
             else
             {
