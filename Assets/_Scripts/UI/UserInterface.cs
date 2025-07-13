@@ -5,6 +5,7 @@ namespace Faza
 {
     public class UserInterface : MonoBehaviour
     {
+        [SerializeField] private LevelData _levelData;
         [SerializeField] private Health _playerHealth;
         [SerializeField] private MyButton _settingsButton;
         [SerializeField] private SettingsPanel _settingsPanel;
@@ -12,6 +13,7 @@ namespace Faza
         [SerializeField] private RectTransform _rightJoystick;
         [SerializeField] private LoseScreen _loseScreen;
         [SerializeField] private WinScreen _winScreen;
+        [SerializeField] private UpgradeScreen _upgradeScreen;
 
         private void Awake()
         {
@@ -32,6 +34,11 @@ namespace Faza
             {
                 _leftJoystick.localScale = Vector3.zero;
                 _rightJoystick.localScale = Vector3.one;
+            }
+
+            if (_levelData.AvailableUpgrades != null && _levelData.AvailableUpgrades.Length != 0)
+            {
+                _upgradeScreen.Appear(_levelData.AvailableUpgrades);
             }
         }
 

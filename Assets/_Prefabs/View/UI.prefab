@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0004d7003d195984b9573d8ea2ff33c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelData: {fileID: 0}
   _playerHealth: {fileID: 0}
   _settingsButton: {fileID: 733891996395179202}
   _settingsPanel: {fileID: 3808613662650942104}
@@ -59,6 +60,7 @@ MonoBehaviour:
   _rightJoystick: {fileID: 3422316223376418043}
   _loseScreen: {fileID: 365654297546671309}
   _winScreen: {fileID: 3428448980359145620}
+  _upgradeScreen: {fileID: 1845804831895827914}
 --- !u!114 &1567674883477515629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +344,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a47c7a0e2e81a46ac0db633d355e08, type: 3}
+--- !u!114 &1845804831895827914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 38150285558359785, guid: b8a47c7a0e2e81a46ac0db633d355e08, type: 3}
+  m_PrefabInstance: {fileID: 1808781069350114083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15dda35b1e58054a9a626aebcdf64d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8080860557618895936 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7583761676470996835, guid: b8a47c7a0e2e81a46ac0db633d355e08, type: 3}

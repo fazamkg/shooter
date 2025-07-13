@@ -1045,10 +1045,10 @@ GameObject:
   - component: {fileID: 658199759429257515}
   - component: {fileID: 4194897376981549960}
   - component: {fileID: 4813748179401089823}
-  - component: {fileID: 9158730526955476673}
   - component: {fileID: 5513503955884734355}
   - component: {fileID: 5123508940128661941}
   - component: {fileID: 351896490913893939}
+  - component: {fileID: 38150285558359785}
   m_Layer: 5
   m_Name: UpgradeCanvas
   m_TagString: Untagged
@@ -1128,21 +1128,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &9158730526955476673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8277900874954304487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4fe18a011f35844892e62182593480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _title: {fileID: 7798226433037891533}
-  _nextButton: {fileID: 5234225488424143184}
-  _group: {fileID: 4813748179401089823}
 --- !u!223 &5513503955884734355
 Canvas:
   m_ObjectHideFlags: 0
@@ -1206,6 +1191,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &38150285558359785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277900874954304487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15dda35b1e58054a9a626aebcdf64d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _title: {fileID: 7798226433037891533}
+  _nextButton: {fileID: 5234225488424143184}
+  _group: {fileID: 4813748179401089823}
 --- !u!1 &8996156790881160961
 GameObject:
   m_ObjectHideFlags: 0
