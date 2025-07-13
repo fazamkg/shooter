@@ -43,6 +43,8 @@ namespace Faza
 
             var amount = Physics.OverlapSphereNonAlloc
                 (transform.position, _detectionRadius, _colliders, _layerMask);
+
+            var minHealth = float.MaxValue;
             var minDistance = float.MaxValue;
             EnemyInput closest = null;
 
@@ -60,13 +62,25 @@ namespace Faza
                 var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
                 var hit = Physics.Raycast(ray, out var hitInfo);
                 if (hit == false) continue;
+
                 if (hitInfo.collider.GetComponent<EnemyInput>() == false) continue;
 
                 var distance = vector.magnitude;
+                var health = enemy.Health.CurrentHealth;
 
-                if (distance < minDistance)
+                if ((health - minHealth).Abs() < 0.01f)
+                {
+                    if (distance < minDistance)
+                    {
+                        closest = enemy;
+                        minHealth = health;
+                        minDistance = distance;
+                    }
+                }
+                else if (health < minHealth)
                 {
                     closest = enemy;
+                    minHealth = health;
                     minDistance = distance;
                 }
             }
