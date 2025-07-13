@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Faza
 {
@@ -6,14 +7,22 @@ namespace Faza
     {
         [SerializeField] private Transform _transform;
         [SerializeField] private float _speed;
+        [SerializeField] private Collider _collider;
 
         private Rigidbody _target;
         private bool _picked;
         private PlayerInput _player;
 
+        private IEnumerator ActivateCollider()
+        {
+            yield return new WaitForSeconds(1f);
+            _collider.enabled = true;
+        }
+
         public void SetTarget(Rigidbody rb)
         {
             _target = rb;
+            StartCoroutine(ActivateCollider());
         }
 
         public void AutoMagnet()
@@ -32,7 +41,7 @@ namespace Faza
             {
                 var target = _player.transform.position.DeltaY(1f);
                 var dist = Vector3.Distance(transform.position, target);
-                var speed = dist * Time.deltaTime * 12f;
+                var speed = 1f / dist * Time.deltaTime * 8f;
 
                 if (dist < 0.15f)
                 {

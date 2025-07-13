@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 6860001585324193728}
   _speed: 360
+  _collider: {fileID: 604718119164909613}
 --- !u!135 &604718119164909613
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -148,9 +149,9 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8093832012887005735
 GameObject:
