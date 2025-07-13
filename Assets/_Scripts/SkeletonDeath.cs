@@ -58,7 +58,7 @@ namespace Faza
             var i = 0;
             foreach (var gib in gibs)
             {
-                if (i >= 3) break;
+                if (i >= 5) break;
 
                 var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
                 coin.SetTarget(gib);

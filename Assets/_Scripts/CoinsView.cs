@@ -39,7 +39,7 @@ namespace Faza
             {
                 foreach (var text in _texts)
                 {
-                    text.text = Currency.Coins.ToString();
+                    text.text = newValue.ToString();
                 }
             });
             seq.Append(_icon.DOScale(1f, 0.15f).SetEase(Ease.Linear));
