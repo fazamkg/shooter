@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78f054fdfa8d834c858db9583541ad1, type: 3}
+  m_Name: _Damage
+  m_EditorClassIdentifier: 
+  _id: faza_damage
+  _chain:
+  - {fileID: 11400000, guid: eea51b8d622d4ee4b8cabc7ab857f0cf, type: 2}
+  - {fileID: 11400000, guid: 778036c69a57ce641af79d3f27d714de, type: 2}
+  - {fileID: 11400000, guid: 7b810ba57dd905a4ea75f1dcffe9b0d7, type: 2}
+  - {fileID: 11400000, guid: 6cf9afc05be939541906edc8652d981f, type: 2}
+  - {fileID: 11400000, guid: edd6db363d7893f40940bd1ef7e6109e, type: 2}
+  - {fileID: 11400000, guid: 3c5a3124e89e462479dd2f3d52548d32, type: 2}
