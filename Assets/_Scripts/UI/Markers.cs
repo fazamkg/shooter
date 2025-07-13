@@ -41,6 +41,7 @@ namespace Faza
             if (enemy == false) return;
 
             var marker = Instantiate(_markerPrefab, _parent);
+            marker.gameObject.name = enemy.gameObject.name;
             _markers[enemy] = marker;
         }
 
@@ -52,6 +53,12 @@ namespace Faza
                 var marker = thing.Value;
 
                 var screen = Camera.main.WorldToScreenPoint(enemy.transform.position);
+                if (screen.z < 0f)
+                {
+                    screen *= -1f;
+                }
+                screen.z = 0f;
+
                 var left = _leftMargin * _canvas.scaleFactor;
                 var right = Screen.width - _rightMargin * _canvas.scaleFactor;
                 var bottom = _bottomMargin * _canvas.scaleFactor;
