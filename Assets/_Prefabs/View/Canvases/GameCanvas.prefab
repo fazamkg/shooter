@@ -1014,9 +1014,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f58a92fa00d7b4aa16ad6146afc55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _icon: {fileID: 757860591408564753}
   _texts:
   - {fileID: 4881500389705676301}
   - {fileID: 9030969680791757279}
+  _coinPrefab: {fileID: 6489220428745569382, guid: 7f89a391ee1564b43b8f68db51ce4ec5, type: 3}
+  _newCoinsParent: {fileID: 0}
 --- !u!1 &8595306853918596040
 GameObject:
   m_ObjectHideFlags: 0

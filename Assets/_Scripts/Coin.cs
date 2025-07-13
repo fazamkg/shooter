@@ -27,11 +27,11 @@ namespace Faza
             {
                 var target = _player.transform.position.DeltaY(1f);
                 var dist = Vector3.Distance(transform.position, target);
-                var speed = dist * Time.deltaTime * 8f;
+                var speed = dist * Time.deltaTime * 12f;
 
                 if (dist < 0.15f)
                 {
-                    Currency.Coins++;
+                    Currency.AddCoins(1f, transform.position);
                     gameObject.SetActive(false);
                 }
 
