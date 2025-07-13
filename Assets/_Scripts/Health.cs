@@ -9,6 +9,7 @@ namespace Faza
 
         public static event Action<Health> OnHealthCreated;
         public static event Action<Health> OnHealthDestroyed;
+        public static event Action<Health> OnTakenDamage;
 
         public event Action OnDeath;
         public event Action OnHealthChanged;
@@ -37,6 +38,8 @@ namespace Faza
             LastDamageDirection = damageDirection;
 
             CurrentHealth -= damage;
+
+            OnTakenDamage?.Invoke(this);
 
             if (_character != null)
             {
