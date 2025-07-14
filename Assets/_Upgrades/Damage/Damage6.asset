@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5265b14b97475bb4c808fb0e45b550f7, type: 3}
   m_Name: Damage6
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 93938784b8543544191c5ad004a62ed0, type: 3}
   _name: "\u0423\u0420\u041E\u041D"
   _description: "+{0} \u043A \u0423\u0420\u041E\u041D\u0423"
   _cost: 600

@@ -14,17 +14,28 @@ namespace Faza
         private void Awake()
         {
             Currency.OnCoinsAdded += Currency_OnCoinsAdded;
+            Currency.OnCoinsRemoved += Currency_OnCoinsRemoved;
 
             foreach (var text in _texts)
             {
                 text.text = Currency.Coins.ToString();
             }
         }
-
+        
         private void OnDestroy()
         {
             Currency.OnCoinsAdded -= Currency_OnCoinsAdded;
+            Currency.OnCoinsRemoved -= Currency_OnCoinsRemoved;
         }
+
+        private void Currency_OnCoinsRemoved(float oldValue, float newValue)
+        {
+            foreach (var text in _texts)
+            {
+                text.text = newValue.ToString();
+            }
+        }
+
 
         private void Currency_OnCoinsAdded(float oldValue, float newValue, Vector3 worldPosition)
         {

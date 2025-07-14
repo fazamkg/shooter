@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using System;
 
 namespace Faza
 {
@@ -11,6 +8,8 @@ namespace Faza
         [SerializeField] private RectTransform _title;
         [SerializeField] private MyButton _nextButton;
         [SerializeField] private CanvasGroup _group;
+        [SerializeField] private Transform _upgradeParent;
+        [SerializeField] private UpgradeView _upgradeViewPrefab;
 
         private void Awake()
         {
@@ -46,6 +45,12 @@ namespace Faza
             seq.AppendInterval(0.3f);
             seq.Append(_nextButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
+
+            foreach (var group in groups)
+            {
+                var view = Instantiate(_upgradeViewPrefab, _upgradeParent);
+                view.Init(group);
+            }
         }
     } 
 }

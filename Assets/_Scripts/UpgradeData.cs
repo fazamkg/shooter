@@ -17,11 +17,17 @@ namespace Faza
 
         public Sprite Icon => _icon;
         public string Name => _name;
-        public string Description => _description;
+        public string Description => string.Format
+            (_description, _damage, _speed, _shootingSpeed, _projectileSpeed);
         public float Cost => _cost;
         public float Damage => _damage;
         public float Speed => _speed;
         public float ShootingSpeed => _shootingSpeed;
         public float ProjectileSpeed => _projectileSpeed;
+
+        public void Apply()
+        {
+
+        }
     } 
 }

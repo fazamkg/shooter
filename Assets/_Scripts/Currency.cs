@@ -4,9 +4,11 @@ namespace Faza
 {
     public static class Currency
     {
-        public delegate void DeltaEvent(float oldValue, float newValue, Vector3 worldPosition);
+        public delegate void DeltaEventWithPos(float oldValue, float newValue, Vector3 worldPosition);
+        public delegate void DeltaEvent(float oldValue, float newValue);
 
-        public static event DeltaEvent OnCoinsAdded;
+        public static event DeltaEventWithPos OnCoinsAdded;
+        public static event DeltaEvent OnCoinsRemoved;
 
         public static float Coins
         {
@@ -20,6 +22,15 @@ namespace Faza
             Coins += toAdd;
 
             OnCoinsAdded?.Invoke(old, Coins, worldPosition);
+        }
+
+        public static void RemoveCoins(float toRemove)
+        {
+            var old = Coins;
+            Coins -= toRemove;
+            Coins = Mathf.Max(Coins, 0f);
+
+            OnCoinsRemoved?.Invoke(old, Coins);
         }
     } 
 }
