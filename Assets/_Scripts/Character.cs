@@ -42,6 +42,12 @@ namespace Faza
             }
         }
 
+        public void AddSpeed(float value)
+        {
+            _acceleration += value;
+            _maxSpeed += value;
+        }
+
         private void Update()
         {
             if (_characterController.enabled == false) return;

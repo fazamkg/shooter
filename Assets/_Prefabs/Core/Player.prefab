@@ -3356,6 +3356,7 @@ MonoBehaviour:
   _rotationSpeed: 900
   _health: {fileID: 541366142790786231}
   _shooter: {fileID: 1187109456656736761}
+  _character: {fileID: 7408316653406395132}
 --- !u!114 &8098265883147633888
 MonoBehaviour:
   m_ObjectHideFlags: 0

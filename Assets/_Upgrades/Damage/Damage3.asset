@@ -15,8 +15,8 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 93938784b8543544191c5ad004a62ed0, type: 3}
   _name: "\u0423\u0420\u041E\u041D"
   _description: "+{0} \u043A \u0423\u0420\u041E\u041D\u0423"
-  _cost: 300
-  _damage: 3
+  _cost: 12
+  _damage: 30
   _speed: 0
   _shootingSpeed: 0
   _projectileSpeed: 0

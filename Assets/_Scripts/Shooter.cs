@@ -23,6 +23,7 @@ namespace Faza
         private bool _shoot;
         private bool _inCooldown;
         private Collider[] _colliders = new Collider[32];
+        private float _shootSpeed = 1f;
 
         public Vector3 Target { get; private set; }
         public bool StartedShooting { get; set; }
@@ -31,6 +32,27 @@ namespace Faza
         public float Gravity => _gravity;
         public float Decay => _decay;
         public bool WithinShooting => _shoot;
+        public float ShootSpeed => _shootSpeed;
+
+        public void AddDamage(float damage)
+        {
+            _damage += damage;
+        }
+
+        public void AddProjectileSpeed(float speed)
+        {
+            _speed += speed;
+        }
+
+        public void AddShootingSpeed(float speed)
+        {
+            _rotationSpeed += speed;
+            _cooldown -= speed;
+            _cooldown = Mathf.Max(_cooldown, 0f);
+            _movementDelay -= speed;
+            _movementDelay = Mathf.Max(_movementDelay, 0f);
+            _shootSpeed += speed;
+        }
 
         private void Update()
         {

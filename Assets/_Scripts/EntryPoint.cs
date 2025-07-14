@@ -8,6 +8,7 @@ namespace Faza
         [SerializeField] private GameObject[] _uis;
         [SerializeField] private SkinnedMeshRenderer _playerSMR;
         [SerializeField] private Animator _playerAnimator;
+        [SerializeField] private UpgradeGroupData[] _allUpgradeGroups;
 
         private Waypoint _from;
         private Waypoint _to;
@@ -282,6 +283,19 @@ namespace Faza
             Console.AddButton("Assign waypoint", () => AssignWaypoint());
             #endregion
             */
+        }
+
+        private void Start()
+        {
+            foreach (var group in _allUpgradeGroups)
+            {
+                var upgrades = group.GetPurchasedUpgrades();
+
+                foreach (var upgrade in upgrades)
+                {
+                    upgrade.Apply();
+                }
+            }
         }
 
         private T GetAtCrosshair<T>() where T : Component

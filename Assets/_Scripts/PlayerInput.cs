@@ -10,11 +10,14 @@ namespace Faza
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private Health _health;
         [SerializeField] private Shooter _shooter;
+        [SerializeField] private Character _character;
 
         private bool _locked;
 
         public GameObject Camera => _camera;
         public Health Health => _health;
+        public Shooter Shooter => _shooter;
+        public Character Character => _character;
         public static PlayerInput Instance { get; private set; }
 
         private void Awake()

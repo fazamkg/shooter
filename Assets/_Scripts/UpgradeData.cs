@@ -27,7 +27,11 @@ namespace Faza
 
         public void Apply()
         {
-
+            var player = PlayerInput.Instance;
+            player.Shooter.AddDamage(_damage);
+            player.Character.AddSpeed(_speed);
+            player.Shooter.AddProjectileSpeed(_projectileSpeed);
+            player.Shooter.AddShootingSpeed(_shootingSpeed);
         }
     } 
 }

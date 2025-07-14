@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Faza
@@ -10,6 +11,19 @@ namespace Faza
 
         public string Id => _id;
         public UpgradeData[] Chain => _chain;
+
+        public List<UpgradeData> GetPurchasedUpgrades()
+        {
+            var list = new List<UpgradeData>();
+            var index = Storage.GetInt(_id);
+
+            for (var i = 0; i < index; i++)
+            {
+                list.Add(_chain[i]);
+            }
+
+            return list;
+        }
 
         public UpgradeData GetCurrentToPurhase()
         {
