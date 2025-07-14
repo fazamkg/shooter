@@ -11,6 +11,8 @@ namespace Faza
         [SerializeField] private Transform _upgradeParent;
         [SerializeField] private UpgradeView _upgradeViewPrefab;
 
+        private bool _appeared;
+
         private void Awake()
         {
             _group.alpha = 0f;
@@ -21,6 +23,8 @@ namespace Faza
 
         private void NextButton_OnUp()
         {
+            if (_appeared == false) return;
+
             _group.blocksRaycasts = false;
 
             var seq = DOTween.Sequence();
@@ -39,11 +43,11 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.AppendInterval(1f);
             seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
             seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
             seq.AppendInterval(0.3f);
             seq.Append(_nextButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
+            seq.OnComplete(() => _appeared = true);
             seq.SetEase(Ease.Linear);
 
             foreach (var group in groups)
