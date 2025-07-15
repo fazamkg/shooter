@@ -14,6 +14,7 @@ namespace Faza
         [SerializeField] private LoseScreen _loseScreen;
         [SerializeField] private WinScreen _winScreen;
         [SerializeField] private UpgradeScreen _upgradeScreen;
+        [SerializeField] private LevelTimer _levelTimer;
 
         private void Awake()
         {
@@ -41,7 +42,17 @@ namespace Faza
             if (_levelData.AvailableUpgrades != null && _levelData.AvailableUpgrades.Length != 0)
             {
                 _upgradeScreen.Appear(_levelData.AvailableUpgrades);
+                _upgradeScreen.OnClosed += UpgradeScreen_OnClosed;
             }
+            else
+            {
+                _levelTimer.StartTimer();
+            }
+        }
+
+        private void UpgradeScreen_OnClosed()
+        {
+            _levelTimer.StartTimer();
         }
 
         private void OnDestroy()
@@ -53,12 +64,16 @@ namespace Faza
         {
             if (EnemyInput.IsEveryoneDead)
             {
+                _levelTimer.StopTimer();
+
                 _winScreen.Appear();
             }
         }
 
         private void PlayerHealth_OnDeath()
         {
+            _levelTimer.StopTimer();
+
             _loseScreen.Appear();
         }
 

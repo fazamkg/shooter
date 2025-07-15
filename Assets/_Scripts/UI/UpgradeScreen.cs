@@ -1,10 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 namespace Faza
 {
     public class UpgradeScreen : MonoBehaviour
     {
+        public event Action OnClosed;
+
         [SerializeField] private RectTransform _title;
         [SerializeField] private MyButton _nextButton;
         [SerializeField] private CanvasGroup _group;
@@ -35,6 +38,8 @@ namespace Faza
             seq.Append(_title.DOScale(0f, 0.3f).SetEase(Ease.InBack));
             seq.Append(_nextButton.transform.DOScale(0f, 0.3f).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
+
+            OnClosed?.Invoke();
         }
 
         public void Appear(UpgradeGroupData[] groups)
