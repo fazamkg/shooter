@@ -13,7 +13,7 @@ namespace Faza
 
         private bool _appeared;
 
-        private void Awake()
+        public void Init()
         {
             _group.alpha = 0f;
             _group.blocksRaycasts = false;

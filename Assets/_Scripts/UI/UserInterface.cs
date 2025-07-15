@@ -40,6 +40,8 @@ namespace Faza
             {
                 _upgradeScreen.Appear(_levelData.AvailableUpgrades);
             }
+
+            _upgradeScreen.Init();
         }
 
         private void OnDestroy()
