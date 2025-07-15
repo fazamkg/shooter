@@ -166,6 +166,7 @@ namespace Faza
                     enemy.Health.TakeDamage(100_000f, Vector3.zero);
                 }
             });
+            Console.AddCommand("add_money", (args) => Currency.AddCoins(args[0].ToFloat(), Vector2.zero));
 
             Console.Bind(KeyCode.Q, "waypoint");
             Console.Bind(KeyCode.R, "loop_waypoint");

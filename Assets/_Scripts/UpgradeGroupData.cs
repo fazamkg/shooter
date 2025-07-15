@@ -36,6 +36,7 @@ namespace Faza
             var index = Storage.GetInt(_id);
             var current = _chain[index];
 
+            if (current.IsMaxed) return false;
             if (Currency.Coins < current.Cost) return false;
 
             current.Apply();

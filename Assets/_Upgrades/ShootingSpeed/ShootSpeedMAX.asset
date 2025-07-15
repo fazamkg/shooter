@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5265b14b97475bb4c808fb0e45b550f7, type: 3}
-  m_Name: Speed6
+  m_Name: ShootSpeedMAX
   m_EditorClassIdentifier: 
-  _icon: {fileID: 21300000, guid: d5c6304e5d046734c92a66daee3b6c91, type: 3}
-  _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C"
-  _maxed: 0
-  _description: "+{1} \u043A \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u0418 \u041F\u0415\u0420\u0415\u0414\u0412\u0418\u0416\u0415\u041D\u0418\u042F"
-  _cost: 15
+  _icon: {fileID: 21300000, guid: 0beaf569d81781542b8396d209a8f0a3, type: 3}
+  _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C \u0421\u0422\u0420\u0415\u041B\u042C\u0411\u042B"
+  _maxed: 1
+  _description: "\u0414\u041E\u0421\u0422\u0418\u0413\u041D\u0423\u0422 \u041C\u0410\u041A\u0421.
+    \u0423\u0420\u041E\u0412\u0415\u041D\u042C"
+  _cost: 999
   _damage: 0
-  _speed: 6
+  _speed: 0
   _shootingSpeed: 0
   _projectileSpeed: 0

@@ -62,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6855345, g: 0.6855345, b: 0.6855345, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87c6d663cd2e0454998473824ea89688, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b2589a91d8f7cd4f8a0e39265b50103, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -327,15 +327,15 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278223871
-  m_fontColor: {r: 1, g: 0.51548195, b: 0, a: 1}
-  m_enableVertexGradient: 0
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
     topLeft: {r: 0.9353493, g: 1, b: 0.16470587, a: 1}
     topRight: {r: 0.9353493, g: 1, b: 0.16470587, a: 1}
-    bottomLeft: {r: 1, g: 0.827451, b: 0, a: 1}
-    bottomRight: {r: 1, g: 0.827451, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.5137255, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.5137255, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -456,21 +456,21 @@ MonoBehaviour:
   m_text: "\u0423\u0420\u041E\u041D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3300eb033dea69a48ab473525bd70bcb, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 30f2355877ffad34ba3ad7e91e47d83f, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 60fa59225096762428fe801e5ba40ffd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
-    topLeft: {r: 0.18205033, g: 0.0738697, b: 0.2830189, a: 1}
-    topRight: {r: 0.18205033, g: 0.0738697, b: 0.2830189, a: 1}
-    bottomLeft: {r: 0, g: 0, b: 0, a: 1}
-    bottomRight: {r: 0, g: 0, b: 0, a: 1}
+    topLeft: {r: 0, g: 0, b: 0, a: 1}
+    topRight: {r: 0, g: 0, b: 0, a: 1}
+    bottomLeft: {r: 0.0762341, g: 0.043748222, b: 0.17610055, a: 1}
+    bottomRight: {r: 0.0762341, g: 0.043748222, b: 0.17610055, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

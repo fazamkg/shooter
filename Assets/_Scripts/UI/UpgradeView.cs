@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Globalization;
@@ -29,7 +29,7 @@ namespace Faza
             var data = _group.GetCurrentToPurhase();
 
             var title = data.Name;
-            var cost = data.Cost.ToString(CultureInfo.InvariantCulture);
+            var cost = data.IsMaxed ? "МАКС" : data.Cost.ToString(CultureInfo.InvariantCulture);
             var desc = data.Description;
 
             foreach (var thing in _title)
