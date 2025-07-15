@@ -36,12 +36,12 @@ namespace Faza
                 _rightJoystick.localScale = Vector3.one;
             }
 
+            _upgradeScreen.Init();
+
             if (_levelData.AvailableUpgrades != null && _levelData.AvailableUpgrades.Length != 0)
             {
                 _upgradeScreen.Appear(_levelData.AvailableUpgrades);
             }
-
-            _upgradeScreen.Init();
         }
 
         private void OnDestroy()

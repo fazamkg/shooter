@@ -17,6 +17,7 @@ namespace Faza
         {
             _group.alpha = 0f;
             _group.blocksRaycasts = false;
+            Console.Log("Block raycasts = false from Init()");
 
             _nextButton.OnUp += NextButton_OnUp;
         }
@@ -26,6 +27,7 @@ namespace Faza
             if (_appeared == false) return;
 
             _group.blocksRaycasts = false;
+            Console.Log("Block raycasts = false from NextButton_OnUp()");
 
             var seq = DOTween.Sequence();
 
@@ -38,6 +40,8 @@ namespace Faza
         public void Appear(UpgradeGroupData[] groups)
         {
             _group.blocksRaycasts = true;
+            Console.Log("Block raycasts = true from Appear()");
+
             _title.localScale = Vector3.zero;
             _nextButton.transform.localScale = Vector3.zero;
 
