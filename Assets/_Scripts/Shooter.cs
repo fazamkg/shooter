@@ -19,6 +19,7 @@ namespace Faza
         [SerializeField] private Transform _bulletOrigin;
         [SerializeField] private Projectile _bulletPrefab;
         [SerializeField] private Health _health;
+        [SerializeField] private PlayerInput _input;
 
         private bool _shoot;
         private bool _inCooldown;
@@ -56,11 +57,14 @@ namespace Faza
 
         private void Update()
         {
+            if (_character.enabled == false) return;
+
             if (_shoot) return;
             if (_inCooldown) return;
 
             if (_health.IsDead) return;
 
+            if (_input.GetRawMove().sqrMagnitude > 0.1f) return;
             if (_character.HorizontalSpeed > 1f) return;
 
             var amount = Physics.OverlapSphereNonAlloc

@@ -33,7 +33,7 @@ namespace Faza
             OnHealthCreated?.Invoke(this);
         }
 
-        public void TakeDamage(float damage, Vector3 damageDirection)
+        public void TakeDamage(float damage, Vector3 damageDirection, bool stopCharacter = true)
         {
             LastDamageDirection = damageDirection;
 
@@ -41,7 +41,7 @@ namespace Faza
 
             OnTakenDamage?.Invoke(this);
 
-            if (_character != null)
+            if (_character != null && stopCharacter)
             {
                 _character.Stop(0.5f);
             }

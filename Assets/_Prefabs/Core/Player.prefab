@@ -3398,6 +3398,7 @@ MonoBehaviour:
   _bulletOrigin: {fileID: 2971863623141261763}
   _bulletPrefab: {fileID: 89754544282707423, guid: 14dc0fa2b32b8ac4dbc24a0d072d7a8d, type: 3}
   _health: {fileID: 541366142790786231}
+  _input: {fileID: 4853704115935725154}
 --- !u!114 &541366142790786231
 MonoBehaviour:
   m_ObjectHideFlags: 0

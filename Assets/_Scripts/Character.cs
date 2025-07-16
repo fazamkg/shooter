@@ -48,6 +48,11 @@ namespace Faza
             _maxSpeed += value;
         }
 
+        private void Awake()
+        {
+            _characterController.enableOverlapRecovery = false;
+        }
+
         private void Update()
         {
             if (_characterController.enabled == false) return;
