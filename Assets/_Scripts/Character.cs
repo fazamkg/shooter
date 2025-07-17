@@ -205,5 +205,10 @@ namespace Faza
         {
             _maxSpeed = value;
         }
+
+        public void AddVelocity(Vector3 velocity)
+        {
+            _velocity += velocity;
+        }
     }
 }
