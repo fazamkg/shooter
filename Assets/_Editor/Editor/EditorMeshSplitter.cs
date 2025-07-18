@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-namespace MyNamespace
+namespace Faza
 {
     public static class EditorMeshSplitter
     {
