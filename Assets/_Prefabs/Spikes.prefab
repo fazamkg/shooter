@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 4379113255557849445}
   - component: {fileID: 1742130164308619544}
   - component: {fileID: 7903057595683252251}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,8 +963,8 @@ GameObject:
   - component: {fileID: 6016808848948241693}
   - component: {fileID: 1116314963333534708}
   - component: {fileID: 5306979124279785188}
-  - component: {fileID: 4401563188542338883}
   - component: {fileID: 4446662049113710039}
+  - component: {fileID: 9053506909681650976}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -1037,7 +1037,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527425215094029908}
   m_Mesh: {fileID: -7051171201312029880, guid: f10a146d3b29cd64586f196ea482fa11, type: 3}
---- !u!64 &4401563188542338883
+--- !u!114 &4446662049113710039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527425215094029908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ddc060e4044ed42a9e0a4db7faec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &9053506909681650976
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1058,19 +1070,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!114 &4446662049113710039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527425215094029908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ddc060e4044ed42a9e0a4db7faec76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Mesh: {fileID: -7051171201312029880, guid: f10a146d3b29cd64586f196ea482fa11, type: 3}
 --- !u!1 &6947135144266433549
 GameObject:
   m_ObjectHideFlags: 0

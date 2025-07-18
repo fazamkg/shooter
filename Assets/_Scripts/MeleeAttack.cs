@@ -5,6 +5,7 @@ namespace Faza
 {
     public class MeleeAttack : MonoBehaviour
     {
+        [SerializeField] private LayerMask _mask;
         [SerializeField] private Character _character;
         [SerializeField] private float _range;
         [SerializeField] private float _damage;
@@ -33,7 +34,7 @@ namespace Faza
         {
             if (WithinAttack) return;
             
-            var amount = Physics.OverlapSphereNonAlloc(transform.position, _range, _colliders);
+            var amount = Physics.OverlapSphereNonAlloc(transform.position, _range, _colliders, _mask);
             for (var i = 0; i < amount; i++)
             {
                 var collider = _colliders[i];

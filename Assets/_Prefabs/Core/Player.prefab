@@ -3385,6 +3385,9 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  _layerMask2:
+    serializedVersion: 2
+    m_Bits: 1025
   _detectionRadius: 7
   _cooldown: 1
   _movementDelay: 0.4

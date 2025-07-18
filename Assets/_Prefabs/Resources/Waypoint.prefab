@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2727431671259262090}
   - component: {fileID: 7697351850452798533}
   - component: {fileID: 835331396430647257}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4ab9d5c12b569438c7abceb993da62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _command: 
   _connections: []
   _meshRenderer: {fileID: 2727431671259262090}
 --- !u!65 &835331396430647257

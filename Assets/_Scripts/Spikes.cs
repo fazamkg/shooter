@@ -43,7 +43,7 @@ namespace Faza
                             {
                                 var health = collider.GetComponent<Health>();
                                 if (health == false) continue;
-                                health.TakeDamage(_damage, center, false);
+                                health.TakeDamage(_damage, Vector3.up, false);
 
                                 var character = health.GetComponent<Character>();
                                 _captured.Add(character);

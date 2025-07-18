@@ -19,9 +19,9 @@ TagManager:
   - Enemy
   - Gibs
   - Player
-  - 
-  - 
-  - 
+  - WindZone
+  - Waypoint
+  - SpikeArea
   - 
   - 
   - 

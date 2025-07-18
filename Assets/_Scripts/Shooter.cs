@@ -6,6 +6,7 @@ namespace Faza
     public class Shooter : MonoBehaviour
     {
         [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _layerMask2;
         [SerializeField] private float _detectionRadius;
         [SerializeField] private float _cooldown;
         [SerializeField] private float _movementDelay;
@@ -86,7 +87,7 @@ namespace Faza
                 var vector = (enemy.transform.position - transform.position);
 
                 var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
-                var hit = Physics.Raycast(ray, out var hitInfo);
+                var hit = Physics.Raycast(ray, out var hitInfo, 100f, _layerMask2);
                 if (hit == false) continue;
 
                 if (hitInfo.collider.GetComponent<EnemyInput>() == false) continue;
