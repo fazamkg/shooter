@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 93285981962369502}
   - component: {fileID: 890126579294810513}
   - component: {fileID: 4488291921961303719}
-  - component: {fileID: 2506614098205003018}
   m_Layer: 11
   m_Name: Skeleton_island_1
   m_TagString: Untagged
@@ -231,18 +230,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.33698496, y: 0.8372714, z: 0.24564272}
   m_Center: {x: 0, y: 1.1805564, z: -0.0294628}
---- !u!114 &2506614098205003018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605256233273674127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &654752232616518963
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +243,6 @@ GameObject:
   - component: {fileID: 1639206798726244112}
   - component: {fileID: 3849419833839055892}
   - component: {fileID: 8073483026833845311}
-  - component: {fileID: 1575159688870683764}
   m_Layer: 11
   m_Name: Skeleton_island_18
   m_TagString: Untagged
@@ -377,18 +363,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1484792, y: 0.12672424, z: 0.25034708}
   m_Center: {x: 0.100705385, y: 1.0973842, z: 0.019914858}
---- !u!114 &1575159688870683764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654752232616518963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &899148184157259860
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +376,6 @@ GameObject:
   - component: {fileID: 3599668587972625717}
   - component: {fileID: 7256689005407466498}
   - component: {fileID: 8725344529146286244}
-  - component: {fileID: 3151715283866468441}
   m_Layer: 11
   m_Name: Skeleton_island_24
   m_TagString: Untagged
@@ -523,18 +496,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.12665263, y: 0.14437819, z: 0.13636725}
   m_Center: {x: 0.14122596, y: 1.2524874, z: -0.06506919}
---- !u!114 &3151715283866468441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899148184157259860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &915240837706787139
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +509,6 @@ GameObject:
   - component: {fileID: 5658294401655505580}
   - component: {fileID: 7960238065056724379}
   - component: {fileID: 3432634962415786869}
-  - component: {fileID: 8617796408619456462}
   m_Layer: 11
   m_Name: Skeleton_island_15
   m_TagString: Untagged
@@ -669,18 +629,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22731577, y: 0.06684804, z: 0.13254458}
   m_Center: {x: -0.12839015, y: 1.309435, z: 0.01082881}
---- !u!114 &8617796408619456462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915240837706787139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1287985144233446135
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +642,6 @@ GameObject:
   - component: {fileID: 2631097400018375816}
   - component: {fileID: 2653486567508056977}
   - component: {fileID: 5252602373678897991}
-  - component: {fileID: 5413351812339355144}
   m_Layer: 11
   m_Name: Skeleton_island_25
   m_TagString: Untagged
@@ -815,18 +762,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.12665263, y: 0.14437819, z: 0.13636725}
   m_Center: {x: -0.14122596, y: 1.2524874, z: -0.06506919}
---- !u!114 &5413351812339355144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287985144233446135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1421353636059101230
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +775,6 @@ GameObject:
   - component: {fileID: 4857367286879743548}
   - component: {fileID: 4688215302203752387}
   - component: {fileID: 7180101669447121451}
-  - component: {fileID: 6952624496955402821}
   m_Layer: 11
   m_Name: Skeleton_island_14
   m_TagString: Untagged
@@ -961,18 +895,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22731577, y: 0.06684804, z: 0.13254458}
   m_Center: {x: 0.12839015, y: 1.309435, z: 0.01082881}
---- !u!114 &6952624496955402821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421353636059101230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1668113980307777729
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +908,6 @@ GameObject:
   - component: {fileID: 5986455552769362982}
   - component: {fileID: 6693371562644132501}
   - component: {fileID: 6318690312562197296}
-  - component: {fileID: 3992101499475900674}
   m_Layer: 11
   m_Name: Skeleton_island_16
   m_TagString: Untagged
@@ -1107,18 +1028,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15212828, y: 0.095638394, z: 0.24627268}
   m_Center: {x: 0.09864813, y: 1.1765695, z: 0.010131735}
---- !u!114 &3992101499475900674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668113980307777729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2160114085938872561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1041,6 @@ GameObject:
   - component: {fileID: 5979482449440859011}
   - component: {fileID: 2703802830325470311}
   - component: {fileID: 5030663449599472642}
-  - component: {fileID: 3097727914932412561}
   m_Layer: 11
   m_Name: Skeleton_island_21
   m_TagString: Untagged
@@ -1253,18 +1161,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1433259, y: 0.08575344, z: 0.21723129}
   m_Center: {x: -0.091901824, y: 1.2582072, z: -0.0040338337}
---- !u!114 &3097727914932412561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160114085938872561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2965465076852973664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1234,6 @@ GameObject:
   - component: {fileID: 3583028053146451239}
   - component: {fileID: 7172638197740595227}
   - component: {fileID: 4337758682392798894}
-  - component: {fileID: 2996314988208900227}
   m_Layer: 11
   m_Name: Skeleton_island_4
   m_TagString: Untagged
@@ -1459,18 +1354,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23296756, y: 0.25227594, z: 0.08933805}
   m_Center: {x: 0.29102984, y: 1.1909072, z: -0.044854254}
---- !u!114 &2996314988208900227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3103676119399419957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3394240451749542877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,7 +1367,6 @@ GameObject:
   - component: {fileID: 202191162745193811}
   - component: {fileID: 621547674127135014}
   - component: {fileID: 8642726566169226677}
-  - component: {fileID: 3462788217478763754}
   m_Layer: 11
   m_Name: Skeleton_island_12
   m_TagString: Untagged
@@ -1605,18 +1487,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.21948534, y: 0.20728528, z: 0.12419091}
   m_Center: {x: 0.43571046, y: 1.0381761, z: -0.048233457}
---- !u!114 &3462788217478763754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394240451749542877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3666839430688686143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1500,6 @@ GameObject:
   - component: {fileID: 4279059631004485089}
   - component: {fileID: 1327641625819546772}
   - component: {fileID: 7927629181937883921}
-  - component: {fileID: 4537390248555249276}
   m_Layer: 11
   m_Name: Skeleton_island_10
   m_TagString: Untagged
@@ -1751,18 +1620,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.088915475, y: 0.107908905, z: 0.0676084}
   m_Center: {x: 0.13258377, y: 0.47385207, z: 0.04100465}
---- !u!114 &4537390248555249276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3666839430688686143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4069210826684742767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1633,6 @@ GameObject:
   - component: {fileID: 1514112590201378500}
   - component: {fileID: 3091758529493164938}
   - component: {fileID: 9015626911502555641}
-  - component: {fileID: 3181981653565484527}
   m_Layer: 11
   m_Name: Skeleton_island_7
   m_TagString: Untagged
@@ -1897,18 +1753,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17439806, y: 0.3720038, z: 0.13875602}
   m_Center: {x: -0.14395735, y: 0.2708631, z: -0.03724239}
---- !u!114 &3181981653565484527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4069210826684742767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4105974605364823058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1766,6 @@ GameObject:
   - component: {fileID: 2795485215294871995}
   - component: {fileID: 481514488756568129}
   - component: {fileID: 2507600990623928371}
-  - component: {fileID: 4639045017434945011}
   m_Layer: 11
   m_Name: Skeleton_island_5
   m_TagString: Untagged
@@ -2043,18 +1886,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23296756, y: 0.25227594, z: 0.08933805}
   m_Center: {x: -0.29102984, y: 1.1909072, z: -0.044854254}
---- !u!114 &4639045017434945011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4105974605364823058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4146811963680629097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,7 +1899,6 @@ GameObject:
   - component: {fileID: 2216184994763444991}
   - component: {fileID: 1204940037162502958}
   - component: {fileID: 9198579779966399603}
-  - component: {fileID: 8258411756749230363}
   m_Layer: 11
   m_Name: Skeleton_island_0
   m_TagString: Untagged
@@ -2189,18 +2019,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29378653, y: 0.409469, z: 0.362939}
   m_Center: {x: 0, y: 1.59498, z: 0.03380867}
---- !u!114 &8258411756749230363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4146811963680629097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4175290770296656489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,7 +2032,6 @@ GameObject:
   - component: {fileID: 1968610245624622386}
   - component: {fileID: 4564296497913139466}
   - component: {fileID: 8875839713110817947}
-  - component: {fileID: 606082629006663852}
   m_Layer: 11
   m_Name: Skeleton_island_26
   m_TagString: Untagged
@@ -2335,18 +2152,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06896648, y: 0.24334991, z: 0.111575276}
   m_Center: {x: 0, y: 1.1859717, z: 0.10208939}
---- !u!114 &606082629006663852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175290770296656489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4276264129987091357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2165,6 @@ GameObject:
   - component: {fileID: 8849067845367302125}
   - component: {fileID: 7700590259220059271}
   - component: {fileID: 1928330386991677087}
-  - component: {fileID: 5875886836928992852}
   m_Layer: 11
   m_Name: Skeleton_island_3
   m_TagString: Untagged
@@ -2481,18 +2285,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14876589, y: 0.4108159, z: 0.13166226}
   m_Center: {x: -0.12554488, y: 0.659752, z: -0.023474693}
---- !u!114 &5875886836928992852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276264129987091357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4454417100905597761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,7 +2440,6 @@ GameObject:
   - component: {fileID: 7710577829134578955}
   - component: {fileID: 4156409380016640295}
   - component: {fileID: 6688570161030519907}
-  - component: {fileID: 8177373126491030092}
   m_Layer: 11
   m_Name: Skeleton_island_19
   m_TagString: Untagged
@@ -2769,18 +2560,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0938441, y: 0.08855879, z: 0.10539731}
   m_Center: {x: 0.07453626, y: 1.0302975, z: -0.027109165}
---- !u!114 &8177373126491030092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4649315664989786790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4923936459668896378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,7 +2573,6 @@ GameObject:
   - component: {fileID: 7798794737318813247}
   - component: {fileID: 6410965669745231793}
   - component: {fileID: 8030400072060403366}
-  - component: {fileID: 1457552387666524482}
   m_Layer: 11
   m_Name: Skeleton_island_17
   m_TagString: Untagged
@@ -2915,18 +2693,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1433259, y: 0.08575344, z: 0.21723129}
   m_Center: {x: 0.091901824, y: 1.2582072, z: -0.0040338337}
---- !u!114 &1457552387666524482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923936459668896378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5092887053134511159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2706,6 @@ GameObject:
   - component: {fileID: 3970667144757968138}
   - component: {fileID: 5962479881536125358}
   - component: {fileID: 8431557097948000133}
-  - component: {fileID: 5504597883299264578}
   m_Layer: 11
   m_Name: Skeleton_island_2
   m_TagString: Untagged
@@ -3061,18 +2826,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14876589, y: 0.4108159, z: 0.13166226}
   m_Center: {x: 0.12554488, y: 0.659752, z: -0.023474693}
---- !u!114 &5504597883299264578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5092887053134511159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5424487068854460858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,7 +2876,6 @@ GameObject:
   - component: {fileID: 6793886799250755377}
   - component: {fileID: 2783136626780058221}
   - component: {fileID: 3146257671444440557}
-  - component: {fileID: 8990335704327534276}
   m_Layer: 11
   m_Name: Skeleton_island_28
   m_TagString: Untagged
@@ -3244,18 +2996,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26514846, y: 0.22367316, z: 0.2534426}
   m_Center: {x: -0.6250386, y: 0.86188567, z: -0.003438376}
---- !u!114 &8990335704327534276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5722789096291610582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6096770170175588352
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3009,6 @@ GameObject:
   - component: {fileID: 6549450498683643203}
   - component: {fileID: 2730489807117994444}
   - component: {fileID: 3503758882631045198}
-  - component: {fileID: 3182835830196204436}
   m_Layer: 11
   m_Name: Skeleton_island_8
   m_TagString: Untagged
@@ -3390,18 +3129,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20209318, y: 0.123326465, z: 0.3965424}
   m_Center: {x: 0.1755825, y: 0.0618828, z: 0.056003228}
---- !u!114 &3182835830196204436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6096770170175588352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6115152750487970333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3446,7 +3173,6 @@ GameObject:
   - component: {fileID: 600586491989510480}
   - component: {fileID: 229747643066060429}
   - component: {fileID: 4120256297172200825}
-  - component: {fileID: 1450322135477168370}
   m_Layer: 11
   m_Name: Skeleton_island_9
   m_TagString: Untagged
@@ -3567,18 +3293,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.20209318, y: 0.123326465, z: 0.3965424}
   m_Center: {x: -0.1755825, y: 0.0618828, z: 0.056003228}
---- !u!114 &1450322135477168370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6414148179766037132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6521866649549062430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,7 +3306,6 @@ GameObject:
   - component: {fileID: 8873452495497235861}
   - component: {fileID: 3140347966699602715}
   - component: {fileID: 4542291141418959339}
-  - component: {fileID: 3728463848276814563}
   m_Layer: 11
   m_Name: Skeleton_island_13
   m_TagString: Untagged
@@ -3713,18 +3426,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.21948534, y: 0.20728528, z: 0.12419091}
   m_Center: {x: -0.43571046, y: 1.0381761, z: -0.048233457}
---- !u!114 &3728463848276814563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521866649549062430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6739707708559277705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3439,6 @@ GameObject:
   - component: {fileID: 756208296472408784}
   - component: {fileID: 4027760438169652403}
   - component: {fileID: 3729709999505802657}
-  - component: {fileID: 6136123633984807757}
   m_Layer: 11
   m_Name: Skeleton_island_27
   m_TagString: Untagged
@@ -3859,18 +3559,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26514846, y: 0.22367316, z: 0.2534426}
   m_Center: {x: 0.6250386, y: 0.86188567, z: -0.003438376}
---- !u!114 &6136123633984807757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6739707708559277705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6891900426671913297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3572,6 @@ GameObject:
   - component: {fileID: 4702162305498602642}
   - component: {fileID: 7237162089449091534}
   - component: {fileID: 5296113060007332405}
-  - component: {fileID: 6354961242114132673}
   m_Layer: 11
   m_Name: Skeleton_island_6
   m_TagString: Untagged
@@ -4005,18 +3692,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17439806, y: 0.3720038, z: 0.13875602}
   m_Center: {x: 0.14395735, y: 0.2708631, z: -0.03724239}
---- !u!114 &6354961242114132673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6891900426671913297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7182861051351455060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,7 +3705,6 @@ GameObject:
   - component: {fileID: 8019261840293945375}
   - component: {fileID: 4358938597226791617}
   - component: {fileID: 262390018466949671}
-  - component: {fileID: 317092877671589132}
   m_Layer: 11
   m_Name: Skeleton_island_11
   m_TagString: Untagged
@@ -4151,18 +3825,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.088915475, y: 0.107908905, z: 0.0676084}
   m_Center: {x: -0.13258377, y: 0.47385207, z: 0.04100465}
---- !u!114 &317092877671589132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7182861051351455060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7217187741217123387
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,7 +3838,6 @@ GameObject:
   - component: {fileID: 8112256665602608341}
   - component: {fileID: 1426390768195080456}
   - component: {fileID: 9068426106319180149}
-  - component: {fileID: 2483796237585106034}
   m_Layer: 11
   m_Name: Skeleton_island_23
   m_TagString: Untagged
@@ -4297,18 +3958,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0938441, y: 0.08855879, z: 0.10539731}
   m_Center: {x: -0.07453626, y: 1.0302975, z: -0.027109165}
---- !u!114 &2483796237585106034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7217187741217123387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7276140247524379405
 GameObject:
   m_ObjectHideFlags: 0
@@ -4614,7 +4263,6 @@ GameObject:
   - component: {fileID: 6349403587847885038}
   - component: {fileID: 1353917483508955839}
   - component: {fileID: 1725996691595120168}
-  - component: {fileID: 5619011547851139260}
   m_Layer: 11
   m_Name: Skeleton_island_22
   m_TagString: Untagged
@@ -4735,18 +4383,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1484792, y: 0.12672424, z: 0.25034708}
   m_Center: {x: -0.100705385, y: 1.0973842, z: 0.019914858}
---- !u!114 &5619011547851139260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8275015187215527337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8836438693877663542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4396,6 @@ GameObject:
   - component: {fileID: 6937896330768201976}
   - component: {fileID: 1234110081071323684}
   - component: {fileID: 2398560789918917117}
-  - component: {fileID: 414502781962243485}
   m_Layer: 11
   m_Name: Skeleton_island_20
   m_TagString: Untagged
@@ -4881,18 +4516,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15212828, y: 0.095638394, z: 0.24627268}
   m_Center: {x: -0.09864813, y: 1.1765695, z: 0.010131735}
---- !u!114 &414502781962243485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8836438693877663542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31256bc362d261446a51d528c7e66dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8910148176993098824
 GameObject:
   m_ObjectHideFlags: 0
