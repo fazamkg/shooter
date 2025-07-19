@@ -6,6 +6,8 @@ namespace Faza
 {
     public class Spikes : MonoBehaviour
     {
+        [SerializeField] private bool _isUp = true;
+        [SerializeField] private float _timerShift;
         [SerializeField] private float _damage;
         [SerializeField] private Collider _collider;
         [SerializeField] private Transform _spikesHolder;
@@ -18,6 +20,17 @@ namespace Faza
         private bool _shown = true;
 
         private List<Character> _captured = new();
+
+        private void Awake()
+        {
+            if (_isUp == false)
+            {
+                _spikesHolder.localPosition = _down;
+                _shown = false;
+                _collider.enabled = true;
+            }
+            _timer += _timerShift;
+        }
 
         private void Update()
         {

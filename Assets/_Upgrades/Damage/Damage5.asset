@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: "\u0423\u0420\u041E\u041D"
   _maxed: 0
   _description: "+{0} \u043A \u0423\u0420\u041E\u041D\u0423"
-  _cost: 14
+  _cost: 70
   _damage: 40
   _speed: 0
   _shootingSpeed: 0
