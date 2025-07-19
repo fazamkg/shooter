@@ -7,14 +7,38 @@ namespace Faza
         [SerializeField] private Transform _toRotate;
         [SerializeField] private float _speed;
         [SerializeField] private float _strength;
+        [SerializeField] private bool _repeatToggle;
+        [SerializeField] private float _timeOn;
+        [SerializeField] private float _timeOff;
+
+        private float _timer;
+        private bool _on = true;
 
         private void Update()
         {
-            _toRotate.Rotate(0f, Time.deltaTime * _speed, 0f, Space.Self);
+            if (_repeatToggle)
+            {
+                _timer += Time.deltaTime;
+
+                var time = _on ? _timeOn : _timeOff;
+
+                if (_timer > time)
+                {
+                    _timer = 0f;
+                    _on = !_on;
+                }
+            }
+
+            if (_on)
+            {
+                _toRotate.Rotate(0f, Time.deltaTime * _speed, 0f, Space.Self);
+            }
         }
 
         private void OnTriggerStay(Collider other)
         {
+            if (_on == false) return;
+
             var character = other.GetComponent<Character>();
             if (character == false) return;
 

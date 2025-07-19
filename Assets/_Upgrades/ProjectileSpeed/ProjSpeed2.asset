@@ -16,8 +16,8 @@ MonoBehaviour:
   _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C \u041F\u0423\u041B\u0418"
   _maxed: 0
   _description: "+{3} \u043A \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u0418 \u041F\u0423\u041B\u0418"
-  _cost: 11
+  _cost: 25
   _damage: 0
   _speed: 0
   _shootingSpeed: 0
-  _projectileSpeed: 2
+  _projectileSpeed: 3
