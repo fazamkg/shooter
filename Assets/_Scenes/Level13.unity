@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: cfc02ffe490c5fd4f99a2520427c7b60, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f1b59b64aea5cf24bb1abd585c36e62c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &144262765
 Transform:
@@ -2329,6 +2329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -2716,6 +2720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25
@@ -2772,6 +2780,10 @@ PrefabInstance:
     - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_Name
       value: Spikes (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4170,7 +4182,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1296331363}
+  m_Mesh: {fileID: 301728315}
 --- !u!33 &471101118
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -4551,6 +4563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21
@@ -4666,7 +4682,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 2112918843}
+  m_Mesh: {fileID: 424689416}
 --- !u!33 &498461896
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -5184,6 +5200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -5665,7 +5685,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1753002789}
+  m_Mesh: {fileID: 1756833493}
 --- !u!33 &609133007
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -8412,6 +8432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -9364,6 +9388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19
@@ -9644,7 +9672,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 219189974}
+  m_Mesh: {fileID: 1034946478}
 --- !u!33 &1030930485
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -10541,7 +10569,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 301728315}
+  m_Mesh: {fileID: 1753002789}
 --- !u!33 &1080931080
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -10907,7 +10935,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1296331363}
+  m_Mesh: {fileID: 285222574}
 --- !u!33 &1088897868
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -12567,6 +12595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13
@@ -13686,6 +13718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -13801,7 +13837,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 214430674}
+  m_Mesh: {fileID: 1872763909}
 --- !u!33 &1430244522
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -14332,7 +14368,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1328425891}
+  m_Mesh: {fileID: 1103886792}
 --- !u!33 &1501246868
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -14640,6 +14676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -14696,6 +14736,10 @@ PrefabInstance:
     - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_Name
       value: Spikes (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14812,7 +14856,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 285222574}
+  m_Mesh: {fileID: 777976714}
 --- !u!33 &1620843872
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -15563,6 +15607,10 @@ PrefabInstance:
     - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_Name
       value: Spikes (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031136852045871616, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17638,7 +17686,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1034946478}
+  m_Mesh: {fileID: 1210658772}
 --- !u!33 &1944614738
 MeshFilter:
   m_ObjectHideFlags: 10

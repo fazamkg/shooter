@@ -10,9 +10,12 @@ namespace Faza
         [SerializeField] private bool _repeatToggle;
         [SerializeField] private float _timeOn;
         [SerializeField] private float _timeOff;
+        [SerializeField] private bool _scaleWithDistance = true;
 
         private float _timer;
         private bool _on = true;
+
+        public bool IsOn => _on;
 
         private void Update()
         {
@@ -43,10 +46,15 @@ namespace Faza
             if (character == false) return;
 
             var direction = transform.up;
-            var distance = Vector3.Distance(transform.position, character.transform.position);
-            var oppDist = 1f / distance;
 
-            var accel = oppDist * _strength * Time.fixedDeltaTime * direction;
+            var accel = _strength * Time.fixedDeltaTime * direction;
+            if (_scaleWithDistance)
+            {
+                var distance = Vector3.Distance(transform.position, character.transform.position);
+                var oppDist = 1f / distance;
+
+                accel *= oppDist;
+            }
 
             character.AddVelocity(accel);
         }

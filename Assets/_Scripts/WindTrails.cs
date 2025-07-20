@@ -1,58 +1,63 @@
 using UnityEngine;
-using Faza;
 
-public class WindTrails : MonoBehaviour
+namespace Faza
 {
-    [SerializeField] private TrailRenderer[] _trails;
-    [SerializeField] private float _timeLength;
-    [SerializeField] private float _distance;
-    [SerializeField] private float _amplitude;
-    [SerializeField] private float _frequency;
-    [SerializeField] private float _diff;
-
-    private Vector3[] _originalPositions;
-    private float[] _randomOffsets;
-    private float[] _previousTimes;
-
-    private void Start()
+    public class WindTrails : MonoBehaviour
     {
-        _originalPositions = new Vector3[_trails.Length];
-        _randomOffsets = new float[_trails.Length];
-        _previousTimes = new float[_trails.Length];
+        [SerializeField] private Fan _fan;
+        [SerializeField] private TrailRenderer[] _trails;
+        [SerializeField] private float _timeLength;
+        [SerializeField] private float _distance;
+        [SerializeField] private float _amplitude;
+        [SerializeField] private float _frequency;
+        [SerializeField] private float _diff;
 
-        for (var i = 0; i < _trails.Length; i++)
+        private Vector3[] _originalPositions;
+        private float[] _randomOffsets;
+        private float[] _previousTimes;
+
+        private void Start()
         {
-            _originalPositions[i] = _trails[i].transform.position;
-            _randomOffsets[i] = Random.Range(0f, _timeLength);
-            _previousTimes[i] = Mathf.Repeat(Time.time + _randomOffsets[i], _timeLength);
-        }
-    }
+            _originalPositions = new Vector3[_trails.Length];
+            _randomOffsets = new float[_trails.Length];
+            _previousTimes = new float[_trails.Length];
 
-    private void Update()
-    {
-        var direction = transform.forward;
-
-        for (var i = 0; i < _trails.Length; i++)
-        {
-            var time = Mathf.Repeat(Time.time + _randomOffsets[i], _timeLength);
-
-            var og = _originalPositions[i];
-            var target = og + direction * _distance;
-
-            var y = Mathf.Sin(time * _frequency) * _amplitude;
-
-            var weight = time / _timeLength;
-            var newPos = Vector3.Lerp(og, target, weight);
-            newPos.y += y;
-
-            _trails[i].transform.position = newPos;
-
-            if (time < _previousTimes[i])
+            for (var i = 0; i < _trails.Length; i++)
             {
-                _trails[i].Clear();
+                _originalPositions[i] = _trails[i].transform.position;
+                _randomOffsets[i] = Random.Range(0f, _timeLength);
+                _previousTimes[i] = Mathf.Repeat(Time.time + _randomOffsets[i], _timeLength);
             }
-
-            _previousTimes[i] = time;
         }
-    }
+
+        private void Update()
+        {
+            if (_fan.IsOn == false) return;
+
+            var direction = transform.forward;
+
+            for (var i = 0; i < _trails.Length; i++)
+            {
+                var time = Mathf.Repeat(Time.time + _randomOffsets[i], _timeLength);
+
+                var og = _originalPositions[i];
+                var target = og + direction * _distance;
+
+                var y = Mathf.Sin(time * _frequency) * _amplitude;
+
+                var weight = time / _timeLength;
+                var newPos = Vector3.Lerp(og, target, weight);
+                newPos.y += y;
+
+                _trails[i].transform.position = newPos;
+
+                if (time < _previousTimes[i])
+                {
+                    _trails[i].Clear();
+                }
+
+                _previousTimes[i] = time;
+            }
+        }
+    } 
 }

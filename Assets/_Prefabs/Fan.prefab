@@ -187,6 +187,9 @@ MonoBehaviour:
   _toRotate: {fileID: 2267439308991575554}
   _speed: 193.7
   _strength: 500
+  _repeatToggle: 0
+  _timeOn: 0
+  _timeOff: 0
 --- !u!65 &3944890931310795765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -268,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e7254ba1dcfa74f9d6c5d557592f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fan: {fileID: 253706422892990054}
   _trails:
   - {fileID: 5671585327061684838}
   - {fileID: 6927998353074046638}

@@ -22,13 +22,14 @@ namespace Faza
         private float _pitch;
         private float _yaw;
 
-        private Vector3 _velocity;
+        private Vector3 _ownHorizontalVelocity;
+        private Vector3 _outsideHorizontalVelocity;
         private float _verticalVelocity;
         private bool _isGrounded;
         private Coroutine _stopCoroutine;
 
         public bool DeltaTimeScaled { get; set; } = true;
-        public float HorizontalSpeed => _velocity.magnitude;
+        public float HorizontalSpeed => _ownHorizontalVelocity.magnitude;
         public float Yaw => _yaw;
         public bool IsFalling => _isGrounded == false && _verticalVelocity < 0f;
         public bool IsGrouned => _isGrounded;
@@ -77,18 +78,21 @@ namespace Faza
             if (IsNoclip == false)
             {
                 #region Physics
-                _velocity += delta * _acceleration * inputDirection;
-
-                _velocity -= delta * _friction * _velocity;
-
-                _velocity = Vector3.ClampMagnitude(_velocity, _maxSpeed);
+                _ownHorizontalVelocity += delta * _acceleration * inputDirection;
+                _ownHorizontalVelocity -= delta * _friction * _ownHorizontalVelocity;
+                _ownHorizontalVelocity = Vector3.ClampMagnitude(_ownHorizontalVelocity, _maxSpeed);
 
                 _verticalVelocity -= delta * _gravity;
 
-                _characterController.Move(_velocity * delta);
+                _characterController.Move(_ownHorizontalVelocity * delta);
                 var returnedVelocity = _characterController.velocity;
-                _velocity.x = returnedVelocity.x;
-                _velocity.z = returnedVelocity.z;
+                _ownHorizontalVelocity.x = returnedVelocity.x;
+                _ownHorizontalVelocity.z = returnedVelocity.z;
+
+                _characterController.Move(_outsideHorizontalVelocity * delta);
+                var returnedVelocity2 = _characterController.velocity;
+                _outsideHorizontalVelocity.x = returnedVelocity2.x;
+                _outsideHorizontalVelocity.z = returnedVelocity2.z;
 
                 _characterController.Move(_verticalVelocity * delta * Vector3.up);
                 returnedVelocity = _characterController.velocity;
@@ -134,7 +138,8 @@ namespace Faza
 
         private IEnumerator StopCharacterCoroutine(float duration)
         {
-            _velocity = Vector3.zero;
+            _ownHorizontalVelocity = Vector3.zero;
+            _outsideHorizontalVelocity = Vector3.zero;
             enabled = false;
             yield return new WaitForSeconds(duration);
             enabled = true;
@@ -208,7 +213,7 @@ namespace Faza
 
         public void AddVelocity(Vector3 velocity)
         {
-            _velocity += velocity;
+            _outsideHorizontalVelocity += velocity;
         }
     }
 }
