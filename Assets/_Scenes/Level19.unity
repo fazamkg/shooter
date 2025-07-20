@@ -1540,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _strength
-      value: 10
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _repeatToggle
@@ -2379,7 +2379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _strength
-      value: 10
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _repeatToggle
@@ -6315,7 +6315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _strength
-      value: 10
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _repeatToggle
@@ -9257,15 +9257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1742130164308619544, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: _shownTime
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1742130164308619544, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: _hiddenTime
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.5
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9273,7 +9273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 4379113255557849445, guid: 48d6e85d95970fa4593dd8a95365923f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15523,7 +15523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _strength
-      value: 10
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 253706422892990054, guid: 0b692ae7bfd2a054a8d1ba42cc51d0f9, type: 3}
       propertyPath: _repeatToggle

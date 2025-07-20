@@ -77,6 +77,7 @@ namespace Faza
                             foreach (var captured in _captured)
                             {
                                 captured.enabled = true;
+                                captured.ResetSpeeds();
                             }
                             _captured.Clear();
                         });

@@ -80,6 +80,7 @@ namespace Faza
                 #region Physics
                 _ownHorizontalVelocity += delta * _acceleration * inputDirection;
                 _ownHorizontalVelocity -= delta * _friction * _ownHorizontalVelocity;
+                _outsideHorizontalVelocity -= delta * _friction * _outsideHorizontalVelocity;
                 _ownHorizontalVelocity = Vector3.ClampMagnitude(_ownHorizontalVelocity, _maxSpeed);
 
                 _verticalVelocity -= delta * _gravity;
@@ -143,6 +144,14 @@ namespace Faza
             enabled = false;
             yield return new WaitForSeconds(duration);
             enabled = true;
+            _ownHorizontalVelocity = Vector3.zero;
+            _outsideHorizontalVelocity = Vector3.zero;
+        }
+
+        public void ResetSpeeds()
+        {
+            _ownHorizontalVelocity = Vector3.zero;
+            _outsideHorizontalVelocity = Vector3.zero;
         }
 
         public IEnumerator RotateTowardsCoroutine(Vector3 target, float speed)
