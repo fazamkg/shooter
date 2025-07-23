@@ -214,13 +214,13 @@ namespace Faza
                     var rend = thing.GetComponent<MeshRenderer>();
 
                     var mat = rend.sharedMaterial;
-                    if (mat.name == "Default")
+                    if (mat.name == "FazaDefault")
                     {
                         rend.sharedMaterial = Resources.Load<Material>("DefaultUnlit");
                     }
                     else
                     {
-                        rend.sharedMaterial = Resources.Load<Material>("Default");
+                        rend.sharedMaterial = Resources.Load<Material>("FazaDefault");
                     }
                 }
             });
