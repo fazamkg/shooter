@@ -3418,6 +3418,7 @@ MonoBehaviour:
   _maxHealth: 100
   _allowViewCreation: 0
   _character: {fileID: 7408316653406395132}
+  _stunDuration: 0.1
 --- !u!1 &7107925559023908427
 GameObject:
   m_ObjectHideFlags: 0

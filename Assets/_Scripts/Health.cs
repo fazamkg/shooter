@@ -18,6 +18,7 @@ namespace Faza
         [SerializeField] private float _maxHealth;
         [SerializeField] private bool _allowViewCreation = true;
         [SerializeField] private Character _character;
+        [SerializeField] private float _stunDuration = 0.5f;
 
         public float CurrentHealth { get; private set; }
         public float MaxHealth { get; private set; }
@@ -43,7 +44,7 @@ namespace Faza
 
             if (_character != null && stopCharacter)
             {
-                _character.Stop(0.5f);
+                _character.Stop(_stunDuration);
             }
 
             if (CurrentHealth <= 0f)
