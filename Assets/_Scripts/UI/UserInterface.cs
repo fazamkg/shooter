@@ -25,6 +25,7 @@ namespace Faza
 
             _settingsButton.OnUp += SettingsButton_OnUp;
 
+            /*
             var isLefty = Settings.IsLefty;
             if (isLefty)
             {
@@ -35,7 +36,7 @@ namespace Faza
             {
                 _leftJoystick.localScale = Vector3.zero;
                 _rightJoystick.localScale = Vector3.one;
-            }
+            }*/
 
             _upgradeScreen.Init();
 

@@ -32,18 +32,29 @@ namespace Faza
                 (_rectTransform.anchoredPosition, clamped, Time.deltaTime * _speed);
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnDown()
         {
             _isUpdating = true;
+            Joystick.SetInput(_name, Vector3.zero);
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        public void OnUp()
         {
             _isUpdating = false;
 
             Joystick.SetInput(_name, Vector3.zero);
 
             _rectTransform.DOAnchorPos(Vector2.zero, _tweenDuration).SetEase(Ease.InOutCirc);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            OnDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            OnUp();
         }
     } 
 }
