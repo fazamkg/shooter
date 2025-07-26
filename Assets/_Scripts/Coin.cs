@@ -5,13 +5,21 @@ namespace Faza
 {
     public class Coin : MonoBehaviour
     {
-        [SerializeField] private Transform _transform;
+        [SerializeField] private Transform _toMove;
+        [SerializeField] private Transform _toRotate;
         [SerializeField] private float _speed;
         [SerializeField] private Collider _collider;
+        [SerializeField] private Rigidbody _rigidbody;
 
-        private Rigidbody _target;
         private bool _picked;
         private PlayerInput _player;
+
+        public Rigidbody Rigidbody => _rigidbody;
+
+        private void Awake()
+        {
+            _collider.transform.SetParent(null);
+        }
 
         private IEnumerator ActivateCollider()
         {
@@ -19,9 +27,8 @@ namespace Faza
             _collider.enabled = true;
         }
 
-        public void SetTarget(Rigidbody rb)
+        public void ActivateColliderDelayed()
         {
-            _target = rb;
             StartCoroutine(ActivateCollider());
         }
 
@@ -35,30 +42,31 @@ namespace Faza
         {
             if (_picked == false)
             {
-                var pos = _target.position + _target.rotation * _target.centerOfMass;
-                transform.position = pos + Vector3.up;
+                var pos = _rigidbody.position + _rigidbody.rotation * _rigidbody.centerOfMass;
+                _toMove.position = pos + Vector3.up * 0.25f;
             }
             else
             {
                 var target = _player.transform.position.DeltaY(1f);
-                var dist = Vector3.Distance(transform.position, target);
+                var dist = Vector3.Distance(_toMove.position, target);
                 var speed = 1f / dist * Time.deltaTime * 8f;
 
                 if (dist < 0.15f)
                 {
-                    Currency.AddCoins(1f, transform.position);
+                    Currency.AddCoins(1f, _toMove.position);
                     gameObject.SetActive(false);
+                    _collider.gameObject.SetActive(false);
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position, target, speed);
+                _toMove.position = Vector3.MoveTowards(_toMove.position, target, speed);
 
-                transform.localScale = Vector3.one * Mathf.Min(dist * 2f, 1f);
+                _toMove.localScale = Vector3.one * Mathf.Min(dist * 2f, 1f);
             }
             
-            _transform.Rotate(0f, Time.deltaTime * _speed, 0f, Space.World);
+            _toRotate.Rotate(0f, Time.deltaTime * _speed, 0f, Space.World);
         }
 
-        private void OnTriggerEnter(Collider other)
+        public void MyOnTriggerEnter(Collider other)
         {
             if (_picked) return;
 

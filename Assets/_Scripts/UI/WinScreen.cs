@@ -32,7 +32,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.AppendInterval(1f);
+            seq.AppendInterval(3f);
             seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
             seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
             seq.AppendInterval(0.3f);

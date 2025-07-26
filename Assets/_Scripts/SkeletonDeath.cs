@@ -55,24 +55,25 @@ namespace Faza
 
             if (_coinPrefab != null)
             {
-                var gibs = _gibs.OrderBy(x => Random.value);
-
-                var i = 0;
                 var allDead = EnemyInput.AllEnemies.All(x => x.Health.IsDead);
-                foreach (var gib in gibs)
+                for (var i = 0; i < 5; i++)
                 {
-                    if (i >= 5) break;
-
                     var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
-                    coin.SetTarget(gib);
-                    gib.GetComponent<MeshRenderer>().enabled = false;
+                    coin.ActivateColliderDelayed();
+
+                    var horizontalSpeed = Random.Range(0f, 1f);
+                    var verticalSpeed = Random.Range(10f, 14f);
+
+                    var angle = Random.Range(-10f, 10f);
+                    var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
+                    coin.Rigidbody.AddForce(direction * horizontalSpeed, ForceMode.VelocityChange);
+                    coin.Rigidbody.AddForce(Vector3.up * verticalSpeed, ForceMode.VelocityChange);
+                    coin.Rigidbody.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
 
                     if (allDead)
                     {
                         coin.AutoMagnet();
                     }
-
-                    i++;
                 }
             }
 

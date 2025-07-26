@@ -51,6 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMagnetPos: {fileID: 3018539808120509928}
   _lid: {fileID: 410822}
+  _coinAmount: 5
+  _coinPrefab: {fileID: 4773422433050442455, guid: b59a8b112d051a34e96740f663f75548, type: 3}
+  _collider: {fileID: 7104219727127929147}
 --- !u!65 &8256085311857052147
 BoxCollider:
   m_ObjectHideFlags: 0
