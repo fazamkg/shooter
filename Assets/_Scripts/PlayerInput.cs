@@ -18,6 +18,7 @@ namespace Faza
         public Health Health => _health;
         public Shooter Shooter => _shooter;
         public Character Character => _character;
+        public CharacterAnimator CharacterAnimator => GetComponentInChildren<CharacterAnimator>();
         public static PlayerInput Instance { get; private set; }
 
         private void Awake()

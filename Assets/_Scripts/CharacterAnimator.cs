@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Animations.Rigging;
 
 namespace Faza
 {
@@ -19,6 +20,7 @@ namespace Faza
         
         [SerializeField] private Transform _healthbarPoint;
         [SerializeField] private MeleeAttack _meleeAttack;
+        [SerializeField] private Rig[] _rigs;
 
         [Header("Random Idle")]
         [SerializeField] private bool _switchIdle;
@@ -32,6 +34,7 @@ namespace Faza
         private float _cameraX;
         private float _y;
         private float _horizontalSpeed;
+        private Chest _currentChest;
 
         public Transform HealthbarPoint => _healthbarPoint;
 
@@ -75,6 +78,14 @@ namespace Faza
 
         private void Awake()
         {
+            if (_rigs != null)
+            {
+                foreach (var rig in _rigs)
+                {
+                    rig.weight = 0f;
+                }
+            }
+
             if (_health != null)
             {
                 _health.OnDeath += Health_OnDeath;
@@ -174,6 +185,37 @@ namespace Faza
             {
                 _animator.SetBool("InterruptAttack", true);
             }
+        }
+
+        public void PlayOutOpenChestAnimation(Chest chest)
+        {
+            foreach (var rig in _rigs)
+            {
+                rig.DOWeight(1f, 0.15f);
+            }
+
+            _currentChest = chest;
+            _character.enabled = false;
+            _character.CharacterController.enabled = false;
+            _animator.CrossFadeInFixedTime("OpenChest", 0.15f);
+        }
+
+        // animation event
+        public void TriggerChestOpen()
+        {
+            _currentChest.PlayOpenChestAnimation();
+        }
+
+        // animation event
+        public void FinishPlayOutOpenChestAnimation()
+        {
+            foreach (var rig in _rigs)
+            {
+                rig.DOWeight(0f, 0.15f);
+            }
+
+            _character.enabled = true;
+            _character.CharacterController.enabled = true;
         }
     } 
 }

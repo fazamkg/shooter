@@ -3,6 +3,7 @@ using System.Globalization;
 using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
+using UnityEngine.Animations.Rigging;
 
 namespace Faza
 {
@@ -125,6 +126,11 @@ namespace Faza
         public static float SqrDist(Vector3 a, Vector3 b)
         {
             return (a - b).sqrMagnitude;
+        }
+
+        public static Tween DOWeight(this Rig rig, float to, float duration)
+        {
+            return DOTween.To(() => rig.weight, x => rig.weight = x, to, duration);
         }
     }
 }

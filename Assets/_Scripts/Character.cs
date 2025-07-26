@@ -42,6 +42,7 @@ namespace Faza
                 _characterController.enabled = !value;
             }
         }
+        public CharacterController CharacterController => _characterController;
 
         public void AddSpeed(float value)
         {
@@ -223,6 +224,13 @@ namespace Faza
         public void AddVelocity(Vector3 velocity)
         {
             _outsideHorizontalVelocity += velocity;
+        }
+
+        public void Warp(Vector3 position)
+        {
+            _characterController.enabled = false;
+            transform.position = position;
+            _characterController.enabled = true;
         }
     }
 }

@@ -57,8 +57,8 @@ MonoBehaviour:
   _playerHealth: {fileID: 0}
   _settingsButton: {fileID: 733891996395179202}
   _settingsPanel: {fileID: 3808613662650942104}
-  _leftJoystick: {fileID: 6593362618503356693}
-  _rightJoystick: {fileID: 3422316223376418043}
+  _leftJoystick: {fileID: 0}
+  _rightJoystick: {fileID: 0}
   _loseScreen: {fileID: 365654297546671309}
   _winScreen: {fileID: 3428448980359145620}
   _upgradeScreen: {fileID: 1845804831895827914}
@@ -808,11 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea08ed506f8bb0d4db0168a916d05a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3422316223376418043 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1357146497789828162, guid: 93a36d3dd787d0b479031f9dada3ce77, type: 3}
-  m_PrefabInstance: {fileID: 4443663004680452281}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4854004364223345668 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9149041433989057725, guid: 93a36d3dd787d0b479031f9dada3ce77, type: 3}
@@ -837,11 +832,6 @@ MonoBehaviour:
 --- !u!224 &6523371335133289675 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7434497814137152626, guid: 93a36d3dd787d0b479031f9dada3ce77, type: 3}
-  m_PrefabInstance: {fileID: 4443663004680452281}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &6593362618503356693 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7362078809098459564, guid: 93a36d3dd787d0b479031f9dada3ce77, type: 3}
   m_PrefabInstance: {fileID: 4443663004680452281}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5804599842314288725
@@ -1101,6 +1091,22 @@ PrefabInstance:
     - target: {fileID: 321614685409404307, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148829478077669963, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148829478077669963, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148829478077669963, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148829478077669963, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2484034323253776100, guid: 1e8364ce2f0af5d42b14be5eaa8c16ac, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
