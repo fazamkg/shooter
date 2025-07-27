@@ -19,6 +19,7 @@ namespace Faza
 
         private void Awake()
         {
+            Input.multiTouchEnabled = false;
             Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
 
             #region Commands
