@@ -21,10 +21,11 @@ namespace Faza
             _opened = true;
             _collider.enabled = false;
 
+            PlayerInput.Instance.Character.Warp(_playerMagnetPos.position);
+
             StartCoroutine(PlayerInput.Instance.Character.RotateTowardsCoroutine
                 (transform.position, 1000f));
 
-            PlayerInput.Instance.Character.Warp(_playerMagnetPos.position);
             PlayerInput.Instance.CharacterAnimator.PlayOutOpenChestAnimation(this);
         }
 
