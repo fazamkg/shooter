@@ -1,0 +1,2041 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1521398425 &-8513936622428740219
+VideoBuildInfo:
+  m_VideoClipCount: 0
+  m_IsVideoModuleDisabled: 1
+--- !u!156483287 &-740246222804784178
+ScenesUsingAssets:
+  m_ScenesUsingAssets: []
+  m_ListOfScenesUsingEachAsset: {}
+--- !u!382020655 &-223835305639232399
+PluginBuildInfo:
+  m_RuntimePlugins:
+  - Auth
+  - EnvirData
+  - YandexMetricaPlugin
+  - GameReadyAPI
+  - Unity.Burst.Unsafe
+  - Leaderboards
+  - Payments
+  - YandexProvider
+  - DOTween
+  - CloudStorage
+  - LocalStorage
+  - Language
+  - nunit.framework
+  m_EditorPlugins:
+  - DOTweenEditor
+  - Unity.Burst.Cecil.Mdb
+  - JetBrains.Rider.PathLocator
+  - Unity.Burst.Cecil.Pdb
+  - Unity.Burst.Cecil
+  - Unity.Burst.Cecil.Rocks
+  - ReportGeneratorMerged
+  - AppleEventIntegration
+--- !u!1125 &1
+BuildReport:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Build_2025-27-Jul-22-43-23
+  m_Summary:
+    buildStartTime:
+      serializedVersion: 2
+      ticks: 638892349964977546
+    buildGUID: f85f578186534247b6a8ec49c9ade8a1
+    platformName: WebGL
+    platformGroupName: WebGL
+    subtarget: 0
+    options: 536870912
+    assetBundleOptions: 0
+    outputPath: C:/Repos/shooter/BuildReported
+    crc: 0
+    totalSize: 42720199
+    totalTimeTicks: 70142084
+    totalErrors: 0
+    totalWarnings: 1
+    buildType: 1
+    buildResult: 1
+  m_Files:
+  - path: C:/Repos/shooter/Library/Bee/artifacts/csharpactions/boot.config_7kyv.info
+    role: info
+    id: 0
+    totalSize: 39819
+  - path: C:/Repos/shooter/Library/Bee/artifacts/rsp/9459652614586495754.rsp
+    role: rsp
+    id: 1
+    totalSize: 47624
+  - path: C:/Repos/shooter/Library/Bee/artifacts/unitylinker_ber2.traceevents
+    role: traceevents
+    id: 2
+    totalSize: 39205
+  - path: C:/Repos/shooter/Library/Bee/artifacts/il2cpp_conv_58ph.traceevents
+    role: traceevents
+    id: 3
+    totalSize: 481828
+  - path: C:/Repos/shooter/Library/Bee/artifacts/csharpactions/UnityClassRegistration.cpp_niuy.info
+    role: info
+    id: 4
+    totalSize: 1182
+  - path: C:/Repos/shooter/Library/Bee/artifacts/rsp/17203908440350797705.rsp
+    role: rsp
+    id: 5
+    totalSize: 24108
+  - path: C:/Repos/shooter/Library/Bee/artifacts/rsp/8995565923215908413.rsp
+    role: rsp
+    id: 6
+    totalSize: 15810
+  - path: C:/Repos/shooter/Library/Bee/artifacts/csharpactions/build.framework.js_mumr.info
+    role: info
+    id: 7
+    totalSize: 626
+  - path: C:/Repos/shooter/BuildReported/Build/BuildReported.framework.js
+    role: js
+    id: 8
+    totalSize: 400832
+  - path: C:/Repos/shooter/BuildReported/Build/BuildReported.wasm
+    role: wasm
+    id: 9
+    totalSize: 18178832
+  - path: C:/Repos/shooter/Temp/EditorBuildOutput/UnityLinkerToEditorData.json
+    role: json
+    id: 10
+    totalSize: 72435
+  - path: C:/Repos/shooter/Temp/EditorBuildOutput/MethodMap.tsv
+    role: tsv
+    id: 11
+    totalSize: 10560857
+  - path: C:/Repos/shooter/Library/Bee/artifacts/csharpactions/webgl.data_qnm2.info
+    role: info
+    id: 12
+    totalSize: 1822
+  - path: C:/Repos/shooter/BuildReported/Build/BuildReported.data
+    role: data
+    id: 13
+    totalSize: 12740846
+  - path: C:/Repos/shooter/Library/Bee/artifacts/WebGLBuildReported.loader.js
+    role: js
+    id: 14
+    totalSize: 20642
+  - path: C:/Repos/shooter/BuildReported/Build/BuildReported.loader.js
+    role: js
+    id: 15
+    totalSize: 20642
+  - path: C:/Repos/shooter/BuildReported/background.jpg
+    role: jpg
+    id: 16
+    totalSize: 14829
+  - path: C:/Repos/shooter/BuildReported/index.html
+    role: html
+    id: 17
+    totalSize: 13940
+  - path: C:/Repos/shooter/BuildReported/logo.png
+    role: png
+    id: 18
+    totalSize: 42473
+  - path: C:/Repos/shooter/BuildReported/style.css
+    role: css
+    id: 19
+    totalSize: 1847
+  m_BuildSteps:
+  - stepName: Build player
+    durationTicks: 70142084
+    depth: 0
+    messages: []
+  - stepName: Preprocess Player
+    durationTicks: 742823
+    depth: 1
+    messages: []
+  - stepName: Back up scenes
+    durationTicks: 979406
+    depth: 1
+    messages: []
+  - stepName: Prepare For Build
+    durationTicks: 2212
+    depth: 1
+    messages: []
+  - stepName: ProducePlayerScriptAssemblies
+    durationTicks: 28121486
+    depth: 1
+    messages: []
+  - stepName: Prebuild Cleanup and Recompile
+    durationTicks: 10894387
+    depth: 2
+    messages: []
+  - stepName: Compile scripts
+    durationTicks: 10392376
+    depth: 3
+    messages:
+    - type: 2
+      content: 'Assets\_Scripts\Waypoint.cs(85,13): warning CS0162: Unreachable code
+        detected'
+  - stepName: Generate and validate platform script types
+    durationTicks: 279727
+    depth: 3
+    messages: []
+  - stepName: Verify Build setup
+    durationTicks: 3319040
+    depth: 1
+    messages: []
+  - stepName: Check old data build
+    durationTicks: 3064144
+    depth: 2
+    messages: []
+  - stepName: Set up scripts only build
+    durationTicks: 110959
+    depth: 2
+    messages: []
+  - stepName: Prepare assets for target platform
+    durationTicks: 1006818
+    depth: 1
+    messages: []
+  - stepName: Prepare splash screen
+    durationTicks: 17303
+    depth: 1
+    messages:
+    - type: 3
+      content: Including Unity Splash Screen logo because 'Show Unity Logo' is enabled.
+  - stepName: Run script only build
+    durationTicks: 1137526
+    depth: 1
+    messages: []
+  - stepName: Compile Global Game Manager dependencies
+    durationTicks: 499640
+    depth: 2
+    messages: []
+  - stepName: Load object[unnamed] (Sprite) from Library/SplashScreenCache/77/7791a3f781e37762aed4ea0a1d43938b
+    durationTicks: 75566
+    depth: 3
+    messages: []
+  - stepName: Load object[unnamed] (MonoManager) from Library/MonoManager.asset
+    durationTicks: 64228
+    depth: 3
+    messages: []
+  - stepName: Load object[unnamed] (GraphicsSettings) from ProjectSettings/GraphicsSettings.asset
+    durationTicks: 110285
+    depth: 3
+    messages: []
+  - stepName: Build scripts DLLs
+    durationTicks: 527449
+    depth: 2
+    messages: []
+  - stepName: GetReferencedAssemblies
+    durationTicks: 58666
+    depth: 3
+    messages: []
+  - stepName: Postprocess built player
+    durationTicks: 34035893
+    depth: 1
+    messages:
+    - type: 3
+      content: Modify build complete
+  - stepName: Setup incremental player build
+    durationTicks: 939255
+    depth: 2
+    messages: []
+  - stepName: Incremental player build
+    durationTicks: 15130267
+    depth: 2
+    messages: []
+  - stepName: Report output files
+    durationTicks: 100630
+    depth: 2
+    messages: []
+  m_Appendices:
+  - {fileID: -740246222804784178}
+  - {fileID: 6935659745428185172}
+  - {fileID: 2978314485532827813}
+  - {fileID: -223835305639232399}
+  - {fileID: 5057873333540798492}
+  - {fileID: -8513936622428740219}
+--- !u!114 &2978314485532827813
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13805, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!641289076 &5057873333540798492
+AudioBuildInfo:
+  m_IsAudioDisabled: 0
+  m_AudioClipCount: 0
+  m_AudioMixerCount: 0
+--- !u!114 &6935659745428185172
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13800, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedDependencies:
+  - key: Required by Scripts
+    value: []
+    icon: class/MonoScript
+    size: 0
+  - key: AI Module
+    value:
+    - NavMeshAgent
+    - NavMeshData
+    - NavMeshObstacle
+    - NavMeshProjectSettings
+    - NavMeshSettings
+    icon: package/com.unity.modules.ai
+    size: 0
+  - key: NavMeshAgent
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/NavMeshAgent
+    size: 0
+  - key: Assets/_Scenes/Level1.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level10.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level11.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level12.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level13.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level14.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level15.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level16.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level17.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level18.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level19.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level2.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level20.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level3.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level4.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level5.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level6.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level7.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level8.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: Assets/_Scenes/Level9.unity
+    value: []
+    icon: class/SceneAsset
+    size: 0
+  - key: NavMeshData
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/NavMeshData
+    size: 0
+  - key: NavMeshObstacle
+    value: []
+    icon: class/NavMeshObstacle
+    size: 0
+  - key: NavMeshProjectSettings
+    value: []
+    icon: class/NavMeshProjectSettings
+    size: 0
+  - key: NavMeshSettings
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/NavMeshSettings
+    size: 0
+  - key: Animation Module
+    value:
+    - AnimationClip
+    - Animator
+    - AnimatorController
+    - AnimatorOverrideController
+    - Avatar
+    - Motion
+    - RuntimeAnimatorController
+    icon: package/com.unity.modules.animation
+    size: 0
+  - key: AnimationClip
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/AnimationClip
+    size: 0
+  - key: Animator
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Animator
+    size: 0
+  - key: AnimatorController
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/AnimatorController
+    size: 0
+  - key: AnimatorOverrideController
+    value: []
+    icon: class/AnimatorOverrideController
+    size: 0
+  - key: Avatar
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Avatar
+    size: 0
+  - key: Motion
+    value: []
+    icon: class/Motion
+    size: 0
+  - key: RuntimeAnimatorController
+    value: []
+    icon: class/RuntimeAnimatorController
+    size: 0
+  - key: Audio Module
+    value:
+    - AudioBehaviour
+    - AudioClip
+    - AudioListener
+    - AudioManager
+    - AudioMixer
+    - AudioSource
+    - SampleClip
+    icon: package/com.unity.modules.audio
+    size: 0
+  - key: AudioBehaviour
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/AudioBehaviour
+    size: 0
+  - key: AudioClip
+    value: []
+    icon: class/AudioClip
+    size: 0
+  - key: AudioListener
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/AudioListener
+    size: 0
+  - key: AudioManager
+    value: []
+    icon: class/AudioManager
+    size: 0
+  - key: AudioMixer
+    value: []
+    icon: class/AudioMixer
+    size: 0
+  - key: AudioSource
+    value: []
+    icon: class/AudioSource
+    size: 0
+  - key: SampleClip
+    value: []
+    icon: class/SampleClip
+    size: 0
+  - key: Core Module
+    value:
+    - Behaviour
+    - BuildSettings
+    - Camera
+    - Component
+    - ComputeShader
+    - Cubemap
+    - CubemapArray
+    - DelayedCallManager
+    - EditorExtension
+    - GameManager
+    - GameObject
+    - GlobalGameManager
+    - GraphicsSettings
+    - InputManager
+    - LevelGameManager
+    - Light
+    - LightProbes
+    - LightingSettings
+    - LightmapSettings
+    - LineRenderer
+    - LowerResBlitTexture
+    - Material
+    - Mesh
+    - MeshFilter
+    - MeshRenderer
+    - MonoBehaviour
+    - MonoManager
+    - MonoScript
+    - NamedObject
+    - Object
+    - PlayerSettings
+    - PreloadData
+    - QualitySettings
+    - RectTransform
+    - ReflectionProbe
+    - RenderSettings
+    - RenderTexture
+    - Renderer
+    - ResourceManager
+    - RuntimeInitializeOnLoadManager
+    - Shader
+    - ShaderNameRegistry
+    - SkinnedMeshRenderer
+    - Skybox
+    - SortingGroup
+    - Sprite
+    - SpriteAtlas
+    - SpriteRenderer
+    - TagManager
+    - TextAsset
+    - Texture
+    - Texture2D
+    - Texture2DArray
+    - Texture3D
+    - TimeManager
+    - TrailRenderer
+    - Transform
+    - Required by AI Module
+    - Required by Animation Module
+    - Required by Audio Module
+    - Required by IMGUI Module
+    - Required by ImageConversion Module
+    - Required by InputLegacy Module
+    - Required by JSONSerialize Module
+    - Required by ParticleSystem Module
+    - Required by Physics Module
+    - Required by Physics2D Module
+    - Required by RuntimeInitializeOnLoadManagerInitializer Module
+    - Required by SpriteMask Module
+    - Required by TLS Module
+    - Required by Terrain Module
+    - Required by TextCoreFontEngine Module
+    - Required by TextCoreTextEngine Module
+    - Required by TextRendering Module
+    - Required by UI Module
+    - Required by UIElements Module
+    - Required by UnityWebRequest Module
+    - Required by UnityWebRequestTexture Module
+    - Required by VFX Module
+    - Required by WebGL Module
+    icon: package/com.unity.modules.core
+    size: 0
+  - key: Behaviour
+    value: []
+    icon: class/Behaviour
+    size: 0
+  - key: BuildSettings
+    value: []
+    icon: class/BuildSettings
+    size: 0
+  - key: Camera
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Camera
+    size: 0
+  - key: Component
+    value: []
+    icon: class/Component
+    size: 0
+  - key: ComputeShader
+    value: []
+    icon: class/ComputeShader
+    size: 0
+  - key: Cubemap
+    value:
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Cubemap
+    size: 0
+  - key: CubemapArray
+    value: []
+    icon: class/CubemapArray
+    size: 0
+  - key: DelayedCallManager
+    value: []
+    icon: class/DelayedCallManager
+    size: 0
+  - key: EditorExtension
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/EditorExtension
+    size: 0
+  - key: GameManager
+    value: []
+    icon: class/GameManager
+    size: 0
+  - key: GameObject
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/GameObject
+    size: 0
+  - key: GlobalGameManager
+    value: []
+    icon: class/GlobalGameManager
+    size: 0
+  - key: GraphicsSettings
+    value: []
+    icon: class/GraphicsSettings
+    size: 0
+  - key: InputManager
+    value: []
+    icon: class/InputManager
+    size: 0
+  - key: LevelGameManager
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/LevelGameManager
+    size: 0
+  - key: Light
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Light
+    size: 0
+  - key: LightProbes
+    value: []
+    icon: class/LightProbes
+    size: 0
+  - key: LightingSettings
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/LightingSettings
+    size: 0
+  - key: LightmapSettings
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/LightmapSettings
+    size: 0
+  - key: LineRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/LineRenderer
+    size: 0
+  - key: LowerResBlitTexture
+    value: []
+    icon: class/LowerResBlitTexture
+    size: 0
+  - key: Material
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Material
+    size: 0
+  - key: Mesh
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Mesh
+    size: 0
+  - key: MeshFilter
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/MeshFilter
+    size: 0
+  - key: MeshRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/MeshRenderer
+    size: 0
+  - key: MonoBehaviour
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/MonoBehaviour
+    size: 0
+  - key: MonoManager
+    value: []
+    icon: class/MonoManager
+    size: 0
+  - key: MonoScript
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/MonoScript
+    size: 0
+  - key: NamedObject
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/NamedObject
+    size: 0
+  - key: Object
+    value: []
+    icon: class/Object
+    size: 0
+  - key: PlayerSettings
+    value: []
+    icon: class/PlayerSettings
+    size: 0
+  - key: PreloadData
+    value: []
+    icon: class/PreloadData
+    size: 0
+  - key: QualitySettings
+    value: []
+    icon: class/QualitySettings
+    size: 0
+  - key: RectTransform
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/RectTransform
+    size: 0
+  - key: ReflectionProbe
+    value: []
+    icon: class/ReflectionProbe
+    size: 0
+  - key: RenderSettings
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/RenderSettings
+    size: 0
+  - key: RenderTexture
+    value: []
+    icon: class/RenderTexture
+    size: 0
+  - key: Renderer
+    value: []
+    icon: class/Renderer
+    size: 0
+  - key: ResourceManager
+    value: []
+    icon: class/ResourceManager
+    size: 0
+  - key: RuntimeInitializeOnLoadManager
+    value: []
+    icon: class/RuntimeInitializeOnLoadManager
+    size: 0
+  - key: Shader
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Shader
+    size: 0
+  - key: ShaderNameRegistry
+    value: []
+    icon: class/ShaderNameRegistry
+    size: 0
+  - key: SkinnedMeshRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/SkinnedMeshRenderer
+    size: 0
+  - key: Skybox
+    value: []
+    icon: class/Skybox
+    size: 0
+  - key: SortingGroup
+    value: []
+    icon: class/SortingGroup
+    size: 0
+  - key: Sprite
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Sprite
+    size: 0
+  - key: SpriteAtlas
+    value: []
+    icon: class/SpriteAtlas
+    size: 0
+  - key: SpriteRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/SpriteRenderer
+    size: 0
+  - key: TagManager
+    value: []
+    icon: class/TagManager
+    size: 0
+  - key: TextAsset
+    value: []
+    icon: class/TextAsset
+    size: 0
+  - key: Texture
+    value: []
+    icon: class/Texture
+    size: 0
+  - key: Texture2D
+    value: []
+    icon: class/Texture2D
+    size: 0
+  - key: Texture2DArray
+    value: []
+    icon: class/Texture2DArray
+    size: 0
+  - key: Texture3D
+    value: []
+    icon: class/Texture3D
+    size: 0
+  - key: TimeManager
+    value: []
+    icon: class/TimeManager
+    size: 0
+  - key: TrailRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/TrailRenderer
+    size: 0
+  - key: Transform
+    value: []
+    icon: class/Transform
+    size: 0
+  - key: Required by AI Module
+    value: []
+    icon: package/com.unity.modules.ai
+    size: 0
+  - key: Required by Animation Module
+    value: []
+    icon: package/com.unity.modules.animation
+    size: 0
+  - key: Required by Audio Module
+    value: []
+    icon: package/com.unity.modules.audio
+    size: 0
+  - key: Required by IMGUI Module
+    value: []
+    icon: package/com.unity.modules.imgui
+    size: 0
+  - key: Required by ImageConversion Module
+    value: []
+    icon: package/com.unity.modules.imageconversion
+    size: 0
+  - key: Required by InputLegacy Module
+    value: []
+    icon: package/com.unity.modules.inputlegacy
+    size: 0
+  - key: Required by JSONSerialize Module
+    value: []
+    icon: package/com.unity.modules.jsonserialize
+    size: 0
+  - key: Required by ParticleSystem Module
+    value: []
+    icon: package/com.unity.modules.particlesystem
+    size: 0
+  - key: Required by Physics Module
+    value: []
+    icon: package/com.unity.modules.physics
+    size: 0
+  - key: Required by Physics2D Module
+    value: []
+    icon: package/com.unity.modules.physics2d
+    size: 0
+  - key: Required by RuntimeInitializeOnLoadManagerInitializer Module
+    value: []
+    icon: package/com.unity.modules.runtimeinitializeonloadmanagerinitializer
+    size: 0
+  - key: Required by SpriteMask Module
+    value: []
+    icon: package/com.unity.modules.spritemask
+    size: 0
+  - key: Required by TLS Module
+    value: []
+    icon: package/com.unity.modules.tls
+    size: 0
+  - key: Required by Terrain Module
+    value: []
+    icon: package/com.unity.modules.terrain
+    size: 0
+  - key: Required by TextCoreFontEngine Module
+    value: []
+    icon: package/com.unity.modules.textcorefontengine
+    size: 0
+  - key: Required by TextCoreTextEngine Module
+    value: []
+    icon: package/com.unity.modules.textcoretextengine
+    size: 0
+  - key: Required by TextRendering Module
+    value: []
+    icon: package/com.unity.modules.textrendering
+    size: 0
+  - key: Required by UI Module
+    value: []
+    icon: package/com.unity.modules.ui
+    size: 0
+  - key: Required by UIElements Module
+    value: []
+    icon: package/com.unity.modules.uielements
+    size: 0
+  - key: Required by UnityWebRequest Module
+    value: []
+    icon: package/com.unity.modules.unitywebrequest
+    size: 0
+  - key: Required by UnityWebRequestTexture Module
+    value: []
+    icon: package/com.unity.modules.unitywebrequesttexture
+    size: 0
+  - key: Required by VFX Module
+    value: []
+    icon: package/com.unity.modules.vfx
+    size: 0
+  - key: Required by WebGL Module
+    value: []
+    icon: package/com.unity.modules.webgl
+    size: 0
+  - key: IMGUI Module
+    value:
+    - Required by UIElements Module
+    icon: package/com.unity.modules.imgui
+    size: 0
+  - key: ImageConversion Module
+    value:
+    - Required by UnityWebRequestTexture Module
+    icon: package/com.unity.modules.imageconversion
+    size: 0
+  - key: InputLegacy Module
+    value:
+    - Required by IMGUI Module
+    - Required by UIElements Module
+    icon: package/com.unity.modules.inputlegacy
+    size: 0
+  - key: JSONSerialize Module
+    value:
+    - Required by RuntimeInitializeOnLoadManagerInitializer Module
+    - Required by UIElements Module
+    icon: package/com.unity.modules.jsonserialize
+    size: 0
+  - key: ParticleSystem Module
+    value:
+    - ParticleSystem
+    - ParticleSystemRenderer
+    icon: package/com.unity.modules.particlesystem
+    size: 0
+  - key: ParticleSystem
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/ParticleSystem
+    size: 0
+  - key: ParticleSystemRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/ParticleSystemRenderer
+    size: 0
+  - key: Physics Module
+    value:
+    - BoxCollider
+    - CharacterController
+    - Collider
+    - MeshCollider
+    - PhysicMaterial
+    - PhysicsManager
+    - Rigidbody
+    - SphereCollider
+    icon: package/com.unity.modules.physics
+    size: 0
+  - key: BoxCollider
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/BoxCollider
+    size: 0
+  - key: CharacterController
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/CharacterController
+    size: 0
+  - key: Collider
+    value: []
+    icon: class/Collider
+    size: 0
+  - key: MeshCollider
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/MeshCollider
+    size: 0
+  - key: PhysicMaterial
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/PhysicMaterial
+    size: 0
+  - key: PhysicsManager
+    value: []
+    icon: class/PhysicsManager
+    size: 0
+  - key: Rigidbody
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Rigidbody
+    size: 0
+  - key: SphereCollider
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/SphereCollider
+    size: 0
+  - key: Physics2D Module
+    value:
+    - Collider2D
+    - Physics2DSettings
+    - Rigidbody2D
+    icon: package/com.unity.modules.physics2d
+    size: 0
+  - key: Collider2D
+    value: []
+    icon: class/Collider2D
+    size: 0
+  - key: Physics2DSettings
+    value: []
+    icon: class/Physics2DSettings
+    size: 0
+  - key: Rigidbody2D
+    value: []
+    icon: class/Rigidbody2D
+    size: 0
+  - key: RuntimeInitializeOnLoadManagerInitializer Module
+    value:
+    - RuntimeInitializeOnLoadManagerInitializer is always required
+    icon: package/com.unity.modules.runtimeinitializeonloadmanagerinitializer
+    size: 0
+  - key: RuntimeInitializeOnLoadManagerInitializer is always required
+    value: []
+    icon: class/DefaultAsset
+    size: 0
+  - key: SharedInternals Module
+    value:
+    - Required by AI Module
+    - Required by Animation Module
+    - Required by Audio Module
+    - Required by Core Module
+    - Required by IMGUI Module
+    - Required by ImageConversion Module
+    - Required by InputLegacy Module
+    - Required by JSONSerialize Module
+    - Required by ParticleSystem Module
+    - Required by Physics Module
+    - Required by Physics2D Module
+    - Required by RuntimeInitializeOnLoadManagerInitializer Module
+    - Required by SpriteMask Module
+    - Required by TLS Module
+    - Required by Terrain Module
+    - Required by TextCoreFontEngine Module
+    - Required by TextCoreTextEngine Module
+    - Required by TextRendering Module
+    - Required by UI Module
+    - Required by UIElements Module
+    - Required by UnityWebRequest Module
+    - Required by UnityWebRequestTexture Module
+    - Required by VFX Module
+    - Required by WebGL Module
+    icon: package/com.unity.modules.sharedinternals
+    size: 0
+  - key: Required by Core Module
+    value: []
+    icon: package/com.unity.modules.core
+    size: 0
+  - key: SpriteMask Module
+    value: []
+    icon: package/com.unity.modules.spritemask
+    size: 0
+  - key: TLS Module
+    value:
+    - Required by UnityWebRequest Module
+    icon: package/com.unity.modules.tls
+    size: 0
+  - key: Terrain Module
+    value:
+    - Terrain
+    - TerrainData
+    icon: package/com.unity.modules.terrain
+    size: 0
+  - key: Terrain
+    value: []
+    icon: class/Terrain
+    size: 0
+  - key: TerrainData
+    value: []
+    icon: class/TerrainData
+    size: 0
+  - key: TextCoreFontEngine Module
+    value:
+    - Required by TextCoreTextEngine Module
+    - Required by UIElements Module
+    icon: package/com.unity.modules.textcorefontengine
+    size: 0
+  - key: TextCoreTextEngine Module
+    value:
+    - Required by IMGUI Module
+    - Required by UIElements Module
+    icon: package/com.unity.modules.textcoretextengine
+    size: 0
+  - key: TextRendering Module
+    value:
+    - Font
+    - Required by IMGUI Module
+    - Required by TextCoreFontEngine Module
+    - Required by TextCoreTextEngine Module
+    - Required by UI Module
+    - Required by UIElements Module
+    icon: package/com.unity.modules.textrendering
+    size: 0
+  - key: Font
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Font
+    size: 0
+  - key: UI Module
+    value:
+    - Canvas
+    - CanvasGroup
+    - CanvasRenderer
+    - Required by UIElements Module
+    icon: package/com.unity.modules.ui
+    size: 0
+  - key: Canvas
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/Canvas
+    size: 0
+  - key: CanvasGroup
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/CanvasGroup
+    size: 0
+  - key: CanvasRenderer
+    value:
+    - Assets/_Scenes/Level1.unity
+    - Assets/_Scenes/Level10.unity
+    - Assets/_Scenes/Level11.unity
+    - Assets/_Scenes/Level12.unity
+    - Assets/_Scenes/Level13.unity
+    - Assets/_Scenes/Level14.unity
+    - Assets/_Scenes/Level15.unity
+    - Assets/_Scenes/Level16.unity
+    - Assets/_Scenes/Level17.unity
+    - Assets/_Scenes/Level18.unity
+    - Assets/_Scenes/Level19.unity
+    - Assets/_Scenes/Level2.unity
+    - Assets/_Scenes/Level20.unity
+    - Assets/_Scenes/Level3.unity
+    - Assets/_Scenes/Level4.unity
+    - Assets/_Scenes/Level5.unity
+    - Assets/_Scenes/Level6.unity
+    - Assets/_Scenes/Level7.unity
+    - Assets/_Scenes/Level8.unity
+    - Assets/_Scenes/Level9.unity
+    icon: class/CanvasRenderer
+    size: 0
+  - key: UIElements Module
+    value: []
+    icon: package/com.unity.modules.uielements
+    size: 0
+  - key: UnityWebRequest Module
+    value:
+    - Required by UnityWebRequestTexture Module
+    icon: package/com.unity.modules.unitywebrequest
+    size: 0
+  - key: UnityWebRequestTexture Module
+    value: []
+    icon: package/com.unity.modules.unitywebrequesttexture
+    size: 0
+  - key: VFX Module
+    value:
+    - VFXManager
+    - VisualEffect
+    - VisualEffectAsset
+    - VisualEffectObject
+    icon: package/com.unity.modules.vfx
+    size: 0
+  - key: VFXManager
+    value: []
+    icon: class/VFXManager
+    size: 0
+  - key: VisualEffect
+    value: []
+    icon: class/VisualEffect
+    size: 0
+  - key: VisualEffectAsset
+    value: []
+    icon: class/VisualEffectAsset
+    size: 0
+  - key: VisualEffectObject
+    value: []
+    icon: class/VisualEffectObject
+    size: 0
+  - key: WebGL Module
+    value:
+    - WebGL is always required
+    icon: package/com.unity.modules.webgl
+    size: 0
+  - key: WebGL is always required
+    value: []
+    icon: class/DefaultAsset
+    size: 0
+  modules:
+  - AI Module
+  - Animation Module
+  - Audio Module
+  - Core Module
+  - IMGUI Module
+  - ImageConversion Module
+  - InputLegacy Module
+  - JSONSerialize Module
+  - ParticleSystem Module
+  - Physics Module
+  - Physics2D Module
+  - RuntimeInitializeOnLoadManagerInitializer Module
+  - SharedInternals Module
+  - SpriteMask Module
+  - TLS Module
+  - Terrain Module
+  - TextCoreFontEngine Module
+  - TextCoreTextEngine Module
+  - TextRendering Module
+  - UI Module
+  - UIElements Module
+  - UnityWebRequest Module
+  - UnityWebRequestTexture Module
+  - VFX Module
+  - WebGL Module
+  serializedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  totalSize: 0
+  builtCodePath: C:/Repos/shooter/BuildReported/Build/BuildReported.wasm
+  developmentBuild: 0
