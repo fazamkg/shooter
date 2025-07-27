@@ -20,7 +20,7 @@ namespace Faza
         private void Awake()
         {
             Input.multiTouchEnabled = false;
-            Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
+            Application.targetFrameRate = 90;
 
             #region Commands
             Console.AddCommand("enemy_camera_x", (args) =>
