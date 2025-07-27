@@ -32,7 +32,7 @@ namespace Faza
         {
             var seq = DOTween.Sequence();
 
-            seq.Append(_lid.DORotate(new(90f, 0f, 0f), 0.3f).SetEase(Ease.InOutCirc));
+            seq.Append(_lid.DOLocalRotate(new(90f, 0f, 0f), 0.3f).SetEase(Ease.InOutCirc));
 
             for (var i = 0; i < _coinAmount; i++)
             {
