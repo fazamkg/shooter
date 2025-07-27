@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OptimizedSpike
-  m_Shader: {fileID: 4800000, guid: 0120aaf92fe6ddc46b7d7ecfd5782200, type: 3}
+  m_Shader: {fileID: 4800000, guid: f1e1081ae06f45149b8e35beb365fa2b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -140,10 +140,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.31446534, g: 0.31446534, b: 0.31446534, a: 1}
     - _BottomColor: {r: 0.19607845, g: 0.21176472, b: 0.2392157, a: 1}
-    - _Color: {r: 0.27044016, g: 0.27044016, b: 0.27044016, a: 1}
+    - _Color: {r: 0.37106913, g: 0.37106913, b: 0.37106913, a: 1}
     - _DiffuseLightDir: {r: 0, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowColor: {r: 0.09679634, g: 0.07475965, b: 0.17610055, a: 1}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularLightDir: {r: 0, g: 1, b: 0, a: 1}
     - _TopColor: {r: 0.78823537, g: 0.78823537, b: 0.7960785, a: 1}
