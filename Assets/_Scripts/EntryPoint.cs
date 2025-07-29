@@ -20,7 +20,7 @@ namespace Faza
         private void Awake()
         {
             Input.multiTouchEnabled = false;
-            Application.targetFrameRate = 90;
+            Application.targetFrameRate = -1;
             QualitySettings.vSyncCount = 0;
             // it's not recommended for web to set this to 0
             // BUT i want to have my 60 fps
