@@ -21,6 +21,9 @@ namespace Faza
         {
             Input.multiTouchEnabled = false;
             Application.targetFrameRate = 90;
+            QualitySettings.vSyncCount = 0;
+            // it's not recommended for web to set this to 0
+            // BUT i want to have my 60 fps
 
             #region Commands
             Console.AddCommand("enemy_camera_x", (args) =>
