@@ -49,6 +49,12 @@ namespace Faza
             return color;
         }
 
+        public static Color AddHue(this Color color, float addH)
+        {
+            Color.RGBToHSV(color, out var h, out var s, out var v);
+            return Color.HSVToRGB(h + addH, s, v);
+        }
+
         public static void SetAnchorX(this RectTransform rt, float x)
         {
             var pos = rt.anchoredPosition;
