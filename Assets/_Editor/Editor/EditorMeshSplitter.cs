@@ -200,7 +200,7 @@ namespace Faza
                 rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
                 rigidbody.angularDrag = 0f;
                 var meshCollider = islandGo.AddComponent<BoxCollider>();
-                meshCollider.sharedMaterial = Resources.Load<PhysicMaterial>("Gib");
+                meshCollider.sharedMaterial = Resources.Load<PhysicsMaterial>("Gib");
                 #endregion
             }
 
