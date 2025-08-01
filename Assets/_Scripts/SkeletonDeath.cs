@@ -58,11 +58,6 @@ namespace Faza
                     coin.Rigidbody.AddForce(Vector3.up * verticalSpeed, ForceMode.VelocityChange);
                     coin.Rigidbody.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
 
-                    if (allDead)
-                    {
-                        coin.AutoMagnet();
-                    }
-
                     yield return new WaitForSeconds(0.1f);
                 }
             }

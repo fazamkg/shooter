@@ -7,6 +7,8 @@ namespace Faza
     public class WinScreen : MonoBehaviour
     {
         [SerializeField] private RectTransform _title;
+        [SerializeField] private RectTransform _timerBefore;
+        [SerializeField] private RectTransform _timer;
         [SerializeField] private MyButton _nextButton;
         [SerializeField] private CanvasGroup _group;
 
@@ -29,12 +31,18 @@ namespace Faza
             _group.blocksRaycasts = true;
             _title.localScale = Vector3.zero;
             _nextButton.transform.localScale = Vector3.zero;
+            _timerBefore.localScale = Vector3.zero;
+            _timer.localScale = Vector3.zero;
 
             var seq = DOTween.Sequence();
 
             seq.AppendInterval(1.5f);
             seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
             seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.3f);
+            seq.Append(_timerBefore.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.3f);
+            seq.Append(_timer.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
             seq.AppendInterval(0.3f);
             seq.Append(_nextButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);

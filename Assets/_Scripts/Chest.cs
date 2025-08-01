@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 namespace Faza
 {
@@ -21,10 +22,16 @@ namespace Faza
             _opened = true;
             _collider.enabled = false;
 
-            PlayerInput.Instance.Character.Warp(_playerMagnetPos.position);
+            StartCoroutine(MagnetPlayerCoroutine());
+        }
 
-            StartCoroutine(PlayerInput.Instance.Character.RotateTowardsCoroutine
-                (transform.position, 1000f));
+        private IEnumerator MagnetPlayerCoroutine()
+        {
+            yield return PlayerInput.Instance.Character.SmoothWarp
+                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc);
+
+            yield return PlayerInput.Instance.Character.RotateTowardsCoroutine
+                (transform.position, 1000f);
 
             PlayerInput.Instance.CharacterAnimator.PlayOutOpenChestAnimation(this);
         }

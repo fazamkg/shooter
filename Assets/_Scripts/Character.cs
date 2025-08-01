@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -231,6 +232,18 @@ namespace Faza
             _characterController.enabled = false;
             transform.position = position;
             _characterController.enabled = true;
+        }
+
+        public Tween SmoothWarp(Vector3 position, float duration)
+        {
+            var seq = DOTween.Sequence();
+
+            seq.AppendCallback(() => _characterController.enabled = false);
+            seq.Append(transform.DOMove(position, duration));
+            seq.AppendCallback(() => _characterController.enabled = true);
+            _characterController.enabled = true;
+
+            return seq;
         }
     }
 }

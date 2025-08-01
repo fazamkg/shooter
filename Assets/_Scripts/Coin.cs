@@ -14,6 +14,9 @@ namespace Faza
         private bool _picked;
         private PlayerInput _player;
 
+        private bool _initialDistanceSet;
+        private float _initialDistance;
+
         public Rigidbody Rigidbody => _rigidbody;
 
         private void Awake()
@@ -25,6 +28,8 @@ namespace Faza
         {
             yield return new WaitForSeconds(1f);
             _collider.enabled = true;
+            yield return new WaitForSeconds(0.3f);
+            AutoMagnet();
         }
 
         public void ActivateColliderDelayed()
@@ -49,7 +54,13 @@ namespace Faza
             {
                 var target = _player.transform.position.DeltaY(1f);
                 var dist = Vector3.Distance(_toMove.position, target);
-                var speed = 1f / dist * Time.deltaTime * 8f;
+                if (_initialDistanceSet == false)
+                {
+                    _initialDistanceSet = true;
+                    _initialDistance = dist;
+                }
+
+                var speed = _initialDistance / dist * Time.deltaTime * 8f;
 
                 if (dist < 0.15f)
                 {
