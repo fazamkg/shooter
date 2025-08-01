@@ -12,7 +12,7 @@ namespace Faza
         {
             var level = SceneManager.GetActiveScene().buildIndex;
 
-            var text = $"УРОВЕНЬ {level + 1}";
+            var text = $"УРОВЕНЬ {level}";
 
             foreach (var tmp in _texts)
             {
