@@ -7,12 +7,12 @@ namespace Faza
     public class GameInit : MonoBehaviour
     {
         [SerializeField] private Image _bg;
-        [SerializeField] private Button _start;
+        [SerializeField] private MyButton _start;
         [SerializeField] private float _speed;
 
         private void Awake()
         {
-            _start.onClick.AddListener(OnStart);
+            _start.OnUp += OnStart;
         }
 
         private void Update()
