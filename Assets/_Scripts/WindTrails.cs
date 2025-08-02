@@ -6,6 +6,7 @@ namespace Faza
     {
         [SerializeField] private Fan _fan;
         [SerializeField] private TrailRenderer[] _trails;
+        [SerializeField] private TrailRenderer[] _copyTrails;
         [SerializeField] private float _timeLength;
         [SerializeField] private float _distance;
         [SerializeField] private float _amplitude;
@@ -49,12 +50,24 @@ namespace Faza
                 var newPos = Vector3.Lerp(og, target, weight);
                 newPos.y += y;
 
-                _trails[i].transform.position = newPos;
-
                 if (time < _previousTimes[i])
                 {
-                    _trails[i].Clear();
+                    var trail = _trails[i];
+                    trail.emitting = false;
+
+                    _trails[i] = _copyTrails[i];
+                    _copyTrails[i] = trail;
+
+
+                    _trails[i].emitting = true;
                 }
+
+                if (time > _timeLength * 0.5f)
+                {
+                    _copyTrails[i].transform.position = _originalPositions[i];
+                }
+
+                _trails[i].transform.position = newPos;
 
                 _previousTimes[i] = time;
             }

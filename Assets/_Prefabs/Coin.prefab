@@ -58,6 +58,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -95,7 +98,7 @@ GameObject:
   - component: {fileID: 4773422433050442455}
   - component: {fileID: 4501093081855265873}
   - component: {fileID: 2147746749973742811}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +197,7 @@ GameObject:
   - component: {fileID: 6765626295124102329}
   - component: {fileID: 7841817023685661759}
   - component: {fileID: 5171165197680089098}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,6 +313,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
