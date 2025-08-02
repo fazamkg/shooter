@@ -28,7 +28,8 @@ namespace Faza
         private IEnumerator MagnetPlayerCoroutine()
         {
             yield return PlayerInput.Instance.Character.SmoothWarp
-                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc);
+                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc)
+                .WaitForCompletion();
 
             yield return PlayerInput.Instance.Character.RotateTowardsCoroutine
                 (transform.position, 1000f);

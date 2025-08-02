@@ -158,41 +158,27 @@ namespace Faza
 
         public IEnumerator RotateTowardsCoroutine(Vector3 target, float speed)
         {
+            _characterController.enabled = false;
+            enabled = false;
+
             target = target.WithY(0f);
-            var crossY = 1f;
-            var dot = -1f;
 
-            while (crossY.Abs() > 0.1f || dot < -0.95f)
+            var targetYaw = _yaw + 10f;
+
+            while (Mathf.DeltaAngle(_yaw, targetYaw).Abs() > 5f)
             {
-                var lookForward = _camera.transform.forward;
-                var direction = (target - transform.position.WithY(0f)).normalized;
+                var pos = transform.position.WithY(0f);
+                var direction = (target - pos).normalized;
+                targetYaw = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
 
-                var targetYaw = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-
-                var cross = Vector3.Cross(lookForward, direction);
-                dot = Vector3.Dot(lookForward, direction);
-                var result = 0f;
-                crossY = cross.y;
-
-                if (dot < -0.95f)
-                {
-                    result = -1f;
-                }
-                else
-                {
-                    result = crossY;
-                }
-
-                var delta = result * speed * Time.deltaTime;
-                var maxDelta = Mathf.DeltaAngle(_yaw, targetYaw);
-                var min = Mathf.Min(delta.Abs(), maxDelta.Abs());
-                delta = min * delta.Sign();
-
-                _yaw += delta;
-                _yaw = Mathf.Repeat(_yaw, 360f);
+                var delta = speed * Time.deltaTime;
+                _yaw = Mathf.MoveTowardsAngle(_yaw, targetYaw, delta);
 
                 yield return null;
             }
+
+            _characterController.enabled = true;
+            enabled = true;
         }
 
         public bool IsAboutToLand()
@@ -238,10 +224,17 @@ namespace Faza
         {
             var seq = DOTween.Sequence();
 
-            seq.AppendCallback(() => _characterController.enabled = false);
+            seq.AppendCallback(() =>
+            {
+                _characterController.enabled = false;
+                enabled = false;
+            });
             seq.Append(transform.DOMove(position, duration));
-            seq.AppendCallback(() => _characterController.enabled = true);
-            _characterController.enabled = true;
+            seq.AppendCallback(() =>
+            {
+                _characterController.enabled = true;
+                enabled = false;
+            });
 
             return seq;
         }
