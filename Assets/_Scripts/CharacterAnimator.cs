@@ -181,7 +181,7 @@ namespace Faza
                 _meleeAttack.FinishAttack();
             }
 
-            if (_character.HorizontalSpeed > 0.5f)
+            if (_character.HorizontalSpeed > 0.5f && _shooter.BulletFired)
             {
                 _animator.SetBool("InterruptAttack", true);
             }

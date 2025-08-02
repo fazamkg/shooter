@@ -35,6 +35,7 @@ namespace Faza
         public float Decay => _decay;
         public bool WithinShooting => _shoot;
         public float ShootSpeed => _shootSpeed;
+        public bool BulletFired { get; private set; }
 
         public void AddDamage(float damage)
         {
@@ -125,6 +126,8 @@ namespace Faza
 
         private IEnumerator ShootCoroutine(Vector3 target)
         {
+            BulletFired = false;
+
             yield return _character.RotateTowardsCoroutine(target, _rotationSpeed);
 
             StartedShooting = true;
@@ -156,6 +159,8 @@ namespace Faza
             bullet.transform.position = _bulletOrigin.position;
             var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(Damage, BulletSpeed, direction, Gravity, Decay);
+
+            BulletFired = true;
         }
     } 
 }
