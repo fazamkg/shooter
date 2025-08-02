@@ -78,3 +78,4 @@ EditorBuildSettings:
     path: Assets/_Scenes/Level42.unity
     guid: 2d28b49c15e96624b84ce15639895174
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
