@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C \u0421\u0422\u0420\u0415\u041B\u042C\u0411\u042B"
   _maxed: 0
   _description: "+{2} \u043A \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u0418 \u0421\u0422\u0420\u0415\u041B\u042C\u0411\u042B"
-  _cost: 45
+  _cost: 100
   _damage: 0
   _speed: 0
   _shootingSpeed: 0.1

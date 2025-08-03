@@ -198,9 +198,9 @@ namespace Faza
                 var rigidbody = islandGo.AddComponent<Rigidbody>();
                 rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
                 rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                rigidbody.angularDamping = 0f;
+                rigidbody.angularDrag = 0f;
                 var meshCollider = islandGo.AddComponent<BoxCollider>();
-                meshCollider.sharedMaterial = Resources.Load<PhysicsMaterial>("Gib");
+                meshCollider.sharedMaterial = Resources.Load<PhysicMaterial>("Gib");
                 #endregion
             }
 
