@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Faza
 {
@@ -22,11 +21,10 @@ namespace Faza
 
         private void NextButton_OnUp()
         {
-            var nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(nextIndex);
+            LevelManager.Instance.LoadLevelFromSave();
         }
 
-        public void Appear()
+        public void Appear(float speed = 1f)
         {
             _group.blocksRaycasts = true;
             _title.localScale = Vector3.zero;
@@ -36,15 +34,15 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.AppendInterval(1.5f);
-            seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
-            seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f);
-            seq.Append(_timerBefore.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f);
-            seq.Append(_timer.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f);
-            seq.Append(_nextButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
+            seq.AppendInterval(1.5f / speed);
+            seq.Append(_group.DOFade(1f, 0.5f / speed).SetEase(Ease.InOutCirc));
+            seq.Append(_title.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.3f / speed);
+            seq.Append(_timerBefore.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.3f / speed);
+            seq.Append(_timer.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.3f / speed);
+            seq.Append(_nextButton.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
         }
     } 

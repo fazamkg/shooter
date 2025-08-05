@@ -65,10 +65,17 @@ namespace Faza
         {
             if (EnemyInput.IsEveryoneDead)
             {
-                _levelTimer.StopTimer();
-
-                _winScreen.Appear();
+                Win();
             }
+        }
+
+        public void Win(float speed = 1f)
+        {
+            _levelTimer.StopTimer();
+
+            LevelManager.Instance.OnWinLevel(_levelData);
+
+            _winScreen.Appear(speed);
         }
 
         private void PlayerHealth_OnDeath()

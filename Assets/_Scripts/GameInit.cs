@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Faza
@@ -12,17 +11,17 @@ namespace Faza
 
         private void Awake()
         {
-            _start.OnUp += OnStart;
+            LevelManager.Instance.LoadLevelFromSave();
+        }
+
+        public void OnLevelCompleted(LevelData level)
+        {
+
         }
 
         private void Update()
         {
             _bg.color = _bg.color.AddHue(Time.deltaTime * _speed);
-        }
-
-        private void OnStart()
-        {
-            SceneManager.LoadScene(1);
         }
     } 
 }

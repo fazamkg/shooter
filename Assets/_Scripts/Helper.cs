@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Random = UnityEngine.Random;
 using UnityEngine.Animations.Rigging;
+using System.Linq;
 
 namespace Faza
 {
@@ -137,6 +138,21 @@ namespace Faza
         public static Tween DOWeight(this Rig rig, float to, float duration)
         {
             return DOTween.To(() => rig.weight, x => rig.weight = x, to, duration);
+        }
+
+        public static string GetNumberPart(this string text)
+        {
+            var charNumbers = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+
+            var minIndex = charNumbers.Min(x =>
+            {
+                var index = text.IndexOf(x);
+                if (index == -1) return int.MaxValue;
+                return index;
+            });
+            if (minIndex == int.MaxValue) return "";
+
+            return text.Substring(minIndex, text.Length - minIndex);
         }
     }
 }

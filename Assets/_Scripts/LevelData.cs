@@ -7,7 +7,6 @@ namespace Faza
     {
         [SerializeField] private UpgradeGroupData[] _availableUpgrades;
 
-
         public UpgradeGroupData[] AvailableUpgrades => _availableUpgrades;
     } 
 }

@@ -253,6 +253,11 @@ namespace Faza
             {
                 _playerAnimator.enabled = !_playerAnimator.enabled;
             });
+            Console.AddCommand("win", (args) =>
+            {
+                var ui = FindObjectOfType<UserInterface>();
+                ui.Win(10f);
+            });
             #endregion
 
             /*

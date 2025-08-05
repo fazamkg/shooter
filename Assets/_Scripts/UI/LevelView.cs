@@ -10,9 +10,9 @@ namespace Faza
 
         private void Awake()
         {
-            var level = SceneManager.GetActiveScene().buildIndex;
+            var levelNumber = SceneManager.GetActiveScene().name.GetNumberPart();
 
-            var text = $"УРОВЕНЬ {level}";
+            var text = $"УРОВЕНЬ {levelNumber}";
 
             foreach (var tmp in _texts)
             {
