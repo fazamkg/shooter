@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Faza
@@ -11,29 +12,20 @@ namespace Faza
         [TextArea]
         [SerializeField] private string _description;
         [SerializeField] private float _cost;
-        [SerializeField] private float _damage;
-        [SerializeField] private float _speed;
-        [SerializeField] private float _shootingSpeed;
-        [SerializeField] private float _projectileSpeed;
+        [SerializeReference, SubclassSelector] private Effect[] _effects;
 
         public Sprite Icon => _icon;
         public string Name => _name;
         public bool IsMaxed => _maxed;
-        public string Description => string.Format
-            (_description, _damage, _speed, _shootingSpeed, _projectileSpeed);
+        public string Description => string.Format(_description, _effects.Select(x => x.DisplayValue).ToArray());
         public float Cost => _cost;
-        public float Damage => _damage;
-        public float Speed => _speed;
-        public float ShootingSpeed => _shootingSpeed;
-        public float ProjectileSpeed => _projectileSpeed;
 
         public void Apply()
         {
-            var player = PlayerInput.Instance;
-            player.Shooter.AddDamage(_damage);
-            player.Character.AddSpeed(_speed);
-            player.Shooter.AddProjectileSpeed(_projectileSpeed);
-            player.Shooter.AddShootingSpeed(_shootingSpeed);
+            foreach (var effect in _effects)
+            {
+                effect.Apply();
+            }
         }
     } 
 }

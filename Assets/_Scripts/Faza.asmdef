@@ -4,7 +4,8 @@
     "references": [
         "Unity.TextMeshPro",
         "DOTween.Modules",
-        "Unity.Animation.Rigging"
+        "Unity.Animation.Rigging",
+        "MackySoft.SerializeReferenceExtensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

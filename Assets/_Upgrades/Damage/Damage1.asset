@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5265b14b97475bb4c808fb0e45b550f7, type: 3}
   m_Name: Damage1
   m_EditorClassIdentifier: 
+  _effects:
+  - rid: 4919298737709514830
   _icon: {fileID: 21300000, guid: d532c4450d428174bb535ef1f2ec23cc, type: 3}
   _name: "\u0423\u0420\u041E\u041D"
   _maxed: 0
@@ -21,3 +23,10 @@ MonoBehaviour:
   _speed: 0
   _shootingSpeed: 0
   _projectileSpeed: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4919298737709514830
+      type: {class: AddDamageEffect, ns: Faza, asm: Faza}
+      data:
+        _damage: 20
