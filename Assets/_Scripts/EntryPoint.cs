@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
 
 namespace Faza
 {
@@ -9,6 +11,8 @@ namespace Faza
         [SerializeField] private SkinnedMeshRenderer _playerSMR;
         [SerializeField] private Animator _playerAnimator;
         [SerializeField] private UpgradeGroupData[] _allUpgradeGroups;
+        [SerializeField] private Sprite _coinSprite;
+        [SerializeField] private Sprite _rvSprite;
 
         private Waypoint _from;
         private Waypoint _to;
@@ -21,9 +25,7 @@ namespace Faza
         {
             Input.multiTouchEnabled = false;
             Application.targetFrameRate = -1;
-            QualitySettings.vSyncCount = 0;
-            // it's not recommended for web to set this to 0
-            // BUT i want to have my 60 fps
+            QualitySettings.vSyncCount = 1;
 
             #region Commands
             Console.AddCommand("enemy_camera_x", (args) =>

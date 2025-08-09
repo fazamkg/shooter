@@ -16,9 +16,9 @@ namespace Faza
     {
         [SerializeField] private string _id;
         [SerializeField] private float _base;
-        [SerializeField] private List<Modifier> _flat = new();
-        [SerializeField] private List<Modifier> _add = new();
-        [SerializeField] private List<Modifier> _mul = new();
+        [SerializeReference] private List<Modifier> _flat = new();
+        [SerializeReference] private List<Modifier> _add = new();
+        [SerializeReference] private List<Modifier> _mul = new();
 
         private static Dictionary<string, Modifier> _all = new();
 
@@ -30,6 +30,11 @@ namespace Faza
             _base = baseValue;
 
             _all[id] = this;
+        }
+
+        public void Init()
+        {
+            _all[_id] = this;
         }
 
         public static Modifier Get(string id)

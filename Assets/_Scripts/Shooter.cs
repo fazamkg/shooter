@@ -58,6 +58,11 @@ namespace Faza
             _shootSpeed += speed;
         }
 
+        private void Awake()
+        {
+            _modDamage.Init();
+        }
+
         private void Update()
         {
             if (_character.enabled == false) return;

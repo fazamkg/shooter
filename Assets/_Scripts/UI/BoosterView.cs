@@ -19,15 +19,27 @@ namespace Faza
         {
             _data = data;
 
+            UpdateView();
+
+            _button.OnUp += Button_OnUp;
+
+            _data.OnUpdated += Data_OnUpdated;
+        }
+
+        private void UpdateView()
+        {
             var amount = _data.AmountPref.ToString();
             foreach (var text in _amountTexts)
             {
                 text.text = amount;
             }
 
-            _icon.sprite = data.Icon;
+            _icon.sprite = _data.Icon;
+        }
 
-            _button.OnUp += Button_OnUp;
+        private void Data_OnUpdated()
+        {
+            UpdateView();
         }
 
         private void Button_OnUp()

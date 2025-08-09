@@ -8,7 +8,10 @@ namespace Faza
     [CreateAssetMenu]
     public class BoosterData : ScriptableObject
     {
+        public event Action OnUpdated;
+
         [SerializeField] private string _id;
+        [SerializeField, TextArea] private string _windowDescription;
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _purchaseCount;
         [SerializeField] private int _boosterAmount;
@@ -22,6 +25,20 @@ namespace Faza
         private static HashSet<BoosterData> _runningBoosters = new();
 
         public Sprite Icon => _icon;
+
+        public string WindowDescription
+        {
+            get
+            {
+                return string.Format(_windowDescription,
+                    _purchaseCount, // 0
+                    _boosterAmount, // 1
+                    _altPurchaseCount, // 2
+                    _altBoosterAmount, // 3
+                    _spendAction.Cost, // 4
+                    _altSpendAction.Cost); // 5
+            }
+        }
 
         public int AmountPref
         {
@@ -40,6 +57,15 @@ namespace Faza
             get => Storage.GetInt($"{_id}_alt_purchases");
             private set => Storage.SetInt($"{_id}_alt_purchases", value);
         }
+
+        public SpendAction MainSpendAction => _spendAction;
+        public SpendAction AltSpendAction => _altSpendAction;
+
+        public int MainPurchaseCount => _purchaseCount;
+        public int AltPurchaseCount => _altPurchaseCount;
+
+        public int BoosterAmount => _boosterAmount;
+        public int AltBoosterAmount => _altBoosterAmount;
 
         private void OnSuccess()
         {
@@ -88,16 +114,22 @@ namespace Faza
             Routines.StartCoroutine_(WaitBoosterCoroutine());
 
             AmountPref--;
+
+            OnUpdated?.Invoke();
         }
 
         public void Purchase()
         {
             _spendAction.Spend(OnSuccess, null);
+
+            OnUpdated?.Invoke();
         }
 
         public void PurchaseAlt()
         {
             _altSpendAction.Spend(OnSuccessAlt, null);
+
+            OnUpdated?.Invoke();
         }
 
         public void OnTap(Action givePurchaseChoice)
