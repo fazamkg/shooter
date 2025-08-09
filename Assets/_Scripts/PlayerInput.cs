@@ -11,6 +11,7 @@ namespace Faza
         [SerializeField] private Health _health;
         [SerializeField] private Shooter _shooter;
         [SerializeField] private Character _character;
+        [SerializeField] private GameObject _critGlow;
 
         private bool _locked;
 
@@ -150,6 +151,16 @@ namespace Faza
         public override bool IsFire()
         {
             return false;
+        }
+
+        public void ActivateCritGlow()
+        {
+            _critGlow.SetActive(true);
+        }
+
+        public void DeactivateCritGlow()
+        {
+            _critGlow.SetActive(false);
         }
     }
 }

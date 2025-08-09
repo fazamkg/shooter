@@ -55,7 +55,10 @@ namespace Faza
                 _levelTimer.StartTimer();
             }
 
-            _allBoostersView.Init(_levelData.AvailableBoosters.ToList());
+            if (_levelData.AvailableBoosters != null)
+            {
+                _allBoostersView.Init(_levelData.AvailableBoosters.ToList());
+            }
         }
 
         private void BoosterView_OnChoiceWindow(BoosterData boosterData)

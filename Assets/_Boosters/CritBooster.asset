@@ -30,6 +30,7 @@ MonoBehaviour:
   _duration: 10
   _effects:
   - rid: 4919298797093519360
+  - rid: 4919298801581948974
   references:
     version: 2
     RefIds:
@@ -51,3 +52,6 @@ MonoBehaviour:
           _flat: []
           _add: []
           _mul: []
+    - rid: 4919298801581948974
+      type: {class: AddCritGlowEffect, ns: Faza, asm: Faza}
+      data: 
