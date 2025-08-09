@@ -7,5 +7,6 @@ namespace Faza
     {
         public abstract string DisplayValue { get; }
         public abstract void Apply();
+        public abstract void Remove();
     }
 }

@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
 
 namespace Faza
 {
@@ -13,7 +16,12 @@ namespace Faza
         [SerializeField] private int _altBoosterAmount;
         [SerializeReference, SubclassSelector] private SpendAction _spendAction;
         [SerializeReference, SubclassSelector] private SpendAction _altSpendAction;
+        [SerializeField] private float _duration;
         [SerializeReference, SubclassSelector] private Effect[] _effects;
+
+        private static HashSet<BoosterData> _runningBoosters = new();
+
+        public Sprite Icon => _icon;
 
         public int AmountPref
         {
@@ -31,22 +39,6 @@ namespace Faza
         {
             get => Storage.GetInt($"{_id}_alt_purchases");
             private set => Storage.SetInt($"{_id}_alt_purchases", value);
-        }
-
-        public int GetSavedAmount()
-        {
-            var amount = Storage.GetInt(_id);
-            return amount;
-        }
-
-        public void Purchase()
-        {
-            _spendAction.Spend(OnSuccess, null);
-        }
-
-        public void PurchaseAlt()
-        {
-            _altSpendAction.Spend(OnSuccessAlt, null);
         }
 
         private void OnSuccess()
@@ -69,8 +61,21 @@ namespace Faza
             }
         }
 
+        private IEnumerator WaitBoosterCoroutine()
+        {
+            yield return new WaitForSeconds(_duration);
+            foreach (var effect in _effects)
+            {
+                effect.Remove();
+            }
+
+            _runningBoosters.Remove(this);
+        }
+
         public void Apply()
         {
+            if (_runningBoosters.Contains(this)) return;
+
             if (AmountPref <= 0) return;
 
             foreach (var effect in _effects)
@@ -78,7 +83,33 @@ namespace Faza
                 effect.Apply();
             }
 
+            _runningBoosters.Add(this);
+
+            Routines.StartCoroutine_(WaitBoosterCoroutine());
+
             AmountPref--;
+        }
+
+        public void Purchase()
+        {
+            _spendAction.Spend(OnSuccess, null);
+        }
+
+        public void PurchaseAlt()
+        {
+            _altSpendAction.Spend(OnSuccessAlt, null);
+        }
+
+        public void OnTap(Action givePurchaseChoice)
+        {
+            if (AmountPref == 0)
+            {
+                givePurchaseChoice();
+            }
+            else
+            {
+                Apply();
+            }
         }
     } 
 }

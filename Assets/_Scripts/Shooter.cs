@@ -21,6 +21,7 @@ namespace Faza
         [SerializeField] private Projectile _bulletPrefab;
         [SerializeField] private Health _health;
         [SerializeField] private PlayerInput _input;
+        [SerializeField] private Modifier _modDamage;
 
         private bool _shoot;
         private bool _inCooldown;
@@ -30,7 +31,7 @@ namespace Faza
         public Vector3 Target { get; private set; }
         public bool StartedShooting { get; set; }
         public float BulletSpeed => _speed;
-        public float Damage => _damage;
+        public float Damage => _modDamage.Evaluate();
         public float Gravity => _gravity;
         public float Decay => _decay;
         public bool WithinShooting => _shoot;
@@ -39,7 +40,7 @@ namespace Faza
 
         public void AddDamage(float damage)
         {
-            _damage += damage;
+            _modDamage.AddModifier(ModifierType.Flat, "dmg-flag", damage);
         }
 
         public void AddProjectileSpeed(float speed)

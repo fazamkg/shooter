@@ -15,5 +15,9 @@ namespace Faza
             var player = PlayerInput.Instance;
             player.Shooter.AddShootingSpeed(_shootingSpeed);
         }
+
+        public override void Remove()
+        {
+        }
     }
 }

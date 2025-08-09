@@ -15,5 +15,9 @@ namespace Faza
             var player = PlayerInput.Instance;
             player.Character.AddSpeed(_speed);
         }
+
+        public override void Remove()
+        {
+        }
     }
 }

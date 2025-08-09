@@ -15,5 +15,9 @@ namespace Faza
             var player = PlayerInput.Instance;
             player.Shooter.AddDamage(_damage);
         }
+
+        public override void Remove()
+        {
+        }
     }
 }

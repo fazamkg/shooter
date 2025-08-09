@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   _availableUpgrades: []
+  _availableBoosters:
+  - {fileID: 11400000, guid: b745bc7035ab13545b9da8b936d33a79, type: 2}

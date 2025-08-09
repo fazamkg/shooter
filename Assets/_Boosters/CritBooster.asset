@@ -22,13 +22,12 @@ MonoBehaviour:
     rid: 4919298760100544561
   _altSpendAction:
     rid: 4919298760100544564
+  _duration: 10
   _effects:
-  - rid: -2
+  - rid: 4919298797093519360
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 4919298760100544561
       type: {class: CoinSpendAction, ns: Faza, asm: Faza}
       data:
@@ -36,3 +35,14 @@ MonoBehaviour:
     - rid: 4919298760100544564
       type: {class: RvSpendAction, ns: Faza, asm: Faza}
       data: 
+    - rid: 4919298797093519360
+      type: {class: ModifierEffect, ns: Faza, asm: Faza}
+      data:
+        _modifierId: player_damage
+        _type: 2
+        _toApply:
+          _id: crit
+          _base: 4
+          _flat: []
+          _add: []
+          _mul: []
