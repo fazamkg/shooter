@@ -12,6 +12,8 @@ namespace Faza
         [SerializeField] private MyButton _altButton;
         [SerializeField] private Image _mainIcon;
         [SerializeField] private Image _altIcon;
+        [SerializeField] private Image _boosterIcon;
+        [SerializeField] private TMP_Text[] _titleTexts;
         [SerializeField] private TMP_Text[] _mainCostTexts;
         [SerializeField] private TMP_Text[] _altCostTexts;
         [SerializeField] private TMP_Text[] _mainCounterTexts;
@@ -19,6 +21,7 @@ namespace Faza
         [SerializeField] private TMP_Text[] _mainRewardAmountTexts;
         [SerializeField] private TMP_Text[] _altRewardAmountTexts;
         [SerializeField] private TMP_Text[] _descTexts;
+        [SerializeField] private TMP_Text[] _boosterDescTexts;
 
         private BoosterData _booster;
 
@@ -52,10 +55,24 @@ namespace Faza
 
         private void UpdateView()
         {
+            _boosterIcon.sprite = _booster.Icon;
+
+            var title = _booster.Title;
+            foreach (var text in _titleTexts)
+            {
+                text.text = title;
+            }
+
             var desc = _booster.WindowDescription;
             foreach (var text in _descTexts)
             {
                 text.text = desc;
+            }
+
+            var boosterDesc = _booster.ItemDescription;
+            foreach (var text in _boosterDescTexts)
+            {
+                text.text = boosterDesc;
             }
 
             var mainSpend = _booster.MainSpendAction;

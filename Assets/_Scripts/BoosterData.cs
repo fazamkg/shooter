@@ -11,6 +11,8 @@ namespace Faza
         public event Action OnUpdated;
 
         [SerializeField] private string _id;
+        [SerializeField] private string _title;
+        [SerializeField, TextArea] private string _itemDescription;
         [SerializeField, TextArea] private string _windowDescription;
         [SerializeField] private Sprite _icon;
         [SerializeField] private int _purchaseCount;
@@ -26,6 +28,23 @@ namespace Faza
 
         public Sprite Icon => _icon;
 
+        public string Title => _title;
+
+        public string ItemDescription
+        {
+            get
+            {
+                return string.Format(_itemDescription,
+                    _purchaseCount, // 0
+                    _boosterAmount, // 1
+                    _altPurchaseCount, // 2
+                    _altBoosterAmount, // 3
+                    _spendAction.Cost, // 4
+                    _altSpendAction.Cost, // 5
+                    _duration); // 6
+            }
+        }
+
         public string WindowDescription
         {
             get
@@ -36,7 +55,8 @@ namespace Faza
                     _altPurchaseCount, // 2
                     _altBoosterAmount, // 3
                     _spendAction.Cost, // 4
-                    _altSpendAction.Cost); // 5
+                    _altSpendAction.Cost, // 5
+                    _duration); // 6
             }
         }
 

@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: ArmorBooster
   m_EditorClassIdentifier: 
   _id: faza_armor_booster
+  _title: "\u0431\u0440\u043E\u043D\u044F"
+  _itemDescription: "\u0432 \u0442\u0435\u0447\u0435\u043D\u0438\u0438 {6} \u0441\u0435\u043A.
+    \u0438\u0433\u043D\u043E\u0440\u0438\u0440\u0443\u0435\u0442 \u0432\u0435\u0441\u044C
+    \u0443\u0440\u043E\u043D"
   _windowDescription: "\u043A\u0443\u043F\u0438 \u0437\u0430 {4} \u043C\u043E\u043D\u0435\u0442
     \u0438\u043B\u0438 \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C
     \u0440\u0435\u043A\u043B\u0430\u043C\u0443 {2} \u0440\u0430\u0437\u0430 \u0438
     \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0441\u0440\u0430\u0437\u0443
     {3} \u0431\u0443\u0441\u0442\u0435\u0440\u0430"
-  _icon: {fileID: 21300000, guid: 89fdeb3b950ae3a41ab7242a487845f6, type: 3}
+  _icon: {fileID: 21300000, guid: d75919562bebde243ba02b9ec61297d2, type: 3}
   _purchaseCount: 1
   _boosterAmount: 1
   _altPurchaseCount: 2
