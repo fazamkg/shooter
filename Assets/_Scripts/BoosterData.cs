@@ -58,6 +58,12 @@ namespace Faza
             private set => Storage.SetInt($"{_id}_alt_purchases", value);
         }
 
+        public bool IsUnlocked
+        {
+            get => Storage.GetBool($"{_id}_unlocked");
+            set => Storage.SetBool($"{_id}_unlocked", value);
+        }
+
         public SpendAction MainSpendAction => _spendAction;
         public SpendAction AltSpendAction => _altSpendAction;
 

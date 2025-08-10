@@ -66,6 +66,10 @@ MonoBehaviour:
   _levelTimer: {fileID: 1185762166487737219}
   _boosterChoicePanel: {fileID: 5453874398613429422}
   _allBoostersView: {fileID: 7202576494637114309}
+  _allBoosters:
+  - {fileID: 11400000, guid: b745bc7035ab13545b9da8b936d33a79, type: 2}
+  - {fileID: 11400000, guid: 7ed1f0fdd4e6fcd4f91bd7dc9b0ce8f0, type: 2}
+  - {fileID: 11400000, guid: 31a2dd8d98935f94a928dde4416a96d0, type: 2}
 --- !u!114 &1567674883477515629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +111,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54ed92e34ae13aa4ba401c6ad96b87d3, type: 2}
   - {fileID: 11400000, guid: 9d0a5916b2f16d64e9c9ec16cd95cccb, type: 2}
   - {fileID: 11400000, guid: 689b0f1fa51ba964cba96e0671c4794b, type: 2}
+  _coinSprite: {fileID: 0}
+  _rvSprite: {fileID: 0}
 --- !u!114 &1185762166487737219
 MonoBehaviour:
   m_ObjectHideFlags: 0

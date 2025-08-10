@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Level6
   m_EditorClassIdentifier: 
   _availableUpgrades: []
+  _boostersToUnlock:
+  - {fileID: 11400000, guid: 7ed1f0fdd4e6fcd4f91bd7dc9b0ce8f0, type: 2}

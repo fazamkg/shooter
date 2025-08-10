@@ -6,9 +6,19 @@ namespace Faza
     public class LevelData : ScriptableObject
     {
         [SerializeField] private UpgradeGroupData[] _availableUpgrades;
-        [SerializeField] private BoosterData[] _availableBoosters;
+        [SerializeField] private BoosterData[] _boostersToUnlock;
 
         public UpgradeGroupData[] AvailableUpgrades => _availableUpgrades;
-        public BoosterData[] AvailableBoosters => _availableBoosters;
+
+        public void UnlockBoosters()
+        {
+            if (_boostersToUnlock != null && _boostersToUnlock.Length > 0)
+            {
+                foreach (var booster in _boostersToUnlock)
+                {
+                    booster.IsUnlocked = true;
+                }
+            }
+        }
     } 
 }

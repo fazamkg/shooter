@@ -18,6 +18,7 @@ namespace Faza
         [SerializeField] private LevelTimer _levelTimer;
         [SerializeField] private BoosterChoicePanel _boosterChoicePanel;
         [SerializeField] private AllBoostersView _allBoostersView;
+        [SerializeField] private BoosterData[] _allBoosters;
 
         private void Awake()
         {
@@ -55,10 +56,8 @@ namespace Faza
                 _levelTimer.StartTimer();
             }
 
-            if (_levelData.AvailableBoosters != null)
-            {
-                _allBoostersView.Init(_levelData.AvailableBoosters.ToList());
-            }
+            _levelData.UnlockBoosters();
+            _allBoostersView.Init(_allBoosters.Where(x => x.IsUnlocked).ToList());
         }
 
         private void BoosterView_OnChoiceWindow(BoosterData boosterData)
