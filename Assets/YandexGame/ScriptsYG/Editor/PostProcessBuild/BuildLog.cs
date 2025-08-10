@@ -5,7 +5,7 @@ namespace YG.EditorScr.BuildModify
 {
     public class BuildLog
     {
-        private readonly static string filePath = Application.dataPath + "/YandexGame/ScriptsYG/Editor/PostProcessBuild/ModifyIndexFile/BuildLogYG.txt",
+        private readonly static string filePath = Application.dataPath + "/YandexGame/ScriptsYG/PostProcessBuild/ModifyIndexFile/BuildLogYG.txt",
             separator = ": ";
 
         public static void WritingLog(string buildPath)

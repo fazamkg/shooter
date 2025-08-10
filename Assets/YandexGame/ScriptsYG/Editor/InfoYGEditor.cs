@@ -157,7 +157,7 @@ namespace YG.Insides
 
         public static void RecompileScripts()
         {
-            string path = Application.dataPath + "/YandexGame/ScriptsYG/InfoYG/Editor/InfoYGEditor.cs";
+            string path = Application.dataPath + "/YandexGame/ScriptsYG/Editor/InfoYGEditor.cs";
             if (File.Exists(path))
             {
                 string text = File.ReadAllText(path);

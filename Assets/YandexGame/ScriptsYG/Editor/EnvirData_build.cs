@@ -10,7 +10,7 @@ namespace YG.EditorScr.BuildModify
             string initFunction = "environmentData = await RequestingEnvironmentData();\nconsole.log('Init Envir ysdk');";
             AddIndexCode(initFunction, CodeType.init);
 
-            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/EnvironmentData/Editor/EnvirData_js.js";
+            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/Editor/EnvirData_js.js";
             string donorText = File.ReadAllText(donorPatch);
 
             AddIndexCode(donorText, CodeType.js);

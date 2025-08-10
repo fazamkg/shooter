@@ -10,7 +10,7 @@ namespace YG.EditorScr.BuildModify
             string initFunction = "InitLeaderboards();\nconsole.log('Init Leaderboards');";
             AddIndexCode(initFunction, CodeType.init);
 
-            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/Leaderboards/Editor/Leaderboards_js.js";
+            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/Editor/Leaderboards_js.js";
             string donorText = File.ReadAllText(donorPatch);
 
             AddIndexCode(donorText, CodeType.js);

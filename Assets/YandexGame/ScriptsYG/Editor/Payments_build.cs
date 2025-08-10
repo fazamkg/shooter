@@ -10,7 +10,7 @@ namespace YG.EditorScr.BuildModify
             string initFunction = "paymentsData = await GetPayments();\nconsole.log('Init Payments ysdk');";
             AddIndexCode(initFunction, CodeType.init);
 
-            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/Payments/Editor/Payments_js.js";
+            string donorPatch = Application.dataPath + "/YandexGame/ScriptsYG/Editor/Payments_js.js";
             string donorText = File.ReadAllText(donorPatch);
 
             AddIndexCode(donorText, CodeType.js);
