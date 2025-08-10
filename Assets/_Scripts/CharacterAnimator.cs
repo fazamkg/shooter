@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.Animations.Rigging;
 
 namespace Faza
@@ -21,6 +20,7 @@ namespace Faza
         [SerializeField] private Transform _healthbarPoint;
         [SerializeField] private MeleeAttack _meleeAttack;
         [SerializeField] private Rig[] _rigs;
+        [SerializeField] private AnimationClip _shootClip;
 
         [Header("Random Idle")]
         [SerializeField] private bool _switchIdle;
@@ -49,7 +49,7 @@ namespace Faza
         // called from animation event
         public void Fire()
         {
-            _shooter.FireBullet();
+            //_shooter.FireBullet();
         }
 
         // animation event
@@ -172,6 +172,7 @@ namespace Faza
             {
                 _animator.CrossFadeInFixedTime("Attack", 0.05f);
                 _shooter.StartedShooting = false;
+                StartCoroutine(FireCoroutine());
             }
 
             if (_meleeAttack != null && _meleeAttack.StartAttack)
@@ -188,6 +189,13 @@ namespace Faza
                     _animator.SetBool("InterruptAttack", true);
                 }
             }
+        }
+
+        private IEnumerator FireCoroutine()
+        {
+            var dur = _shootClip.length / _shooter.ShootSpeed * 0.2428f;
+            yield return new WaitForSeconds(dur);
+            _shooter.FireBullet();
         }
 
         public void PlayOutOpenChestAnimation(Chest chest)

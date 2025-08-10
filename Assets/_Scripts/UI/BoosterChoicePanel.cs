@@ -36,7 +36,10 @@ namespace Faza
 
         private void OnDestroy()
         {
-            _booster.OnUpdated -= Booster_OnUpdated;
+            if (_booster != null)
+            {
+                _booster.OnUpdated -= Booster_OnUpdated;
+            }
         }
 
         private void AltButton_OnUp()

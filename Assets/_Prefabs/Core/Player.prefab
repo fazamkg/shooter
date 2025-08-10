@@ -6718,6 +6718,7 @@ MonoBehaviour:
   - {fileID: 5100182989056632836}
   - {fileID: 2785232889659886610}
   - {fileID: 5515291944675952654}
+  _shootClip: {fileID: 7400000, guid: 1a5c864a803716c46b0f1b401b02e6e2, type: 2}
   _switchIdle: 0
   _switchIdleMinDuration: 0
   _switchIdleMaxDuration: 0
