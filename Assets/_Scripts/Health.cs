@@ -26,6 +26,7 @@ namespace Faza
         public bool AllowViewCreation => _allowViewCreation;
         public bool IsDead => CurrentHealth <= 0f;
         public Vector3 LastDamageDirection { get; private set; }
+        public bool God { get; set; }
 
         private void Awake()
         {
@@ -36,6 +37,8 @@ namespace Faza
 
         public void TakeDamage(float damage, Vector3 damageDirection, bool stopCharacter = true)
         {
+            if (God) return;
+
             LastDamageDirection = damageDirection;
 
             CurrentHealth -= damage;

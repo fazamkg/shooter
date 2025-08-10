@@ -13,6 +13,7 @@ namespace Faza
         [SerializeField] private Character _character;
         [SerializeField] private GameObject _critGlow;
         [SerializeField] private GameObject _hasteGlow;
+        [SerializeField] private GameObject _armorGlow;
 
         private bool _locked;
 
@@ -172,6 +173,16 @@ namespace Faza
         public void DeactivateHasteGlow()
         {
             _hasteGlow.SetActive(false);
+        }
+
+        public void ActivateArmorGlow()
+        {
+            _armorGlow.SetActive(true);
+        }
+
+        public void DeactivateArmorGlow()
+        {
+            _armorGlow.SetActive(false);
         }
     }
 }
