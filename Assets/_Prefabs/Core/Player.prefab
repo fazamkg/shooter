@@ -4676,6 +4676,7 @@ MonoBehaviour:
     _flat: []
     _add: []
     _mul: []
+  _critBooster: {fileID: 11400000, guid: b745bc7035ab13545b9da8b936d33a79, type: 2}
   references:
     version: 2
     RefIds: []

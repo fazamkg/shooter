@@ -9,6 +9,8 @@ namespace Faza
         [SerializeField] private Collider _collider;
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private GameObject _bulletHolePrefab;
+        [SerializeField] private GameObject _critGlow;
+        [SerializeField] private TrailRenderer _trail;
 
         private float _damage;
         private float _speed;
@@ -29,6 +31,15 @@ namespace Faza
             _decay = decay;
             transform.rotation = Quaternion.LookRotation(direction);
             _rigidbody.position = transform.position;
+
+            _trail.enabled = true;
+            _critGlow.SetActive(false);
+        }
+
+        public void ActivateCritGlow()
+        {
+            _trail.enabled = false;
+            _critGlow.SetActive(true);
         }
 
         private void FixedUpdate()
@@ -73,6 +84,8 @@ namespace Faza
                 _renderer.enabled = false;
                 _collider.enabled = false;
                 _hitEffect.Play();
+                _critGlow.SetActive(false);
+
 
                 if (enemy == false)
                 {

@@ -174,5 +174,10 @@ namespace Faza
                 Apply();
             }
         }
+
+        public static bool IsBoosterRunning(BoosterData booster)
+        {
+            return _runningBoosters.Contains(booster);
+        }
     } 
 }

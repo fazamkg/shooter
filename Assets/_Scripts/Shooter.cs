@@ -23,6 +23,7 @@ namespace Faza
         [SerializeField] private PlayerInput _input;
         [SerializeField] private Modifier _modDamage;
         [SerializeField] private Modifier _modShootSpeed;
+        [SerializeField] private BoosterData _critBooster;
 
         private bool _shoot;
         private bool _inCooldown;
@@ -166,6 +167,10 @@ namespace Faza
             bullet.transform.position = _bulletOrigin.position;
             var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
             bullet.Init(Damage, BulletSpeed, direction, Gravity, Decay);
+            if (BoosterData.IsBoosterRunning(_critBooster))
+            {
+                bullet.ActivateCritGlow();
+            }
 
             BulletFired = true;
         }
