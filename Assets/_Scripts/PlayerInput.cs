@@ -12,6 +12,7 @@ namespace Faza
         [SerializeField] private Shooter _shooter;
         [SerializeField] private Character _character;
         [SerializeField] private GameObject _critGlow;
+        [SerializeField] private GameObject _hasteGlow;
 
         private bool _locked;
 
@@ -161,6 +162,16 @@ namespace Faza
         public void DeactivateCritGlow()
         {
             _critGlow.SetActive(false);
+        }
+
+        public void ActivateHasteGlow()
+        {
+            _hasteGlow.SetActive(true);
+        }
+
+        public void DeactivateHasteGlow()
+        {
+            _hasteGlow.SetActive(false);
         }
     }
 }

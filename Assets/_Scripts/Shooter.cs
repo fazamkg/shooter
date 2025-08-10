@@ -22,6 +22,7 @@ namespace Faza
         [SerializeField] private Health _health;
         [SerializeField] private PlayerInput _input;
         [SerializeField] private Modifier _modDamage;
+        [SerializeField] private Modifier _modShootSpeed;
 
         private bool _shoot;
         private bool _inCooldown;
@@ -35,8 +36,12 @@ namespace Faza
         public float Gravity => _gravity;
         public float Decay => _decay;
         public bool WithinShooting => _shoot;
-        public float ShootSpeed => _shootSpeed;
         public bool BulletFired { get; private set; }
+
+        private float RotationSpeed => _rotationSpeed + _modShootSpeed.Evaluate();
+        private float Cooldown => Mathf.Max(_cooldown - _modShootSpeed.Evaluate(), 0f);
+        private float MovementDelay => Mathf.Max(_movementDelay - _modShootSpeed.Evaluate(), 0f);
+        public float ShootSpeed => _shootSpeed + _modShootSpeed.Evaluate();
 
         public void AddDamage(float damage)
         {
@@ -50,17 +55,13 @@ namespace Faza
 
         public void AddShootingSpeed(float speed)
         {
-            _rotationSpeed += speed;
-            _cooldown -= speed;
-            _cooldown = Mathf.Max(_cooldown, 0f);
-            _movementDelay -= speed;
-            _movementDelay = Mathf.Max(_movementDelay, 0f);
-            _shootSpeed += speed;
+            _modShootSpeed.AddModifier(ModifierType.Flat, "sh-speed-flat", speed);
         }
 
         private void Awake()
         {
             _modDamage.Init();
+            _modShootSpeed.Init();
         }
 
         private void Update()
@@ -134,26 +135,26 @@ namespace Faza
         {
             BulletFired = false;
 
-            yield return _character.RotateTowardsCoroutine(target, _rotationSpeed);
+            yield return _character.RotateTowardsCoroutine(target, RotationSpeed);
 
             StartedShooting = true;
 
             _inCooldown = true;
             _shoot = true;
 
-            StartCoroutine(Cooldown());
+            StartCoroutine(CooldownCoroutine());
             StartCoroutine(FinishFireCoroutine());
         }
 
-        private IEnumerator Cooldown()
+        private IEnumerator CooldownCoroutine()
         {
-            yield return new WaitForSeconds(_cooldown);
+            yield return new WaitForSeconds(Cooldown);
             _inCooldown = false;
         }
 
         private IEnumerator FinishFireCoroutine()
         {
-            yield return new WaitForSeconds(_movementDelay);
+            yield return new WaitForSeconds(MovementDelay);
             _shoot = false;
         }
 

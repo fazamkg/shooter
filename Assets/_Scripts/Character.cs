@@ -17,6 +17,7 @@ namespace Faza
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private float _useDistance;
         [SerializeField] private bool _cameraBasedInput = true;
+        [SerializeField] private Modifier _speedMod;
 
         private bool _isNoclip;
 
@@ -28,6 +29,9 @@ namespace Faza
         private float _verticalVelocity;
         private bool _isGrounded;
         private Coroutine _stopCoroutine;
+
+        private float Acceleration => _acceleration + _speedMod.Evaluate();
+        private float MaxSpeed => _maxSpeed + _speedMod.Evaluate();
 
         public bool DeltaTimeScaled { get; set; } = true;
         public float HorizontalSpeed => _ownHorizontalVelocity.magnitude;
@@ -47,13 +51,14 @@ namespace Faza
 
         public void AddSpeed(float value)
         {
-            _acceleration += value;
-            _maxSpeed += value;
+            _speedMod.AddModifier(ModifierType.Flat, "spd-flat", value);
         }
 
         private void Awake()
         {
             _characterController.enableOverlapRecovery = false;
+
+            _speedMod.Init();
         }
 
         private void Update()
@@ -80,10 +85,10 @@ namespace Faza
             if (IsNoclip == false)
             {
                 #region Physics
-                _ownHorizontalVelocity += delta * _acceleration * inputDirection;
+                _ownHorizontalVelocity += delta * Acceleration * inputDirection;
                 _ownHorizontalVelocity -= delta * _friction * _ownHorizontalVelocity;
                 _outsideHorizontalVelocity -= delta * _friction * _outsideHorizontalVelocity;
-                _ownHorizontalVelocity = Vector3.ClampMagnitude(_ownHorizontalVelocity, _maxSpeed);
+                _ownHorizontalVelocity = Vector3.ClampMagnitude(_ownHorizontalVelocity, MaxSpeed);
 
                 _verticalVelocity -= delta * _gravity;
 
@@ -112,7 +117,7 @@ namespace Faza
             else
             {
                 var dir = Quaternion.Euler(_pitch, _yaw, 0f) * input;
-                transform.position += _maxSpeed * delta * dir;
+                transform.position += MaxSpeed * delta * dir;
             }
 
             if (_characterInput.GetUse())
