@@ -9,6 +9,7 @@ namespace Faza
     public class BoosterData : ScriptableObject
     {
         public event Action OnUpdated;
+        public event Action OnApplied;
 
         [SerializeField] private string _id;
         [SerializeField] private string _title;
@@ -50,7 +51,7 @@ namespace Faza
             get
             {
                 return string.Format(_windowDescription,
-                    _purchaseCount, // 0
+                    _purchaseCount, // 0    
                     _boosterAmount, // 1
                     _altPurchaseCount, // 2
                     _altBoosterAmount, // 3
@@ -92,6 +93,8 @@ namespace Faza
 
         public int BoosterAmount => _boosterAmount;
         public int AltBoosterAmount => _altBoosterAmount;
+
+        public float Duration => _duration;
 
         private void OnSuccess()
         {
@@ -142,6 +145,8 @@ namespace Faza
             AmountPref--;
 
             OnUpdated?.Invoke();
+
+            OnApplied?.Invoke();
         }
 
         public void Purchase()

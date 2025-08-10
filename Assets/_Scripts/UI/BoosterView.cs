@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using DG.Tweening;
 
 namespace Faza
 {
@@ -12,18 +13,33 @@ namespace Faza
         [SerializeField] private MyButton _button;
         [SerializeField] private TMP_Text[] _amountTexts;
         [SerializeField] private Image _icon;
+        [SerializeField] private Image _clock;
 
         private BoosterData _data;
 
         public void Init(BoosterData data)
         {
             _data = data;
+            _clock.fillAmount = 0f;
 
             UpdateView();
 
             _button.OnUp += Button_OnUp;
-
             _data.OnUpdated += Data_OnUpdated;
+            _data.OnApplied += Data_OnApplied;
+        }
+
+        private void OnDestroy()
+        {
+            _button.OnUp -= Button_OnUp;
+            _data.OnUpdated -= Data_OnUpdated;
+            _data.OnApplied -= Data_OnApplied;
+        }
+
+        private void Data_OnApplied()
+        {
+            _clock.fillAmount = 1f;
+            _clock.DOFillAmount(0f, _data.Duration).SetEase(Ease.Linear);
         }
 
         private void UpdateView()
