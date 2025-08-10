@@ -21,7 +21,7 @@ namespace Faza
 
         private void NextButton_OnUp()
         {
-            LevelManager.Instance.LoadLevelFromSave();
+            LevelManager.Instance.LoadLevelFromSave(true);
         }
 
         public void Appear(float speed = 1f)

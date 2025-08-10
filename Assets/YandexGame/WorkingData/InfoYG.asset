@@ -30,8 +30,8 @@ MonoBehaviour:
   adDisplayCalls: 0
   fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
-  loadAdWithDelaySimulation: 0
-  testErrorOfRewardedAdsInEditor: 0
+  loadAdWithDelaySimulation: 0.5
+  testErrorOfRewardedAdsInEditor: 1
   saveCloud: 1
   flush: 0
   localSaveSync: 1

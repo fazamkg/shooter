@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 namespace Faza
 {
@@ -24,11 +25,28 @@ namespace Faza
             SceneManager.LoadScene(levelData.name);
         }
 
-        public void LoadLevelFromSave()
+        public void LoadLevelFromSave(bool showAd = false)
         {
-            var index = LevelIndexPref;
-            var levelToLoad = index >= _levels.Length ? _menuLevel : _levels[index];
-            SceneManager.LoadScene(levelToLoad.name);
+            void loadNextLevel()
+            {
+                YandexGame.CloseFullAdEvent -= loadNextLevel;
+                YandexGame.ErrorFullAdEvent -= loadNextLevel;
+
+                var index = LevelIndexPref;
+                var levelToLoad = index >= _levels.Length ? _menuLevel : _levels[index];
+                SceneManager.LoadScene(levelToLoad.name);
+            }
+
+            if (showAd && YandexGame.Instance.CanShowAd)
+            {
+                YandexGame.ErrorFullAdEvent += loadNextLevel;
+                YandexGame.CloseFullAdEvent += loadNextLevel;
+                YandexGame.FullscreenShow();
+            }
+            else
+            {
+                loadNextLevel();
+            }
         }
 
         public void OnWinLevel(LevelData level)

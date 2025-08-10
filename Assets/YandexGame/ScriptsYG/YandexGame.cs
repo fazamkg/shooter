@@ -192,9 +192,11 @@ namespace YG
         [DllImport("__Internal")]
         private static extern void FullAdShow();
 
+        public bool CanShowAd => !nowAdsShow && timerShowAd >= infoYG.fullscreenAdInterval;
+
         public void _FullscreenShow()
         {
-            if (!nowAdsShow && timerShowAd >= infoYG.fullscreenAdInterval)
+            if (CanShowAd)
             {
                 timerShowAd = 0;
                 onAdNotification?.Invoke();
