@@ -34,6 +34,11 @@ namespace Faza
             transform.localScale = Vector3.zero;
         }
 
+        private void OnDestroy()
+        {
+            _booster.OnUpdated -= Booster_OnUpdated;
+        }
+
         private void AltButton_OnUp()
         {
             _booster.PurchaseAlt();
@@ -120,13 +125,20 @@ namespace Faza
         public void Appear(BoosterData booster)
         {
             _booster = booster;
+            _booster.OnUpdated += Booster_OnUpdated;
             transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
 
             UpdateView();
         }
 
+        private void Booster_OnUpdated()
+        {
+            UpdateView();
+        }
+
         public void Disappear()
         {
+            _booster.OnUpdated -= Booster_OnUpdated;
             transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
         }
     } 

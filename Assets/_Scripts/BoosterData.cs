@@ -104,6 +104,8 @@ namespace Faza
                 PurchaseCountPref = 0;
                 AmountPref += _boosterAmount;
             }
+
+            OnUpdated?.Invoke();
         }
 
         private void OnSuccessAlt()
@@ -114,6 +116,8 @@ namespace Faza
                 AltPurchaseCountPref = 0;
                 AmountPref += _altBoosterAmount;
             }
+
+            OnUpdated?.Invoke();
         }
 
         private IEnumerator WaitBoosterCoroutine()

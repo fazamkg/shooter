@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using YG;
 
 namespace Faza
 {
@@ -15,9 +16,25 @@ namespace Faza
             return true;
         }
 
-        public override void Spend(Action onSucess, Action onFailure)
+        public override void Spend(Action onSuccess, Action onFailure)
         {
-            onSucess?.Invoke();
+            YandexGame.RewardVideoEvent += success;
+            YandexGame.ErrorVideoEvent += fail;
+            YandexGame.RewVideoShow(0);
+
+            void success(int id)
+            {
+                YandexGame.RewardVideoEvent -= success;
+                YandexGame.ErrorVideoEvent -= fail;
+                onSuccess?.Invoke();
+            }
+
+            void fail()
+            {
+                YandexGame.RewardVideoEvent -= success;
+                YandexGame.ErrorVideoEvent -= fail;
+                onFailure?.Invoke();
+            }
         }
     }
 }
