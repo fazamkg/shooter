@@ -62,7 +62,7 @@ namespace Faza
 
                 var speed = _initialDistance / dist * Time.deltaTime * 8f;
 
-                if (dist < 0.15f)
+                if (dist < 0.3f)
                 {
                     Currency.AddCoins(1f, _toMove.position);
                     gameObject.SetActive(false);
