@@ -28,7 +28,7 @@ namespace Faza
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(1f);
+                yield return new WaitForSeconds(1f);
                 _elapsed += TimeSpan.FromSeconds(1d);
                 OnTick?.Invoke();
             }

@@ -15,6 +15,7 @@ namespace Faza
         private float _damage;
         private float _speed;
         private Vector3 _direction;
+        private Transform _target;
         private float _verticalSpeed;
         private float _gravity;
         private float _decay;
@@ -22,11 +23,12 @@ namespace Faza
         private Vector3 _hitPosition;
         private Vector3 _hitNormal;
 
-        public void Init(float damage, float speed, Vector3 direction, float gravity, float decay)
+        public void Init(float damage, float speed, Vector3 direction, Transform target, float gravity, float decay)
         {
             _damage = damage;
             _speed = speed;
             _direction = direction;
+            _target = target;
             _gravity = gravity;
             _decay = decay;
             transform.rotation = Quaternion.LookRotation(direction);
@@ -49,7 +51,9 @@ namespace Faza
 
             var position = _rigidbody.position;
 
-            position += _speed * Time.fixedDeltaTime * _direction;
+            var direction = (_target.position.WithY(0f) - transform.position.WithY(0f)).normalized;
+
+            position += _speed * Time.fixedDeltaTime * direction;
             position += _verticalSpeed * Time.fixedDeltaTime * Vector3.up;
 
             _rigidbody.MovePosition(position);

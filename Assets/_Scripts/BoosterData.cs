@@ -108,6 +108,12 @@ namespace Faza
             OnUpdated?.Invoke();
         }
 
+        public void GiveFreeAmount()
+        {
+            AmountPref++;
+            OnUpdated?.Invoke();
+        }
+
         private void OnSuccessAlt()
         {
             AltPurchaseCountPref++;

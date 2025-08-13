@@ -31,6 +31,7 @@ namespace Faza
         private float _shootSpeed = 1f;
 
         public Vector3 Target { get; private set; }
+        public Transform TargetTransform { get; private set; }
         public bool StartedShooting { get; set; }
         public float BulletSpeed => _speed;
         public float Damage => _modDamage.Evaluate();
@@ -128,6 +129,7 @@ namespace Faza
             _shoot = true;
 
             Target = target;
+            TargetTransform = closest.transform;
 
             StartCoroutine(ShootCoroutine(target));
         }
@@ -166,7 +168,7 @@ namespace Faza
             var bullet = Instantiate(_bulletPrefab);
             bullet.transform.position = _bulletOrigin.position;
             var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
-            bullet.Init(Damage, BulletSpeed, direction, Gravity, Decay);
+            bullet.Init(Damage, BulletSpeed, direction, TargetTransform, Gravity, Decay);
             if (BoosterData.IsBoosterRunning(_critBooster))
             {
                 bullet.ActivateCritGlow();

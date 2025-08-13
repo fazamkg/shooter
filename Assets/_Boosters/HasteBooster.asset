@@ -25,8 +25,8 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ae0a7ee32806ccf418a44230ecc8788a, type: 3}
   _purchaseCount: 1
   _boosterAmount: 1
-  _altPurchaseCount: 2
-  _altBoosterAmount: 4
+  _altPurchaseCount: 1
+  _altBoosterAmount: 6
   _spendAction:
     rid: 4919298760100544561
   _altSpendAction:
@@ -42,7 +42,7 @@ MonoBehaviour:
     - rid: 4919298760100544561
       type: {class: CoinSpendAction, ns: Faza, asm: Faza}
       data:
-        _cost: 100
+        _cost: 60
     - rid: 4919298760100544564
       type: {class: RvSpendAction, ns: Faza, asm: Faza}
       data: 

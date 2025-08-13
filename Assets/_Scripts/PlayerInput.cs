@@ -30,6 +30,15 @@ namespace Faza
             Console.StartReadingBinds();
 
             Instance = this;
+
+            _health.OnDeath += Health_OnDeath;
+        }
+
+        private void Health_OnDeath()
+        {
+            DeactivateArmorGlow();
+            DeactivateCritGlow();
+            DeactivateHasteGlow();
         }
 
         private void Start()

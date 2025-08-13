@@ -16,7 +16,11 @@ namespace Faza
             {
                 foreach (var booster in _boostersToUnlock)
                 {
-                    booster.IsUnlocked = true;
+                    if (booster.IsUnlocked == false)
+                    {
+                        booster.IsUnlocked = true;
+                        booster.GiveFreeAmount();
+                    }
                 }
             }
         }
