@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using UnityEngine;
 
 namespace Faza
@@ -32,6 +34,23 @@ namespace Faza
         public static void SetBool(string key, bool value)
         {
             PlayerPrefs.SetInt(key, value ? 1 : 0);
+        }
+
+        public static TimeSpan GetTimeSpan(string key, TimeSpan defaultValue = default)
+        {
+            var loadedValue = PlayerPrefs.GetString(key, "");
+            if (loadedValue == "") return defaultValue;
+
+            var parsed = TimeSpan.TryParse(loadedValue, CultureInfo.InvariantCulture, out var result);
+            if (parsed == false) return defaultValue;
+
+            return result;
+        }
+
+        public static void SetTimeSpan(string key, TimeSpan value)
+        {
+            var toSave = value.ToString("c");
+            PlayerPrefs.SetString(key, toSave);
         }
     } 
 }

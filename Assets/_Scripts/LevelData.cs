@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Faza
@@ -23,6 +24,20 @@ namespace Faza
                     }
                 }
             }
+        }
+
+        public void SetCompletedTimespan(TimeSpan elapsed)
+        {
+            var stored = Storage.GetTimeSpan($"faza_{name}_timespan", TimeSpan.MaxValue);
+            if (elapsed < stored)
+            {
+                Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
+            }
+        }
+
+        public TimeSpan GetCompletedTimespan()
+        {
+            return Storage.GetTimeSpan($"faza_{name}_timespan", TimeSpan.MaxValue);
         }
     } 
 }

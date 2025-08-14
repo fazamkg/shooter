@@ -7,6 +7,7 @@ namespace Faza
     {
         [SerializeField] private MyButton _button;
         [SerializeField] private TMP_Text[] _texts;
+        [SerializeField] private TMP_Text[] _timespanTexts;
 
         private LevelData _levelData;
 
@@ -20,6 +21,12 @@ namespace Faza
             foreach (var text in _texts)
             {
                 text.text = number;
+            }
+
+            var time = levelData.GetCompletedTimespan().ToString(@"hh\:mm\:ss");
+            foreach (var text in _timespanTexts)
+            {
+                text.text = time;
             }
         }
 

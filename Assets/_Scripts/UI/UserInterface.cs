@@ -87,6 +87,7 @@ namespace Faza
         public void Win(float speed = 1f)
         {
             _levelTimer.StopTimer();
+            _levelData.SetCompletedTimespan(_levelTimer.Elapsed);
 
             LevelManager.Instance.OnWinLevel(_levelData);
 
