@@ -56,14 +56,14 @@ namespace Faza
             return Color.HSVToRGB(h + addH, s, v);
         }
 
-        public static void SetAnchorX(this RectTransform rt, float x)
+        public static void SetAnchorPosX(this RectTransform rt, float x)
         {
             var pos = rt.anchoredPosition;
             pos.x = x;
             rt.anchoredPosition = pos;
         }
 
-        public static void SetAnchorY(this RectTransform rt, float y)
+        public static void SetAnchorPosY(this RectTransform rt, float y)
         {
             var pos = rt.anchoredPosition;
             pos.y = y;
@@ -153,6 +153,11 @@ namespace Faza
             if (minIndex == int.MaxValue) return "";
 
             return text.Substring(minIndex, text.Length - minIndex);
+        }
+
+        public static float Frac(this float value)
+        {
+            return value - (int)value;
         }
     }
 }

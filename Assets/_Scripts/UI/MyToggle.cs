@@ -25,7 +25,7 @@ namespace Faza
         {
             IsOn = isOn;
 
-            _point.SetAnchorX(IsOn ? (_itself.sizeDelta.x - 30f) : (0f + 30f));
+            _point.SetAnchorPosX(IsOn ? (_itself.sizeDelta.x - 30f) : (0f + 30f));
             _fill.fillAmount = IsOn ? 1f : 0f;
         }
 

@@ -40,7 +40,7 @@ namespace Faza
         {
             var x = current / max * _width;
 
-            _fill.SetAnchorX(x);
+            _fill.SetAnchorPosX(x);
             _gloss.SetWidth(x - 2.1f * 2f);
         }
 
