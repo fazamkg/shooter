@@ -16,7 +16,7 @@ namespace Faza
         {
             var rank = entry.Rank.ToString();
             var name = entry.Name;
-            var time = entry.Time.ToString(@"hh\:mm\:ss");
+            var time = entry.Time.ToString(@"mm\:ss\.fff");
 
             foreach (var text in _rankTexts)
             {

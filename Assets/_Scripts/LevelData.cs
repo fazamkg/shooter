@@ -117,9 +117,9 @@ namespace Faza
             if (elapsed < stored)
             {
                 Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
-
-                YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalSeconds);
             }
+
+            YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
         }
 
         public TimeSpan GetCompletedTimespan()

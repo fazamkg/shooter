@@ -9,27 +9,38 @@ namespace Faza
         public event Action OnTick;
 
         private TimeSpan _elapsed;
+        private double _from;
 
         public TimeSpan Elapsed => _elapsed;
 
-        public string AsText => $"{(int)_elapsed.TotalHours:D2}:{_elapsed.Minutes:D2}:{_elapsed.Seconds:D2}";
+        public string AsText => _elapsed.ToString(@"mm\:ss\.fff");
 
         public void StartTimer()
         {
+            _from = Time.realtimeSinceStartupAsDouble;
             StartCoroutine(Tick());
         }
 
         public void StopTimer()
         {
+            enabled = false;
             StopAllCoroutines();
+        }
+
+        private void Update()
+        {
+            var time = Time.realtimeSinceStartupAsDouble;
+
+            var delta = time - _from;
+
+            _elapsed = TimeSpan.FromSeconds(delta);
         }
 
         private IEnumerator Tick()
         {
             while (true)
             {
-                yield return new WaitForSeconds(1f);
-                _elapsed += TimeSpan.FromSeconds(1d);
+                yield return new WaitForSeconds(0.02f);
                 OnTick?.Invoke();
             }
         }

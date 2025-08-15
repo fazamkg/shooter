@@ -20,6 +20,8 @@ namespace Faza
         [SerializeField] private AllBoostersView _allBoostersView;
         [SerializeField] private BoosterData[] _allBoosters;
 
+        private bool _win;
+
         private void Awake()
         {
             _playerHealth.OnDeath += PlayerHealth_OnDeath;
@@ -86,6 +88,9 @@ namespace Faza
 
         public void Win(float speed = 1f)
         {
+            _win = true;
+            _loseScreen.gameObject.SetActive(false);
+
             _levelTimer.StopTimer();
             _levelData.SetCompletedTimespan(_levelTimer.Elapsed);
 
@@ -103,6 +108,8 @@ namespace Faza
 
         private void PlayerHealth_OnDeath()
         {
+            if (_win) return;
+
             _levelTimer.StopTimer();
 
             _loseScreen.Appear();

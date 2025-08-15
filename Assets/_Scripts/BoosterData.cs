@@ -193,5 +193,10 @@ namespace Faza
         {
             return _runningBoosters.Contains(booster);
         }
+
+        public static void Init()
+        {
+            _runningBoosters.Clear();
+        }
     } 
 }

@@ -24,7 +24,7 @@ namespace Faza
                 text.text = number;
             }
 
-            var time = levelData.GetCompletedTimespan().ToString(@"hh\:mm\:ss");
+            var time = levelData.GetCompletedTimespan().ToString(@"mm\:ss\.fff");
             foreach (var text in _timespanTexts)
             {
                 text.text = time;

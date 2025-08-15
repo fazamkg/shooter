@@ -24,6 +24,8 @@ namespace Faza
 
         private void Awake()
         {
+            BoosterData.Init();
+
             Input.multiTouchEnabled = false;
             Application.targetFrameRate = -1;
             QualitySettings.vSyncCount = 1;
