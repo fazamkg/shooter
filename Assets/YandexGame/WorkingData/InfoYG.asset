@@ -55,7 +55,7 @@ MonoBehaviour:
 
       3. Maria: 23'
     isDefault: 0
-    isInvertSortOrder: 0
+    isInvertSortOrder: 1
     decimalOffset: 0
     type: time
     players:

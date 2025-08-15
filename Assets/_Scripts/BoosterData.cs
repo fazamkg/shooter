@@ -139,7 +139,11 @@ namespace Faza
 
         public void Apply()
         {
-            if (_runningBoosters.Contains(this)) return;
+            if (_runningBoosters.Contains(this))
+            {
+                Debug.Log("booster still running");
+                return;
+            }
 
             if (AmountPref <= 0) return;
 

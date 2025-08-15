@@ -91,7 +91,14 @@ namespace Faza
 
             LevelManager.Instance.OnWinLevel(_levelData);
 
-            _winScreen.Appear(speed);
+            _levelData.LoadLeaderboard(() =>
+            {
+                _winScreen.Appear(_levelData, speed);
+            },
+            () =>
+            {
+                _winScreen.Appear(_levelData, speed);
+            });
         }
 
         private void PlayerHealth_OnDeath()

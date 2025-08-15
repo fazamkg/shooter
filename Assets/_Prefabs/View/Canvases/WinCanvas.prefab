@@ -5097,6 +5097,10 @@ MonoBehaviour:
   _timer: {fileID: 7593944198358613679}
   _nextButton: {fileID: 5234225488424143184}
   _group: {fileID: 4813748179401089823}
+  _firstPlace: {fileID: 8768403071892811827}
+  _secondPlace: {fileID: 543958814020932124}
+  _thirdPlace: {fileID: 4024441159327953508}
+  _playerPlace: {fileID: 7096774919756362277}
 --- !u!223 &5513503955884734355
 Canvas:
   m_ObjectHideFlags: 0
