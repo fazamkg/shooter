@@ -122,13 +122,19 @@ namespace Faza
             _loseScreen.gameObject.SetActive(false);
 
             _levelTimer.StopTimer();
-            _levelData.SetCompletedTimespan(_levelTimer.Elapsed);
-
             LevelManager.Instance.OnWinLevel(_levelData);
 
             _levelData.LoadLeaderboard(() =>
             {
-                _winScreen.Appear(_levelData, speed);
+                _levelData.SetCompletedTimespan(_levelTimer.Elapsed);
+                _levelData.LoadLeaderboard(() =>
+                {
+                    _winScreen.Appear(_levelData, speed);
+                },
+                () =>
+                {
+                    _winScreen.Appear(_levelData, speed);
+                });
             },
             () =>
             {

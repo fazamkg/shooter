@@ -60,7 +60,7 @@ namespace Faza
             _leaderboardSuccess = false;
             _leaderboard.Clear();
 
-            yield return new WaitForSeconds(1.5f); // do not wait too long
+            yield return new WaitForSeconds(1f); // do not wait too long
             YandexGame.onGetLeaderboard -= OnGetLeaderboard;
 
             if (_leaderboardSuccess)
@@ -113,13 +113,20 @@ namespace Faza
 
         public void SetCompletedTimespan(TimeSpan elapsed)
         {
-            var stored = Storage.GetTimeSpan($"faza_{name}_timespan", TimeSpan.MaxValue);
-            if (elapsed < stored)
+            var player = PlayerPlace;
+            if (player == null)
             {
                 Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
+                YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
             }
-
-            YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
+            else
+            {
+                if (elapsed < player.Time)
+                {
+                    Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
+                    YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
+                }
+            }
         }
 
         public TimeSpan GetCompletedTimespan()
