@@ -16,6 +16,7 @@ namespace Faza
         [SerializeField] private GameObject _armorGlow;
 
         private bool _locked;
+        private bool _enabled = true;
 
         public GameObject Camera => _camera;
         public Health Health => _health;
@@ -69,6 +70,7 @@ namespace Faza
 
         public override float GetCameraX()
         {
+            if (_enabled == false) return 0;
             if (_shooter.WithinShooting) return 0f;
             if (_health.IsDead) return 0f;
             if (_locked == false) return 0f;
@@ -107,6 +109,7 @@ namespace Faza
 
         public Vector3 GetRawMove()
         {
+            if (_enabled == false) return Vector3.zero;
             if (_shooter.WithinShooting) return Vector3.zero;
             if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
@@ -126,6 +129,7 @@ namespace Faza
 
         public override Vector3 GetMove()
         {
+            if (_enabled == false) return Vector3.zero;
             if (_shooter.WithinShooting) return Vector3.zero;
             if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
@@ -192,6 +196,16 @@ namespace Faza
         public void DeactivateArmorGlow()
         {
             _armorGlow.SetActive(false);
+        }
+
+        public void Disable()
+        {
+            _enabled = false;
+        }
+
+        public void Enable()
+        {
+            _enabled = true;
         }
     }
 }

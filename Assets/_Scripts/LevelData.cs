@@ -85,7 +85,7 @@ namespace Faza
                 var isPlayer = entry.uniqueID == YandexGame.playerId;
 
                 var myEntry = new LeaderboardEntry(entry.rank,
-                    entry.name, TimeSpan.FromSeconds(entry.score), isPlayer);
+                    entry.name, TimeSpan.FromMilliseconds(entry.score), isPlayer);
 
                 if (isPlayer)
                 {

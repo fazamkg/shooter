@@ -9,7 +9,7 @@ namespace Faza
     {
         public override Sprite Sprite => Resources.Load<Sprite>("Rv");
 
-        public override string Cost => "БЕСПЛ.";
+        public override string Cost => "БЕСПЛАТНО";
 
         public override bool CanSpend()
         {

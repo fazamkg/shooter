@@ -189,6 +189,11 @@ namespace Faza
             }
         }
 
+        public static bool AnyBoosterRunning()
+        {
+            return _runningBoosters.Count != 0;
+        }
+
         public static bool IsBoosterRunning(BoosterData booster)
         {
             return _runningBoosters.Contains(booster);

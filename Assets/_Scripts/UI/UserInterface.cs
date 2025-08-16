@@ -19,6 +19,8 @@ namespace Faza
         [SerializeField] private BoosterChoicePanel _boosterChoicePanel;
         [SerializeField] private AllBoostersView _allBoostersView;
         [SerializeField] private BoosterData[] _allBoosters;
+        [SerializeField] private CanvasGroup _gameCanvas;
+        [SerializeField] private Tutorial _tutorial;
 
         private bool _win;
 
@@ -62,6 +64,32 @@ namespace Faza
             _allBoostersView.Init(_allBoosters.Where(x => x.IsUnlocked).ToList());
         }
 
+        private void Start()
+        {
+            var number = _levelData.name.GetNumberPart();
+
+            if (number == "1")
+            {
+                _tutorial.StartTutorial_1();
+            }
+            else if (number == "3")
+            {
+                _tutorial.StartTutorial_2();
+            }
+            else if (number == "4")
+            {
+                _tutorial.StartTutorial_3();
+            }
+            else if (number == "6")
+            {
+                _tutorial.StartTutorial_4();
+            }
+            else if (number == "8")
+            {
+                _tutorial.StartTutorial_5();
+            }
+        }
+
         private void BoosterView_OnChoiceWindow(BoosterData boosterData)
         {
             _boosterChoicePanel.Appear(boosterData);
@@ -88,6 +116,8 @@ namespace Faza
 
         public void Win(float speed = 1f)
         {
+            _gameCanvas.DOFade(0f, 0.3f);
+
             _win = true;
             _loseScreen.gameObject.SetActive(false);
 
@@ -109,6 +139,8 @@ namespace Faza
         private void PlayerHealth_OnDeath()
         {
             if (_win) return;
+
+            _gameCanvas.DOFade(0f, 0.3f);
 
             _levelTimer.StopTimer();
 

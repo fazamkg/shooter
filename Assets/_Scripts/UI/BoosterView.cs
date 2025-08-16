@@ -17,6 +17,8 @@ namespace Faza
 
         private BoosterData _data;
 
+        public BoosterData Data => _data;
+
         public void Init(BoosterData data)
         {
             _data = data;
