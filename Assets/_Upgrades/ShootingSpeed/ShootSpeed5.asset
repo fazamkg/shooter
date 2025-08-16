@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ShootSpeed5
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 9a46dbdf475376946b80a9169d001f18, type: 3}
-  _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C \u0421\u0422\u0420\u0415\u041B\u042C\u0411\u042B"
+  _name: shoot_speed_upgrade_name
   _maxed: 0
-  _description: "+{0} \u043A \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u0418 \u0421\u0422\u0420\u0415\u041B\u042C\u0411\u042B"
+  _description: shoot_speed_upgrade_desc
   _cost: 300
   _effects:
   - rid: 4919298737709514846

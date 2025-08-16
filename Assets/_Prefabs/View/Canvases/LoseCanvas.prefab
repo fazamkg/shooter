@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2377818357000914045}
   - component: {fileID: 8953916094121570152}
   - component: {fileID: 3267206317875437210}
+  - component: {fileID: 3292817756747653309}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -136,6 +137,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3292817756747653309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958535715093267607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: again
 --- !u!1 &2811233659884613237
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +370,7 @@ GameObject:
   - component: {fileID: 6526825618867708361}
   - component: {fileID: 7512216861121724155}
   - component: {fileID: 6131858126708867341}
+  - component: {fileID: 3372248197458678504}
   m_Layer: 5
   m_Name: TextOut
   m_TagString: Untagged
@@ -459,7 +474,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -481,6 +496,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3372248197458678504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468413650760792971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: again
 --- !u!1 &4536081295854832471
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +520,7 @@ GameObject:
   - component: {fileID: 1221727181075085190}
   - component: {fileID: 5731406410454516834}
   - component: {fileID: 4595088333374982259}
+  - component: {fileID: 1770511274504268301}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -595,7 +624,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -617,6 +646,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1770511274504268301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4536081295854832471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: lose
 --- !u!1 &5406753434736575865
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +760,7 @@ GameObject:
   - component: {fileID: 1992455028185188390}
   - component: {fileID: 9090443874860205102}
   - component: {fileID: 5674670963279243166}
+  - component: {fileID: 2344042859307956807}
   m_Layer: 5
   m_Name: TitleOut
   m_TagString: Untagged
@@ -821,7 +864,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -843,3 +886,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2344042859307956807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580543532018121687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: lose

@@ -29,13 +29,13 @@ namespace Faza
 
         public Sprite Icon => _icon;
 
-        public string Title => _title;
+        public string Title => Localization.Get(_title);
 
         public string ItemDescription
         {
             get
             {
-                return string.Format(_itemDescription,
+                return string.Format(Localization.Get(_itemDescription),
                     _purchaseCount, // 0
                     _boosterAmount, // 1
                     _altPurchaseCount, // 2
@@ -50,7 +50,7 @@ namespace Faza
         {
             get
             {
-                return string.Format(_windowDescription,
+                return string.Format(Localization.Get(_windowDescription),
                     _purchaseCount, // 0    
                     _boosterAmount, // 1
                     _altPurchaseCount, // 2
@@ -141,7 +141,7 @@ namespace Faza
         {
             if (_runningBoosters.Contains(this))
             {
-                Debug.Log("booster still running");
+                //Debug.Log("booster still running");
                 return;
             }
 

@@ -1,7 +1,7 @@
 {
   "idSave": 10,
   "isFirstSession": false,
-  "language": "ru",
+  "language": "en",
   "promptDone": false,
   "money": 1,
   "newPlayerName": "Hello!",
@@ -19,6 +19,6 @@
     "faza_coins": 5.0
   },
   "strings": {
-    "faza_Level1_timespan": "00:00:16.6020000"
+    "faza_Level1_timespan": "00:00:23.3380000"
   }
 }

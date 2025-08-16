@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ProjSpeed6
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: c4e13aaa4bc0bdb4fabf79a7eb5cc729, type: 3}
-  _name: "\u0421\u041A\u041E\u0420\u041E\u0421\u0422\u042C \u041F\u0423\u041B\u0418"
+  _name: proj_speed_upgrade_name
   _maxed: 0
-  _description: "+{0} \u043A \u0421\u041A\u041E\u0420\u041E\u0421\u0422\u0418 \u041F\u0423\u041B\u0418"
+  _description: proj_speed_upgrade_desc
   _cost: 15
   _effects:
   - rid: 4919298737709514841

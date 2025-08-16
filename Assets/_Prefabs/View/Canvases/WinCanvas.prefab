@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 883382814363205290}
   - component: {fileID: 3477003424743191984}
   - component: {fileID: 4731238334939027529}
+  - component: {fileID: 8839164819449991599}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -273,6 +274,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8839164819449991599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197601185123427670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: next
 --- !u!1 &255647153594271348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1805,7 @@ GameObject:
   - component: {fileID: 748484758031389998}
   - component: {fileID: 5043855045054306361}
   - component: {fileID: 3513131845176389087}
+  - component: {fileID: 4418371059413655163}
   m_Layer: 5
   m_Name: Complete
   m_TagString: Untagged
@@ -1917,6 +1932,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4418371059413655163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415683354260303926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: level_completed_time
 --- !u!1 &1682183786440164300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,6 +2440,7 @@ GameObject:
   - component: {fileID: 8882549111254444906}
   - component: {fileID: 1237557681261715578}
   - component: {fileID: 3345215090031825136}
+  - component: {fileID: 1649824616429465692}
   m_Layer: 5
   m_Name: TitleOut2
   m_TagString: Untagged
@@ -2537,6 +2566,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1649824616429465692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463190947134958830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: win
 --- !u!1 &3548570449497270159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,6 +3477,7 @@ GameObject:
   - component: {fileID: 1801003060507265393}
   - component: {fileID: 6458842749607296766}
   - component: {fileID: 5556293172929539882}
+  - component: {fileID: 7609330943871454651}
   m_Layer: 5
   m_Name: TextOut
   m_TagString: Untagged
@@ -3560,6 +3603,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7609330943871454651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529049471750649364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: next
 --- !u!1 &5882108409632598243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,6 +3900,7 @@ GameObject:
   - component: {fileID: 2114852242102334247}
   - component: {fileID: 6843635214833321658}
   - component: {fileID: 6252788946338231327}
+  - component: {fileID: 332330546680598627}
   m_Layer: 5
   m_Name: Complete
   m_TagString: Untagged
@@ -3971,6 +4028,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &332330546680598627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321195448702119344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: level_completed_time
 --- !u!1 &6395110452912499926
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,6 +4675,7 @@ GameObject:
   - component: {fileID: 4232158319041740844}
   - component: {fileID: 7340865198979468894}
   - component: {fileID: 2786123846158459379}
+  - component: {fileID: 6169564941488382519}
   m_Layer: 5
   m_Name: TitleOut
   m_TagString: Untagged
@@ -4730,6 +4801,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6169564941488382519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7362988640744434541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: win
 --- !u!1 &7582078733572996650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,6 +5631,7 @@ GameObject:
   - component: {fileID: 8998543416297732435}
   - component: {fileID: 3059809777796075530}
   - component: {fileID: 8128217084760571582}
+  - component: {fileID: 1751000027984063740}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -5672,3 +5757,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1751000027984063740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996156790881160961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9552a40787e8b64cb39d8a38fb6dc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: win

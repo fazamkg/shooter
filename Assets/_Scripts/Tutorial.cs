@@ -93,7 +93,7 @@ namespace Faza
             SetTarget(PlayerInput.Instance.transform, TransformType.World);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init("Используй WASD или стрелочки чтобы перемещаться");
+            pop.Init(Localization.Get("tutorial_1_pc"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             PlayerInput.Instance.Enable();
@@ -108,7 +108,7 @@ namespace Faza
 
             yield return new WaitForSeconds(4f);
 
-            pop.Init("твой скелет автоматически стреляет когда ты стоишь и враг близко");
+            pop.Init(Localization.Get("tutorial_2"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => PlayerInput.Instance.Shooter.StartedShooting);
@@ -142,7 +142,7 @@ namespace Faza
             yield return new WaitForSeconds(0.5f);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init("на этом уровне есть сундук! найди его!");
+            pop.Init(Localization.Get("tutorial_3"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => _triggerTouched);
@@ -155,7 +155,7 @@ namespace Faza
 
             SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
-            pop.Init("сундук здесь! открой его!");
+            pop.Init(Localization.Get("tutorial_4"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitForSeconds(2f);
@@ -194,7 +194,7 @@ namespace Faza
             SetTarget(FindFirstObjectByType<BoosterView>().transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init("Ты разблокировал бустер! Он умножает весь твой урон пока активен! Нажми на него чтобы активировать!");
+            pop.Init(Localization.Get("tutorial_5"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());
@@ -236,7 +236,7 @@ namespace Faza
             SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init("Ты разблокировал новый бустер! Он сильно увеличивает скорость! Нажми на него чтобы активировать!");
+            pop.Init(Localization.Get("tutorial_6"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());
@@ -278,7 +278,7 @@ namespace Faza
             SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init("Ты разблокировал новый бустер! Он не дает тебе получить урон! Нажми на него чтобы активировать!");
+            pop.Init(Localization.Get("tutorial_7"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());

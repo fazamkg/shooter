@@ -15,9 +15,9 @@ namespace Faza
         [SerializeReference, SubclassSelector] private Effect[] _effects;
 
         public Sprite Icon => _icon;
-        public string Name => _name;
+        public string Name => Localization.Get(_name);
         public bool IsMaxed => _maxed;
-        public string Description => string.Format(_description, _effects.Select(x => x.DisplayValue).ToArray());
+        public string Description => string.Format(Localization.Get(_description), _effects.Select(x => x.DisplayValue).ToArray());
         public float Cost => _cost;
 
         public void Apply()

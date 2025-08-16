@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Damage3
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: d532c4450d428174bb535ef1f2ec23cc, type: 3}
-  _name: "\u0423\u0420\u041E\u041D"
+  _name: damage_upgrade_name
   _maxed: 0
-  _description: "+{0} \u043A \u0423\u0420\u041E\u041D\u0423"
+  _description: damage_upgrade_desc
   _cost: 80
   _effects:
   - rid: 4919298737709514832
