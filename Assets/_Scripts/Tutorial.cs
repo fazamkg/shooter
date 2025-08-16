@@ -69,11 +69,6 @@ namespace Faza
                     TransformType.Screen => target.position
                 };
 
-                if (type == TransformType.Screen)
-                {
-                    targetPosition.y = Screen.height - targetPosition.y;
-                }
-
                 _position = targetPosition;
             }
         }
@@ -308,11 +303,6 @@ namespace Faza
                 TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
                 TransformType.Screen => _target.position
             };
-
-            if (_transformType == TransformType.Screen)
-            {
-                targetPosition.y = Screen.height - targetPosition.y;
-            }
 
             _position = Vector2.MoveTowards(_position, targetPosition,
                 Time.deltaTime * _targetSpeed * _canvas.scaleFactor);

@@ -54,7 +54,13 @@ Shader "Custom/FazaTutorial"
 
             half4 frag (v2f i) : SV_Target
             {
-                half dist = distance(_Position, i.pos);
+                half2 position = _Position;
+                
+                #if UNITY_UV_STARTS_AT_TOP
+                position.y = _ScreenParams.y - position.y;
+                #endif
+                
+                half dist = distance(position, i.pos);
                 half mask = dist > _Radius;
                 
                 return _Color * mask;
