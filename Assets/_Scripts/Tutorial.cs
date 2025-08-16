@@ -5,11 +5,24 @@ using System.Linq;
 
 namespace Faza
 {
+    public enum TransformType
+    {
+        World,
+        Screen
+    }
+
     public class Tutorial : MonoBehaviour
     {
         [SerializeField] private Material _material;
         [SerializeField] private TutorialPopView _popViewPrefab;
         [SerializeField] private Transform _defaultPopPos;
+        [SerializeField] private Transform _initialTarget;
+        [SerializeField] private float _targetSpeed;
+        [SerializeField] private Canvas _canvas;
+
+        private Transform _target;
+        private TransformType _transformType;
+        private Vector2 _position;
 
         private bool _triggerTouched;
 
@@ -43,19 +56,34 @@ namespace Faza
             set => Storage.SetBool("faza_tutorial_5", value);
         }
 
+        private void SetTarget(Transform target, TransformType type, bool instant = false)
+        {
+            _target = target;
+            _transformType = type;
+
+            if (instant)
+            {
+                var targetPosition = type switch
+                {
+                    TransformType.World => Camera.main.WorldToScreenPoint(target.position),
+                    TransformType.Screen => target.position
+                };
+
+                if (type == TransformType.Screen)
+                {
+                    targetPosition.y = Screen.height - targetPosition.y;
+                }
+
+                _position = targetPosition;
+            }
+        }
+
         public void StartTutorial_1()
         {
             if (TutorialCompletedPref_1) return;
 
-            var width = Screen.width;
-            var height = Screen.height;
+            SetTarget(_initialTarget, TransformType.Screen, true);
 
-            var radius = _material.GetFloat("_Radius");
-
-            var x = width / 2;
-            var y = height + radius;
-
-            _material.SetVector("_Position", new(x, y, 0f, 0f));
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             StartCoroutine(TutorialCoroutine_1());
@@ -67,11 +95,7 @@ namespace Faza
 
             yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
 
-            var playerWorld = PlayerInput.Instance.transform.position;
-            playerWorld.z += 1f;
-            var playerScreen = Camera.main.WorldToScreenPoint(playerWorld);
-
-            yield return TweenPosition(playerScreen, 0.3f).WaitForCompletion();
+            SetTarget(PlayerInput.Instance.transform, TransformType.World);
 
             var pop = Instantiate(_popViewPrefab, transform);
             pop.Init("Используй WASD или стрелочки чтобы перемещаться");
@@ -103,15 +127,8 @@ namespace Faza
         {
             if (TutorialCompletedPref_2) return;
 
-            var width = Screen.width;
-            var height = Screen.height;
+            SetTarget(_initialTarget, TransformType.Screen, true);
 
-            var radius = _material.GetFloat("_Radius");
-
-            var x = width / 2;
-            var y = height + radius;
-
-            _material.SetVector("_Position", new(x, y, 0f, 0f));
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
@@ -141,11 +158,7 @@ namespace Faza
 
             yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
 
-            var chestWorld = FindFirstObjectByType<Chest>().transform.position;
-            chestWorld.z += 1.5f;
-            var chestScreen = Camera.main.WorldToScreenPoint(chestWorld);
-
-            yield return TweenPosition(chestScreen, 0.3f).WaitForCompletion();
+            SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
             pop.Init("сундук здесь! открой его!");
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
@@ -167,15 +180,8 @@ namespace Faza
         {
             if (TutorialCompletedPref_3) return;
 
-            var width = Screen.width;
-            var height = Screen.height;
+            SetTarget(_initialTarget, TransformType.Screen, true);
 
-            var radius = _material.GetFloat("_Radius");
-
-            var x = width / 2;
-            var y = height + radius;
-
-            _material.SetVector("_Position", new(x, y, 0f, 0f));
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
@@ -190,10 +196,7 @@ namespace Faza
 
             yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
 
-            var boosterScreen = FindFirstObjectByType<BoosterView>().transform.position;
-            boosterScreen.y = Screen.height - boosterScreen.y;
-
-            yield return TweenPosition(boosterScreen, 0.3f).WaitForCompletion();
+            SetTarget(FindFirstObjectByType<BoosterView>().transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
             pop.Init("Ты разблокировал бустер! Он умножает весь твой урон пока активен! Нажми на него чтобы активировать!");
@@ -216,15 +219,8 @@ namespace Faza
         {
             if (TutorialCompletedPref_4) return;
 
-            var width = Screen.width;
-            var height = Screen.height;
+            SetTarget(_initialTarget, TransformType.Screen, true);
 
-            var radius = _material.GetFloat("_Radius");
-
-            var x = width / 2;
-            var y = height + radius;
-
-            _material.SetVector("_Position", new(x, y, 0f, 0f));
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
@@ -242,10 +238,7 @@ namespace Faza
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == "HasteBooster");
 
-            var boosterScreen = view.transform.position;
-            boosterScreen.y = Screen.height - boosterScreen.y;
-
-            yield return TweenPosition(boosterScreen, 0.3f).WaitForCompletion();
+            SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
             pop.Init("Ты разблокировал новый бустер! Он сильно увеличивает скорость! Нажми на него чтобы активировать!");
@@ -268,15 +261,8 @@ namespace Faza
         {
             if (TutorialCompletedPref_5) return;
 
-            var width = Screen.width;
-            var height = Screen.height;
+            SetTarget(_initialTarget, TransformType.Screen, true);
 
-            var radius = _material.GetFloat("_Radius");
-
-            var x = width / 2;
-            var y = height + radius;
-
-            _material.SetVector("_Position", new(x, y, 0f, 0f));
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
@@ -294,10 +280,7 @@ namespace Faza
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == "ArmorBooster");
 
-            var boosterScreen = view.transform.position;
-            boosterScreen.y = Screen.height - boosterScreen.y;
-
-            yield return TweenPosition(boosterScreen, 0.3f).WaitForCompletion();
+            SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
             pop.Init("Ты разблокировал новый бустер! Он не дает тебе получить урон! Нажми на него чтобы активировать!");
@@ -316,11 +299,27 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        private Tween TweenPosition(Vector2 to, float duration)
+        private void Update()
         {
-            return DOTween.To(() => (Vector2)_material.GetVector("_Position"),
-                x => _material.SetVector("_Position", (Vector4)x),
-                to, duration);
+            if (_target == null) return;
+
+            var targetPosition = _transformType switch
+            {
+                TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
+                TransformType.Screen => _target.position
+            };
+
+            if (_transformType == TransformType.Screen)
+            {
+                targetPosition.y = Screen.height - targetPosition.y;
+            }
+
+            _position = Vector2.MoveTowards(_position, targetPosition,
+                Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
+
+            _material.SetVector("_Position", (Vector4)_position);
+
+            _material.SetFloat("_Radius", 120f * _canvas.scaleFactor);
         }
 
         private Tween TweenAlpha(float to, float duration)
