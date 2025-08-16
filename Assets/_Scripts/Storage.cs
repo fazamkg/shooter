@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using UnityEngine;
+using YG;
 
 namespace Faza
 {
@@ -8,37 +9,60 @@ namespace Faza
     {
         public static float GetFloat(string key, float defaultValue = 0)
         {
-            return PlayerPrefs.GetFloat(key, defaultValue);
+            if (YandexGame.savesData.floats.ContainsKey(key) == false) return defaultValue;
+
+            return YandexGame.savesData.floats[key];
+
+            //return PlayerPrefs.GetFloat(key, defaultValue);
         }
 
         public static void SetFloat(string key, float value)
         {
-            PlayerPrefs.SetFloat(key, value);
+            YandexGame.savesData.floats[key] = value;
+            YandexGame.SaveProgress();
+
+            //PlayerPrefs.SetFloat(key, value);
         }
 
         public static int GetInt(string key, int defaultValue = 0)
         {
-            return PlayerPrefs.GetInt(key, defaultValue);
+            if (YandexGame.savesData.ints.ContainsKey(key) == false) return defaultValue;
+
+            return YandexGame.savesData.ints[key];
+
+            //return PlayerPrefs.GetInt(key, defaultValue);
         }
 
         public static void SetInt(string key, int value)
         {
-            PlayerPrefs.SetInt(key, value);
+            YandexGame.savesData.ints[key] = value;
+            YandexGame.SaveProgress();
+
+            //PlayerPrefs.SetInt(key, value);
         }
 
         public static bool GetBool(string key, bool defaultValue = false)
         {
-            return PlayerPrefs.GetInt(key, defaultValue ? 1 : 0) == 1;
+            if (YandexGame.savesData.ints.ContainsKey(key) == false) return defaultValue;
+
+            return YandexGame.savesData.ints[key] == 1;
+
+            //return PlayerPrefs.GetInt(key, defaultValue ? 1 : 0) == 1;
         }
 
         public static void SetBool(string key, bool value)
         {
-            PlayerPrefs.SetInt(key, value ? 1 : 0);
+            YandexGame.savesData.ints[key] = value ? 1 : 0;
+            YandexGame.SaveProgress();
+
+            //PlayerPrefs.SetInt(key, value ? 1 : 0);
         }
 
         public static TimeSpan GetTimeSpan(string key, TimeSpan defaultValue = default)
         {
-            var loadedValue = PlayerPrefs.GetString(key, "");
+            if (YandexGame.savesData.strings.ContainsKey(key) == false) return defaultValue;
+
+            var loadedValue = YandexGame.savesData.strings[key];
             if (loadedValue == "") return defaultValue;
 
             var parsed = TimeSpan.TryParse(loadedValue, CultureInfo.InvariantCulture, out var result);
@@ -50,7 +74,10 @@ namespace Faza
         public static void SetTimeSpan(string key, TimeSpan value)
         {
             var toSave = value.ToString("c");
-            PlayerPrefs.SetString(key, toSave);
+            YandexGame.savesData.strings[key] = toSave;
+            YandexGame.SaveProgress();
+
+            //PlayerPrefs.SetString(key, toSave);
         }
     } 
 }

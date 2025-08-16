@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace YG
 {
     [System.Serializable]
@@ -15,6 +17,10 @@ namespace YG
         public int money = 1;                       // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[3];
+
+        public Dictionary<string, int> ints = new();
+        public Dictionary<string, float> floats = new();
+        public Dictionary<string, string> strings = new();
 
         // Ваши сохранения
 
