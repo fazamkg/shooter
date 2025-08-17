@@ -7466,6 +7466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _source: {fileID: 4112584281446361716}
   _clip: {fileID: 8300000, guid: 295bb902864364f41b5ffbbba7132887, type: 3}
+  _critClip: {fileID: 8300000, guid: f4c890a9e5be7dc4089dde7482181e8a, type: 3}
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024

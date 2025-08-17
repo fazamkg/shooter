@@ -7,6 +7,7 @@ namespace Faza
     {
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clip;
+        [SerializeField] private AudioClip _critClip;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private LayerMask _layerMask2;
         [SerializeField] private float _detectionRadius;
@@ -165,8 +166,6 @@ namespace Faza
 
         public void FireBullet()
         {
-            _source.PlayOneShot(_clip);
-
             _muzzleEffect.Play();
 
             var bullet = Instantiate(_bulletPrefab);
@@ -175,7 +174,12 @@ namespace Faza
             bullet.Init(Damage, BulletSpeed, direction, TargetTransform, Gravity, Decay);
             if (BoosterData.IsBoosterRunning(_critBooster))
             {
+                _source.PlayOneShot(_critClip);
                 bullet.ActivateCritGlow();
+            }
+            else
+            {
+                _source.PlayOneShot(_clip);
             }
 
             BulletFired = true;

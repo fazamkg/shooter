@@ -15,6 +15,9 @@ namespace Faza
         [SerializeField] private float _shownTime;
         [SerializeField] private Vector3 _up = new(0.5f, 0f, -1f);
         [SerializeField] private Vector3 _down = new(0.5f, -1f, -1f);
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip _upClip;
+        [SerializeField] private AudioClip _downClip;
 
         private float _timer;
         private bool _shown = true;
@@ -64,6 +67,8 @@ namespace Faza
                             }
 
                             _collider.enabled = true;
+
+                            _source.PlayOneShot(_upClip);
                         });
                 }
                 else
@@ -80,6 +85,8 @@ namespace Faza
                                 captured.ResetSpeeds();
                             }
                             _captured.Clear();
+
+                            //_source.PlayOneShot(_downClip);
                         });
                 }
             }
