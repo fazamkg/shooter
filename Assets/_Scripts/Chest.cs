@@ -11,6 +11,7 @@ namespace Faza
         [SerializeField] private int _coinAmount;
         [SerializeField] private Coin _coinPrefab;
         [SerializeField] private Collider _collider;
+        [SerializeField] private AudioSource _source;
 
         private bool _opened;
 
@@ -40,6 +41,8 @@ namespace Faza
         public void PlayOpenChestAnimation()
         {
             var seq = DOTween.Sequence();
+
+            _source.Play();
 
             seq.Append(_lid.DOLocalRotate(new(90f, 0f, 0f), 0.3f).SetEase(Ease.InOutCirc));
 

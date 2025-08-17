@@ -92,6 +92,7 @@ namespace Faza
 
             //seq.AppendInterval(1.5f / speed);
             seq.Append(_group.DOFade(1f, 0.5f / speed).SetEase(Ease.InOutCirc));
+            seq.AppendCallback(() => MyAudio.Play("win", 0.9f));
             seq.Append(_title.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
             seq.AppendInterval(0.3f / speed);
             seq.Append(_timerBefore.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));

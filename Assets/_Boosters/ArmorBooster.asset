@@ -21,6 +21,7 @@ MonoBehaviour:
   _boosterAmount: 1
   _altPurchaseCount: 1
   _altBoosterAmount: 4
+  _activationSound: {fileID: 8300000, guid: 4256ffa74fd2e854597d135e4ae62043, type: 3}
   _spendAction:
     rid: 4919298760100544561
   _altSpendAction:

@@ -6,6 +6,8 @@ namespace Faza
 {
     public class TutorialPopView : MonoBehaviour
     {
+        [SerializeField] private AudioClip _clip;
+        [SerializeField] private AudioSource _source;
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private TMP_Text[] _texts;
 
@@ -21,6 +23,7 @@ namespace Faza
 
         public Tween Appear(Vector2 pos)
         {
+            _source.PlayOneShot(_clip);
             transform.position = pos;
             return _rectTransform.DOSizeDelta(new(630f, 180f), 0.9f).SetEase(Ease.OutBack);
         }

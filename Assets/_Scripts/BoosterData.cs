@@ -20,6 +20,7 @@ namespace Faza
         [SerializeField] private int _boosterAmount;
         [SerializeField] private int _altPurchaseCount;
         [SerializeField] private int _altBoosterAmount;
+        [SerializeField] private AudioClip _activationSound;
         [SerializeReference, SubclassSelector] private SpendAction _spendAction;
         [SerializeReference, SubclassSelector] private SpendAction _altSpendAction;
         [SerializeField] private float _duration;
@@ -151,6 +152,8 @@ namespace Faza
             {
                 effect.Apply();
             }
+
+            MyAudio.Play(_activationSound);
 
             _runningBoosters.Add(this);
 

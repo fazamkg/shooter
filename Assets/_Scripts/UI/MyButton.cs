@@ -14,6 +14,7 @@ namespace Faza
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            MyAudio.Play("PC Keyboard_Keystroke_28", 0.3f);
 
             transform.DOKill();
             transform.DOScale(0.8f, 0.15f).SetEase(Ease.OutCubic);

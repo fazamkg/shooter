@@ -58,6 +58,8 @@ namespace Faza
             seq.Append(_icon.DOScale(1.2f, 0.15f).SetEase(Ease.Linear));
             seq.AppendCallback(() =>
             {
+                MyAudio.Play("coin", 0.5f);
+
                 foreach (var text in _texts)
                 {
                     text.text = newValue.ToString();

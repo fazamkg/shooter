@@ -1,0 +1,37 @@
+{
+  "idSave": 92,
+  "isFirstSession": false,
+  "language": "en",
+  "promptDone": false,
+  "money": 1,
+  "newPlayerName": "Hello!",
+  "openLevels": [
+    false,
+    true,
+    false
+  ],
+  "ints": {
+    "faza_tutorial_1": 1,
+    "faza_level": 6,
+    "faza_Level1_rank": 5,
+    "faza_Level2_rank": 0,
+    "faza_tutorial_2": 1,
+    "faza_Level3_rank": 0,
+    "faza_crit_booster_unlocked": 1,
+    "faza_crit_booster_amount": 0,
+    "faza_tutorial_3": 1,
+    "faza_Level4_rank": 0,
+    "faza_Level5_rank": 0,
+    "faza_haste_booster_unlocked": 1,
+    "faza_haste_booster_amount": 0,
+    "faza_tutorial_4": 1,
+    "faza_Level6_rank": 0,
+    "faza_damage": 1
+  },
+  "floats": {
+    "faza_coins": 15.0
+  },
+  "strings": {
+    "faza_Level1_timespan": "00:00:18.3100000"
+  }
+}
