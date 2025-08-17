@@ -28,6 +28,10 @@ namespace Faza
         [SerializeField] private float _switchIdleMaxDuration;
         [SerializeField] private float[] _idles;
 
+        [Header("Footstep")]
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip[] _stepClips;
+
         private int _animationSetIndex;
         private float _horizontal;
         private float _vertical;
@@ -196,6 +200,11 @@ namespace Faza
             var dur = _shootClip.length / _shooter.ShootSpeed * 0.2428f;
             yield return new WaitForSeconds(dur);
             _shooter.FireBullet();
+        }
+
+        public void Footstep()
+        {
+            _source.PlayOneShot(_stepClips.GetRandom());
         }
 
         public void PlayOutOpenChestAnimation(Chest chest)

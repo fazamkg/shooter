@@ -5,6 +5,8 @@ namespace Faza
 {
     public class Shooter : MonoBehaviour
     {
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip _clip;
         [SerializeField] private LayerMask _layerMask;
         [SerializeField] private LayerMask _layerMask2;
         [SerializeField] private float _detectionRadius;
@@ -163,6 +165,8 @@ namespace Faza
 
         public void FireBullet()
         {
+            _source.PlayOneShot(_clip);
+
             _muzzleEffect.Play();
 
             var bullet = Instantiate(_bulletPrefab);

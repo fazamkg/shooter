@@ -5,6 +5,8 @@ namespace Faza
 {
     public class Coin : MonoBehaviour
     {
+        [SerializeField] private AudioSource _source;
+        [SerializeField] private AudioClip _clip;
         [SerializeField] private Transform _toMove;
         [SerializeField] private Transform _toRotate;
         [SerializeField] private float _speed;
@@ -65,8 +67,13 @@ namespace Faza
                 if (dist < 0.3f)
                 {
                     Currency.AddCoins(1f, _toMove.position);
-                    gameObject.SetActive(false);
+
+                    GetComponent<Collider>().enabled = false;
+                    enabled = false;
+
                     _collider.gameObject.SetActive(false);
+
+                    _source.PlayOneShot(_clip);
                 }
 
                 _toMove.position = Vector3.MoveTowards(_toMove.position, target, speed);
