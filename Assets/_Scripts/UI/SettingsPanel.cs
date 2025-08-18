@@ -5,17 +5,30 @@ namespace Faza
 {
     public class SettingsPanel : MonoBehaviour
     {
-        [SerializeField] private MyToggle _leftyToggle;
+        [SerializeField] private MyToggle _audioToggle;
         [SerializeField] private MyButton _closeButton;
+        [SerializeField] private MyButton _backToMenuButton;
 
         private void Awake()
         {
-            _leftyToggle.Init(Settings.IsLefty);
-            _leftyToggle.OnToggle += LeftyToggle_OnToggle;
+            _audioToggle.Init(Settings.AudioEnabled);
+            _audioToggle.OnToggle += AudioToggle_OnToggle;
+
+            _backToMenuButton.OnUp += BackToMenuButton_OnUp;
 
             _closeButton.OnUp += CloseButton_OnUp;
 
             transform.localScale = Vector3.zero;
+        }
+
+        private void Start()
+        {
+            _backToMenuButton.gameObject.SetActive(LevelManager.Instance.MenuUnlocked);
+        }
+
+        private void BackToMenuButton_OnUp()
+        {
+            LevelManager.Instance.LoadLevelFromSave(false);
         }
 
         private void CloseButton_OnUp()
@@ -33,9 +46,9 @@ namespace Faza
             transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
         }
 
-        private void LeftyToggle_OnToggle()
+        private void AudioToggle_OnToggle()
         {
-            Settings.IsLefty = _leftyToggle.IsOn;
+            Settings.AudioEnabled = _audioToggle.IsOn;
         }
     } 
 }

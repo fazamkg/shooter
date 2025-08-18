@@ -20,6 +20,8 @@ namespace Faza
 
         public LevelData[] Levels => _levels;
 
+        public bool MenuUnlocked => LevelIndexPref >= _levels.Length;
+
         public void LoadLevel(LevelData levelData)
         {
             SceneManager.LoadScene(levelData.name);

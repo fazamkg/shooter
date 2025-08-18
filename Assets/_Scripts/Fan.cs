@@ -11,6 +11,7 @@ namespace Faza
         [SerializeField] private float _timeOn;
         [SerializeField] private float _timeOff;
         [SerializeField] private bool _scaleWithDistance = true;
+        [SerializeField] private AudioSource _source;
 
         private float _timer;
         private bool _on = true;
@@ -29,6 +30,15 @@ namespace Faza
                 {
                     _timer = 0f;
                     _on = !_on;
+
+                    if (_on)
+                    {
+                        _source.Play();
+                    }
+                    else
+                    {
+                        _source.Stop();
+                    }
                 }
             }
 

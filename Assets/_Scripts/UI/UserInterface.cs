@@ -26,10 +26,12 @@ namespace Faza
 
         private void Awake()
         {
+            AudioListener.volume = Settings.AudioEnabled ? 1f : 0f;
+
             _playerHealth.OnDeath += PlayerHealth_OnDeath;
             Health.OnDeathGlobal += Health_OnDeathGlobal;
 
-            Settings.OnIsLeftyChanged += Settings_OnIsLeftyChanged;
+            Settings.OnAudioEnabledChanged += Settings_OnAudioChanged;
 
             _settingsButton.OnUp += SettingsButton_OnUp;
 
@@ -153,19 +155,17 @@ namespace Faza
             _loseScreen.Appear();
         }
 
-        private void Settings_OnIsLeftyChanged()
+        private void Settings_OnAudioChanged()
         {
-            var isLefty = Settings.IsLefty;
+            var audioEnabled = Settings.AudioEnabled;
 
-            if (isLefty)
+            if (audioEnabled)
             {
-                _leftJoystick.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
-                _rightJoystick.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+                AudioListener.volume = 1f;
             }
             else
             {
-                _leftJoystick.DOScale(0f, 0.3f).SetEase(Ease.InBack);
-                _rightJoystick.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
+                AudioListener.volume = 0f;
             }
         }
 

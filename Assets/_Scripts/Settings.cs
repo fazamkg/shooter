@@ -4,15 +4,15 @@ namespace Faza
 {
     public static class Settings
     {
-        public static event Action OnIsLeftyChanged;
+        public static event Action OnAudioEnabledChanged;
 
-        public static bool IsLefty
+        public static bool AudioEnabled
         {
-            get => Storage.GetBool("faza_is_lefty");
+            get => Storage.GetBool("faza_audio", true);
             set
             {
-                Storage.SetBool("faza_is_lefty", value);
-                OnIsLeftyChanged?.Invoke();
+                Storage.SetBool("faza_audio", value);
+                OnAudioEnabledChanged?.Invoke();
             }
         }
     } 

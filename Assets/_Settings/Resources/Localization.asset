@@ -152,3 +152,9 @@ MonoBehaviour:
     _english: 'select
 
       level'
+  - _key: audio
+    _russian: "\u0437\u0432\u0443\u043A"
+    _english: audio
+  - _key: back_to_menu
+    _russian: "\u0432\u044B\u0439\u0442\u0438 \u0432 \u043C\u0435\u043D\u044E"
+    _english: exit to menu

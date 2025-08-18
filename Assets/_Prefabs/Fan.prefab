@@ -612,6 +612,7 @@ MonoBehaviour:
   _timeOn: 0
   _timeOff: 0
   _scaleWithDistance: 1
+  _source: {fileID: 6525787283921776993}
 --- !u!65 &3944890931310795765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,7 +647,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 35fd45449177990409c35a0d40ded931, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

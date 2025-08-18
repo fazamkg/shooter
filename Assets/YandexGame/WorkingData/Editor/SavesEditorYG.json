@@ -1,0 +1,24 @@
+{
+  "idSave": 10,
+  "isFirstSession": false,
+  "language": "en",
+  "promptDone": false,
+  "money": 1,
+  "newPlayerName": "Hello!",
+  "openLevels": [
+    false,
+    true,
+    false
+  ],
+  "ints": {
+    "faza_tutorial_1": 1,
+    "faza_level": 1,
+    "faza_Level1_rank": 5
+  },
+  "floats": {
+    "faza_coins": 5.0
+  },
+  "strings": {
+    "faza_Level1_timespan": "00:00:24.5390000"
+  }
+}
