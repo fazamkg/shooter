@@ -25,7 +25,7 @@ namespace Faza
         {
             _source.PlayOneShot(_clip);
             transform.position = pos;
-            return _rectTransform.DOSizeDelta(new(630f, 180f), 0.9f).SetEase(Ease.OutBack);
+            return _rectTransform.DOSizeDelta(new(760f, 280f), 0.9f).SetEase(Ease.OutBack);
         }
 
         public Tween Disappear()
