@@ -6,7 +6,8 @@
         "DOTween.Modules",
         "Unity.Animation.Rigging",
         "MackySoft.SerializeReferenceExtensions",
-        "YandexGames"
+        "YandexGames",
+        "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
