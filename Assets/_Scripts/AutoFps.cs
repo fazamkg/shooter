@@ -23,43 +23,20 @@ namespace Faza
 
         private IEnumerator Adjust()
         {
-            yield return new WaitForSecondsRealtime(5f);
-
-            var oldFps = _frames / 5f;
-
-            if (oldFps >= 58f)
-            {
-                print("faza: fps is decent");
-                yield break;
-            }
-
             while (true)
             {
+                yield return new WaitForSecondsRealtime(4f);
+                var fps = _frames / 4f;
                 _frames = 0;
-                _settings.renderScale -= 0.25f;
-                print("faza: decrease resolution");
 
-                yield return new WaitForSecondsRealtime(5f);
-
-                var newFps = _frames / 5f;
-
-                if ((newFps - oldFps).Abs() < 2f) 
+                if (fps < 28f && _settings.renderScale > 0f)
                 {
-                    print("faza: fps is capped or we are cpu bound");
-                    // most likely cpu bound here OR frame capped (vsync or browser or smth)
-                    // so let's stop decreasing resolution
-
-                    _settings.renderScale += 0.25f;
-                    yield break;
+                    _settings.renderScale -= 0.1f;
                 }
-
-                if (newFps >= 58f)
+                else if (fps > 28f && _settings.renderScale < 1f)
                 {
-                    print("faza: fps is decent");
-                    yield break;
+                    _settings.renderScale += 0.1f;
                 }
-
-                oldFps = newFps;
             }
         }
     } 
