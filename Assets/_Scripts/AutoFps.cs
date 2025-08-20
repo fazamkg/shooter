@@ -36,20 +36,20 @@ namespace Faza
             while (true)
             {
                 _frames = 0;
-                _settings.renderScale -= 0.1f;
+                _settings.renderScale -= 0.25f;
                 print("faza: decrease resolution");
 
                 yield return new WaitForSecondsRealtime(5f);
 
                 var newFps = _frames / 5f;
 
-                if ((newFps - oldFps).Abs() < 5f) 
+                if ((newFps - oldFps).Abs() < 2f) 
                 {
                     print("faza: fps is capped or we are cpu bound");
                     // most likely cpu bound here OR frame capped (vsync or browser or smth)
                     // so let's stop decreasing resolution
 
-                    _settings.renderScale += 0.1f;
+                    _settings.renderScale += 0.25f;
                     yield break;
                 }
 

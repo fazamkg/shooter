@@ -93,7 +93,11 @@ namespace Faza
             SetTarget(PlayerInput.Instance.transform, TransformType.World);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init(Localization.Get("tutorial_1_pc"));
+
+            var isMobile = Input.touchSupported;
+            var key = isMobile ? "tutorial_1_mobile" : "tutorial_1_pc";
+
+            pop.Init(Localization.Get(key));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             PlayerInput.Instance.Enable();
