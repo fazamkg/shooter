@@ -25,7 +25,7 @@ namespace Faza
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(4f);
+                yield return new WaitForSecondsRealtime(2f);
                 var fps = _frames / 2f;
                 _frames = 0;
 
