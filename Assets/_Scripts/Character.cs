@@ -108,10 +108,10 @@ namespace Faza
 
                 _isGrounded = _characterController.isGrounded;
 
-                if (_isGrounded && _characterInput.GetJump())
-                {
-                    _verticalVelocity = _jumpSpeed;
-                }
+                //if (_isGrounded && _characterInput.GetJump())
+                //{
+                //    _verticalVelocity = _jumpSpeed;
+                //}
                 #endregion
             }
             else
@@ -120,19 +120,19 @@ namespace Faza
                 transform.position += MaxSpeed * delta * dir;
             }
 
-            if (_characterInput.GetUse())
-            {
-                var hit = GetCrosshairInfo(out var hitInfo);
+            //if (_characterInput.GetUse())
+            //{
+            //    var hit = GetCrosshairInfo(out var hitInfo);
 
-                if (hit)
-                {
-                    var worldButton = hitInfo.transform.GetComponent<WorldButton>();
-                    if (worldButton != null)
-                    {
-                        worldButton.Use();
-                    }
-                }
-            }
+            //    if (hit)
+            //    {
+            //        var worldButton = hitInfo.transform.GetComponent<WorldButton>();
+            //        if (worldButton != null)
+            //        {
+            //            worldButton.Use();
+            //        }
+            //    }
+            //}
         }
 
         public void Stop(float duration)

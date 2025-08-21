@@ -16,9 +16,11 @@ namespace Faza
         private Dictionary<EnemyInput, RectTransform> _markers = new();
         private Canvas _canvas;
 
+        private Camera _camera;
 
         private void Awake()
         {
+            _camera = Camera.main;
             _canvas = GetComponentInParent<Canvas>();
 
             Health.OnHealthCreated += Health_OnHealthCreated;
@@ -52,7 +54,7 @@ namespace Faza
                 var enemy = thing.Key;
                 var marker = thing.Value;
 
-                var screen = Camera.main.WorldToScreenPoint(enemy.transform.position);
+                var screen = _camera.WorldToScreenPoint(enemy.transform.position);
                 if (screen.z < 0f)
                 {
                     screen *= -1f;
@@ -77,7 +79,7 @@ namespace Faza
                     marker.gameObject.SetActive(true);
                 }
 
-                var screenPosOfPlayer = Camera.main.WorldToScreenPoint
+                var screenPosOfPlayer = _camera.WorldToScreenPoint
                     (PlayerInput.Instance.transform.position);
                 var direction = (screenPosOfPlayer - screen).normalized;
 

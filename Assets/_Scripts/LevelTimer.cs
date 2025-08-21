@@ -40,7 +40,7 @@ namespace Faza
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.1f);
                 OnTick?.Invoke();
             }
         }

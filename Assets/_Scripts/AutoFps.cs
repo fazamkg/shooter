@@ -26,7 +26,7 @@ namespace Faza
             while (true)
             {
                 yield return new WaitForSecondsRealtime(4f);
-                var fps = _frames / 4f;
+                var fps = _frames / 2f;
                 _frames = 0;
 
                 if (fps < 28f && _settings.renderScale > 0f)
