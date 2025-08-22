@@ -86,8 +86,16 @@ namespace Faza
             {
                 #region Physics
                 _ownHorizontalVelocity += delta * Acceleration * inputDirection;
-                _ownHorizontalVelocity -= delta * _friction * _ownHorizontalVelocity;
-                _outsideHorizontalVelocity -= delta * _friction * _outsideHorizontalVelocity;
+
+                var deceleration = delta * _friction * _ownHorizontalVelocity;
+                deceleration = Vector3.ClampMagnitude(deceleration, _ownHorizontalVelocity.magnitude);
+                _ownHorizontalVelocity -= deceleration;
+
+                var outsideDeceleration = delta * _friction * _outsideHorizontalVelocity;
+                outsideDeceleration = Vector3.ClampMagnitude
+                    (outsideDeceleration, _outsideHorizontalVelocity.magnitude);
+                _outsideHorizontalVelocity -= outsideDeceleration;
+
                 _ownHorizontalVelocity = Vector3.ClampMagnitude(_ownHorizontalVelocity, MaxSpeed);
 
                 _verticalVelocity -= delta * _gravity;

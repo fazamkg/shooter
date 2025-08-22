@@ -93,38 +93,38 @@ namespace Faza
             //seq.AppendInterval(1.5f / speed);
             seq.Append(_group.DOFade(1f, 0.5f / speed).SetEase(Ease.InOutCirc));
             seq.AppendCallback(() => MyAudio.Play("win", 0.9f));
-            seq.Append(_title.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f / speed);
-            seq.Append(_timerBefore.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f / speed);
-            seq.Append(_timer.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.15f / speed);
+            seq.Append(_title.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.1f / speed);
+            seq.Append(_timerBefore.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.1f / speed);
+            seq.Append(_timer.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+            seq.AppendInterval(0.01f / speed);
 
             if (_firstPlace.gameObject.activeSelf)
             {
-                seq.Append(_firstPlace.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-                seq.AppendInterval(0.15f / speed);
+                seq.Append(_firstPlace.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+                seq.AppendInterval(0.01f / speed);
             }
 
             if (_secondPlace.gameObject.activeSelf)
             {
-                seq.Append(_secondPlace.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-                seq.AppendInterval(0.15f / speed);
+                seq.Append(_secondPlace.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+                seq.AppendInterval(0.01f / speed);
             }
 
             if (_thirdPlace.gameObject.activeSelf)
             {
-                seq.Append(_thirdPlace.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
-                seq.AppendInterval(0.15f / speed);
+                seq.Append(_thirdPlace.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
+                seq.AppendInterval(0.01f / speed);
             }
 
             if (_playerPlace.gameObject.activeSelf)
             {
-                seq.Append(_playerPlace.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.OutBack));
+                seq.Append(_playerPlace.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
                 seq.AppendInterval(0.15f / speed);
             }
 
-            seq.Append(_nextButton.transform.DOScale(1f, 0.3f / speed).SetEase(Ease.InOutBack));
+            seq.Append(_nextButton.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
         }
     } 
