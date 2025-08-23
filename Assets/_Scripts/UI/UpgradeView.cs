@@ -12,6 +12,8 @@ namespace Faza
         [SerializeField] private TMP_Text[] _description;
         [SerializeField] private Image _image;
         [SerializeField] private MyButton _button;
+        [SerializeField] private Image _buttonImage;
+        [SerializeField] private Sprite _notEnoughSprite;
 
         private UpgradeGroupData _group;
 
@@ -21,6 +23,25 @@ namespace Faza
 
             _button.OnUp += OnClick;
 
+            Currency.OnCoinsAdded += Currency_OnCoinsAdded;
+            Currency.OnCoinsRemoved += Currency_OnCoinsRemoved;
+
+            UpdateView();
+        }
+
+        private void OnDisable()
+        {
+            Currency.OnCoinsAdded -= Currency_OnCoinsAdded;
+            Currency.OnCoinsRemoved -= Currency_OnCoinsRemoved;
+        }
+
+        private void Currency_OnCoinsRemoved(float oldValue, float newValue)
+        {
+            UpdateView();
+        }
+
+        private void Currency_OnCoinsAdded(float oldValue, float newValue, Vector3 worldPosition)
+        {
             UpdateView();
         }
 
@@ -48,6 +69,9 @@ namespace Faza
             }
 
             _image.sprite = data.Icon;
+
+            var cantBuy = data.IsMaxed || data.Cost > Currency.Coins;
+            _buttonImage.overrideSprite = cantBuy ? _notEnoughSprite : null;
         }
 
         private void OnClick()

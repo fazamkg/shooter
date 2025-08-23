@@ -35,10 +35,7 @@ namespace Faza
             transform.DOKill();
             transform.DOScale(1f, 0.05f).SetEase(Ease.InQuart);
 
-            if (_inside)
-            {
-                OnUp?.Invoke();
-            }
+            OnUp?.Invoke();
         }
     }
 }

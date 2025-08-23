@@ -2,6 +2,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Linq;
+using YG;
 
 namespace Faza
 {
@@ -94,8 +95,10 @@ namespace Faza
 
             var pop = Instantiate(_popViewPrefab, transform);
 
-            var isMobile = Input.touchSupported;
-            var key = isMobile ? "tutorial_1_mobile" : "tutorial_1_pc";
+            var mobile = YandexGame.EnvironmentData.isMobile ||
+                YandexGame.EnvironmentData.isTablet;
+
+            var key = mobile ? "tutorial_1_mobile" : "tutorial_1_pc";
 
             pop.Init(Localization.Get(key));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
@@ -155,14 +158,14 @@ namespace Faza
 
             yield return pop.Disappear().WaitForCompletion();
 
-            yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(0.9f, 0.2f).WaitForCompletion();
 
             SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
             pop.Init(Localization.Get("tutorial_4"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.8f);
 
             PlayerInput.Instance.Enable();
 

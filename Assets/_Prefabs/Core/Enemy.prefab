@@ -7691,7 +7691,7 @@ MonoBehaviour:
     m_Bits: 4096
   _character: {fileID: 2565205057089287655}
   _range: 1
-  _damage: 20
+  _damage: 35
   _health: {fileID: 3563820535122673875}
   _finishDelay: 1
 --- !u!82 &7991655541247527310

@@ -593,6 +593,8 @@ MonoBehaviour:
   - {fileID: 5096355904429540600}
   _image: {fileID: 7004864957652935277}
   _button: {fileID: 4984128941701917738}
+  _buttonImage: {fileID: 7878785269387323125}
+  _notEnoughSprite: {fileID: 21300000, guid: 5ea8e10d4b7ef3b49add73b87f32cc4f, type: 3}
 --- !u!114 &4984128941701917738
 MonoBehaviour:
   m_ObjectHideFlags: 0
