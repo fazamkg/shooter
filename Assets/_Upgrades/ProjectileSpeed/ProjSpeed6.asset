@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: proj_speed_upgrade_name
   _maxed: 0
   _description: proj_speed_upgrade_desc
-  _cost: 15
+  _cost: 45
   _effects:
   - rid: 4919298737709514841
   references:

@@ -165,7 +165,7 @@ namespace Faza
             pop.Init(Localization.Get("tutorial_4"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.4f);
 
             PlayerInput.Instance.Enable();
 

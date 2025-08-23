@@ -22,6 +22,8 @@ namespace Faza
         [SerializeField] private TMP_Text[] _altRewardAmountTexts;
         [SerializeField] private TMP_Text[] _descTexts;
         [SerializeField] private TMP_Text[] _boosterDescTexts;
+        [SerializeField] private Image _mainButtonImage;
+        [SerializeField] private Sprite _notEnoughSprite;
 
         private BoosterData _booster;
 
@@ -63,6 +65,8 @@ namespace Faza
 
         private void UpdateView()
         {
+            _mainButtonImage.overrideSprite = _booster.MainSpendAction.CanSpend() ? null : _notEnoughSprite;
+
             _boosterIcon.sprite = _booster.Icon;
 
             var title = _booster.Title;

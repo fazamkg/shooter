@@ -2763,6 +2763,8 @@ MonoBehaviour:
   _boosterDescTexts:
   - {fileID: 8260161113619820370}
   - {fileID: 7914424366030782682}
+  _mainButtonImage: {fileID: 3979740282654391905}
+  _notEnoughSprite: {fileID: 21300000, guid: 5ea8e10d4b7ef3b49add73b87f32cc4f, type: 3}
 --- !u!1 &8584547507827954306
 GameObject:
   m_ObjectHideFlags: 0
