@@ -28,7 +28,7 @@ namespace Faza
         private void Awake()
         {
             _locked = true;
-            Console.StartReadingBinds();
+            //Console.StartReadingBinds();
 
             Instance = this;
 
@@ -47,26 +47,26 @@ namespace Faza
             CameraTracker.Activate("main");
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                _locked = !_locked;
+        //private void Update()
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Escape))
+        //    {
+        //        _locked = !_locked;
 
-                if (_locked)
-                {
-                    Time.timeScale = 1f;
-                    Console.StartReadingBinds();
-                    Console.CloseConsole();
-                }
-                else
-                {
-                    Time.timeScale = 0f;
-                    Console.StopReadingBinds();
-                    Console.OpenConsole();
-                }
-            }
-        }
+        //        if (_locked)
+        //        {
+        //            Time.timeScale = 1f;
+        //            Console.StartReadingBinds();
+        //            Console.CloseConsole();
+        //        }
+        //        else
+        //        {
+        //            Time.timeScale = 0f;
+        //            Console.StopReadingBinds();
+        //            Console.OpenConsole();
+        //        }
+        //    }
+        //}
 
         public override float GetCameraX()
         {
