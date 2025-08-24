@@ -1,5 +1,5 @@
 {
-  "idSave": 356,
+  "idSave": 10,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -12,41 +12,13 @@
   ],
   "ints": {
     "faza_tutorial_1": 1,
-    "faza_level": 16,
-    "faza_Level1_rank": 5,
-    "faza_Level2_rank": 0,
-    "faza_tutorial_2": 1,
-    "faza_Level3_rank": 0,
-    "faza_crit_booster_unlocked": 1,
-    "faza_crit_booster_amount": 0,
-    "faza_tutorial_3": 1,
-    "faza_Level4_rank": 0,
-    "faza_Level5_rank": 0,
-    "faza_haste_booster_unlocked": 1,
-    "faza_haste_booster_amount": 0,
-    "faza_tutorial_4": 1,
-    "faza_Level6_rank": 0,
-    "faza_damage": 3,
-    "faza_Level7_rank": 0,
-    "faza_armor_booster_unlocked": 1,
-    "faza_armor_booster_amount": 0,
-    "faza_tutorial_5": 1,
-    "faza_Level8_rank": 0,
-    "faza_Level9_rank": 0,
-    "faza_Level10_rank": 0,
-    "faza_Level11_rank": 0,
-    "faza_Level12_rank": 0,
-    "faza_shoot_speed": 1,
-    "faza_Level13_rank": 0,
-    "faza_Level14_rank": 0,
-    "faza_Level15_rank": 0,
-    "faza_Level16_rank": 0,
-    "faza_proj_speed": 2
+    "faza_level": 1,
+    "faza_Level1_rank": 5
   },
   "floats": {
-    "faza_coins": 10.0
+    "faza_coins": 5.0
   },
   "strings": {
-    "faza_Level1_timespan": "00:00:18.5430000"
+    "faza_Level1_timespan": "00:00:12.4340000"
   }
 }

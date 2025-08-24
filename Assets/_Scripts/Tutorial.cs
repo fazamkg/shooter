@@ -57,6 +57,11 @@ namespace Faza
             set => Storage.SetBool("faza_tutorial_5", value);
         }
 
+        private void OnDestroy()
+        {
+            TutorialTrigger.OnEnter -= TutorialTrigger_OnEnter;
+        }
+
         private void SetTarget(Transform target, TransformType type, bool instant = false)
         {
             _target = target;
@@ -82,6 +87,9 @@ namespace Faza
 
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
+            _triggerTouched = false;
+            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
             StartCoroutine(TutorialCoroutine_1());
         }
 
@@ -89,7 +97,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             SetTarget(PlayerInput.Instance.transform, TransformType.World);
 
@@ -113,7 +121,7 @@ namespace Faza
 
             yield return seq.WaitForCompletion();
 
-            yield return new WaitForSeconds(4f);
+            yield return new WaitUntil(() => _triggerTouched);
 
             pop.Init(Localization.Get("tutorial_2"));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
@@ -158,7 +166,7 @@ namespace Faza
 
             yield return pop.Disappear().WaitForCompletion();
 
-            yield return TweenAlpha(0.9f, 0.2f).WaitForCompletion();
+            yield return TweenAlpha(0.95f, 0.2f).WaitForCompletion();
 
             SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
@@ -187,7 +195,7 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_3());
         }
@@ -196,7 +204,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             SetTarget(FindFirstObjectByType<BoosterView>().transform, TransformType.Screen);
 
@@ -226,7 +234,7 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_4());
         }
@@ -235,7 +243,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == "HasteBooster");
@@ -268,7 +276,7 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_5());
         }
@@ -277,7 +285,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.9f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == "ArmorBooster");
@@ -303,20 +311,21 @@ namespace Faza
 
         private void Update()
         {
-            if (_target == null) return;
-
-            var targetPosition = _transformType switch
+            if (_target != null)
             {
-                TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
-                TransformType.Screen => _target.position
-            };
+                var targetPosition = _transformType switch
+                {
+                    TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
+                    TransformType.Screen => _target.position
+                };
 
-            _position = Vector2.MoveTowards(_position, targetPosition,
-                Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
+                _position = Vector2.MoveTowards(_position, targetPosition,
+                    Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
 
-            _material.SetVector("_Position", (Vector4)_position);
+                _material.SetVector("_Position", (Vector4)_position);
 
-            _material.SetFloat("_Radius", 120f * _canvas.scaleFactor);
+                _material.SetFloat("_Radius", (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
+            }
         }
 
         private Tween TweenAlpha(float to, float duration)
