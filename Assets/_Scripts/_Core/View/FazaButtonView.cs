@@ -5,7 +5,7 @@ using System;
 
 namespace Faza
 {
-    public class MyButtonView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler,
+    public class FazaButtonView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler,
         IPointerExitHandler
     {
         public event Action OnUp;
@@ -14,7 +14,7 @@ namespace Faza
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            MyAudio.Play("PC Keyboard_Keystroke_28", 0.3f);
+            FazaAudio.Play("PC Keyboard_Keystroke_28", 0.3f);
 
             transform.DOKill();
             transform.DOScale(0.8f, 0.15f).SetEase(Ease.OutCubic);

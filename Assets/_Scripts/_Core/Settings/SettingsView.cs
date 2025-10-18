@@ -5,9 +5,9 @@ namespace Faza
 {
     public class SettingsView : MonoBehaviour
     {
-        [SerializeField] private MyToggleView _audioToggle;
-        [SerializeField] private MyButtonView _closeButton;
-        [SerializeField] private MyButtonView _backToMenuButton;
+        [SerializeField] private FazaToggleView _audioToggle;
+        [SerializeField] private FazaButtonView _closeButton;
+        [SerializeField] private FazaButtonView _backToMenuButton;
 
         private void Awake()
         {

@@ -122,7 +122,7 @@ namespace Faza
                 effect.Apply();
             }
 
-            MyAudio.Play(_activationSound);
+            FazaAudio.Play(_activationSound);
 
             _runningBoosters.Add(this);
 

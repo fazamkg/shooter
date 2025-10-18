@@ -7,9 +7,9 @@ namespace Faza
 {
     public class BoosterChoiceView : MonoBehaviour
     {
-        [SerializeField] private MyButtonView _closeButton;
-        [SerializeField] private MyButtonView _mainButton;
-        [SerializeField] private MyButtonView _altButton;
+        [SerializeField] private FazaButtonView _closeButton;
+        [SerializeField] private FazaButtonView _mainButton;
+        [SerializeField] private FazaButtonView _altButton;
         [SerializeField] private Image _mainIcon;
         [SerializeField] private Image _altIcon;
         [SerializeField] private Image _boosterIcon;

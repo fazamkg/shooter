@@ -8,7 +8,7 @@ namespace Faza
     {
         [SerializeField] private LevelData _levelData;
         [SerializeField] private Health _playerHealth;
-        [SerializeField] private MyButtonView _settingsButton;
+        [SerializeField] private FazaButtonView _settingsButton;
         [SerializeField] private SettingsView _settingsPanel;
         [SerializeField] private RectTransform _leftJoystick;
         [SerializeField] private RectTransform _rightJoystick;

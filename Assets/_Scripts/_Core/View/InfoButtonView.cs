@@ -5,7 +5,7 @@ namespace Faza
 {
     public class InfoButtonView : MonoBehaviour
     {
-        [SerializeField] private MyButtonView _button;
+        [SerializeField] private FazaButtonView _button;
         [SerializeField] private RectTransform _pop;
 
         private bool _opened;

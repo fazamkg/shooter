@@ -11,7 +11,7 @@ namespace Faza
         [SerializeField] private TMP_Text[] _cost;
         [SerializeField] private TMP_Text[] _description;
         [SerializeField] private Image _image;
-        [SerializeField] private MyButtonView _button;
+        [SerializeField] private FazaButtonView _button;
         [SerializeField] private Image _buttonImage;
         [SerializeField] private Sprite _notEnoughSprite;
 

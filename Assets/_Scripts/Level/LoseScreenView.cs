@@ -7,7 +7,7 @@ namespace Faza
     public class LoseScreenView : MonoBehaviour
     {
         [SerializeField] private RectTransform _title;
-        [SerializeField] private MyButtonView _restartButton;
+        [SerializeField] private FazaButtonView _restartButton;
         [SerializeField] private CanvasGroup _group;
 
         private void Awake()

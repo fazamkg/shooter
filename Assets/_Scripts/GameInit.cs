@@ -6,7 +6,7 @@ namespace Faza
     public class GameInit : MonoBehaviour
     {
         [SerializeField] private Image _bg;
-        [SerializeField] private MyButtonView _start;
+        [SerializeField] private FazaButtonView _start;
         [SerializeField] private float _speed;
 
         private void Awake()

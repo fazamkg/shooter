@@ -9,7 +9,7 @@ namespace Faza
         public event Action OnClosed;
 
         [SerializeField] private RectTransform _title;
-        [SerializeField] private MyButtonView _nextButton;
+        [SerializeField] private FazaButtonView _nextButton;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private Transform _upgradeParent;
         [SerializeField] private UpgradeView _upgradeViewPrefab;

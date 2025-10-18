@@ -9,7 +9,7 @@ namespace Faza
         [SerializeField] private RectTransform _title;
         [SerializeField] private RectTransform _timerBefore;
         [SerializeField] private RectTransform _timer;
-        [SerializeField] private MyButtonView _nextButton;
+        [SerializeField] private FazaButtonView _nextButton;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private LeaderboardEntryView _firstPlace;
         [SerializeField] private LeaderboardEntryView _secondPlace;
@@ -42,7 +42,7 @@ namespace Faza
             var seq = DOTween.Sequence();
 
             seq.Append(_group.DOFade(1f, 0.5f / speed).SetEase(Ease.InOutCirc));
-            seq.AppendCallback(() => MyAudio.Play("win", 0.9f));
+            seq.AppendCallback(() => FazaAudio.Play("win", 0.9f));
             seq.Append(_title.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
             seq.AppendInterval(0.1f / speed);
             seq.Append(_timerBefore.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Faza
 {
-    public static class MyAudio
+    public static class FazaAudio
     {
         public static AudioSource Play(AudioClip clip, float volume = 1f,
             bool spacial = false, float pitch = 1f)
