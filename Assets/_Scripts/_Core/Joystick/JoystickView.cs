@@ -18,10 +18,13 @@ namespace Faza
         {
             if (_isUpdating == false) return;
 
+            var rect = (RectTransform)_rectTransform.parent;
+            var screenPoint = Input.mousePosition;
+            Camera cam = null;
             RectTransformUtility.ScreenPointToLocalPointInRectangle
-                ((RectTransform)_rectTransform.parent,
-                Input.mousePosition,
-                null,
+                (rect,
+                screenPoint,
+                cam,
                 out var result);
 
             var clamped = Vector3.ClampMagnitude(result, _radius);
