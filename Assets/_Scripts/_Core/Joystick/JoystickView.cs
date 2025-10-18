@@ -6,6 +6,8 @@ namespace Faza
 {
     public class JoystickView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
+        private const Ease EASE = Ease.InOutCirc;
+
         [SerializeField] private float _speed;
         [SerializeField] private float _radius;
         [SerializeField] private string _name;
@@ -47,7 +49,7 @@ namespace Faza
 
             Joystick.SetInput(_name, Vector3.zero);
 
-            _rectTransform.DOAnchorPos(Vector2.zero, _tweenDuration).SetEase(Ease.InOutCirc);
+            _rectTransform.DOAnchorPos(Vector2.zero, _tweenDuration).SetEase(EASE);
         }
 
         public void OnPointerDown(PointerEventData eventData)
