@@ -59,7 +59,6 @@ namespace Faza
             {
                 CurrentHealth = 0f;
 
-                // todo: do not use getcomponent
                 GetComponent<CharacterController>().enabled = false;
 
                 _source.PlayOneShot(_deathClips.GetRandom(), 1f);

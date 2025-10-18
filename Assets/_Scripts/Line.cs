@@ -18,7 +18,6 @@ namespace Faza
             Pool.SetPrefab("line", _prefab);
         }
 
-        // super early update
         private void Update()
         {
             while (_activeLines.Count != 0)

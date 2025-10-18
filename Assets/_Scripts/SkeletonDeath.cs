@@ -78,25 +78,6 @@ namespace Faza
             }
 
             StartCoroutine(ThrowCoins());
-
-            //for (var i = 0; i < 3; i++)
-            //{
-            //    var angle = Random.Range(-10f, 10f);
-            //    var direction = Quaternion.Euler(0f, angle, 0f) * _health.LastDamageDirection;
-
-            //    var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
-            //    var pos = transform.position.DeltaY(0.5f);
-
-            //    var seq = DOTween.Sequence();
-
-            //    for (var j = 1; j <= 3; j++)
-            //    {
-            //        pos += direction * (1f / j) * 0.9f;
-            //        var force = (1f / j) * 3f;
-            //        var dur = (1f / Mathf.Pow(j, 1.5f));
-            //        seq.Append(coin.transform.DOJump(pos, force, 1, dur).SetEase(Ease.Linear));
-            //    }
-            //}
         }
     }
 }

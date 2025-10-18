@@ -41,7 +41,6 @@ namespace Faza
                     var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
                     coin.ActivateColliderDelayed();
 
-                    //var horizontalSpeed = Random.Range(0f, 1f);
                     var verticalSpeed = Random.Range(13f, 16f);
 
                     var angle = Random.Range(0, 360f);

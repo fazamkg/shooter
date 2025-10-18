@@ -12,16 +12,12 @@ namespace Faza
             if (YandexGame.savesData.floats.ContainsKey(key) == false) return defaultValue;
 
             return YandexGame.savesData.floats[key];
-
-            //return PlayerPrefs.GetFloat(key, defaultValue);
         }
 
         public static void SetFloat(string key, float value)
         {
             YandexGame.savesData.floats[key] = value;
             YandexGame.SaveProgress();
-
-            //PlayerPrefs.SetFloat(key, value);
         }
 
         public static int GetInt(string key, int defaultValue = 0)
@@ -29,16 +25,12 @@ namespace Faza
             if (YandexGame.savesData.ints.ContainsKey(key) == false) return defaultValue;
 
             return YandexGame.savesData.ints[key];
-
-            //return PlayerPrefs.GetInt(key, defaultValue);
         }
 
         public static void SetInt(string key, int value)
         {
             YandexGame.savesData.ints[key] = value;
             YandexGame.SaveProgress();
-
-            //PlayerPrefs.SetInt(key, value);
         }
 
         public static bool GetBool(string key, bool defaultValue = false)
@@ -46,16 +38,12 @@ namespace Faza
             if (YandexGame.savesData.ints.ContainsKey(key) == false) return defaultValue;
 
             return YandexGame.savesData.ints[key] == 1;
-
-            //return PlayerPrefs.GetInt(key, defaultValue ? 1 : 0) == 1;
         }
 
         public static void SetBool(string key, bool value)
         {
             YandexGame.savesData.ints[key] = value ? 1 : 0;
             YandexGame.SaveProgress();
-
-            //PlayerPrefs.SetInt(key, value ? 1 : 0);
         }
 
         public static TimeSpan GetTimeSpan(string key, TimeSpan defaultValue = default)
@@ -76,8 +64,6 @@ namespace Faza
             var toSave = value.ToString("c");
             YandexGame.savesData.strings[key] = toSave;
             YandexGame.SaveProgress();
-
-            //PlayerPrefs.SetString(key, toSave);
         }
     } 
 }

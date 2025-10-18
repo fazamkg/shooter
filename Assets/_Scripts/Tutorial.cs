@@ -118,7 +118,6 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_3());
         }
@@ -132,7 +131,6 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_4());
         }
@@ -146,7 +144,6 @@ namespace Faza
             _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
             StartCoroutine(TutorialCoroutine_5());
         }

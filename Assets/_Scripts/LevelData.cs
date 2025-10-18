@@ -108,7 +108,7 @@ namespace Faza
             _leaderboardSuccess = false;
             _leaderboard.Clear();
 
-            yield return new WaitForSeconds(1f); // do not wait too long
+            yield return new WaitForSeconds(1f);
             YandexGame.onGetLeaderboard -= OnGetLeaderboard;
 
             if (_leaderboardSuccess)

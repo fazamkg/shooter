@@ -111,10 +111,6 @@ namespace Faza
 
                 _isGrounded = _characterController.isGrounded;
 
-                //if (_isGrounded && _characterInput.GetJump())
-                //{
-                //    _verticalVelocity = _jumpSpeed;
-                //}
                 #endregion
             }
             else
@@ -122,20 +118,6 @@ namespace Faza
                 var dir = Quaternion.Euler(_pitch, _yaw, 0f) * input;
                 transform.position += MaxSpeed * delta * dir;
             }
-
-            //if (_characterInput.GetUse())
-            //{
-            //    var hit = GetCrosshairInfo(out var hitInfo);
-
-            //    if (hit)
-            //    {
-            //        var worldButton = hitInfo.transform.GetComponent<WorldButton>();
-            //        if (worldButton != null)
-            //        {
-            //            worldButton.Use();
-            //        }
-            //    }
-            //}
         }
 
         public void AddSpeed(float value)

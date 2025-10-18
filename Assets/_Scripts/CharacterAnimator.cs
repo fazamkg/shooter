@@ -4,7 +4,6 @@ using UnityEngine.Animations.Rigging;
 
 namespace Faza
 {
-    // todo: use hash for animation states instead of strings
     public class CharacterAnimator : MonoBehaviour
     {
         [SerializeField] private Character _character;
@@ -142,19 +141,23 @@ namespace Faza
             return _animator.runtimeAnimatorController.name;
         }
 
-        // called from animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void Fire()
         {
-            //_shooter.FireBullet();
         }
 
-        // animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void FinishFire()
         {
-            //_shooter.FinishFire();
         }
 
-        // animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void MeleeAttack()
         {
             var distance = Vector3.Distance(transform.position, _meleeAttack.Target.position);
@@ -166,10 +169,11 @@ namespace Faza
             health.TakeDamage(_meleeAttack.Damage, direction);
         }
 
-        // animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void FinishMeleeAttack()
         {
-            //_meleeAttack.FinishAttack();
         }
 
         public void Footstep()
@@ -190,13 +194,17 @@ namespace Faza
             _animator.CrossFadeInFixedTime("OpenChest", 0.15f);
         }
 
-        // animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void TriggerChestOpen()
         {
             _currentChest.PlayOpenChestAnimation();
         }
 
-        // animation event
+        /// <summary>
+        /// Animation Event
+        /// </summary>
         public void FinishPlayOutOpenChestAnimation()
         {
             foreach (var rig in _rigs)

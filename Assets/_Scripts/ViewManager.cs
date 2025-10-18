@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Faza
 {
-    // todo: remove all execution orders and use explicit order in code instead
     [DefaultExecutionOrder(-1)]
     public class ViewManager : MonoBehaviour
     {

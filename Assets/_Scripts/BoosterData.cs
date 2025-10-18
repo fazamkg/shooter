@@ -112,7 +112,6 @@ namespace Faza
         {
             if (_runningBoosters.Contains(this))
             {
-                //Debug.Log("booster still running");
                 return;
             }
 

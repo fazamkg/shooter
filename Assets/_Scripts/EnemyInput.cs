@@ -263,26 +263,6 @@ namespace Faza
             var position = transform.position.WithY(0f);
             var wpPosition = currentWp.WithY(0f);
 
-            //var distanceToWp = (wpPosition - position).sqrMagnitude;
-            //if (distanceToWp < _stoppingDistance)
-            //{
-            //    if (_currentPathIndex == corners.Length - 1)
-            //    {
-            //        _agent.ResetPath();
-            //    }
-            //    else
-            //    {
-            //        _currentPathIndex++;
-            //        var pos = corners[_currentPathIndex];
-            //        //if (NeedsToJump(pos)) _jump = true;
-            //    }
-
-            //    _cameraX = 0f;
-            //    _horizontal = 0f;
-            //    _vertical = 0f;
-            //    return;
-            //}
-
             var directionToWp = (wpPosition - position).normalized;
 
             var cross = Vector3.Cross(lookForward, directionToWp);

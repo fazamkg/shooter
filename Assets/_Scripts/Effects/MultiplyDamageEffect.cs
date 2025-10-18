@@ -14,12 +14,8 @@ namespace Faza
 
         public override void Apply()
         {
-            // add multiplier for a duration of ingame time
-
             var player = PlayerInput.Instance;
             player.Shooter.AddDamage(0f);
-
-            //player.Shooter.TheDamage.AddModifier(ModifierType.Mult, _mult);
         }
 
         public override void Remove()

@@ -85,8 +85,6 @@ namespace Faza
                                 captured.ResetSpeeds();
                             }
                             _captured.Clear();
-
-                            //_source.PlayOneShot(_downClip);
                         });
                 }
             }

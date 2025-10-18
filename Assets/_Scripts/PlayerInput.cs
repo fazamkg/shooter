@@ -28,7 +28,6 @@ namespace Faza
         private void Awake()
         {
             _locked = true;
-            //Console.StartReadingBinds();
 
             Instance = this;
 
