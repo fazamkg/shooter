@@ -57,25 +57,25 @@ namespace Faza
         {
             var number = _levelData.name.GetNumberPart();
 
-            if (number == "1")
+            switch (number)
             {
-                _tutorial.StartTutorial1();
-            }
-            else if (number == "3")
-            {
-                _tutorial.StartTutorial2();
-            }
-            else if (number == "4")
-            {
-                _tutorial.StartTutorial3();
-            }
-            else if (number == "6")
-            {
-                _tutorial.StartTutorial4();
-            }
-            else if (number == "8")
-            {
-                _tutorial.StartTutorial5();
+                case "1":
+                    _tutorial.StartTutorial1();
+                    break;
+                case "3":
+                    _tutorial.StartTutorial2();
+                    break;
+                case "4":
+                    _tutorial.StartTutorial3();
+                    break;
+                case "6":
+                    _tutorial.StartTutorial4();
+                    break;
+                case "8":
+                    _tutorial.StartTutorial5();
+                    break;
+                default:
+                    break;
             }
         }
 
