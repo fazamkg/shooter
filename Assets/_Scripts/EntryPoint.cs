@@ -30,7 +30,6 @@ namespace Faza
             Application.targetFrameRate = -1;
             QualitySettings.vSyncCount = 1;
 
-            #region Commands
             Console.AddCommand("enemy_camera_x", (args) =>
             {
                 GetAtCrosshair<EnemyInput>().SetCameraX(args[0].ToFloat());
@@ -185,9 +184,7 @@ namespace Faza
             Console.Bind(KeyCode.X, "enemy_stop_all");
             Console.Bind(KeyCode.V, "set_enemy");
             Console.Bind(KeyCode.B, "enemy_set_destination");
-            #endregion
 
-            #region Buttons
             Console.AddButton("low", () =>
             {
                 QualitySettings.SetQualityLevel(0);
@@ -263,7 +260,6 @@ namespace Faza
                 var ui = FindObjectOfType<UserInterfaceView>();
                 ui.Win(10f);
             });
-            #endregion
         }
 
         private void Start()

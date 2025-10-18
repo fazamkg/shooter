@@ -79,7 +79,6 @@ namespace Faza
 
             if (IsNoclip == false)
             {
-                #region Physics
                 _ownHorizontalVelocity += delta * Acceleration * inputDirection;
 
                 var deceleration = delta * _friction * _ownHorizontalVelocity;
@@ -110,8 +109,6 @@ namespace Faza
                 _verticalVelocity = returnedVelocity.y;
 
                 _isGrounded = _characterController.isGrounded;
-
-                #endregion
             }
             else
             {
