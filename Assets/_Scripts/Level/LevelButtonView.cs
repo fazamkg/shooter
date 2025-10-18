@@ -5,6 +5,8 @@ namespace Faza
 {
     public class LevelButtonView : MonoBehaviour
     {
+        private const string TIME_FORMAT = @"mm\:ss\.fff";
+
         [SerializeField] private FazaButtonView _button;
         [SerializeField] private TMP_Text[] _texts;
         [SerializeField] private TMP_Text[] _timespanTexts;
@@ -24,7 +26,7 @@ namespace Faza
                 text.text = number;
             }
 
-            var time = levelData.GetCompletedTimespan().ToString(@"mm\:ss\.fff");
+            var time = levelData.GetCompletedTimespan().ToString(TIME_FORMAT);
             foreach (var text in _timespanTexts)
             {
                 text.text = time;

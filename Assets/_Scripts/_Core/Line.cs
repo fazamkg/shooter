@@ -6,6 +6,8 @@ namespace Faza
     [DefaultExecutionOrder(-100)]
     public class Line : MonoBehaviour
     {
+        private const string POOL_KEY = "line";
+
         [SerializeField] private LineRenderer _prefab;
 
         private static Vector3[] _positions = new Vector3[2];
@@ -15,7 +17,7 @@ namespace Faza
 
         private void Awake()
         {
-            Pool.SetPrefab("line", _prefab);
+            Pool.SetPrefab(POOL_KEY, _prefab);
         }
 
         private void Update()
@@ -23,7 +25,7 @@ namespace Faza
             while (_activeLines.Count != 0)
             {
                 var line = _activeLines.Pop();
-                Pool.Release("line", line);
+                Pool.Release(POOL_KEY, line);
             }
         }
 
@@ -32,13 +34,13 @@ namespace Faza
             while (_permaLines.Count != 0)
             {
                 var line = _permaLines.Pop();
-                Pool.Release("line", line);
+                Pool.Release(POOL_KEY, line);
             }
         }
 
         public static void Draw(Vector3 from, Vector3 to, Color? color = null, bool permanent = false)
         {
-            var line = Pool.Get<LineRenderer>("line");
+            var line = Pool.Get<LineRenderer>(POOL_KEY);
             _positions[0] = from;
             _positions[1] = to;
             line.SetPositions(_positions);

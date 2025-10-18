@@ -12,8 +12,8 @@ namespace Faza
 
         public static float Coins
         {
-            get => Storage.GetFloat("faza_coins");
-            set => Storage.SetFloat("faza_coins", value);
+            get => Storage.GetFloat(StorageKey.COINS);
+            set => Storage.SetFloat(StorageKey.COINS, value);
         }
 
         public static void AddCoins(float toAdd, Vector3 worldPosition)

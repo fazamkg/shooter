@@ -21,6 +21,10 @@ namespace Faza
     [CreateAssetMenu]
     public class Localization : ScriptableObject
     {
+        private const string LOCALIZATION_PATH = "Localization";
+        private const string RUSSIAN = "ru";
+        private const string ENGLISH = "en";
+
         [SerializeField] private List<LocalizationEntry> _entries;
 
         private static Localization _instance;
@@ -31,7 +35,7 @@ namespace Faza
             {
                 if (_instance == null)
                 {
-                    _instance = Resources.Load<Localization>("Localization");
+                    _instance = Resources.Load<Localization>(LOCALIZATION_PATH);
                 }
 
                 return _instance;
@@ -48,8 +52,8 @@ namespace Faza
 
             return YandexGame.lang switch
             {
-                "ru" => entry.Russian,
-                "en" => entry.English,
+                RUSSIAN => entry.Russian,
+                ENGLISH => entry.English,
                 _ => entry.Russian
             };
         }

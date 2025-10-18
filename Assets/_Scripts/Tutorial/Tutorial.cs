@@ -14,6 +14,9 @@ namespace Faza
 
     public class Tutorial : MonoBehaviour
     {
+        private const string HASTE_BOOSTER = "HasteBooster";
+        private const string ARMOR_BOOSTER = "ArmorBooster";
+
         [SerializeField] private Material _material;
         [SerializeField] private TutorialPopView _popViewPrefab;
         [SerializeField] private Transform _defaultPopPos;
@@ -29,32 +32,32 @@ namespace Faza
 
         private bool TutorialCompletedPref_1
         {
-            get => Storage.GetBool("faza_tutorial_1");
-            set => Storage.SetBool("faza_tutorial_1", value);
+            get => Storage.GetBool(StorageKey.TUTORIAL1);
+            set => Storage.SetBool(StorageKey.TUTORIAL1, value);
         }
 
         private bool TutorialCompletedPref_2
         {
-            get => Storage.GetBool("faza_tutorial_2");
-            set => Storage.SetBool("faza_tutorial_2", value);
+            get => Storage.GetBool(StorageKey.TUTORIAL2);
+            set => Storage.SetBool(StorageKey.TUTORIAL2, value);
         }
 
         private bool TutorialCompletedPref_3
         {
-            get => Storage.GetBool("faza_tutorial_3");
-            set => Storage.SetBool("faza_tutorial_3", value);
+            get => Storage.GetBool(StorageKey.TUTORIAL3);
+            set => Storage.SetBool(StorageKey.TUTORIAL3, value);
         }
 
         private bool TutorialCompletedPref_4
         {
-            get => Storage.GetBool("faza_tutorial_4");
-            set => Storage.SetBool("faza_tutorial_4", value);
+            get => Storage.GetBool(StorageKey.TUTORIAL4);
+            set => Storage.SetBool(StorageKey.TUTORIAL4, value);
         }
 
         private bool TutorialCompletedPref_5
         {
-            get => Storage.GetBool("faza_tutorial_5");
-            set => Storage.SetBool("faza_tutorial_5", value);
+            get => Storage.GetBool(StorageKey.TUTORIAL5);
+            set => Storage.SetBool(StorageKey.TUTORIAL5, value);
         }
 
         private void OnDestroy()
@@ -76,9 +79,9 @@ namespace Faza
                 _position = Vector2.MoveTowards(_position, targetPosition,
                     Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
 
-                _material.SetVector("_Position", (Vector4)_position);
+                _material.SetVector(ShaderKey.Position, (Vector4)_position);
 
-                _material.SetFloat("_Radius", (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
+                _material.SetFloat(ShaderKey.Radius, (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
             }
         }
 
@@ -88,7 +91,7 @@ namespace Faza
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+            _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
             TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
@@ -102,7 +105,7 @@ namespace Faza
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+            _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
             TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
@@ -116,7 +119,7 @@ namespace Faza
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+            _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
 
@@ -129,7 +132,7 @@ namespace Faza
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+            _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
 
@@ -142,7 +145,7 @@ namespace Faza
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+            _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, 0f));
 
             _triggerTouched = false;
 
@@ -185,7 +188,7 @@ namespace Faza
             var mobile = YandexGame.EnvironmentData.isMobile ||
                 YandexGame.EnvironmentData.isTablet;
 
-            var key = mobile ? "tutorial_1_mobile" : "tutorial_1_pc";
+            var key = mobile ? LocalizationKey.TUTORIAL_MOBILE : LocalizationKey.TUTORIAL_PC;
 
             pop.Init(Localization.Get(key));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
@@ -202,7 +205,7 @@ namespace Faza
 
             yield return new WaitUntil(() => _triggerTouched);
 
-            pop.Init(Localization.Get("tutorial_2"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL2));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => PlayerInput.Instance.Shooter.StartedShooting);
@@ -217,7 +220,7 @@ namespace Faza
             yield return new WaitForSeconds(0.5f);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init(Localization.Get("tutorial_3"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL3));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => _triggerTouched);
@@ -230,7 +233,7 @@ namespace Faza
 
             SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
-            pop.Init(Localization.Get("tutorial_4"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL4));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitForSeconds(0.4f);
@@ -255,7 +258,7 @@ namespace Faza
             SetTarget(FindFirstObjectByType<BoosterView>().transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init(Localization.Get("tutorial_5"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL5));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());
@@ -278,12 +281,12 @@ namespace Faza
             yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
-            var view = views.First(x => x.Data.name == "HasteBooster");
+            var view = views.First(x => x.Data.name == HASTE_BOOSTER);
 
             SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init(Localization.Get("tutorial_6"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL6));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());
@@ -306,12 +309,12 @@ namespace Faza
             yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
-            var view = views.First(x => x.Data.name == "ArmorBooster");
+            var view = views.First(x => x.Data.name == ARMOR_BOOSTER);
 
             SetTarget(view.transform, TransformType.Screen);
 
             var pop = Instantiate(_popViewPrefab, transform);
-            pop.Init(Localization.Get("tutorial_7"));
+            pop.Init(Localization.Get(LocalizationKey.TUTORIAL7));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
             yield return new WaitUntil(() => BoosterData.AnyBoosterRunning());
@@ -329,8 +332,8 @@ namespace Faza
 
         private Tween TweenAlpha(float to, float duration)
         {
-            return DOTween.To(() => _material.GetColor("_Color").a,
-                x => _material.SetColor("_Color", new(0f, 0f, 0f, x)),
+            return DOTween.To(() => _material.GetColor(ShaderKey.Color).a,
+                x => _material.SetColor(ShaderKey.Color, new(0f, 0f, 0f, x)),
                 to, duration);
         }
     } 

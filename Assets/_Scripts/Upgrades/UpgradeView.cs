@@ -50,7 +50,8 @@ namespace Faza
             var data = _group.GetCurrentToPurhase();
 
             var title = data.Name;
-            var cost = data.IsMaxed ? "МАКС" : data.Cost.ToString(CultureInfo.InvariantCulture);
+            var cost = data.IsMaxed ? Localization.Get(LocalizationKey.MAX) :
+                data.Cost.ToString(CultureInfo.InvariantCulture);
             var desc = data.Description;
 
             foreach (var thing in _title)

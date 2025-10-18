@@ -5,6 +5,8 @@ namespace Faza
 {
     public class LeaderboardEntryView : MonoBehaviour
     {
+        private const string TIME_FORMAT = @"mm\:ss\.fff";
+
         [SerializeField] private RectTransform _specular;
         [SerializeField] private float _speed;
         [SerializeField] private TMP_Text[] _rankTexts;
@@ -15,7 +17,7 @@ namespace Faza
         {
             var rank = entry.Rank.ToString();
             var name = entry.Name;
-            var time = entry.Time.ToString(@"mm\:ss\.fff");
+            var time = entry.Time.ToString(TIME_FORMAT);
 
             foreach (var text in _rankTexts)
             {

@@ -39,7 +39,7 @@ namespace Faza
             if (current.IsMaxed) return false;
             if (Currency.Coins < current.Cost) return false;
 
-            FazaAudio.Play("upgrade");
+            FazaAudio.Play(AudioKey.UPGRADE);
 
             current.Apply();
 

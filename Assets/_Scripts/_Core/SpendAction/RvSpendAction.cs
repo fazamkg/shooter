@@ -7,9 +7,11 @@ namespace Faza
     [Serializable]
     public class RvSpendAction : SpendAction
     {
-        public override Sprite Sprite => Resources.Load<Sprite>("Rv");
+        private const string RV_SPRITE_PATH = "Rv";
 
-        public override string Cost => Localization.Get("free");
+        public override Sprite Sprite => Resources.Load<Sprite>(RV_SPRITE_PATH);
+
+        public override string Cost => Localization.Get(LocalizationKey.FREE);
 
         public override bool CanSpend()
         {

@@ -12,7 +12,7 @@ namespace Faza
         {
             var levelNumber = SceneManager.GetActiveScene().name.GetNumberPart();
 
-            var text = $"{Localization.Get("level")} {levelNumber}";
+            var text = $"{Localization.Get(LocalizationKey.LEVEL)} {levelNumber}";
 
             foreach (var tmp in _texts)
             {

@@ -7,6 +7,8 @@ namespace Faza
     [SelectionBase]
     public class Character : MonoBehaviour
     {
+        private const string SPEED_MOD = "spd-flat";
+
         [SerializeField] private CharacterInput _characterInput;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private Transform _camera;
@@ -119,7 +121,7 @@ namespace Faza
 
         public void AddSpeed(float value)
         {
-            _speedMod.AddModifier(ModifierType.Flat, "spd-flat", value);
+            _speedMod.AddModifier(ModifierType.Flat, SPEED_MOD, value);
         }
 
         public void Stop(float duration)

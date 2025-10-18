@@ -8,10 +8,10 @@ namespace Faza
 
         public static bool AudioEnabled
         {
-            get => Storage.GetBool("faza_audio", true);
+            get => Storage.GetBool(StorageKey.AUDIO_ENABLED, true);
             set
             {
-                Storage.SetBool("faza_audio", value);
+                Storage.SetBool(StorageKey.AUDIO_ENABLED, value);
                 OnAudioEnabledChanged?.Invoke();
             }
         }

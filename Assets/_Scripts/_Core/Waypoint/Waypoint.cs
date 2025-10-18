@@ -43,7 +43,7 @@ namespace Faza
                 if (_isMarked)
                 {
                     var mpb = new MaterialPropertyBlock();
-                    mpb.SetColor("_BaseColor", Color.yellow);
+                    mpb.SetColor(ShaderKey.BaseColor, Color.yellow);
                     _meshRenderer.SetPropertyBlock(mpb);
                 }
                 else

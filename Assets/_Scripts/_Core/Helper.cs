@@ -21,6 +21,12 @@ namespace Faza
                 x => animator.SetFloat(property, x), to, duration);
         }
 
+        public static Tween DOFloat(this Animator animator, int property, float to, float duration)
+        {
+            return DOTween.To(() => animator.GetFloat(property),
+                x => animator.SetFloat(property, x), to, duration);
+        }
+
         public static void Toggle(this GameObject gameObject)
         {
             gameObject.SetActive(!gameObject.activeSelf);

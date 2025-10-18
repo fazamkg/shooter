@@ -64,26 +64,26 @@ namespace Faza
 
         public int AmountPref
         {
-            get => Storage.GetInt($"{_id}_amount");
-            private set => Storage.SetInt($"{_id}_amount", value);
+            get => Storage.GetInt(StorageKey.GetBoosterAmountKey(_id));
+            private set => Storage.SetInt(StorageKey.GetBoosterAmountKey(_id), value);
         }
 
         public int PurchaseCountPref
         {
-            get => Storage.GetInt($"{_id}_purchases");
-            private set => Storage.SetInt($"{_id}_purchases", value);
+            get => Storage.GetInt(StorageKey.GetBoosterPurchaseCountKey(_id));
+            private set => Storage.SetInt(StorageKey.GetBoosterPurchaseCountKey(_id), value);
         }
 
         public int AltPurchaseCountPref
         {
-            get => Storage.GetInt($"{_id}_alt_purchases");
-            private set => Storage.SetInt($"{_id}_alt_purchases", value);
+            get => Storage.GetInt(StorageKey.GetBoosterAltPurchaseCountKey(_id));
+            private set => Storage.SetInt(StorageKey.GetBoosterAltPurchaseCountKey(_id), value);
         }
 
         public bool IsUnlocked
         {
-            get => Storage.GetBool($"{_id}_unlocked");
-            set => Storage.SetBool($"{_id}_unlocked", value);
+            get => Storage.GetBool(StorageKey.GetBoosterUnlockedKey(_id));
+            set => Storage.SetBool(StorageKey.GetBoosterUnlockedKey(_id), value);
         }
 
         public SpendAction MainSpendAction => _spendAction;

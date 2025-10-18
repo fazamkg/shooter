@@ -6,11 +6,13 @@ namespace Faza
     [Serializable]
     public class CoinSpendAction : SpendAction
     {
+        private const string COIN_SPRITE_PATH = "Coin";
+
         [SerializeField] private float _cost;
 
-        public override Sprite Sprite => Resources.Load<Sprite>("Coin");
+        public override Sprite Sprite => Resources.Load<Sprite>(COIN_SPRITE_PATH);
 
-        public override string Cost => _cost == 0f ? "БЕСПЛ." : _cost.ToString();
+        public override string Cost => _cost == 0f ? Localization.Get(LocalizationKey.FREE) : _cost.ToString();
 
         public override bool CanSpend()
         {

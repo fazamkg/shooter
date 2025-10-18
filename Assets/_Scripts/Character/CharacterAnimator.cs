@@ -59,14 +59,14 @@ namespace Faza
 
             if (_switchIdle)
             {
-                _animator.SetFloat("IdleVariant", _idles.GetRandom());
+                _animator.SetFloat(AnimatorKey.IdleVariant, _idles.GetRandom());
                 StartCoroutine(SwitchIdleCoroutine());
             }
         }
 
         private void Update()
         {
-            _animator.SetBool("InterruptAttack", false);
+            _animator.SetBool(AnimatorKey.InterruptAttack, false);
 
             var move = _input.GetMove();
 
@@ -76,8 +76,8 @@ namespace Faza
             _horizontal = Mathf.MoveTowards(_horizontal, horizontal, Time.deltaTime * _smoothSpeed);
             _vertical = Mathf.MoveTowards(_vertical, vertical, Time.deltaTime * _smoothSpeed);
 
-            _animator.SetFloat("InputHorizontal", _horizontal);
-            _animator.SetFloat("InputVertical", _vertical);
+            _animator.SetFloat(AnimatorKey.InputHorizontal, _horizontal);
+            _animator.SetFloat(AnimatorKey.InputVertical, _vertical);
 
             var cameraX = _input.GetCameraX();
             if (cameraX > 0.01f)
@@ -91,35 +91,35 @@ namespace Faza
 
             _cameraX = Mathf.MoveTowards(_cameraX, cameraX, Time.deltaTime * _smoothSpeed);
 
-            _animator.SetFloat("MouseX", _cameraX);
+            _animator.SetFloat(AnimatorKey.MouseX, _cameraX);
 
             transform.rotation = Quaternion.Euler(0f, _character.Yaw, 0f);
 
             _y = Mathf.MoveTowards(_y, _character.IsGrouned ? 0f : 1f, Time.deltaTime * _smoothSpeed);
 
-            _animator.SetFloat("Vertical", _y);
+            _animator.SetFloat(AnimatorKey.Vertical, _y);
 
             _horizontalSpeed = Mathf.MoveTowards(_horizontalSpeed, _character.HorizontalSpeed,
                 Time.deltaTime * _smoothSpeed);
 
             var hSpeed = Mathf.InverseLerp(_minSpeed, _maxSpeed, _horizontalSpeed);
-            _animator.SetFloat("HorizontalSpeed", hSpeed);
+            _animator.SetFloat(AnimatorKey.HorizontalSpeed, hSpeed);
 
             if (_shooter != null)
             {
-                _animator.SetFloat("ShootSpeed", _shooter.ShootSpeed);
+                _animator.SetFloat(AnimatorKey.ShootSpeed, _shooter.ShootSpeed);
             }
 
             if (_shooter != null && _shooter.StartedShooting)
             {
-                _animator.CrossFadeInFixedTime("Attack", 0.05f);
+                _animator.CrossFadeInFixedTime(AnimatorKey.Attack, 0.05f);
                 _shooter.StartedShooting = false;
                 StartCoroutine(FireCoroutine());
             }
 
             if (_meleeAttack != null && _meleeAttack.StartAttack)
             {
-                _animator.CrossFadeInFixedTime("MeleeAttack", 0.05f);
+                _animator.CrossFadeInFixedTime(AnimatorKey.MeleeAttack, 0.05f);
                 _meleeAttack.StartAttack = false;
                 _meleeAttack.FinishAttack();
             }
@@ -128,7 +128,7 @@ namespace Faza
             {
                 if (_character.HorizontalSpeed > 0.5f && _shooter.BulletFired)
                 {
-                    _animator.SetBool("InterruptAttack", true);
+                    _animator.SetBool(AnimatorKey.InterruptAttack, true);
                 }
             }
         }
@@ -191,7 +191,7 @@ namespace Faza
             _currentChest = chest;
             _character.enabled = false;
             _character.CharacterController.enabled = false;
-            _animator.CrossFadeInFixedTime("OpenChest", 0.15f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.OpenChest, 0.15f);
         }
 
         /// <summary>
@@ -223,19 +223,19 @@ namespace Faza
                 var randomDuration = Random.Range(_switchIdleMinDuration, _switchIdleMaxDuration);
                 yield return new WaitForSeconds(randomDuration);
 
-                _animator.DOFloat("IdleVariant", _idles.GetRandom(), 0.3f);
+                _animator.DOFloat(AnimatorKey.IdleVariant, _idles.GetRandom(), 0.3f);
             }
         }
 
         private void Health_OnHealthChanged()
         {
             if (_health.CurrentHealth <= 0f) return;
-            _animator.CrossFadeInFixedTime("Hit", 0.05f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.Hit, 0.05f);
         }
 
         private void Health_OnDeath()
         {
-            _animator.CrossFadeInFixedTime("Death", 0.05f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.Death, 0.05f);
             enabled = false;
         }
 

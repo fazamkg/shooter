@@ -4,6 +4,11 @@ namespace Faza
 {
     public class PlayerInput : CharacterInput
     {
+        private const string CAMERA_ID = "main";
+        private const string JOYSTICK_ID = "move";
+        private const string HORIZONTAL_AXIS = "Horizontal";
+        private const string VERTICAL_AXIS = "Vertical";
+
         [SerializeField] private float _sensitivity;
         [SerializeField] private GameObject _camera;
         [SerializeField] private float _turningCap;
@@ -36,7 +41,7 @@ namespace Faza
 
         private void Start()
         {
-            CameraTracker.Activate("main");
+            CameraTracker.Activate(CAMERA_ID);
         }
 
         public override float GetCameraX()
@@ -46,12 +51,12 @@ namespace Faza
             if (_health.IsDead) return 0f;
             if (_locked == false) return 0f;
 
-            var joyV = Joystick.GetInput("move").y;
-            var kbV = Input.GetAxisRaw("Vertical");
+            var joyV = Joystick.GetInput(JOYSTICK_ID).y;
+            var kbV = Input.GetAxisRaw(VERTICAL_AXIS);
             var vertical = Mathf.Min(1f, joyV + kbV);
 
-            var joyH = Joystick.GetInput("move").x;
-            var kbH = Input.GetAxisRaw("Horizontal");
+            var joyH = Joystick.GetInput(JOYSTICK_ID).x;
+            var kbH = Input.GetAxisRaw(HORIZONTAL_AXIS);
             var horizontal = Mathf.Min(1f, joyH + kbH);
 
             var lookForward = _camera.transform.forward;
@@ -85,11 +90,11 @@ namespace Faza
             if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
 
-            var kbV = Input.GetAxisRaw("Vertical");
-            var kbH = Input.GetAxisRaw("Horizontal");
+            var kbV = Input.GetAxisRaw(VERTICAL_AXIS);
+            var kbH = Input.GetAxisRaw(HORIZONTAL_AXIS);
             var keyboard = new Vector3(kbH, 0f, kbV).normalized;
 
-            var joy = Joystick.GetInput("move");
+            var joy = Joystick.GetInput(JOYSTICK_ID);
 
             var h = Mathf.Clamp(keyboard.x + joy.x, -1f, 1f);
             var v = Mathf.Clamp(keyboard.z + joy.y, -1f, 1f);
@@ -105,11 +110,11 @@ namespace Faza
             if (_health.IsDead) return Vector3.zero;
             if (_locked == false) return Vector3.zero;
 
-            var kbV = Input.GetAxisRaw("Vertical");
-            var kbH = Input.GetAxisRaw("Horizontal");
+            var kbV = Input.GetAxisRaw(VERTICAL_AXIS);
+            var kbH = Input.GetAxisRaw(HORIZONTAL_AXIS);
             var keyboard = new Vector3(kbH, 0f, kbV).normalized;
 
-            var joy = Joystick.GetInput("move");
+            var joy = Joystick.GetInput(JOYSTICK_ID);
 
             var h = Mathf.Clamp(keyboard.x + joy.x, -1f, 1f);
             var v = Mathf.Clamp(keyboard.z + joy.y, -1f, 1f);

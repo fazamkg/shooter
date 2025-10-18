@@ -12,6 +12,11 @@ namespace Faza
 
     public class Console : MonoBehaviour
     {
+        private const string PREFAB_NAME = "ConsoleCanvas";
+        private const string BIND = "bind";
+        private const string QUIT = "quit";
+        private const string LIST_CMDS = "list_cmds";
+
         [SerializeField] private Button _toggleButton;
         [SerializeField] private ConsoleButtonView _buttonPrefab;
         [SerializeField] private Transform _buttonParent;
@@ -29,13 +34,13 @@ namespace Faza
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Init()
         {
-            var consoleCanvas = Resources.Load<GameObject>("ConsoleCanvas");
+            var consoleCanvas = Resources.Load<GameObject>(PREFAB_NAME);
             _instance = Instantiate(consoleCanvas).GetComponent<Console>();
             DontDestroyOnLoad(_instance.gameObject);
 
-            AddCommand("bind", (args) => Bind(args[0].ToKeyCode(), args[1]));
-            AddCommand("quit", (args) => Application.Quit());
-            AddCommand("list_cmds", (args) =>
+            AddCommand(BIND, (args) => Bind(args[0].ToKeyCode(), args[1]));
+            AddCommand(QUIT, (args) => Application.Quit());
+            AddCommand(LIST_CMDS, (args) =>
             {
                 foreach (var command in _instance._commands)
                 {

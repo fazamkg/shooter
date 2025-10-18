@@ -8,12 +8,14 @@ namespace Faza
     {
         public event Action OnTick;
 
+        private const string TIME_FORMAT = @"mm\:ss\.fff";
+
         private TimeSpan _elapsed;
         private double _from;
 
         public TimeSpan Elapsed => _elapsed;
 
-        public string AsText => _elapsed.ToString(@"mm\:ss\.fff");
+        public string AsText => _elapsed.ToString(TIME_FORMAT);
 
         private void Update()
         {

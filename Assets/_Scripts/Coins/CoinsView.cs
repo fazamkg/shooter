@@ -57,7 +57,7 @@ namespace Faza
             seq.Append(_icon.DOScale(1.2f, 0.15f).SetEase(Ease.Linear));
             seq.AppendCallback(() =>
             {
-                FazaAudio.Play("coin", 0.5f);
+                FazaAudio.Play(AudioKey.COIN, 0.5f);
 
                 foreach (var text in _texts)
                 {

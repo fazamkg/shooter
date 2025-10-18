@@ -42,7 +42,7 @@ namespace Faza
             var seq = DOTween.Sequence();
 
             seq.Append(_group.DOFade(1f, 0.5f / speed).SetEase(Ease.InOutCirc));
-            seq.AppendCallback(() => FazaAudio.Play("win", 0.9f));
+            seq.AppendCallback(() => FazaAudio.Play(AudioKey.WIN, 0.9f));
             seq.Append(_title.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));
             seq.AppendInterval(0.1f / speed);
             seq.Append(_timerBefore.DOScale(1f, 0.2f / speed).SetEase(Ease.OutBack));

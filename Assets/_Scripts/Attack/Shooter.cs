@@ -5,6 +5,9 @@ namespace Faza
 {
     public class Shooter : MonoBehaviour
     {
+        private const string DAMAGE_MOD = "dmg-flag";
+        private const string SHOOTING_SPEED_MOD = "sh-speed-flat";
+
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clip;
         [SerializeField] private AudioClip _critClip;
@@ -124,7 +127,7 @@ namespace Faza
 
         public void AddDamage(float damage)
         {
-            _modDamage.AddModifier(ModifierType.Flat, "dmg-flag", damage);
+            _modDamage.AddModifier(ModifierType.Flat, DAMAGE_MOD, damage);
         }
 
         public void AddProjectileSpeed(float speed)
@@ -134,7 +137,7 @@ namespace Faza
 
         public void AddShootingSpeed(float speed)
         {
-            _modShootSpeed.AddModifier(ModifierType.Flat, "sh-speed-flat", speed);
+            _modShootSpeed.AddModifier(ModifierType.Flat, SHOOTING_SPEED_MOD, speed);
         }
 
         public void FireBullet()

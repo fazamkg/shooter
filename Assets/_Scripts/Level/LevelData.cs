@@ -27,6 +27,8 @@ namespace Faza
     [CreateAssetMenu]
     public class LevelData : ScriptableObject
     {
+        private const string PHOTO_SIZE = "nonePhoto";
+
         [SerializeField] private UpgradeGroupData[] _availableUpgrades;
         [SerializeField] private BoosterData[] _boostersToUnlock;
 
@@ -52,7 +54,7 @@ namespace Faza
             var amountTop = 3;
             var amountAround = 0;
             YandexGame.GetLeaderboard(LeaderboardName,
-                maxAmountPlayers, amountTop, amountAround, "nonePhoto");
+                maxAmountPlayers, amountTop, amountAround, PHOTO_SIZE);
         }
 
         public void UnlockBoosters()
@@ -75,14 +77,14 @@ namespace Faza
             var player = PlayerPlace;
             if (player == null)
             {
-                Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
+                Storage.SetTimeSpan(StorageKey.GetLeaderboardTimeKey(name), elapsed);
                 YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
             }
             else
             {
                 if (elapsed < player.Time)
                 {
-                    Storage.SetTimeSpan($"faza_{name}_timespan", elapsed);
+                    Storage.SetTimeSpan(StorageKey.GetLeaderboardTimeKey(name), elapsed);
                     YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
                 }
             }
@@ -90,17 +92,17 @@ namespace Faza
 
         public TimeSpan GetCompletedTimespan()
         {
-            return Storage.GetTimeSpan($"faza_{name}_timespan", TimeSpan.MaxValue);
+            return Storage.GetTimeSpan(StorageKey.GetLeaderboardTimeKey(name), TimeSpan.MaxValue);
         }
 
         public void SavePlayerRank(int rank)
         {
-            Storage.SetInt($"faza_{name}_rank", rank);
+            Storage.SetInt(StorageKey.GetLeaderboardRankKey(name), rank);
         }
 
         public int GetPlayerRank()
         {
-            return Storage.GetInt($"faza_{name}_rank", -1);
+            return Storage.GetInt(StorageKey.GetLeaderboardRankKey(name), -1);
         }
 
         private IEnumerator WaitForLeaderboardCoroutine(Action onSuccess, Action onFailure)

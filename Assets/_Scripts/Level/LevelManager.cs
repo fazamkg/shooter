@@ -7,16 +7,18 @@ namespace Faza
     [CreateAssetMenu]
     public class LevelManager : ScriptableObject
     {
+        private const string LEVEL_MANAGER_PATH = "LevelManager";
+
         [SerializeField] private LevelData[] _levels;
         [SerializeField] private LevelData _menuLevel;
 
         private static int LevelIndexPref
         {
-            get => Storage.GetInt("faza_level");
-            set => Storage.SetInt("faza_level", value);
+            get => Storage.GetInt(StorageKey.LEVEL_INDEX);
+            set => Storage.SetInt(StorageKey.LEVEL_INDEX, value);
         }
 
-        public static LevelManager Instance => Resources.Load<LevelManager>("LevelManager");
+        public static LevelManager Instance => Resources.Load<LevelManager>(LEVEL_MANAGER_PATH);
 
         public LevelData[] Levels => _levels;
 
@@ -38,7 +40,7 @@ namespace Faza
                 var levelToLoad = index >= _levels.Length ? _menuLevel : _levels[index];
                 SceneManager.LoadScene(levelToLoad.name);
             }
-
+            
             if (showAd && YandexGame.Instance.CanShowAd)
             {
                 YandexGame.ErrorFullAdEvent += loadNextLevel;
