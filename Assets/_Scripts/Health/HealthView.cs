@@ -5,6 +5,11 @@ namespace Faza
 {
     public class HealthView : MonoBehaviour
     {
+        private const float FILL_DURATION = 0.15f;
+        private const Ease FILL_EASE = Ease.InOutCirc;
+        private const float DISAPPEAR_DURATION = 0.3f;
+        private const Ease DISAPPEAR_EASE = Ease.InBack;
+
         [SerializeField] private RectTransform _fill;
         [SerializeField] private float _width = 230f;
         [SerializeField] private Vector3 _offset;
@@ -55,18 +60,18 @@ namespace Faza
             var x = current / max * _width;
 
             var seq = DOTween.Sequence();
-            seq.Append(_fill.DOAnchorPosX(x, 0.15f).SetEase(Ease.InOutCirc));
+            seq.Append(_fill.DOAnchorPosX(x, FILL_DURATION).SetEase(FILL_EASE));
 
             var temp = _gloss.sizeDelta;
             temp.x = x - 2.1f * 2f;
-            seq.Join(_gloss.DOSizeDelta(temp, 0.15f).SetEase(Ease.InOutCirc));
+            seq.Join(_gloss.DOSizeDelta(temp, FILL_DURATION).SetEase(FILL_EASE));
 
             return seq;
         }
 
         public Tween TweenDisappear()
         {
-            return transform.DOScale(0f, 0.3f).SetEase(Ease.InBack)
+            return transform.DOScale(0f, DISAPPEAR_DURATION).SetEase(DISAPPEAR_EASE)
                 .OnComplete(() => Destroy(gameObject));
         }
 

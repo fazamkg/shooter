@@ -6,6 +6,11 @@ namespace Faza
 {
     public class CharacterAnimator : MonoBehaviour
     {
+        private const float CHEST_ANIMATION_TRANSITION = 0.15f;
+        private const float IDLE_TRANSITION = 0.3f;
+        private const float HIT_TRANSITION = 0.05f;
+        private const float DEATH_TRANSITION = 0.05f;
+
         [SerializeField] private Character _character;
         [SerializeField] private CharacterInput _input;
         [SerializeField] private Animator _animator;
@@ -185,13 +190,13 @@ namespace Faza
         {
             foreach (var rig in _rigs)
             {
-                rig.DOWeight(1f, 0.15f);
+                rig.DOWeight(1f, CHEST_ANIMATION_TRANSITION);
             }
 
             _currentChest = chest;
             _character.enabled = false;
             _character.CharacterController.enabled = false;
-            _animator.CrossFadeInFixedTime(AnimatorKey.OpenChest, 0.15f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.OpenChest, CHEST_ANIMATION_TRANSITION);
         }
 
         /// <summary>
@@ -209,7 +214,7 @@ namespace Faza
         {
             foreach (var rig in _rigs)
             {
-                rig.DOWeight(0f, 0.15f);
+                rig.DOWeight(0f, CHEST_ANIMATION_TRANSITION);
             }
 
             _character.enabled = true;
@@ -223,19 +228,19 @@ namespace Faza
                 var randomDuration = Random.Range(_switchIdleMinDuration, _switchIdleMaxDuration);
                 yield return new WaitForSeconds(randomDuration);
 
-                _animator.DOFloat(AnimatorKey.IdleVariant, _idles.GetRandom(), 0.3f);
+                _animator.DOFloat(AnimatorKey.IdleVariant, _idles.GetRandom(), IDLE_TRANSITION);
             }
         }
 
         private void Health_OnHealthChanged()
         {
             if (_health.CurrentHealth <= 0f) return;
-            _animator.CrossFadeInFixedTime(AnimatorKey.Hit, 0.05f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.Hit, HIT_TRANSITION);
         }
 
         private void Health_OnDeath()
         {
-            _animator.CrossFadeInFixedTime(AnimatorKey.Death, 0.05f);
+            _animator.CrossFadeInFixedTime(AnimatorKey.Death, DEATH_TRANSITION);
             enabled = false;
         }
 

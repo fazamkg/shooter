@@ -7,6 +7,10 @@ namespace Faza
 {
     public class BoosterChoiceView : MonoBehaviour
     {
+        private const float TWEEN_DURATION = 0.3f;
+        private const Ease APPEAR_EASE = Ease.OutBack;
+        private const Ease DISAPPEAR_EASE = Ease.InBack;
+
         [SerializeField] private FazaButtonView _closeButton;
         [SerializeField] private FazaButtonView _mainButton;
         [SerializeField] private FazaButtonView _altButton;
@@ -48,7 +52,7 @@ namespace Faza
         {
             _booster = booster;
             _booster.OnUpdated += Booster_OnUpdated;
-            transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
+            transform.DOScale(1f, TWEEN_DURATION).SetEase(APPEAR_EASE);
 
             UpdateView();
         }
@@ -56,7 +60,7 @@ namespace Faza
         public void Disappear()
         {
             _booster.OnUpdated -= Booster_OnUpdated;
-            transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+            transform.DOScale(0f, TWEEN_DURATION).SetEase(DISAPPEAR_EASE);
         }
 
         private void Booster_OnUpdated()

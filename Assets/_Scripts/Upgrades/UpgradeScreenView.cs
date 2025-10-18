@@ -8,6 +8,20 @@ namespace Faza
     {
         public event Action OnClosed;
 
+        private const float FADE_DURATION = 0.5f;
+        private const Ease FADE_EASE = Ease.InOutCirc;
+        private const float TITLE_DURATION = 0.3f;
+        private const Ease TITLE_EASE = Ease.OutBack;
+        private const float WAIT = 0.3f;
+        private const float BUTTON_DURATION = 0.3f;
+        private const Ease BUTTON_EASE = Ease.InOutBack;
+        private const float DISAPPEAR_FADE_DURATION = 0.5f;
+        private const Ease DISAPPEAR_FADE_EASE = Ease.InOutCirc;
+        private const float DISAPPEAR_TITLE_DURATION = 0.3f;
+        private const Ease DISAPPEAR_TITLE_EASE = Ease.InBack;
+        private const float DISAPPEAR_BUTTON_DURATION = 0.3f;
+        private const Ease DISAPPEAR_BUTTON_EASE = Ease.InOutBack;
+
         [SerializeField] private RectTransform _title;
         [SerializeField] private FazaButtonView _nextButton;
         [SerializeField] private CanvasGroup _group;
@@ -35,10 +49,10 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
-            seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f);
-            seq.Append(_nextButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
+            seq.Append(_group.DOFade(1f, FADE_DURATION).SetEase(FADE_EASE));
+            seq.Append(_title.DOScale(1f, TITLE_DURATION).SetEase(TITLE_EASE));
+            seq.AppendInterval(WAIT);
+            seq.Append(_nextButton.transform.DOScale(1f, BUTTON_DURATION).SetEase(BUTTON_EASE));
             seq.OnComplete(() => _appeared = true);
             seq.SetEase(Ease.Linear);
 
@@ -58,9 +72,9 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.Append(_group.DOFade(0f, 0.5f).SetEase(Ease.InOutCirc));
-            seq.Append(_title.DOScale(0f, 0.3f).SetEase(Ease.InBack));
-            seq.Append(_nextButton.transform.DOScale(0f, 0.3f).SetEase(Ease.InOutBack));
+            seq.Append(_group.DOFade(0f, DISAPPEAR_FADE_DURATION).SetEase(DISAPPEAR_FADE_EASE));
+            seq.Append(_title.DOScale(0f, DISAPPEAR_TITLE_DURATION).SetEase(DISAPPEAR_TITLE_EASE));
+            seq.Append(_nextButton.transform.DOScale(0f, DISAPPEAR_BUTTON_DURATION).SetEase(DISAPPEAR_BUTTON_EASE));
             seq.SetEase(Ease.Linear);
 
             OnClosed?.Invoke();

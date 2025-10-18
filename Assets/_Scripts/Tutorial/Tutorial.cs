@@ -16,6 +16,11 @@ namespace Faza
     {
         private const string HASTE_BOOSTER = "HasteBooster";
         private const string ARMOR_BOOSTER = "ArmorBooster";
+        private const float TARGET_FADE = 0.95f;
+        private const float TARGET_FADE_DURATION1 = 0.3f;
+        private const float TARGET_FADE_DURATION2 = 0.2f;
+        private const float TUTORIAL2_DELAY = 0.5f;
+        private const float TUTORIAL2_DELAY2 = 0.4f;
 
         [SerializeField] private Material _material;
         [SerializeField] private TutorialPopView _popViewPrefab;
@@ -179,7 +184,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(TARGET_FADE, TARGET_FADE_DURATION1).WaitForCompletion();
 
             SetTarget(PlayerInput.Instance.transform, TransformType.World);
 
@@ -199,7 +204,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
-            seq.Join(TweenAlpha(0f, 0.3f));
+            seq.Join(TweenAlpha(0f, TARGET_FADE_DURATION1));
 
             yield return seq.WaitForCompletion();
 
@@ -217,7 +222,7 @@ namespace Faza
 
         private IEnumerator Tutorial2Coroutine()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(TUTORIAL2_DELAY);
 
             var pop = Instantiate(_popViewPrefab, transform);
             pop.Init(Localization.Get(LocalizationKey.TUTORIAL3));
@@ -229,14 +234,14 @@ namespace Faza
 
             yield return pop.Disappear().WaitForCompletion();
 
-            yield return TweenAlpha(0.95f, 0.2f).WaitForCompletion();
+            yield return TweenAlpha(TARGET_FADE, TARGET_FADE_DURATION2).WaitForCompletion();
 
             SetTarget(FindFirstObjectByType<Chest>().transform, TransformType.World);
 
             pop.Init(Localization.Get(LocalizationKey.TUTORIAL4));
             yield return pop.Appear(_defaultPopPos.position).WaitForCompletion();
 
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(TUTORIAL2_DELAY2);
 
             PlayerInput.Instance.Enable();
 
@@ -244,7 +249,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
-            seq.Join(TweenAlpha(0f, 0.3f));
+            seq.Join(TweenAlpha(0f, TARGET_FADE_DURATION1));
 
             yield return seq.WaitForCompletion();
         }
@@ -253,7 +258,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(TARGET_FADE, TARGET_FADE_DURATION1).WaitForCompletion();
 
             SetTarget(FindFirstObjectByType<BoosterView>().transform, TransformType.Screen);
 
@@ -269,7 +274,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
-            seq.Join(TweenAlpha(0f, 0.3f));
+            seq.Join(TweenAlpha(0f, TARGET_FADE_DURATION1));
 
             yield return seq.WaitForCompletion();
         }
@@ -278,7 +283,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(TARGET_FADE, TARGET_FADE_DURATION1).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == HASTE_BOOSTER);
@@ -297,7 +302,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
-            seq.Join(TweenAlpha(0f, 0.3f));
+            seq.Join(TweenAlpha(0f, TARGET_FADE_DURATION1));
 
             yield return seq.WaitForCompletion();
         }
@@ -306,7 +311,7 @@ namespace Faza
         {
             PlayerInput.Instance.Disable();
 
-            yield return TweenAlpha(0.95f, 0.3f).WaitForCompletion();
+            yield return TweenAlpha(TARGET_FADE, TARGET_FADE_DURATION1).WaitForCompletion();
 
             var views = FindObjectsByType<BoosterView>(FindObjectsSortMode.None);
             var view = views.First(x => x.Data.name == ARMOR_BOOSTER);
@@ -325,7 +330,7 @@ namespace Faza
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
-            seq.Join(TweenAlpha(0f, 0.3f));
+            seq.Join(TweenAlpha(0f, TARGET_FADE_DURATION1));
 
             yield return seq.WaitForCompletion();
         }

@@ -6,6 +6,14 @@ namespace Faza
 {
     public class LoseScreenView : MonoBehaviour
     {
+        private const float FADE_DURATION = 0.5f;
+        private const Ease FADE_EASE = Ease.InOutCirc;
+        private const float TITLE_SCALE_DURATION = 0.3f;
+        private const Ease TITLE_SCALE_EASE = Ease.OutBack;
+        private const float WAIT = 0.3f;
+        private const float RESTART_BUTTON_SCALE_DURATION = 0.3f;
+        private const Ease RESTART_BUTTON_SCALE_EASE = Ease.InOutBack;
+
         [SerializeField] private RectTransform _title;
         [SerializeField] private FazaButtonView _restartButton;
         [SerializeField] private CanvasGroup _group;
@@ -26,10 +34,11 @@ namespace Faza
 
             var seq = DOTween.Sequence();
 
-            seq.Append(_group.DOFade(1f, 0.5f).SetEase(Ease.InOutCirc));
-            seq.Append(_title.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
-            seq.AppendInterval(0.3f);
-            seq.Append(_restartButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
+            seq.Append(_group.DOFade(1f, FADE_DURATION).SetEase(FADE_EASE));
+            seq.Append(_title.DOScale(1f, TITLE_SCALE_DURATION).SetEase(TITLE_SCALE_EASE));
+            seq.AppendInterval(WAIT);
+            seq.Append(_restartButton.transform.DOScale(1f, RESTART_BUTTON_SCALE_DURATION)
+                .SetEase(RESTART_BUTTON_SCALE_EASE));
             seq.SetEase(Ease.Linear);
         }
 

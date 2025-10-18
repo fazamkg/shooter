@@ -6,6 +6,8 @@ namespace Faza
 {
     public class UserInterfaceView : MonoBehaviour
     {
+        private const float VIEW_DISAPPEAR_DURATION = 0.3f;
+
         [SerializeField] private LevelData _levelData;
         [SerializeField] private Health _playerHealth;
         [SerializeField] private FazaButtonView _settingsButton;
@@ -87,7 +89,7 @@ namespace Faza
 
         public void Win(float speed = 1f)
         {
-            _gameCanvas.DOFade(0f, 0.3f);
+            _gameCanvas.DOFade(0f, VIEW_DISAPPEAR_DURATION);
 
             _win = true;
             _loseScreen.gameObject.SetActive(false);
@@ -135,7 +137,7 @@ namespace Faza
         {
             if (_win) return;
 
-            _gameCanvas.DOFade(0f, 0.3f);
+            _gameCanvas.DOFade(0f, VIEW_DISAPPEAR_DURATION);
 
             _levelTimer.StopTimer();
 

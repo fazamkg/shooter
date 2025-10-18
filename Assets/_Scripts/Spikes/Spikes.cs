@@ -6,6 +6,11 @@ namespace Faza
 {
     public class Spikes : MonoBehaviour
     {
+        private const float UP_DURATION = 0.3f;
+        private const float DOWN_DURATION = 0.3f;
+        private const Ease UP_EASE = Ease.InExpo;
+        private const Ease DOWN_EASE = Ease.InExpo;
+
         [SerializeField] private bool _isUp = true;
         [SerializeField] private float _timerShift;
         [SerializeField] private float _damage;
@@ -48,8 +53,8 @@ namespace Faza
 
                 if (_shown)
                 {
-                    _spikesHolder.DOLocalMove(_up, 0.3f)
-                        .SetEase(Ease.InExpo)
+                    _spikesHolder.DOLocalMove(_up, UP_DURATION)
+                        .SetEase(UP_EASE)
                         .OnComplete(() =>
                         {
                             var center = transform.position + new Vector3(1f, 1f, -1f);
@@ -73,8 +78,8 @@ namespace Faza
                 }
                 else
                 {
-                    _spikesHolder.DOLocalMove(_down, 0.3f)
-                        .SetEase(Ease.InExpo)
+                    _spikesHolder.DOLocalMove(_down, DOWN_DURATION)
+                        .SetEase(DOWN_EASE)
                         .OnComplete(() =>
                         {
                             _collider.enabled = false;

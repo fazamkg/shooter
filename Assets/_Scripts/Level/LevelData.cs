@@ -12,6 +12,7 @@ namespace Faza
     public class LevelData : ScriptableObject
     {
         private const string PHOTO_SIZE = "nonePhoto";
+        private const string NO_DATA = "no data";
 
         [SerializeField] private UpgradeGroupData[] _availableUpgrades;
         [SerializeField] private BoosterData[] _boostersToUnlock;
@@ -112,7 +113,7 @@ namespace Faza
             YandexGame.onGetLeaderboard -= OnGetLeaderboard;
             _leaderboard.Clear();
 
-            _leaderboardSuccess = data.entries != "no data";
+            _leaderboardSuccess = data.entries != NO_DATA;
 
             foreach (var entry in data.players)
             {

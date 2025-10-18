@@ -9,6 +9,7 @@ namespace Faza
         public event Action OnTick;
 
         private const string TIME_FORMAT = @"mm\:ss\.fff";
+        private const float TICK_INTERVAL_SECONDS = 0.1f;
 
         private TimeSpan _elapsed;
         private double _from;
@@ -42,7 +43,7 @@ namespace Faza
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(TICK_INTERVAL_SECONDS);
                 OnTick?.Invoke();
             }
         }

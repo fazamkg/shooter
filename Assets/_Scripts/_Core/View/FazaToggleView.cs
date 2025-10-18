@@ -7,6 +7,10 @@ namespace Faza
 {
     public class FazaToggleView : MonoBehaviour
     {
+        private const float WIDTH = 30f;
+        private const float TWEEN_DURATION = 0.3f;
+        private const Ease TWEEN_EASE = Ease.InOutCirc;
+
         public event Action OnToggle;
 
         [SerializeField] private Button _button;
@@ -20,7 +24,8 @@ namespace Faza
         {
             IsOn = isOn;
 
-            _point.SetAnchorPosX(IsOn ? (_itself.sizeDelta.x - 30f) : (0f + 30f));
+            _point.SetAnchorPosX(IsOn ? (_itself.sizeDelta.x - WIDTH) : WIDTH);
+
             _fill.fillAmount = IsOn ? 1f : 0f;
         }
 
@@ -35,10 +40,10 @@ namespace Faza
 
             _point.DOKill();
             _fill.DOKill();
-            _point.DOAnchorPosX(IsOn ? (_itself.sizeDelta.x - 30f) : (0f + 30f), 0.3f)
-                .SetEase(Ease.InOutCirc);
-            _fill.DOFillAmount(IsOn ? 1f : 0f, 0.3f)
-                .SetEase(Ease.InOutCirc);
+            _point.DOAnchorPosX(IsOn ? (_itself.sizeDelta.x - WIDTH) : WIDTH, TWEEN_DURATION)
+                .SetEase(TWEEN_EASE);
+            _fill.DOFillAmount(IsOn ? 1f : 0f, TWEEN_DURATION)
+                .SetEase(TWEEN_EASE);
 
             OnToggle?.Invoke();
         }

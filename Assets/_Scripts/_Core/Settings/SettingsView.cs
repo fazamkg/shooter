@@ -5,6 +5,10 @@ namespace Faza
 {
     public class SettingsView : MonoBehaviour
     {
+        private const Ease APPEAR_EASE = Ease.OutBack;
+        private const Ease DISAPPEAR_EASE = Ease.InBack;
+        private const float TWEEN_DURATION = 0.3f;
+
         [SerializeField] private FazaToggleView _audioToggle;
         [SerializeField] private FazaButtonView _closeButton;
         [SerializeField] private FazaButtonView _backToMenuButton;
@@ -28,12 +32,12 @@ namespace Faza
 
         public void Appear()
         {
-            transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
+            transform.DOScale(1f, TWEEN_DURATION).SetEase(APPEAR_EASE);
         }
 
         public void Disappear()
         {
-            transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+            transform.DOScale(0f, TWEEN_DURATION).SetEase(DISAPPEAR_EASE);
         }
 
         private void BackToMenuButton_OnUp()

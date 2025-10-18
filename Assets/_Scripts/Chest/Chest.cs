@@ -6,6 +6,14 @@ namespace Faza
 {
     public class Chest : MonoBehaviour
     {
+        private const float OPEN_ANGLE = 90f;
+        private const float OPEN_DURATION = 0.3f;
+        private const Ease OPEN_EASE = Ease.InOutCirc;
+        private const float DISAPPEAR_DURATION = 0.3f;
+        private const float PLAYER_WARP_DURATION = 0.3f;
+        private const Ease PLAYER_WARP_EASE = Ease.InOutCirc;
+        private const Ease DISAPPEAR_EASE = Ease.InOutCirc;
+
         [SerializeField] private Transform _playerMagnetPos;
         [SerializeField] private Transform _lid;
         [SerializeField] private int _coinAmount;
@@ -32,7 +40,7 @@ namespace Faza
 
             _source.Play();
 
-            seq.Append(_lid.DOLocalRotate(new(90f, 0f, 0f), 0.3f).SetEase(Ease.InOutCirc));
+            seq.Append(_lid.DOLocalRotate(new(OPEN_ANGLE, 0f, 0f), OPEN_DURATION).SetEase(OPEN_EASE));
 
             for (var i = 0; i < _coinAmount; i++)
             {
@@ -52,13 +60,13 @@ namespace Faza
                 seq.AppendInterval(0.1f);
             }
 
-            seq.Append(transform.DOScale(0f, 0.3f).SetEase(Ease.InOutCirc));
+            seq.Append(transform.DOScale(0f, DISAPPEAR_DURATION).SetEase(DISAPPEAR_EASE));
         }
 
         private IEnumerator MagnetPlayerCoroutine()
         {
             yield return PlayerInput.Instance.Character.SmoothWarp
-                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc)
+                (_playerMagnetPos.position, PLAYER_WARP_DURATION).SetEase(PLAYER_WARP_EASE)
                 .WaitForCompletion();
 
             yield return PlayerInput.Instance.Character.RotateTowardsCoroutine

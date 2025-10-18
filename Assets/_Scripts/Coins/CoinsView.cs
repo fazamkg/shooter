@@ -6,6 +6,14 @@ namespace Faza
 {
     public class CoinsView : MonoBehaviour
     {
+        private const float JUMP_POWER = 20f;
+        private const float JUMP_DURATION = 0.5f;
+        private const Ease JUMP_EASE = Ease.InCirc;
+        private const float ICON_TARGET_SCALE = 1.2f;
+        private const float ICON_TWEEN_DURATION = 0.15f;
+        private const Ease ICON_EASE = Ease.Linear;
+        private const float COIN_SOUND_VOLUME = 0.5f;
+
         [SerializeField] private RectTransform _icon;
         [SerializeField] private TMP_Text[] _texts;
         [SerializeField] private RectTransform _coinPrefab;
@@ -52,19 +60,19 @@ namespace Faza
             coin.position = Camera.main.WorldToScreenPoint(worldPosition);
 
             var seq = DOTween.Sequence();
-            seq.Append(coin.DOJumpAnchorPos(_icon.anchoredPosition, 20f, 1, 0.5f).SetEase(Ease.InCirc));
+            seq.Append(coin.DOJumpAnchorPos(_icon.anchoredPosition, JUMP_POWER, 1, JUMP_DURATION).SetEase(JUMP_EASE));
             seq.AppendCallback(() => coin.gameObject.SetActive(false));
-            seq.Append(_icon.DOScale(1.2f, 0.15f).SetEase(Ease.Linear));
+            seq.Append(_icon.DOScale(ICON_TARGET_SCALE, ICON_TWEEN_DURATION).SetEase(ICON_EASE));
             seq.AppendCallback(() =>
             {
-                FazaAudio.Play(AudioKey.COIN, 0.5f);
+                FazaAudio.Play(AudioKey.COIN, COIN_SOUND_VOLUME);
 
                 foreach (var text in _texts)
                 {
                     text.text = newValue.ToString();
                 }
             });
-            seq.Append(_icon.DOScale(1f, 0.15f).SetEase(Ease.Linear));
+            seq.Append(_icon.DOScale(1f, ICON_TWEEN_DURATION).SetEase(ICON_EASE));
         }
     } 
 }
