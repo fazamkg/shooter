@@ -5,6 +5,7 @@ namespace Faza
     public abstract class CharacterInput : MonoBehaviour
     {
         public abstract float GetCameraX();
+
         public abstract float GetCameraY();
 
         public abstract Vector3 GetMove();
