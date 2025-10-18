@@ -3,9 +3,9 @@ using DG.Tweening;
 
 namespace Faza
 {
-    public class InfoButton : MonoBehaviour
+    public class InfoButtonView : MonoBehaviour
     {
-        [SerializeField] private MyButton _button;
+        [SerializeField] private MyButtonView _button;
         [SerializeField] private RectTransform _pop;
 
         private bool _opened;

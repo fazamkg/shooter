@@ -5,7 +5,7 @@ namespace Faza
 {
     public class LevelButtonView : MonoBehaviour
     {
-        [SerializeField] private MyButton _button;
+        [SerializeField] private MyButtonView _button;
         [SerializeField] private TMP_Text[] _texts;
         [SerializeField] private TMP_Text[] _timespanTexts;
         [SerializeField] private TMP_Text[] _rankTexts;

@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace Faza
 {
-    public class UserInterface : MonoBehaviour
+    public class UserInterfaceView : MonoBehaviour
     {
         [SerializeField] private LevelData _levelData;
         [SerializeField] private Health _playerHealth;
-        [SerializeField] private MyButton _settingsButton;
-        [SerializeField] private SettingsPanel _settingsPanel;
+        [SerializeField] private MyButtonView _settingsButton;
+        [SerializeField] private SettingsView _settingsPanel;
         [SerializeField] private RectTransform _leftJoystick;
         [SerializeField] private RectTransform _rightJoystick;
-        [SerializeField] private LoseScreen _loseScreen;
-        [SerializeField] private WinScreen _winScreen;
-        [SerializeField] private UpgradeScreen _upgradeScreen;
+        [SerializeField] private LoseScreenView _loseScreen;
+        [SerializeField] private WinScreenView _winScreen;
+        [SerializeField] private UpgradeScreenView _upgradeScreen;
         [SerializeField] private LevelTimer _levelTimer;
-        [SerializeField] private BoosterChoicePanel _boosterChoicePanel;
+        [SerializeField] private BoosterChoiceView _boosterChoicePanel;
         [SerializeField] private AllBoostersView _allBoostersView;
         [SerializeField] private BoosterData[] _allBoosters;
         [SerializeField] private CanvasGroup _gameCanvas;

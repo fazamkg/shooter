@@ -10,7 +10,7 @@ namespace Faza
     {
         public static event Action<BoosterData> OnChoiceWindow;
 
-        [SerializeField] private MyButton _button;
+        [SerializeField] private MyButtonView _button;
         [SerializeField] private TMP_Text[] _amountTexts;
         [SerializeField] private Image _icon;
         [SerializeField] private Image _clock;

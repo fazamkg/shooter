@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 namespace Faza
 {
-    public class BoosterChoicePanel : MonoBehaviour
+    public class BoosterChoiceView : MonoBehaviour
     {
-        [SerializeField] private MyButton _closeButton;
-        [SerializeField] private MyButton _mainButton;
-        [SerializeField] private MyButton _altButton;
+        [SerializeField] private MyButtonView _closeButton;
+        [SerializeField] private MyButtonView _mainButton;
+        [SerializeField] private MyButtonView _altButton;
         [SerializeField] private Image _mainIcon;
         [SerializeField] private Image _altIcon;
         [SerializeField] private Image _boosterIcon;

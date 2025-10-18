@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace Faza
 {
-    public class LoseScreen : MonoBehaviour
+    public class LoseScreenView : MonoBehaviour
     {
         [SerializeField] private RectTransform _title;
-        [SerializeField] private MyButton _restartButton;
+        [SerializeField] private MyButtonView _restartButton;
         [SerializeField] private CanvasGroup _group;
 
         private void Awake()

@@ -260,7 +260,7 @@ namespace Faza
             });
             Console.AddCommand("win", (args) =>
             {
-                var ui = FindObjectOfType<UserInterface>();
+                var ui = FindObjectOfType<UserInterfaceView>();
                 ui.Win(10f);
             });
             #endregion

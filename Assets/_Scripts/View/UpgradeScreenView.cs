@@ -4,12 +4,12 @@ using System;
 
 namespace Faza
 {
-    public class UpgradeScreen : MonoBehaviour
+    public class UpgradeScreenView : MonoBehaviour
     {
         public event Action OnClosed;
 
         [SerializeField] private RectTransform _title;
-        [SerializeField] private MyButton _nextButton;
+        [SerializeField] private MyButtonView _nextButton;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private Transform _upgradeParent;
         [SerializeField] private UpgradeView _upgradeViewPrefab;

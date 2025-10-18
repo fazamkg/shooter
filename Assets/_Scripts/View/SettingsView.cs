@@ -3,11 +3,11 @@ using DG.Tweening;
 
 namespace Faza
 {
-    public class SettingsPanel : MonoBehaviour
+    public class SettingsView : MonoBehaviour
     {
-        [SerializeField] private MyToggle _audioToggle;
-        [SerializeField] private MyButton _closeButton;
-        [SerializeField] private MyButton _backToMenuButton;
+        [SerializeField] private MyToggleView _audioToggle;
+        [SerializeField] private MyButtonView _closeButton;
+        [SerializeField] private MyButtonView _backToMenuButton;
 
         private void Awake()
         {

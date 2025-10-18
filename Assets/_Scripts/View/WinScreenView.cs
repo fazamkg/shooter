@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Faza
 {
-    public class WinScreen : MonoBehaviour
+    public class WinScreenView : MonoBehaviour
     {
         [SerializeField] private RectTransform _title;
         [SerializeField] private RectTransform _timerBefore;
         [SerializeField] private RectTransform _timer;
-        [SerializeField] private MyButton _nextButton;
+        [SerializeField] private MyButtonView _nextButton;
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private LeaderboardEntryView _firstPlace;
         [SerializeField] private LeaderboardEntryView _secondPlace;

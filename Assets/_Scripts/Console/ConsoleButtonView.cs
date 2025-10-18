@@ -5,7 +5,7 @@ using System;
 
 namespace Faza
 {
-    public class ConsoleButton : MonoBehaviour
+    public class ConsoleButtonView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Button _button;

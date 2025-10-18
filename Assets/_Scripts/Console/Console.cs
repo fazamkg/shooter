@@ -13,7 +13,7 @@ namespace Faza
     public class Console : MonoBehaviour
     {
         [SerializeField] private Button _toggleButton;
-        [SerializeField] private ConsoleButton _buttonPrefab;
+        [SerializeField] private ConsoleButtonView _buttonPrefab;
         [SerializeField] private Transform _buttonParent;
         [SerializeField] private GameObject _toggleObject;
         [SerializeField] private TMP_InputField _inputField;

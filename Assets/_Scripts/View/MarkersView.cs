@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Faza
 {
     [DefaultExecutionOrder(-1)]
-    public class Markers : MonoBehaviour
+    public class MarkersView : MonoBehaviour
     {
         [SerializeField] private Transform _parent;
         [SerializeField] private RectTransform _markerPrefab;

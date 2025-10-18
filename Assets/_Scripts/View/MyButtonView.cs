@@ -5,7 +5,7 @@ using System;
 
 namespace Faza
 {
-    public class MyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler,
+    public class MyButtonView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler,
         IPointerExitHandler
     {
         public event Action OnUp;

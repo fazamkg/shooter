@@ -5,7 +5,7 @@ using System;
 
 namespace Faza
 {
-    public class MyToggle : MonoBehaviour
+    public class MyToggleView : MonoBehaviour
     {
         public event Action OnToggle;
 
