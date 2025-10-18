@@ -37,19 +37,6 @@ namespace Faza
 
             BoosterView.OnChoiceWindow += BoosterView_OnChoiceWindow;
 
-            /*
-            var isLefty = Settings.IsLefty;
-            if (isLefty)
-            {
-                _leftJoystick.localScale = Vector3.one;
-                _rightJoystick.localScale = Vector3.zero;
-            }
-            else
-            {
-                _leftJoystick.localScale = Vector3.zero;
-                _rightJoystick.localScale = Vector3.one;
-            }*/
-
             _upgradeScreen.Init();
 
             if (_levelData.AvailableUpgrades != null && _levelData.AvailableUpgrades.Length != 0)
