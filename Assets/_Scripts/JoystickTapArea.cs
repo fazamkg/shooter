@@ -9,6 +9,19 @@ namespace Faza
 
         private RectTransform _current;
 
+        private void Update()
+        {
+            // for some reason we have joystick floating
+            // but player is not holding his finger
+            // THEN delete it
+            if (Input.GetMouseButton(0) == false && _current != null)
+            {
+                _current.GetComponentInChildren<JoystickView>().OnDown();
+                Destroy(_current.gameObject);
+                _current = null;
+            }
+        }
+
         public void OnPointerDown(PointerEventData eventData)
         {
             if (_current != null) return;
@@ -26,19 +39,6 @@ namespace Faza
             _current.GetComponentInChildren<JoystickView>().OnDown();
             Destroy(_current.gameObject);
             _current = null;
-        }
-
-        private void Update()
-        {
-            // for some reason we have joystick floating
-            // but player is not holding his finger
-            // THEN delete it
-            if (Input.GetMouseButton(0) == false && _current != null)
-            {
-                _current.GetComponentInChildren<JoystickView>().OnDown();
-                Destroy(_current.gameObject);
-                _current = null;
-            }
         }
     }
 }

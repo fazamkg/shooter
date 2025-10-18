@@ -18,11 +18,6 @@ namespace Faza
             _restartButton.OnUp += RestartButton_OnUp;
         }
 
-        private void RestartButton_OnUp()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         public void Appear()
         {
             _group.blocksRaycasts = true;
@@ -36,6 +31,11 @@ namespace Faza
             seq.AppendInterval(0.3f);
             seq.Append(_restartButton.transform.DOScale(1f, 0.3f).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
+        }
+
+        private void RestartButton_OnUp()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     } 
 }

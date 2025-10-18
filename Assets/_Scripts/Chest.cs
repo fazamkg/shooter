@@ -26,18 +26,6 @@ namespace Faza
             StartCoroutine(MagnetPlayerCoroutine());
         }
 
-        private IEnumerator MagnetPlayerCoroutine()
-        {
-            yield return PlayerInput.Instance.Character.SmoothWarp
-                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc)
-                .WaitForCompletion();
-
-            yield return PlayerInput.Instance.Character.RotateTowardsCoroutine
-                (transform.position, 1000f);
-
-            PlayerInput.Instance.CharacterAnimator.PlayOutOpenChestAnimation(this);
-        }
-
         public void PlayOpenChestAnimation()
         {
             var seq = DOTween.Sequence();
@@ -64,8 +52,20 @@ namespace Faza
                 });
                 seq.AppendInterval(0.1f);
             }
-            
+
             seq.Append(transform.DOScale(0f, 0.3f).SetEase(Ease.InOutCirc));
+        }
+
+        private IEnumerator MagnetPlayerCoroutine()
+        {
+            yield return PlayerInput.Instance.Character.SmoothWarp
+                (_playerMagnetPos.position, 0.3f).SetEase(Ease.InOutCirc)
+                .WaitForCompletion();
+
+            yield return PlayerInput.Instance.Character.RotateTowardsCoroutine
+                (transform.position, 1000f);
+
+            PlayerInput.Instance.CharacterAnimator.PlayOutOpenChestAnimation(this);
         }
     } 
 }

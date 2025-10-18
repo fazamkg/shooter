@@ -49,11 +49,6 @@ namespace Faza
         }
         public CharacterController CharacterController => _characterController;
 
-        public void AddSpeed(float value)
-        {
-            _speedMod.AddModifier(ModifierType.Flat, "spd-flat", value);
-        }
-
         private void Awake()
         {
             _characterController.enableOverlapRecovery = false;
@@ -143,6 +138,11 @@ namespace Faza
             //}
         }
 
+        public void AddSpeed(float value)
+        {
+            _speedMod.AddModifier(ModifierType.Flat, "spd-flat", value);
+        }
+
         public void Stop(float duration)
         {
             if (_stopCoroutine != null)
@@ -150,17 +150,6 @@ namespace Faza
                 StopCoroutine(_stopCoroutine);
             }
             _stopCoroutine = StartCoroutine(StopCharacterCoroutine(duration));
-        }
-
-        private IEnumerator StopCharacterCoroutine(float duration)
-        {
-            _ownHorizontalVelocity = Vector3.zero;
-            _outsideHorizontalVelocity = Vector3.zero;
-            enabled = false;
-            yield return new WaitForSeconds(duration);
-            enabled = true;
-            _ownHorizontalVelocity = Vector3.zero;
-            _outsideHorizontalVelocity = Vector3.zero;
         }
 
         public void ResetSpeeds()
@@ -250,6 +239,17 @@ namespace Faza
             });
 
             return seq;
+        }
+
+        private IEnumerator StopCharacterCoroutine(float duration)
+        {
+            _ownHorizontalVelocity = Vector3.zero;
+            _outsideHorizontalVelocity = Vector3.zero;
+            enabled = false;
+            yield return new WaitForSeconds(duration);
+            enabled = true;
+            _ownHorizontalVelocity = Vector3.zero;
+            _outsideHorizontalVelocity = Vector3.zero;
         }
     }
 }

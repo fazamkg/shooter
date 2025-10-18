@@ -38,12 +38,6 @@ namespace Faza
             _critGlow.SetActive(false);
         }
 
-        public void ActivateCritGlow()
-        {
-            _trail.enabled = false;
-            _critGlow.SetActive(true);
-        }
-
         private void FixedUpdate()
         {
             _verticalSpeed -= _gravity * Time.fixedDeltaTime;
@@ -99,6 +93,12 @@ namespace Faza
                     bulletHole.transform.Rotate(0f, 0f, Random.Range(0f, 360f), Space.Self);
                 }
             }
+        }
+
+        public void ActivateCritGlow()
+        {
+            _trail.enabled = false;
+            _critGlow.SetActive(true);
         }
     } 
 }

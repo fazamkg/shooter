@@ -14,14 +14,14 @@ namespace Faza
             LevelManager.Instance.LoadLevelFromSave();
         }
 
-        public void OnLevelCompleted(LevelData level)
-        {
-
-        }
-
         private void Update()
         {
             _bg.color = _bg.color.AddHue(Time.deltaTime * _speed);
+        }
+
+        public void OnLevelCompleted(LevelData level)
+        {
+
         }
     } 
 }

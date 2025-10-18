@@ -26,25 +26,6 @@ namespace Faza
             _collider.transform.SetParent(null);
         }
 
-        private IEnumerator ActivateCollider()
-        {
-            yield return new WaitForSeconds(1f);
-            _collider.enabled = true;
-            yield return new WaitForSeconds(0.3f);
-            AutoMagnet();
-        }
-
-        public void ActivateColliderDelayed()
-        {
-            StartCoroutine(ActivateCollider());
-        }
-
-        public void AutoMagnet()
-        {
-            _picked = true;
-            _player = PlayerInput.Instance;
-        }
-
         private void LateUpdate()
         {
             if (_picked == false)
@@ -80,8 +61,19 @@ namespace Faza
 
                 _toMove.localScale = Vector3.one * Mathf.Min(dist * 2f, 1f);
             }
-            
+
             _toRotate.Rotate(0f, Time.deltaTime * _speed, 0f, Space.World);
+        }
+
+        public void ActivateColliderDelayed()
+        {
+            StartCoroutine(ActivateCollider());
+        }
+
+        public void AutoMagnet()
+        {
+            _picked = true;
+            _player = PlayerInput.Instance;
         }
 
         public void MyOnTriggerEnter(Collider other)
@@ -94,5 +86,13 @@ namespace Faza
             _picked = true;
             _player = player;
         }
-    } 
+
+        private IEnumerator ActivateCollider()
+        {
+            yield return new WaitForSeconds(1f);
+            _collider.enabled = true;
+            yield return new WaitForSeconds(0.3f);
+            AutoMagnet();
+        }
+    }
 }

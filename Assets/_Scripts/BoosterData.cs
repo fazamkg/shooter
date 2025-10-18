@@ -97,45 +97,15 @@ namespace Faza
 
         public float Duration => _duration;
 
-        private void OnSuccess()
+        public static void Init()
         {
-            PurchaseCountPref++;
-            if (PurchaseCountPref >= _purchaseCount)
-            {
-                PurchaseCountPref = 0;
-                AmountPref += _boosterAmount;
-            }
-
-            OnUpdated?.Invoke();
+            _runningBoosters.Clear();
         }
 
         public void GiveFreeAmount()
         {
             AmountPref++;
             OnUpdated?.Invoke();
-        }
-
-        private void OnSuccessAlt()
-        {
-            AltPurchaseCountPref++;
-            if (AltPurchaseCountPref >= _altPurchaseCount)
-            {
-                AltPurchaseCountPref = 0;
-                AmountPref += _altBoosterAmount;
-            }
-
-            OnUpdated?.Invoke();
-        }
-
-        private IEnumerator WaitBoosterCoroutine()
-        {
-            yield return new WaitForSeconds(_duration);
-            foreach (var effect in _effects)
-            {
-                effect.Remove();
-            }
-
-            _runningBoosters.Remove(this);
         }
 
         public void Apply()
@@ -202,9 +172,39 @@ namespace Faza
             return _runningBoosters.Contains(booster);
         }
 
-        public static void Init()
+        private void OnSuccess()
         {
-            _runningBoosters.Clear();
+            PurchaseCountPref++;
+            if (PurchaseCountPref >= _purchaseCount)
+            {
+                PurchaseCountPref = 0;
+                AmountPref += _boosterAmount;
+            }
+
+            OnUpdated?.Invoke();
+        }
+
+        private void OnSuccessAlt()
+        {
+            AltPurchaseCountPref++;
+            if (AltPurchaseCountPref >= _altPurchaseCount)
+            {
+                AltPurchaseCountPref = 0;
+                AmountPref += _altBoosterAmount;
+            }
+
+            OnUpdated?.Invoke();
+        }
+
+        private IEnumerator WaitBoosterCoroutine()
+        {
+            yield return new WaitForSeconds(_duration);
+            foreach (var effect in _effects)
+            {
+                effect.Remove();
+            }
+
+            _runningBoosters.Remove(this);
         }
     } 
 }

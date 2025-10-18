@@ -48,21 +48,6 @@ namespace Faza
         private float MovementDelay => Mathf.Max(_movementDelay - _modShootSpeed.Evaluate(), 0f);
         public float ShootSpeed => _shootSpeed + _modShootSpeed.Evaluate();
 
-        public void AddDamage(float damage)
-        {
-            _modDamage.AddModifier(ModifierType.Flat, "dmg-flag", damage);
-        }
-
-        public void AddProjectileSpeed(float speed)
-        {
-            _speed += speed;
-        }
-
-        public void AddShootingSpeed(float speed)
-        {
-            _modShootSpeed.AddModifier(ModifierType.Flat, "sh-speed-flat", speed);
-        }
-
         private void Awake()
         {
             _modDamage.Init();
@@ -137,6 +122,42 @@ namespace Faza
             StartCoroutine(ShootCoroutine(target));
         }
 
+        public void AddDamage(float damage)
+        {
+            _modDamage.AddModifier(ModifierType.Flat, "dmg-flag", damage);
+        }
+
+        public void AddProjectileSpeed(float speed)
+        {
+            _speed += speed;
+        }
+
+        public void AddShootingSpeed(float speed)
+        {
+            _modShootSpeed.AddModifier(ModifierType.Flat, "sh-speed-flat", speed);
+        }
+
+        public void FireBullet()
+        {
+            _muzzleEffect.Play();
+
+            var bullet = Instantiate(_bulletPrefab);
+            bullet.transform.position = _bulletOrigin.position;
+            var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
+            bullet.Init(Damage, BulletSpeed, direction, TargetTransform, Gravity, Decay);
+            if (BoosterData.IsBoosterRunning(_critBooster))
+            {
+                _source.PlayOneShot(_critClip);
+                bullet.ActivateCritGlow();
+            }
+            else
+            {
+                _source.PlayOneShot(_clip);
+            }
+
+            BulletFired = true;
+        }
+
         private IEnumerator ShootCoroutine(Vector3 target)
         {
             BulletFired = false;
@@ -162,27 +183,6 @@ namespace Faza
         {
             yield return new WaitForSeconds(MovementDelay);
             _shoot = false;
-        }
-
-        public void FireBullet()
-        {
-            _muzzleEffect.Play();
-
-            var bullet = Instantiate(_bulletPrefab);
-            bullet.transform.position = _bulletOrigin.position;
-            var direction = (Target.WithY(0f) - transform.position.WithY(0f)).normalized;
-            bullet.Init(Damage, BulletSpeed, direction, TargetTransform, Gravity, Decay);
-            if (BoosterData.IsBoosterRunning(_critBooster))
-            {
-                _source.PlayOneShot(_critClip);
-                bullet.ActivateCritGlow();
-            }
-            else
-            {
-                _source.PlayOneShot(_clip);
-            }
-
-            BulletFired = true;
         }
     } 
 }

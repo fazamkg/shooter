@@ -16,17 +16,17 @@ namespace Faza
 
         public bool IsOn { get; private set; }
 
-        private void Awake()
-        {
-            _button.onClick.AddListener(OnClick);
-        }
-
         public void Init(bool isOn)
         {
             IsOn = isOn;
 
             _point.SetAnchorPosX(IsOn ? (_itself.sizeDelta.x - 30f) : (0f + 30f));
             _fill.fillAmount = IsOn ? 1f : 0f;
+        }
+
+        private void Awake()
+        {
+            _button.onClick.AddListener(OnClick);
         }
 
         private void OnClick()

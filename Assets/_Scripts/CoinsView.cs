@@ -36,7 +36,6 @@ namespace Faza
             }
         }
 
-
         private void Currency_OnCoinsAdded(float oldValue, float newValue, Vector3 worldPosition)
         {
             if (_instantUpdate)

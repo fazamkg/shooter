@@ -53,13 +53,6 @@ namespace Faza
             }
         }
 
-        private void Awake()
-        {
-            _all.Add(this);
-
-            Hide();
-        }
-
         public void Init(string command)
         {
             if (_firstCreatedWaypoint == null)
@@ -76,6 +69,24 @@ namespace Faza
             _lastCreatedWaypoint = this;
 
             _command = command;
+        }
+
+        private void Awake()
+        {
+            _all.Add(this);
+
+            Hide();
+        }
+
+        private void Update()
+        {
+            if (_meshRenderer.enabled == false) return;
+
+            foreach (var connection in _connections)
+            {
+                var color = IsMarked && connection.IsMarked ? Color.yellow : Color.red;
+                Line.Draw(Pos, connection.Pos, color);
+            }
         }
 
         public Waypoint GetStart()
@@ -237,17 +248,6 @@ namespace Faza
             if (_connections.Contains(waypoint) == false) return;
 
             _connections.Remove(waypoint);
-        }
-
-        private void Update()
-        {
-            if (_meshRenderer.enabled == false) return;
-
-            foreach (var connection in _connections)
-            {
-                var color = IsMarked && connection.IsMarked ? Color.yellow : Color.red;
-                Line.Draw(Pos, connection.Pos, color);
-            }
         }
 
 #if UNITY_EDITOR

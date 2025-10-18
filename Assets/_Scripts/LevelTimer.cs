@@ -15,6 +15,15 @@ namespace Faza
 
         public string AsText => _elapsed.ToString(@"mm\:ss\.fff");
 
+        private void Update()
+        {
+            var time = Time.realtimeSinceStartupAsDouble;
+
+            var delta = time - _from;
+
+            _elapsed = TimeSpan.FromSeconds(delta);
+        }
+
         public void StartTimer()
         {
             _from = Time.realtimeSinceStartupAsDouble;
@@ -25,15 +34,6 @@ namespace Faza
         {
             enabled = false;
             StopAllCoroutines();
-        }
-
-        private void Update()
-        {
-            var time = Time.realtimeSinceStartupAsDouble;
-
-            var delta = time - _from;
-
-            _elapsed = TimeSpan.FromSeconds(delta);
         }
 
         private IEnumerator Tick()

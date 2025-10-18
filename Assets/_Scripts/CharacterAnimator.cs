@@ -42,44 +42,6 @@ namespace Faza
 
         public Transform HealthbarPoint => _healthbarPoint;
 
-        public string IncrementAnimationSet()
-        {
-            _animationSetIndex++;
-            _animationSetIndex %= _animationSets.Length;
-            _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
-            return _animator.runtimeAnimatorController.name;
-        }
-
-        // called from animation event
-        public void Fire()
-        {
-            //_shooter.FireBullet();
-        }
-
-        // animation event
-        public void FinishFire()
-        {
-            //_shooter.FinishFire();
-        }
-
-        // animation event
-        public void MeleeAttack()
-        {
-            var distance = Vector3.Distance(transform.position, _meleeAttack.Target.position);
-
-            if (distance > _meleeAttack.Range + 0.2f) return;
-
-            var health = _meleeAttack.Target.GetComponent<Health>();
-            var direction = Quaternion.Euler(0f, _character.Yaw, 0f) * Vector3.forward;
-            health.TakeDamage(_meleeAttack.Damage, direction);
-        }
-
-        // animation event
-        public void FinishMeleeAttack()
-        {
-            //_meleeAttack.FinishAttack();
-        }
-
         private void Awake()
         {
             if (_rigs != null)
@@ -101,29 +63,6 @@ namespace Faza
                 _animator.SetFloat("IdleVariant", _idles.GetRandom());
                 StartCoroutine(SwitchIdle());
             }
-        }
-
-        private IEnumerator SwitchIdle()
-        {
-            while (true)
-            {
-                var randomDuration = Random.Range(_switchIdleMinDuration, _switchIdleMaxDuration);
-                yield return new WaitForSeconds(randomDuration);
-
-                _animator.DOFloat("IdleVariant", _idles.GetRandom(), 0.3f);
-            }
-        }
-
-        private void Health_OnHealthChanged()
-        {
-            if (_health.CurrentHealth <= 0f) return;
-            _animator.CrossFadeInFixedTime("Hit", 0.05f);
-        }
-
-        private void Health_OnDeath()
-        {
-            _animator.CrossFadeInFixedTime("Death", 0.05f);
-            enabled = false;
         }
 
         private void Update()
@@ -195,11 +134,42 @@ namespace Faza
             }
         }
 
-        private IEnumerator FireCoroutine()
+        public string IncrementAnimationSet()
         {
-            var dur = _shootClip.length / _shooter.ShootSpeed * 0.2428f;
-            yield return new WaitForSeconds(dur);
-            _shooter.FireBullet();
+            _animationSetIndex++;
+            _animationSetIndex %= _animationSets.Length;
+            _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
+            return _animator.runtimeAnimatorController.name;
+        }
+
+        // called from animation event
+        public void Fire()
+        {
+            //_shooter.FireBullet();
+        }
+
+        // animation event
+        public void FinishFire()
+        {
+            //_shooter.FinishFire();
+        }
+
+        // animation event
+        public void MeleeAttack()
+        {
+            var distance = Vector3.Distance(transform.position, _meleeAttack.Target.position);
+
+            if (distance > _meleeAttack.Range + 0.2f) return;
+
+            var health = _meleeAttack.Target.GetComponent<Health>();
+            var direction = Quaternion.Euler(0f, _character.Yaw, 0f) * Vector3.forward;
+            health.TakeDamage(_meleeAttack.Damage, direction);
+        }
+
+        // animation event
+        public void FinishMeleeAttack()
+        {
+            //_meleeAttack.FinishAttack();
         }
 
         public void Footstep()
@@ -236,6 +206,36 @@ namespace Faza
 
             _character.enabled = true;
             _character.CharacterController.enabled = true;
+        }
+
+        private IEnumerator SwitchIdle()
+        {
+            while (true)
+            {
+                var randomDuration = Random.Range(_switchIdleMinDuration, _switchIdleMaxDuration);
+                yield return new WaitForSeconds(randomDuration);
+
+                _animator.DOFloat("IdleVariant", _idles.GetRandom(), 0.3f);
+            }
+        }
+
+        private void Health_OnHealthChanged()
+        {
+            if (_health.CurrentHealth <= 0f) return;
+            _animator.CrossFadeInFixedTime("Hit", 0.05f);
+        }
+
+        private void Health_OnDeath()
+        {
+            _animator.CrossFadeInFixedTime("Death", 0.05f);
+            enabled = false;
+        }
+
+        private IEnumerator FireCoroutine()
+        {
+            var dur = _shootClip.length / _shooter.ShootSpeed * 0.2428f;
+            yield return new WaitForSeconds(dur);
+            _shooter.FireBullet();
         }
     } 
 }

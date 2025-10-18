@@ -24,55 +24,6 @@ namespace Faza
             _nextButton.OnUp += NextButton_OnUp;
         }
 
-        private void NextButton_OnUp()
-        {
-            LevelManager.Instance.LoadLevelFromSave(true);
-        }
-
-        private void InitLeaderboard(LevelData levelData)
-        {
-            var first = levelData.FirstPlace;
-            var second = levelData.SecondPlace;
-            var third = levelData.ThirdPlace;
-            var player = levelData.PlayerPlace;
-
-            if (first != null)
-            {
-                _firstPlace.Init(first);
-            }
-            else
-            {
-                _firstPlace.gameObject.SetActive(false);
-            }
-
-            if (second != null)
-            {
-                _secondPlace.Init(second);
-            }
-            else
-            {
-                _secondPlace.gameObject.SetActive(false);
-            }
-
-            if (third != null)
-            {
-                _thirdPlace.Init(third);
-            }
-            else
-            {
-                _thirdPlace.gameObject.SetActive(false);
-            }
-
-            if (player != null && levelData.Leaderboard.Count > 3)
-            {
-                _playerPlace.Init(player);
-            }
-            else
-            {
-                _playerPlace.gameObject.SetActive(false);
-            }
-        }
-
         public void Appear(LevelData levelData, float speed = 1f)
         {
             InitLeaderboard(levelData);
@@ -126,6 +77,55 @@ namespace Faza
 
             seq.Append(_nextButton.transform.DOScale(1f, 0.2f / speed).SetEase(Ease.InOutBack));
             seq.SetEase(Ease.Linear);
+        }
+
+        private void NextButton_OnUp()
+        {
+            LevelManager.Instance.LoadLevelFromSave(true);
+        }
+
+        private void InitLeaderboard(LevelData levelData)
+        {
+            var first = levelData.FirstPlace;
+            var second = levelData.SecondPlace;
+            var third = levelData.ThirdPlace;
+            var player = levelData.PlayerPlace;
+
+            if (first != null)
+            {
+                _firstPlace.Init(first);
+            }
+            else
+            {
+                _firstPlace.gameObject.SetActive(false);
+            }
+
+            if (second != null)
+            {
+                _secondPlace.Init(second);
+            }
+            else
+            {
+                _secondPlace.gameObject.SetActive(false);
+            }
+
+            if (third != null)
+            {
+                _thirdPlace.Init(third);
+            }
+            else
+            {
+                _thirdPlace.gameObject.SetActive(false);
+            }
+
+            if (player != null && levelData.Leaderboard.Count > 3)
+            {
+                _playerPlace.Init(player);
+            }
+            else
+            {
+                _playerPlace.gameObject.SetActive(false);
+            }
         }
     } 
 }

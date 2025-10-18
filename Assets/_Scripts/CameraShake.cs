@@ -48,20 +48,5 @@ namespace Faza
             transform.DOKill();
             transform.DOShakePosition(_enemyDuration, _enemyStrength, _enemyVibrato);
         }
-
-#if UNITY_EDITOR
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                ShakePlayer();
-            }
-
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                ShakeEnemy();
-            }
-        }
-#endif
     } 
 }

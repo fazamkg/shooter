@@ -67,6 +67,67 @@ namespace Faza
             AutoCompleteCommand();
         }
 
+        public static void AddButton(string name, Action action)
+        {
+            _instance.AddButtonInternal(name, action);
+        }
+
+        public static Coroutine StartCoroutine_(IEnumerator routine)
+        {
+            return _instance.StartCoroutine(routine);
+        }
+
+        public static void StopCoroutine_(IEnumerator routine)
+        {
+            _instance.StopCoroutine(routine);
+        }
+
+        public static void AddCommand(string name, Command action)
+        {
+            _instance.AddCommandInternal(name, action);
+        }
+
+        public static void Log(string message)
+        {
+            _instance.LogInternal(message);
+        }
+
+        public static void Bind(KeyCode keyCode, string expression)
+        {
+            _instance.BindInternal(keyCode, expression);
+        }
+
+        public static void StartReadingBinds()
+        {
+            _instance.StartReadingBindsInternal();
+        }
+
+        public static void StopReadingBinds()
+        {
+            _instance.StopReadingBindsInteral();
+        }
+
+        public static void OpenConsole()
+        {
+            _instance.OpenConsoleInternal();
+        }
+
+        public static void CloseConsole()
+        {
+            _instance.CloseConsoleInternal();
+        }
+
+        public static void PlayOneFrame()
+        {
+            IEnumerator playOneFrame()
+            {
+                Time.timeScale = 1f;
+                yield return null;
+                Time.timeScale = 0f;
+            }
+            StartCoroutine_(playOneFrame());
+        }
+
         private void AutoCompleteCommand()
         {
             if (_inputField.IsActive() == false) return;
@@ -166,67 +227,6 @@ namespace Faza
             Debug.Log(message);
             _console.text += $"{message}\n";
             _scrollRect.normalizedPosition = Vector2.zero;
-        }
-
-        public static void AddButton(string name, Action action)
-        {
-            _instance.AddButtonInternal(name, action);
-        }
-
-        public static Coroutine StartCoroutine_(IEnumerator routine)
-        {
-            return _instance.StartCoroutine(routine);
-        }
-
-        public static void StopCoroutine_(IEnumerator routine)
-        {
-            _instance.StopCoroutine(routine);
-        }
-
-        public static void AddCommand(string name, Command action)
-        {
-            _instance.AddCommandInternal(name, action);
-        }
-
-        public static void Log(string message)
-        {
-            _instance.LogInternal(message);
-        }
-
-        public static void Bind(KeyCode keyCode, string expression)
-        {
-            _instance.BindInternal(keyCode, expression);
-        }
-
-        public static void StartReadingBinds()
-        {
-            _instance.StartReadingBindsInternal();
-        }
-
-        public static void StopReadingBinds()
-        {
-            _instance.StopReadingBindsInteral();
-        }
-
-        public static void OpenConsole()
-        {
-            _instance.OpenConsoleInternal();
-        }
-
-        public static void CloseConsole()
-        {
-            _instance.CloseConsoleInternal();
-        }
-
-        public static void PlayOneFrame()
-        {
-            IEnumerator playOneFrame()
-            {
-                Time.timeScale = 1f;
-                yield return null;
-                Time.timeScale = 0f;
-            }
-            StartCoroutine_(playOneFrame());
         }
     } 
 }

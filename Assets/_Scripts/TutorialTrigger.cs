@@ -9,7 +9,6 @@ namespace Faza
 
         private void OnTriggerEnter(Collider other)
         {
-
             OnEnter?.Invoke();
         }
 

@@ -27,26 +27,6 @@ namespace Faza
             Health.OnHealthDestroyed += Health_OnHealthDestroyed;
         }
 
-        private void Health_OnHealthDestroyed(Health health)
-        {
-            var enemy = health.GetComponent<EnemyInput>();
-            if (enemy == false) return;
-
-            var marker = _markers[enemy];
-            Destroy(marker.gameObject);
-            _markers.Remove(enemy);
-        }
-
-        private void Health_OnHealthCreated(Health health)
-        {
-            var enemy = health.GetComponent<EnemyInput>();
-            if (enemy == false) return;
-
-            var marker = Instantiate(_markerPrefab, _parent);
-            marker.gameObject.name = enemy.gameObject.name;
-            _markers[enemy] = marker;
-        }
-
         private void Update()
         {
             foreach (var thing in _markers)
@@ -86,6 +66,26 @@ namespace Faza
                 marker.rotation = Quaternion.LookRotation(Vector3.forward, direction);
                 marker.position = screen;
             }
+        }
+
+        private void Health_OnHealthDestroyed(Health health)
+        {
+            var enemy = health.GetComponent<EnemyInput>();
+            if (enemy == false) return;
+
+            var marker = _markers[enemy];
+            Destroy(marker.gameObject);
+            _markers.Remove(enemy);
+        }
+
+        private void Health_OnHealthCreated(Health health)
+        {
+            var enemy = health.GetComponent<EnemyInput>();
+            if (enemy == false) return;
+
+            var marker = Instantiate(_markerPrefab, _parent);
+            marker.gameObject.name = enemy.gameObject.name;
+            _markers[enemy] = marker;
         }
     } 
 }

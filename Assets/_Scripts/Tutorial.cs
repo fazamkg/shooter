@@ -62,6 +62,95 @@ namespace Faza
             TutorialTrigger.OnEnter -= TutorialTrigger_OnEnter;
         }
 
+        private void Update()
+        {
+            if (_target != null)
+            {
+                var targetPosition = _transformType switch
+                {
+                    TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
+                    TransformType.Screen => _target.position
+                };
+
+                _position = Vector2.MoveTowards(_position, targetPosition,
+                    Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
+
+                _material.SetVector("_Position", (Vector4)_position);
+
+                _material.SetFloat("_Radius", (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
+            }
+        }
+
+        public void StartTutorial_1()
+        {
+            if (TutorialCompletedPref_1) return;
+
+            SetTarget(_initialTarget, TransformType.Screen, true);
+
+            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+
+            _triggerTouched = false;
+            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
+            StartCoroutine(TutorialCoroutine_1());
+        }
+
+        public void StartTutorial_2()
+        {
+            if (TutorialCompletedPref_2) return;
+
+            SetTarget(_initialTarget, TransformType.Screen, true);
+
+            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+
+            _triggerTouched = false;
+            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
+            StartCoroutine(TutorialCoroutine_2());
+        }
+
+        public void StartTutorial_3()
+        {
+            if (TutorialCompletedPref_3) return;
+
+            SetTarget(_initialTarget, TransformType.Screen, true);
+
+            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+
+            _triggerTouched = false;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
+            StartCoroutine(TutorialCoroutine_3());
+        }
+
+        public void StartTutorial_4()
+        {
+            if (TutorialCompletedPref_4) return;
+
+            SetTarget(_initialTarget, TransformType.Screen, true);
+
+            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+
+            _triggerTouched = false;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
+            StartCoroutine(TutorialCoroutine_4());
+        }
+
+        public void StartTutorial_5()
+        {
+            if (TutorialCompletedPref_5) return;
+
+            SetTarget(_initialTarget, TransformType.Screen, true);
+
+            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
+
+            _triggerTouched = false;
+            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
+
+            StartCoroutine(TutorialCoroutine_5());
+        }
+
         private void SetTarget(Transform target, TransformType type, bool instant = false)
         {
             _target = target;
@@ -79,18 +168,9 @@ namespace Faza
             }
         }
 
-        public void StartTutorial_1()
+        private void TutorialTrigger_OnEnter()
         {
-            if (TutorialCompletedPref_1) return;
-
-            SetTarget(_initialTarget, TransformType.Screen, true);
-
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
-
-            _triggerTouched = false;
-            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
-
-            StartCoroutine(TutorialCoroutine_1());
+            _triggerTouched = true;
         }
 
         private IEnumerator TutorialCoroutine_1()
@@ -133,25 +213,6 @@ namespace Faza
             yield return pop.Disappear().WaitForCompletion();
         }
 
-        public void StartTutorial_2()
-        {
-            if (TutorialCompletedPref_2) return;
-
-            SetTarget(_initialTarget, TransformType.Screen, true);
-
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
-
-            _triggerTouched = false;
-            TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
-
-            StartCoroutine(TutorialCoroutine_2());
-        }
-
-        private void TutorialTrigger_OnEnter()
-        {
-            _triggerTouched = true;
-        }
-
         private IEnumerator TutorialCoroutine_2()
         {
             yield return new WaitForSeconds(0.5f);
@@ -186,20 +247,6 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        public void StartTutorial_3()
-        {
-            if (TutorialCompletedPref_3) return;
-
-            SetTarget(_initialTarget, TransformType.Screen, true);
-
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
-
-            _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
-
-            StartCoroutine(TutorialCoroutine_3());
-        }
-
         private IEnumerator TutorialCoroutine_3()
         {
             PlayerInput.Instance.Disable();
@@ -223,20 +270,6 @@ namespace Faza
             seq.Join(TweenAlpha(0f, 0.3f));
 
             yield return seq.WaitForCompletion();
-        }
-
-        public void StartTutorial_4()
-        {
-            if (TutorialCompletedPref_4) return;
-
-            SetTarget(_initialTarget, TransformType.Screen, true);
-
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
-
-            _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
-
-            StartCoroutine(TutorialCoroutine_4());
         }
 
         private IEnumerator TutorialCoroutine_4()
@@ -267,20 +300,6 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        public void StartTutorial_5()
-        {
-            if (TutorialCompletedPref_5) return;
-
-            SetTarget(_initialTarget, TransformType.Screen, true);
-
-            _material.SetColor("_Color", new(0f, 0f, 0f, 0f));
-
-            _triggerTouched = false;
-            //TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
-
-            StartCoroutine(TutorialCoroutine_5());
-        }
-
         private IEnumerator TutorialCoroutine_5()
         {
             PlayerInput.Instance.Disable();
@@ -307,25 +326,6 @@ namespace Faza
             seq.Join(TweenAlpha(0f, 0.3f));
 
             yield return seq.WaitForCompletion();
-        }
-
-        private void Update()
-        {
-            if (_target != null)
-            {
-                var targetPosition = _transformType switch
-                {
-                    TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
-                    TransformType.Screen => _target.position
-                };
-
-                _position = Vector2.MoveTowards(_position, targetPosition,
-                    Time.deltaTime * _targetSpeed * _canvas.scaleFactor);
-
-                _material.SetVector("_Position", (Vector4)_position);
-
-                _material.SetFloat("_Radius", (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
-            }
         }
 
         private Tween TweenAlpha(float to, float duration)

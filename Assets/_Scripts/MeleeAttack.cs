@@ -25,15 +25,10 @@ namespace Faza
             _health.OnDeath += Health_OnDeath;
         }
 
-        private void Health_OnDeath()
-        {
-            enabled = false;
-        }
-
         private void Update()
         {
             if (WithinAttack) return;
-            
+
             var amount = Physics.OverlapSphereNonAlloc(transform.position, _range, _colliders, _mask);
             for (var i = 0; i < amount; i++)
             {
@@ -49,15 +44,20 @@ namespace Faza
             }
         }
 
+        public void FinishAttack()
+        {
+            StartCoroutine(FinishAttackCoroutine());
+        }
+
+        private void Health_OnDeath()
+        {
+            enabled = false;
+        }
+
         private IEnumerator FinishAttackCoroutine()
         {
             yield return new WaitForSeconds(_finishDelay);
             WithinAttack = false;
-        }
-
-        public void FinishAttack()
-        {
-            StartCoroutine(FinishAttackCoroutine());
         }
     } 
 }

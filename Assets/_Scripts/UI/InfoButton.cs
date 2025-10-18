@@ -16,6 +16,18 @@ namespace Faza
             _pop.localScale = Vector3.zero;
         }
 
+        private void Update()
+        {
+            if (_opened == false) return;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                _pop.DOKill();
+                _pop.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+                _opened = false;
+            }
+        }
+
         private void Button_OnUp()
         {
             if (_opened == false)
@@ -31,17 +43,5 @@ namespace Faza
                 _opened = false;
             }
         }
-
-        private void Update()
-        {
-            if (_opened == false) return;
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                _pop.DOKill();
-                _pop.DOScale(0f, 0.3f).SetEase(Ease.InBack);
-                _opened = false;
-            }
-        }
-    } 
+    }
 }

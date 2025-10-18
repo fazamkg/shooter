@@ -29,11 +29,17 @@ namespace Faza
             health.OnHealthChanged += Health_OnHealthChanged;
         }
 
-        private void Health_OnHealthChanged()
+        private void LateUpdate()
         {
-            _shakeTransform.DOShakePosition(_shakeDuration, _shakeStrength, _shakeVibrato);
-            
-            UpdateView(_health.CurrentHealth, _health.MaxHealth);
+            if (_target == null) return;
+
+            if (_camera == null)
+            {
+                _camera = Camera.main;
+            }
+
+            var pos = _target.position + _offset;
+            transform.position = _camera.WorldToScreenPoint(pos) + _screenOffset;
         }
 
         public void InstantUpdateView(float current, float max)
@@ -64,17 +70,11 @@ namespace Faza
                 .OnComplete(() => Destroy(gameObject));
         }
 
-        private void LateUpdate()
+        private void Health_OnHealthChanged()
         {
-            if (_target == null) return;
+            _shakeTransform.DOShakePosition(_shakeDuration, _shakeStrength, _shakeVibrato);
 
-            if (_camera == null)
-            {
-                _camera = Camera.main;
-            }
-
-            var pos = _target.position + _offset;
-            transform.position = _camera.WorldToScreenPoint(pos) + _screenOffset;
+            UpdateView(_health.CurrentHealth, _health.MaxHealth);
         }
     }
 }

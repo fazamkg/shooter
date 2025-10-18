@@ -66,65 +66,9 @@ namespace Faza
             _allEnemies.Remove(this);
         }
 
-        private void Health_OnDeath()
+        private void Update()
         {
-            enabled = false;
-        }
-
-        private IEnumerator FollowPlayerCoroutine()
-        {
-            var playerFound = false;
-
-            while (true)
-            {
-                yield return null;
-
-                if (_meleeAttack.WithinAttack)
-                {
-                    _agent.ResetPath();
-                    continue;
-                }
-
-                var amount = Physics.OverlapSphereNonAlloc
-                    (transform.position, _visionRadius, _colliders, _aggroMask.value);
-                for (var i = 0; i < amount; i++)
-                {
-                    var player = _colliders[i].GetComponent<PlayerInput>();
-
-                    if (player == false) continue;
-                    if (player.Health.IsDead) continue;
-
-                    var vector = (player.transform.position - transform.position);
-
-                    var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
-                    var hit = Physics.Raycast(ray, out var hitInfo, _visionRadius, _visibilityMask);
-                    if (hit == false) continue;
-
-                    if (hitInfo.collider.GetComponent<PlayerInput>() == false) continue;
-
-                    _agent.SetDestination(PlayerInput.Instance.transform.position);
-                    playerFound = true;
-                    break;
-                }
-
-                if (playerFound == false && _patrolPoints != null && _patrolPoints.Length != 0)
-                {
-                    var nextPatrolPoint = _patrolPoints[_patrolIndex].position;
-                    _agent.SetDestination(nextPatrolPoint);
-
-                    if (Vector3.Distance(transform.position, nextPatrolPoint) < 1f)
-                    {
-                        _patrolIndex++;
-                        _patrolIndex %= _patrolPoints.Length;
-                    }
-                }
-                else if (playerFound == false)
-                {
-                    _agent.ResetPath();
-                }
-
-                playerFound = false;
-            }
+            MoveByUnityAgent();
         }
 
         public override float GetCameraX()
@@ -217,6 +161,11 @@ namespace Faza
 
             _currentWaypoint = _currentPath.Dequeue();
             if (NeedsToJump(transform.position)) _jump = true;
+        }
+
+        public override bool IsFire()
+        {
+            return false;
         }
 
         private bool NeedsToJump(Vector3 pos)
@@ -363,20 +312,65 @@ namespace Faza
             _vertical = localDirectionToWp.z;
         }
 
-        private void Update()
+        private void Health_OnDeath()
         {
-            MoveByUnityAgent();
+            enabled = false;
         }
 
-        public override bool IsFire()
+        private IEnumerator FollowPlayerCoroutine()
         {
-            return false;
-        }
+            var playerFound = false;
 
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.color = Color.red.WithA(0.3f);
-        //    Gizmos.DrawSphere(transform.position, _visionRadius);
-        //}
+            while (true)
+            {
+                yield return null;
+
+                if (_meleeAttack.WithinAttack)
+                {
+                    _agent.ResetPath();
+                    continue;
+                }
+
+                var amount = Physics.OverlapSphereNonAlloc
+                    (transform.position, _visionRadius, _colliders, _aggroMask.value);
+                for (var i = 0; i < amount; i++)
+                {
+                    var player = _colliders[i].GetComponent<PlayerInput>();
+
+                    if (player == false) continue;
+                    if (player.Health.IsDead) continue;
+
+                    var vector = (player.transform.position - transform.position);
+
+                    var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
+                    var hit = Physics.Raycast(ray, out var hitInfo, _visionRadius, _visibilityMask);
+                    if (hit == false) continue;
+
+                    if (hitInfo.collider.GetComponent<PlayerInput>() == false) continue;
+
+                    _agent.SetDestination(PlayerInput.Instance.transform.position);
+                    playerFound = true;
+                    break;
+                }
+
+                if (playerFound == false && _patrolPoints != null && _patrolPoints.Length != 0)
+                {
+                    var nextPatrolPoint = _patrolPoints[_patrolIndex].position;
+                    _agent.SetDestination(nextPatrolPoint);
+
+                    if (Vector3.Distance(transform.position, nextPatrolPoint) < 1f)
+                    {
+                        _patrolIndex++;
+                        _patrolIndex %= _patrolPoints.Length;
+                    }
+                }
+                else if (playerFound == false)
+                {
+                    _agent.ResetPath();
+                }
+
+                playerFound = false;
+            }
+        }
     }
 }

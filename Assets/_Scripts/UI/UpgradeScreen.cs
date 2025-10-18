@@ -25,23 +25,6 @@ namespace Faza
             _nextButton.OnUp += NextButton_OnUp;
         }
 
-        private void NextButton_OnUp()
-        {
-            if (_appeared == false) return;
-
-            _group.blocksRaycasts = false;
-            Console.Log("Block raycasts = false from NextButton_OnUp()");
-
-            var seq = DOTween.Sequence();
-
-            seq.Append(_group.DOFade(0f, 0.5f).SetEase(Ease.InOutCirc));
-            seq.Append(_title.DOScale(0f, 0.3f).SetEase(Ease.InBack));
-            seq.Append(_nextButton.transform.DOScale(0f, 0.3f).SetEase(Ease.InOutBack));
-            seq.SetEase(Ease.Linear);
-
-            OnClosed?.Invoke();
-        }
-
         public void Appear(UpgradeGroupData[] groups)
         {
             _group.blocksRaycasts = true;
@@ -64,6 +47,23 @@ namespace Faza
                 var view = Instantiate(_upgradeViewPrefab, _upgradeParent);
                 view.Init(group);
             }
+        }
+
+        private void NextButton_OnUp()
+        {
+            if (_appeared == false) return;
+
+            _group.blocksRaycasts = false;
+            Console.Log("Block raycasts = false from NextButton_OnUp()");
+
+            var seq = DOTween.Sequence();
+
+            seq.Append(_group.DOFade(0f, 0.5f).SetEase(Ease.InOutCirc));
+            seq.Append(_title.DOScale(0f, 0.3f).SetEase(Ease.InBack));
+            seq.Append(_nextButton.transform.DOScale(0f, 0.3f).SetEase(Ease.InOutBack));
+            seq.SetEase(Ease.Linear);
+
+            OnClosed?.Invoke();
         }
     } 
 }

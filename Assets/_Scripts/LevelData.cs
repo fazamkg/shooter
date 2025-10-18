@@ -55,47 +55,6 @@ namespace Faza
                 maxAmountPlayers, amountTop, amountAround, "nonePhoto");
         }
 
-        private IEnumerator WaitForLeaderboardCoroutine(Action onSuccess, Action onFailure)
-        {
-            _leaderboardSuccess = false;
-            _leaderboard.Clear();
-
-            yield return new WaitForSeconds(1f); // do not wait too long
-            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
-
-            if (_leaderboardSuccess)
-            {
-                onSuccess?.Invoke();
-            }
-            else
-            {
-                onFailure?.Invoke();
-            }
-        }
-
-        private void OnGetLeaderboard(LBData data)
-        {
-            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
-            _leaderboard.Clear();
-
-            _leaderboardSuccess = data.entries != "no data";
-
-            foreach (var entry in data.players)
-            {
-                var isPlayer = entry.uniqueID == YandexGame.playerId;
-
-                var myEntry = new LeaderboardEntry(entry.rank,
-                    entry.name, TimeSpan.FromMilliseconds(entry.score), isPlayer);
-
-                if (isPlayer)
-                {
-                    SavePlayerRank(entry.rank);
-                }
-
-                _leaderboard.Add(myEntry);
-            }
-        }
-
         public void UnlockBoosters()
         {
             if (_boostersToUnlock != null && _boostersToUnlock.Length > 0)
@@ -142,6 +101,47 @@ namespace Faza
         public int GetPlayerRank()
         {
             return Storage.GetInt($"faza_{name}_rank", -1);
+        }
+
+        private IEnumerator WaitForLeaderboardCoroutine(Action onSuccess, Action onFailure)
+        {
+            _leaderboardSuccess = false;
+            _leaderboard.Clear();
+
+            yield return new WaitForSeconds(1f); // do not wait too long
+            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
+
+            if (_leaderboardSuccess)
+            {
+                onSuccess?.Invoke();
+            }
+            else
+            {
+                onFailure?.Invoke();
+            }
+        }
+
+        private void OnGetLeaderboard(LBData data)
+        {
+            YandexGame.onGetLeaderboard -= OnGetLeaderboard;
+            _leaderboard.Clear();
+
+            _leaderboardSuccess = data.entries != "no data";
+
+            foreach (var entry in data.players)
+            {
+                var isPlayer = entry.uniqueID == YandexGame.playerId;
+
+                var myEntry = new LeaderboardEntry(entry.rank,
+                    entry.name, TimeSpan.FromMilliseconds(entry.score), isPlayer);
+
+                if (isPlayer)
+                {
+                    SavePlayerRank(entry.rank);
+                }
+
+                _leaderboard.Add(myEntry);
+            }
         }
     } 
 }

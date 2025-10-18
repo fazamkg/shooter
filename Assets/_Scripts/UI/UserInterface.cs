@@ -92,28 +92,10 @@ namespace Faza
             }
         }
 
-        private void BoosterView_OnChoiceWindow(BoosterData boosterData)
-        {
-            _boosterChoicePanel.Appear(boosterData);
-        }
-
-        private void UpgradeScreen_OnClosed()
-        {
-            _levelTimer.StartTimer();
-        }
-
         private void OnDestroy()
         {
             Health.OnDeathGlobal -= Health_OnDeathGlobal;
             BoosterView.OnChoiceWindow -= BoosterView_OnChoiceWindow;
-        }
-
-        private void Health_OnDeathGlobal()
-        {
-            if (EnemyInput.IsEveryoneDead)
-            {
-                Win();
-            }
         }
 
         public void Win(float speed = 1f)
@@ -142,6 +124,24 @@ namespace Faza
             {
                 _winScreen.Appear(_levelData, speed);
             });
+        }
+
+        private void BoosterView_OnChoiceWindow(BoosterData boosterData)
+        {
+            _boosterChoicePanel.Appear(boosterData);
+        }
+
+        private void UpgradeScreen_OnClosed()
+        {
+            _levelTimer.StartTimer();
+        }
+
+        private void Health_OnDeathGlobal()
+        {
+            if (EnemyInput.IsEveryoneDead)
+            {
+                Win();
+            }
         }
 
         private void PlayerHealth_OnDeath()

@@ -35,38 +35,10 @@ namespace Faza
             _health.OnDeath += Health_OnDeath;
         }
 
-        private void Health_OnDeath()
-        {
-            DeactivateArmorGlow();
-            DeactivateCritGlow();
-            DeactivateHasteGlow();
-        }
-
         private void Start()
         {
             CameraTracker.Activate("main");
         }
-
-        //private void Update()
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Escape))
-        //    {
-        //        _locked = !_locked;
-
-        //        if (_locked)
-        //        {
-        //            Time.timeScale = 1f;
-        //            Console.StartReadingBinds();
-        //            Console.CloseConsole();
-        //        }
-        //        else
-        //        {
-        //            Time.timeScale = 0f;
-        //            Console.StopReadingBinds();
-        //            Console.OpenConsole();
-        //        }
-        //    }
-        //}
 
         public override float GetCameraX()
         {
@@ -206,6 +178,13 @@ namespace Faza
         public void Enable()
         {
             _enabled = true;
+        }
+
+        private void Health_OnDeath()
+        {
+            DeactivateArmorGlow();
+            DeactivateCritGlow();
+            DeactivateHasteGlow();
         }
     }
 }

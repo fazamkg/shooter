@@ -26,16 +26,6 @@ namespace Faza
             _backToMenuButton.gameObject.SetActive(LevelManager.Instance.MenuUnlocked);
         }
 
-        private void BackToMenuButton_OnUp()
-        {
-            LevelManager.Instance.LoadLevelFromSave(false);
-        }
-
-        private void CloseButton_OnUp()
-        {
-            Disappear();
-        }
-
         public void Appear()
         {
             transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
@@ -44,6 +34,16 @@ namespace Faza
         public void Disappear()
         {
             transform.DOScale(0f, 0.3f).SetEase(Ease.InBack);
+        }
+
+        private void BackToMenuButton_OnUp()
+        {
+            LevelManager.Instance.LoadLevelFromSave(false);
+        }
+
+        private void CloseButton_OnUp()
+        {
+            Disappear();
         }
 
         private void AudioToggle_OnToggle()
