@@ -126,7 +126,7 @@ namespace Faza
 
             _runningBoosters.Add(this);
 
-            Routines.StartCoroutine_(WaitBoosterCoroutine());
+            Routines.StartCoroutineNew(WaitBoosterCoroutine());
 
             AmountPref--;
 

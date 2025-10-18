@@ -13,17 +13,17 @@ namespace Faza
             DontDestroyOnLoad(gameObject);
         }
 
-        public static void StartCoroutine_(IEnumerator routine)
+        public static void StartCoroutineNew(IEnumerator routine)
         {
             _routines.StartCoroutine(routine);
         }
 
-        public static void StopCoroutine_(IEnumerator routine)
+        public static void StopCoroutineNew(IEnumerator routine)
         {
             _routines.StopCoroutine(routine);
         }
 
-        public static void StopCoroutine_(Coroutine routine)
+        public static void StopCoroutineNew(Coroutine routine)
         {
             _routines.StopCoroutine(routine);
         }

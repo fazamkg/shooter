@@ -45,7 +45,7 @@ namespace Faza
 
         public void LoadLeaderboard(Action onSuccess, Action onFailure)
         {
-            Routines.StartCoroutine_(WaitForLeaderboardCoroutine(onSuccess, onFailure));
+            Routines.StartCoroutineNew(WaitForLeaderboardCoroutine(onSuccess, onFailure));
 
             YandexGame.onGetLeaderboard += OnGetLeaderboard;
             var maxAmountPlayers = 4;

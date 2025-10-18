@@ -72,12 +72,12 @@ namespace Faza
             _instance.AddButtonInternal(name, action);
         }
 
-        public static Coroutine StartCoroutine_(IEnumerator routine)
+        public static Coroutine StartCoroutineNew(IEnumerator routine)
         {
             return _instance.StartCoroutine(routine);
         }
 
-        public static void StopCoroutine_(IEnumerator routine)
+        public static void StopCoroutineNew(IEnumerator routine)
         {
             _instance.StopCoroutine(routine);
         }
@@ -125,7 +125,7 @@ namespace Faza
                 yield return null;
                 Time.timeScale = 0f;
             }
-            StartCoroutine_(playOneFrame());
+            StartCoroutineNew(playOneFrame());
         }
 
         private void AutoCompleteCommand()

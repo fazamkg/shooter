@@ -81,7 +81,7 @@ namespace Faza
             }
         }
 
-        public void StartTutorial_1()
+        public void StartTutorial1()
         {
             if (TutorialCompletedPref_1) return;
 
@@ -95,7 +95,7 @@ namespace Faza
             StartCoroutine(Tutorial1Coroutine());
         }
 
-        public void StartTutorial_2()
+        public void StartTutorial2()
         {
             if (TutorialCompletedPref_2) return;
 
@@ -109,7 +109,7 @@ namespace Faza
             StartCoroutine(Tutorial2Coroutine());
         }
 
-        public void StartTutorial_3()
+        public void StartTutorial3()
         {
             if (TutorialCompletedPref_3) return;
 
@@ -122,7 +122,7 @@ namespace Faza
             StartCoroutine(Tutorial3Coroutine());
         }
 
-        public void StartTutorial_4()
+        public void StartTutorial4()
         {
             if (TutorialCompletedPref_4) return;
 
@@ -135,7 +135,7 @@ namespace Faza
             StartCoroutine(Tutorial4Coroutine());
         }
 
-        public void StartTutorial_5()
+        public void StartTutorial5()
         {
             if (TutorialCompletedPref_5) return;
 

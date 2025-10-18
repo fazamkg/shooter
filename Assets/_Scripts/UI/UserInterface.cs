@@ -72,23 +72,23 @@ namespace Faza
 
             if (number == "1")
             {
-                _tutorial.StartTutorial_1();
+                _tutorial.StartTutorial1();
             }
             else if (number == "3")
             {
-                _tutorial.StartTutorial_2();
+                _tutorial.StartTutorial2();
             }
             else if (number == "4")
             {
-                _tutorial.StartTutorial_3();
+                _tutorial.StartTutorial3();
             }
             else if (number == "6")
             {
-                _tutorial.StartTutorial_4();
+                _tutorial.StartTutorial4();
             }
             else if (number == "8")
             {
-                _tutorial.StartTutorial_5();
+                _tutorial.StartTutorial5();
             }
         }
 
