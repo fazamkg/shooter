@@ -6,6 +6,10 @@ namespace Faza
 {
     public class AutoFps : MonoBehaviour
     {
+        private const float CHECK_INTERVAL = 2f;
+        private const float TARGET_FPS = 28f;
+        private const float RENDER_SCALE_STEP = 0.1f;
+
         [SerializeField] private UniversalRenderPipelineAsset _settings;
 
         private int _frames;
@@ -25,17 +29,17 @@ namespace Faza
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(2f);
-                var fps = _frames / 2f;
+                yield return new WaitForSecondsRealtime(CHECK_INTERVAL);
+                var fps = _frames / CHECK_INTERVAL;
                 _frames = 0;
 
-                if (fps < 28f && _settings.renderScale > 0f)
+                if (fps < TARGET_FPS && _settings.renderScale > 0f)
                 {
-                    _settings.renderScale -= 0.1f;
+                    _settings.renderScale -= RENDER_SCALE_STEP;
                 }
-                else if (fps > 28f && _settings.renderScale < 1f)
+                else if (fps > TARGET_FPS && _settings.renderScale < 1f)
                 {
-                    _settings.renderScale += 0.1f;
+                    _settings.renderScale += RENDER_SCALE_STEP;
                 }
             }
         }

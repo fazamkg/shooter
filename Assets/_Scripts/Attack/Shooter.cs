@@ -7,6 +7,9 @@ namespace Faza
     {
         private const string DAMAGE_MOD = "dmg-flag";
         private const string SHOOTING_SPEED_MOD = "sh-speed-flat";
+        private const float MAX_DISTANCE = 100f;
+        private const float HORIZONTAL_SPEED_THRESHOLD = 1f;
+        private const float INPUT_THRESHOLD = 0.1f;
 
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clip;
@@ -66,8 +69,8 @@ namespace Faza
 
             if (_health.IsDead) return;
 
-            if (_input.GetRawMove().sqrMagnitude > 0.1f) return;
-            if (_character.HorizontalSpeed > 1f) return;
+            if (_input.GetRawMove().sqrMagnitude > INPUT_THRESHOLD) return;
+            if (_character.HorizontalSpeed > HORIZONTAL_SPEED_THRESHOLD) return;
 
             var amount = Physics.OverlapSphereNonAlloc
                 (transform.position, _detectionRadius, _colliders, _layerMask);
@@ -88,7 +91,7 @@ namespace Faza
                 var vector = (enemy.transform.position - transform.position);
 
                 var ray = new Ray(transform.position.DeltaY(0.5f), vector.normalized);
-                var hit = Physics.Raycast(ray, out var hitInfo, 100f, _layerMask2);
+                var hit = Physics.Raycast(ray, out var hitInfo, MAX_DISTANCE, _layerMask2);
                 if (hit == false) continue;
 
                 if (hitInfo.collider.GetComponent<EnemyInput>() == false) continue;

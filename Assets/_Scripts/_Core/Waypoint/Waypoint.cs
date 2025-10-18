@@ -248,7 +248,8 @@ namespace Faza
             {
                 Handles.zTest = UnityEngine.Rendering.CompareFunction.Less;
                 Handles.color = Color.red;
-                Handles.DrawLine(transform.position, connection.transform.position, 2f);
+                const float LINE_THICKNESS = 2f;
+                Handles.DrawLine(transform.position, connection.transform.position, LINE_THICKNESS);
             }
         }
 #endif
