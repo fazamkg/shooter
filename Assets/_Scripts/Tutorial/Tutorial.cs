@@ -69,7 +69,8 @@ namespace Faza
                 var targetPosition = _transformType switch
                 {
                     TransformType.World => Camera.main.WorldToScreenPoint(_target.position),
-                    TransformType.Screen => _target.position
+                    TransformType.Screen => _target.position,
+                    _ => Vector3.zero
                 };
 
                 _position = Vector2.MoveTowards(_position, targetPosition,
@@ -158,7 +159,8 @@ namespace Faza
                 var targetPosition = type switch
                 {
                     TransformType.World => Camera.main.WorldToScreenPoint(target.position),
-                    TransformType.Screen => target.position
+                    TransformType.Screen => target.position,
+                    _ => Vector3.zero
                 };
 
                 _position = targetPosition;

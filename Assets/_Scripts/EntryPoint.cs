@@ -58,7 +58,7 @@ namespace Faza
             });
             Console.AddCommand("enemy_stop_all", (args) =>
             {
-                var enemies = FindObjectsOfType<EnemyInput>();
+                var enemies = FindObjectsByType<EnemyInput>(FindObjectsSortMode.None);
                 foreach (var enemy in enemies)
                 {
                     enemy.SetWaypoint(null);
@@ -165,7 +165,7 @@ namespace Faza
             Console.AddCommand("max_fps", (args) => Application.targetFrameRate = args[0].ToInt());
             Console.AddCommand("kill_all_enemies", (args) =>
             {
-                var enemies = FindObjectsOfType<EnemyInput>();
+                var enemies = FindObjectsByType<EnemyInput>(FindObjectsSortMode.None);
                 foreach (var enemy in enemies)
                 {
                     enemy.Health.TakeDamage(100_000f, Vector3.zero);
@@ -203,7 +203,7 @@ namespace Faza
             });
             Console.AddButton("toggle enemies", () =>
             {
-                var enemies = FindObjectsOfType<EnemyInput>(true);
+                var enemies = FindObjectsByType<EnemyInput>(FindObjectsInactive.Include, FindObjectsSortMode.None);
                 foreach (var enemy in enemies)
                 {
                     enemy.gameObject.Toggle();
@@ -211,7 +211,7 @@ namespace Faza
             });
             Console.AddButton("swap material", () =>
             {
-                var things = FindObjectsOfType<MaterialSwap>(true);
+                var things = FindObjectsByType<MaterialSwap>(FindObjectsInactive.Include, FindObjectsSortMode.None);
                 foreach (var thing in things)
                 {
                     var rend = thing.GetComponent<MeshRenderer>();
@@ -229,7 +229,7 @@ namespace Faza
             });
             Console.AddButton("toggle cam", () =>
             {
-                var cams = FindObjectsOfType<Camera>(true);
+                var cams = FindObjectsByType<Camera>(FindObjectsInactive.Include, FindObjectsSortMode.None);
                 foreach (var cam in cams)
                 {
                     if (cam.gameObject.name == "MainCamera")
@@ -254,7 +254,7 @@ namespace Faza
             });
             Console.AddCommand("win", (args) =>
             {
-                var ui = FindObjectOfType<UserInterfaceView>();
+                var ui = FindFirstObjectByType<UserInterfaceView>();
                 ui.Win(10f);
             });
         }

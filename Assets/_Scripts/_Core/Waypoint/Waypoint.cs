@@ -92,15 +92,6 @@ namespace Faza
         public Waypoint GetStart()
         {
             return _firstCreatedWaypoint;
-
-            var start = this;
-
-            while (start._prev != null)
-            {
-                start = start._prev;
-            }
-
-            return start;
         }
 
         public Waypoint GetEnd()

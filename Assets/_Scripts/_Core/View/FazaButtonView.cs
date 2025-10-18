@@ -5,12 +5,9 @@ using System;
 
 namespace Faza
 {
-    public class FazaButtonView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerEnterHandler,
-        IPointerExitHandler
+    public class FazaButtonView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public event Action OnUp;
-
-        private bool _inside;
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -18,16 +15,6 @@ namespace Faza
 
             transform.DOKill();
             transform.DOScale(0.8f, 0.15f).SetEase(Ease.OutCubic);
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            _inside = true;
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            _inside = false;
         }
 
         public void OnPointerUp(PointerEventData eventData)
