@@ -27,7 +27,7 @@ namespace Faza
         public void StartTimer()
         {
             _from = Time.realtimeSinceStartupAsDouble;
-            StartCoroutine(Tick());
+            StartCoroutine(TickCoroutine());
         }
 
         public void StopTimer()
@@ -36,7 +36,7 @@ namespace Faza
             StopAllCoroutines();
         }
 
-        private IEnumerator Tick()
+        private IEnumerator TickCoroutine()
         {
             while (true)
             {

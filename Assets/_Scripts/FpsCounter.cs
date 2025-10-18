@@ -13,7 +13,7 @@ namespace Faza
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
-            StartCoroutine(Count());
+            StartCoroutine(CountCoroutine());
         }
 
         private void Update()
@@ -21,7 +21,7 @@ namespace Faza
             _fps++;
         }
 
-        private IEnumerator Count()
+        private IEnumerator CountCoroutine()
         {
             while (true)
             {

@@ -67,7 +67,7 @@ namespace Faza
 
         public void ActivateColliderDelayed()
         {
-            StartCoroutine(ActivateCollider());
+            StartCoroutine(ActivateColliderCoroutine());
         }
 
         public void AutoMagnet()
@@ -87,7 +87,7 @@ namespace Faza
             _player = player;
         }
 
-        private IEnumerator ActivateCollider()
+        private IEnumerator ActivateColliderCoroutine()
         {
             yield return new WaitForSeconds(1f);
             _collider.enabled = true;

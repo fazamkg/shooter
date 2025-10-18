@@ -60,7 +60,7 @@ namespace Faza
             if (_switchIdle)
             {
                 _animator.SetFloat("IdleVariant", _idles.GetRandom());
-                StartCoroutine(SwitchIdle());
+                StartCoroutine(SwitchIdleCoroutine());
             }
         }
 
@@ -216,7 +216,7 @@ namespace Faza
             _character.CharacterController.enabled = true;
         }
 
-        private IEnumerator SwitchIdle()
+        private IEnumerator SwitchIdleCoroutine()
         {
             while (true)
             {

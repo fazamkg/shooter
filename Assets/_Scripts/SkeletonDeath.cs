@@ -26,10 +26,10 @@ namespace Faza
 
             ThrowGibs();
 
-            StartCoroutine(DisableGibs());
+            StartCoroutine(DisableGibsCoroutine());
         }
 
-        private IEnumerator DisableGibs()
+        private IEnumerator DisableGibsCoroutine()
         {
             yield return new WaitForSeconds(10f);
             foreach (var thing in _gibs)
@@ -39,7 +39,7 @@ namespace Faza
             }
         }
 
-        private IEnumerator ThrowCoins()
+        private IEnumerator ThrowCoinsCoroutine()
         {
             if (_coinPrefab != null)
             {
@@ -77,7 +77,7 @@ namespace Faza
                 gib.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
             }
 
-            StartCoroutine(ThrowCoins());
+            StartCoroutine(ThrowCoinsCoroutine());
         }
     }
 }

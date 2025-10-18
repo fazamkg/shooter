@@ -12,7 +12,7 @@ namespace Faza
 
         private void Awake()
         {
-            StartCoroutine(Adjust());
+            StartCoroutine(AdjustCoroutine());
             DontDestroyOnLoad(gameObject);
         }
 
@@ -21,7 +21,7 @@ namespace Faza
             _frames++;
         }
 
-        private IEnumerator Adjust()
+        private IEnumerator AdjustCoroutine()
         {
             while (true)
             {

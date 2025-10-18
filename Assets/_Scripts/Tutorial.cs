@@ -92,7 +92,7 @@ namespace Faza
             _triggerTouched = false;
             TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
-            StartCoroutine(TutorialCoroutine_1());
+            StartCoroutine(Tutorial1Coroutine());
         }
 
         public void StartTutorial_2()
@@ -106,7 +106,7 @@ namespace Faza
             _triggerTouched = false;
             TutorialTrigger.OnEnter += TutorialTrigger_OnEnter;
 
-            StartCoroutine(TutorialCoroutine_2());
+            StartCoroutine(Tutorial2Coroutine());
         }
 
         public void StartTutorial_3()
@@ -119,7 +119,7 @@ namespace Faza
 
             _triggerTouched = false;
 
-            StartCoroutine(TutorialCoroutine_3());
+            StartCoroutine(Tutorial3Coroutine());
         }
 
         public void StartTutorial_4()
@@ -132,7 +132,7 @@ namespace Faza
 
             _triggerTouched = false;
 
-            StartCoroutine(TutorialCoroutine_4());
+            StartCoroutine(Tutorial4Coroutine());
         }
 
         public void StartTutorial_5()
@@ -145,7 +145,7 @@ namespace Faza
 
             _triggerTouched = false;
 
-            StartCoroutine(TutorialCoroutine_5());
+            StartCoroutine(Tutorial5Coroutine());
         }
 
         private void SetTarget(Transform target, TransformType type, bool instant = false)
@@ -170,7 +170,7 @@ namespace Faza
             _triggerTouched = true;
         }
 
-        private IEnumerator TutorialCoroutine_1()
+        private IEnumerator Tutorial1Coroutine()
         {
             PlayerInput.Instance.Disable();
 
@@ -210,7 +210,7 @@ namespace Faza
             yield return pop.Disappear().WaitForCompletion();
         }
 
-        private IEnumerator TutorialCoroutine_2()
+        private IEnumerator Tutorial2Coroutine()
         {
             yield return new WaitForSeconds(0.5f);
 
@@ -244,7 +244,7 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        private IEnumerator TutorialCoroutine_3()
+        private IEnumerator Tutorial3Coroutine()
         {
             PlayerInput.Instance.Disable();
 
@@ -269,7 +269,7 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        private IEnumerator TutorialCoroutine_4()
+        private IEnumerator Tutorial4Coroutine()
         {
             PlayerInput.Instance.Disable();
 
@@ -297,7 +297,7 @@ namespace Faza
             yield return seq.WaitForCompletion();
         }
 
-        private IEnumerator TutorialCoroutine_5()
+        private IEnumerator Tutorial5Coroutine()
         {
             PlayerInput.Instance.Disable();
 
