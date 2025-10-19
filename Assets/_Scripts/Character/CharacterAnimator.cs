@@ -10,6 +10,11 @@ namespace Faza
         private const float IDLE_TRANSITION = 0.3f;
         private const float HIT_TRANSITION = 0.05f;
         private const float DEATH_TRANSITION = 0.05f;
+        private const float ATTACK_TRANSITION = 0.05f;
+        private const float MELEE_ATTACK_TRANSITION = 0.05f;
+        private const float INTERRUPT_ATTACK_SPEED_CAP = 0.5f;
+        private const float MELEE_ATTACK_EXTRA_RANGE = 0.2f;
+        private const float SHOOT_SPEED_FACTOR = 0.2428f;
 
         [SerializeField] private Character _character;
         [SerializeField] private CharacterInput _input;
@@ -117,21 +122,21 @@ namespace Faza
 
             if (_shooter != null && _shooter.StartedShooting)
             {
-                _animator.CrossFadeInFixedTime(AnimatorKey.Attack, 0.05f);
+                _animator.CrossFadeInFixedTime(AnimatorKey.Attack, ATTACK_TRANSITION);
                 _shooter.StartedShooting = false;
                 StartCoroutine(FireCoroutine());
             }
 
             if (_meleeAttack != null && _meleeAttack.StartAttack)
             {
-                _animator.CrossFadeInFixedTime(AnimatorKey.MeleeAttack, 0.05f);
+                _animator.CrossFadeInFixedTime(AnimatorKey.MeleeAttack, MELEE_ATTACK_TRANSITION);
                 _meleeAttack.StartAttack = false;
                 _meleeAttack.FinishAttack();
             }
 
             if (_shooter != null)
             {
-                if (_character.HorizontalSpeed > 0.5f && _shooter.BulletFired)
+                if (_character.HorizontalSpeed > INTERRUPT_ATTACK_SPEED_CAP && _shooter.BulletFired)
                 {
                     _animator.SetBool(AnimatorKey.InterruptAttack, true);
                 }
@@ -167,7 +172,7 @@ namespace Faza
         {
             var distance = Vector3.Distance(transform.position, _meleeAttack.Target.position);
 
-            if (distance > _meleeAttack.Range + 0.2f) return;
+            if (distance > _meleeAttack.Range + MELEE_ATTACK_EXTRA_RANGE) return;
 
             var health = _meleeAttack.Target.GetComponent<Health>();
             var direction = Quaternion.Euler(0f, _character.Yaw, 0f) * Vector3.forward;
@@ -246,7 +251,7 @@ namespace Faza
 
         private IEnumerator FireCoroutine()
         {
-            var dur = _shootClip.length / _shooter.ShootSpeed * 0.2428f;
+            var dur = _shootClip.length / _shooter.ShootSpeed * SHOOT_SPEED_FACTOR;
             yield return new WaitForSeconds(dur);
             _shooter.FireBullet();
         }

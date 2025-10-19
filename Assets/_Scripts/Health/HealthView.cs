@@ -9,6 +9,8 @@ namespace Faza
         private const Ease FILL_EASE = Ease.InOutCirc;
         private const float DISAPPEAR_DURATION = 0.3f;
         private const Ease DISAPPEAR_EASE = Ease.InBack;
+        private const float OFFSET = 2.1f;
+        private const float FACTOR = 2f;
 
         [SerializeField] private RectTransform _fill;
         [SerializeField] private float _width = 230f;
@@ -52,7 +54,7 @@ namespace Faza
             var x = current / max * _width;
 
             _fill.SetAnchorPosX(x);
-            _gloss.SetWidth(x - 2.1f * 2f);
+            _gloss.SetWidth(x - OFFSET * FACTOR);
         }
 
         public Tween UpdateView(float current, float max)
@@ -63,7 +65,7 @@ namespace Faza
             seq.Append(_fill.DOAnchorPosX(x, FILL_DURATION).SetEase(FILL_EASE));
 
             var temp = _gloss.sizeDelta;
-            temp.x = x - 2.1f * 2f;
+            temp.x = x - OFFSET * FACTOR;
             seq.Join(_gloss.DOSizeDelta(temp, FILL_DURATION).SetEase(FILL_EASE));
 
             return seq;

@@ -13,6 +13,11 @@ namespace Faza
         private const float PLAYER_WARP_DURATION = 0.3f;
         private const Ease PLAYER_WARP_EASE = Ease.InOutCirc;
         private const Ease DISAPPEAR_EASE = Ease.InOutCirc;
+        private const float COIN_MIN_VERTICAL_SPEED = 13f;
+        private const float COIN_MAX_VERTICAL_SPEED = 16f;
+        private const float COIN_TORQUE = 1000f;
+        private const float COIN_INTERVAL = 0.1f;
+        private const float PLAYER_ROTATE_TOWARDS_SPEED = 1000f;
 
         [SerializeField] private Transform _playerMagnetPos;
         [SerializeField] private Transform _lid;
@@ -49,15 +54,15 @@ namespace Faza
                     var coin = Instantiate(_coinPrefab, transform.position, Quaternion.identity);
                     coin.ActivateColliderDelayed();
 
-                    var verticalSpeed = Random.Range(13f, 16f);
+                    var verticalSpeed = Random.Range(COIN_MIN_VERTICAL_SPEED, COIN_MAX_VERTICAL_SPEED);
 
                     var angle = Random.Range(0, 360f);
                     var direction = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
-                    coin.Rigidbody.AddForce(direction * 1f, ForceMode.VelocityChange);
+                    coin.Rigidbody.AddForce(direction, ForceMode.VelocityChange);
                     coin.Rigidbody.AddForce(Vector3.up * verticalSpeed, ForceMode.VelocityChange);
-                    coin.Rigidbody.AddTorque(Random.onUnitSphere * 1000f, ForceMode.VelocityChange);
+                    coin.Rigidbody.AddTorque(Random.onUnitSphere * COIN_TORQUE, ForceMode.VelocityChange);
                 });
-                seq.AppendInterval(0.1f);
+                seq.AppendInterval(COIN_INTERVAL);
             }
 
             seq.Append(transform.DOScale(0f, DISAPPEAR_DURATION).SetEase(DISAPPEAR_EASE));
@@ -70,7 +75,7 @@ namespace Faza
                 .WaitForCompletion();
 
             yield return PlayerInput.Instance.Character.RotateTowardsCoroutine
-                (transform.position, 1000f);
+                (transform.position, PLAYER_ROTATE_TOWARDS_SPEED);
 
             PlayerInput.Instance.CharacterAnimator.PlayOutOpenChestAnimation(this);
         }

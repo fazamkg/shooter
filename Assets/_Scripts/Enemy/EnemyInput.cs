@@ -8,6 +8,8 @@ namespace Faza
 {
     public class EnemyInput : CharacterInput
     {
+        private const string JUMP_COMMAND = "jump";
+
         [SerializeField] private LayerMask _aggroMask;
         [SerializeField] private LayerMask _visibilityMask;
         [SerializeField] private MeleeAttack _meleeAttack;
@@ -203,7 +205,7 @@ namespace Faza
             if (distanceToWp < _stoppingDistance)
             {
                 var command = _currentWaypoint.Command.ToLower();
-                if (command == "jump")
+                if (command == JUMP_COMMAND)
                 {
                     _jump = true;
                 }

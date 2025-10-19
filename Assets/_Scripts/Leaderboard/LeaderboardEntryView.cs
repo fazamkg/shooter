@@ -6,6 +6,8 @@ namespace Faza
     public class LeaderboardEntryView : MonoBehaviour
     {
         private const string TIME_FORMAT = @"mm\:ss\.fff";
+        private const float SHINE_FROM_POS = -90f;
+        private const float SHINE_TO_POS = 1500f;
 
         [SerializeField] private RectTransform _specular;
         [SerializeField] private float _speed;
@@ -37,7 +39,7 @@ namespace Faza
 
         private void Update()
         {
-            var pos = Mathf.Lerp(-90f, 1500f, (Time.time * _speed).Frac());
+            var pos = Mathf.Lerp(SHINE_FROM_POS, SHINE_TO_POS, (Time.time * _speed).Frac());
             _specular.SetAnchorPosX(pos);
         }
     } 

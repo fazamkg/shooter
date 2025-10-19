@@ -5,6 +5,8 @@ namespace Faza
     [DefaultExecutionOrder(10)]
     public class ParallaxClouds : MonoBehaviour
     {
+        private const float MAX_REPEAT = 100f;
+
         [SerializeField] private float _speed;
         [SerializeField] private float _speed2;
 
@@ -23,7 +25,7 @@ namespace Faza
             var x = playerPos.x * _speed2;
 
             _shift += _speed * Time.deltaTime;
-            _shift = Mathf.Repeat(_shift, 100f);
+            _shift = Mathf.Repeat(_shift, MAX_REPEAT);
 
             transform.localPosition = _originalPos + _shift * Vector3.right + new Vector3(-x, -y, 0f);
         }

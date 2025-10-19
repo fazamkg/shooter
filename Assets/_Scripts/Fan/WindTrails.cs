@@ -4,6 +4,8 @@ namespace Faza
 {
     public class WindTrails : MonoBehaviour
     {
+        private const float MAX_TIME = 100_000f;
+
         [SerializeField] private Fan _fan;
         [SerializeField] private TrailRenderer[] _trails;
         [SerializeField] private TrailRenderer[] _copyTrails;
@@ -38,7 +40,7 @@ namespace Faza
             if (_fan.IsOn == false) return;
 
             _time += Time.deltaTime;
-            _time = Mathf.Repeat(_time, 100_000f);
+            _time = Mathf.Repeat(_time, MAX_TIME);
 
             var direction = transform.forward;
 

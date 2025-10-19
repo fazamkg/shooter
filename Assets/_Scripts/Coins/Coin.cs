@@ -5,6 +5,12 @@ namespace Faza
 {
     public class Coin : MonoBehaviour
     {
+        private const float COIN_SPEED_FACTOR = 8f;
+        private const float COIN_PICKUP_DISTANCE_CAP = 0.3f;
+        private const float COIN_SCALE_FACTOR = 2f;
+        private const float ACTIVATION_DELAY = 1f;
+        private const float MAGNET_DELAY = 0.3f;
+
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip _clip;
         [SerializeField] private Transform _toMove;
@@ -43,9 +49,9 @@ namespace Faza
                     _initialDistance = dist;
                 }
 
-                var speed = _initialDistance / dist * Time.deltaTime * 8f;
+                var speed = _initialDistance / dist * Time.deltaTime * COIN_SPEED_FACTOR;
 
-                if (dist < 0.3f)
+                if (dist < COIN_PICKUP_DISTANCE_CAP)
                 {
                     Currency.AddCoins(1f, _toMove.position);
 
@@ -59,7 +65,7 @@ namespace Faza
 
                 _toMove.position = Vector3.MoveTowards(_toMove.position, target, speed);
 
-                _toMove.localScale = Vector3.one * Mathf.Min(dist * 2f, 1f);
+                _toMove.localScale = Vector3.one * Mathf.Min(dist * COIN_SCALE_FACTOR, 1f);
             }
 
             _toRotate.Rotate(0f, Time.deltaTime * _speed, 0f, Space.World);
@@ -89,9 +95,9 @@ namespace Faza
 
         private IEnumerator ActivateColliderCoroutine()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(ACTIVATION_DELAY);
             _collider.enabled = true;
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(MAGNET_DELAY);
             AutoMagnet();
         }
     }

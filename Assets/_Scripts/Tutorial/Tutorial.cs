@@ -21,6 +21,9 @@ namespace Faza
         private const float TARGET_FADE_DURATION2 = 0.2f;
         private const float TUTORIAL2_DELAY = 0.5f;
         private const float TUTORIAL2_DELAY2 = 0.4f;
+        private const float RADIUS = 120f;
+        private const float RADIUS_TIME_SPEED = 3f;
+        private const float RADIUS_SHIFT = 20f;
 
         [SerializeField] private Material _material;
         [SerializeField] private TutorialPopView _popViewPrefab;
@@ -86,7 +89,8 @@ namespace Faza
 
                 _material.SetVector(ShaderKey.Position, (Vector4)_position);
 
-                _material.SetFloat(ShaderKey.Radius, (120f + Mathf.Sin(Time.time * 3f) * 20f) * _canvas.scaleFactor);
+                _material.SetFloat(ShaderKey.Radius, 
+                    (RADIUS + Mathf.Sin(Time.time * RADIUS_TIME_SPEED) * RADIUS_SHIFT) * _canvas.scaleFactor);
             }
         }
 

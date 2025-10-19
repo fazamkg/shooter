@@ -5,6 +5,8 @@ namespace Faza
 {
     public class EntryPoint : MonoBehaviour
     {
+        private const string PLAYED_ID = "player";
+
         [SerializeField] private GameObject[] _uis;
         [SerializeField] private SkinnedMeshRenderer _playerSMR;
         [SerializeField] private Animator _playerAnimator;
@@ -41,7 +43,7 @@ namespace Faza
             });
             Console.AddCommand(CommandKey.MAIN_CAMERA, (args) =>
             {
-                var player = Tracker.Get<PlayerInput>("player");
+                var player = Tracker.Get<PlayerInput>(PLAYED_ID);
                 player.Camera.ActivateSingle();
             });
             Console.AddCommand(CommandKey.ENEMY_CAMERA_FP, (args) =>
@@ -99,7 +101,7 @@ namespace Faza
             });
             Console.AddCommand(CommandKey.PLAYER_SCALED_TIME, (args) =>
             {
-                var player = Tracker.Get<Character>("player");
+                var player = Tracker.Get<Character>(PLAYED_ID);
                 player.DeltaTimeScaled = args[0].ToBool();
             });
             Console.AddCommand(CommandKey.WP_SET_FROM, (args) =>
@@ -128,7 +130,7 @@ namespace Faza
             });
             Console.AddCommand(CommandKey.ENEMY_SET_DESTINATION, (args) =>
             {
-                var player = Tracker.Get<Character>("player");
+                var player = Tracker.Get<Character>(PLAYED_ID);
                 var hit = player.GetCrosshairInfo(out var hitInfo);
                 if (hit)
                 {
@@ -137,7 +139,7 @@ namespace Faza
             });
             Console.AddCommand(CommandKey.SET_POS, (args) =>
             {
-                var player = Tracker.Get<Character>("player");
+                var player = Tracker.Get<Character>(PLAYED_ID);
                 var hit = player.GetCrosshairInfo(out var hitInfo);
                 if (hit)
                 {
@@ -150,7 +152,7 @@ namespace Faza
             });
             Console.AddCommand(CommandKey.NOCLIP, (args) =>
             {
-                var player = Tracker.Get<Character>("player");
+                var player = Tracker.Get<Character>(PLAYED_ID);
                 player.IsNoclip = !player.IsNoclip;
             });
             Console.AddCommand(CommandKey.DESTROY, (args) =>
@@ -274,7 +276,7 @@ namespace Faza
 
         private T GetAtCrosshair<T>() where T : Component
         {
-            var player = Tracker.Get<Character>("player");
+            var player = Tracker.Get<Character>(PLAYED_ID);
             player.GetCrosshairInfo(out var hitInfo);
 
             var root = hitInfo.transform.GetComponent<T>();
@@ -287,7 +289,7 @@ namespace Faza
         {
             var command = args.Length > 0 ? args[0] : "";
 
-            var player = Tracker.Get<Character>("player");
+            var player = Tracker.Get<Character>(PLAYED_ID);
             var hit = player.GetCrosshairInfo(out var hitInfo);
             if (hit)
             {

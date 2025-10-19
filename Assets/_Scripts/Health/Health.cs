@@ -14,6 +14,9 @@ namespace Faza
         public event Action OnDeath;
         public event Action OnHealthChanged;
 
+        private const float DAMAGE_VOLUME = 0.2f;
+        private const float DEATH_VOLUME = 1f;
+
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioClip[] _deathClips;
         [SerializeField] private AudioClip[] _damageClips;
@@ -52,7 +55,7 @@ namespace Faza
             {
                 _character.Stop(_stunDuration);
 
-                _source.PlayOneShot(_damageClips.GetRandom(), 0.2f);
+                _source.PlayOneShot(_damageClips.GetRandom(), DAMAGE_VOLUME);
             }
 
             if (CurrentHealth <= 0f)
@@ -61,7 +64,7 @@ namespace Faza
 
                 GetComponent<CharacterController>().enabled = false;
 
-                _source.PlayOneShot(_deathClips.GetRandom(), 1f);
+                _source.PlayOneShot(_deathClips.GetRandom(), DEATH_VOLUME);
 
                 OnDeath?.Invoke();
                 OnDeathGlobal?.Invoke();

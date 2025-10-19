@@ -146,9 +146,12 @@ namespace Faza
 
             target = target.WithY(0f);
 
-            var targetYaw = _yaw + 10f;
+            const float HACK_DELTA = 10f;
+            const float HACK_HALF_DELTA = 5f;
 
-            while (Mathf.DeltaAngle(_yaw, targetYaw).Abs() > 5f)
+            var targetYaw = _yaw + HACK_DELTA;
+
+            while (Mathf.DeltaAngle(_yaw, targetYaw).Abs() > HACK_HALF_DELTA)
             {
                 var pos = transform.position.WithY(0f);
                 var direction = (target - pos).normalized;
@@ -166,8 +169,10 @@ namespace Faza
 
         public bool IsAboutToLand()
         {
+            const float ABOUT_TO_LAND_MAX_DISTANCE = 2f;
+
             var ray = new Ray(transform.position, Vector3.down);
-            return Physics.Raycast(ray, out var hitInfo, 2f);
+            return Physics.Raycast(ray, out var hitInfo, ABOUT_TO_LAND_MAX_DISTANCE);
         }
 
         public bool GetCrosshairInfo(out RaycastHit hitInfo)
