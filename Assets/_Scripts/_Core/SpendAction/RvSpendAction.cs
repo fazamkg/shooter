@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
+
+#if YG_PLUGIN_YANDEX_GAME
 using YG;
+#endif
 
 namespace Faza
 {
@@ -20,6 +23,7 @@ namespace Faza
 
         public override void Spend(Action onSuccess, Action onFailure)
         {
+#if YG_PLUGIN_YANDEX_GAME
             YandexGame.RewardVideoEvent += success;
             YandexGame.ErrorVideoEvent += fail;
             YandexGame.RewVideoShow(0);
@@ -37,6 +41,9 @@ namespace Faza
                 YandexGame.ErrorVideoEvent -= fail;
                 onFailure?.Invoke();
             }
+#else
+            onSuccess?.Invoke();
+#endif
         }
     }
 }

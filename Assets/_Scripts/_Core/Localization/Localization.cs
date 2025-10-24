@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+
+#if YG_PLUGIN_YANDEX_GAME
 using YG;
+#endif
 
 namespace Faza
 {
@@ -37,12 +40,16 @@ namespace Faza
 
             if (entry == null) return key;
 
+#if YG_PLUGIN_YANDEX_GAME
             return YandexGame.lang switch
             {
                 RUSSIAN => entry.Russian,
                 ENGLISH => entry.English,
                 _ => entry.Russian
             };
+#else
+            return entry.English;
+#endif
         }
     } 
 }

@@ -2,7 +2,10 @@
 using DG.Tweening;
 using System.Collections;
 using System.Linq;
+
+#if YG_PLUGIN_YANDEX_GAME
 using YG;
+#endif
 
 namespace Faza
 {
@@ -194,8 +197,12 @@ namespace Faza
 
             var pop = Instantiate(_popViewPrefab, transform);
 
+#if YG_PLUGIN_YANDEX_GAME
             var mobile = YandexGame.EnvironmentData.isMobile ||
                 YandexGame.EnvironmentData.isTablet;
+#else
+            var mobile = Input.touchSupported;
+#endif
 
             var key = mobile ? LocalizationKey.TUTORIAL_MOBILE : LocalizationKey.TUTORIAL_PC;
 

@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
+
+#if YG_PLUGIN_YANDEX_GAME
 using YG;
 using YG.Utils.LB;
-using System.Collections;
+#endif
 
 namespace Faza
 {
@@ -32,6 +35,7 @@ namespace Faza
 
         public void LoadLeaderboard(Action onSuccess, Action onFailure)
         {
+#if YG_PLUGIN_YANDEX_GAME
             Routines.StartCoroutineNew(WaitForLeaderboardCoroutine(onSuccess, onFailure));
 
             YandexGame.onGetLeaderboard += OnGetLeaderboard;
@@ -40,6 +44,7 @@ namespace Faza
             var amountAround = 0;
             YandexGame.GetLeaderboard(LeaderboardName,
                 maxAmountPlayers, amountTop, amountAround, PHOTO_SIZE);
+#endif
         }
 
         public void UnlockBoosters()
@@ -63,14 +68,20 @@ namespace Faza
             if (player == null)
             {
                 Storage.SetTimeSpan(StorageKey.GetLeaderboardTimeKey(name), elapsed);
+
+#if YG_PLUGIN_YANDEX_GAME
                 YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
+#endif
             }
             else
             {
                 if (elapsed < player.Time)
                 {
                     Storage.SetTimeSpan(StorageKey.GetLeaderboardTimeKey(name), elapsed);
+
+#if YG_PLUGIN_YANDEX_GAME
                     YandexGame.NewLBScoreTimeConvert(LeaderboardName, (float)elapsed.TotalMilliseconds);
+#endif
                 }
             }
         }
@@ -92,6 +103,7 @@ namespace Faza
 
         private IEnumerator WaitForLeaderboardCoroutine(Action onSuccess, Action onFailure)
         {
+#if YG_PLUGIN_YANDEX_GAME
             _leaderboardSuccess = false;
             _leaderboard.Clear();
 
@@ -106,8 +118,12 @@ namespace Faza
             {
                 onFailure?.Invoke();
             }
+#else
+            yield break;
+#endif
         }
 
+#if YG_PLUGIN_YANDEX_GAME
         private void OnGetLeaderboard(LBData data)
         {
             YandexGame.onGetLeaderboard -= OnGetLeaderboard;
@@ -130,5 +146,6 @@ namespace Faza
                 _leaderboard.Add(myEntry);
             }
         }
+#endif
     } 
 }

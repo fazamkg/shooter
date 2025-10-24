@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if YG_PLUGIN_YANDEX_GAME
 using YG;
+#endif
 
 namespace Faza
 {
@@ -33,14 +36,17 @@ namespace Faza
         {
             void loadNextLevel()
             {
+#if YG_PLUGIN_YANDEX_GAME
                 YandexGame.CloseFullAdEvent -= loadNextLevel;
                 YandexGame.ErrorFullAdEvent -= loadNextLevel;
+#endif
 
                 var index = LevelIndexPref;
                 var levelToLoad = index >= _levels.Length ? _menuLevel : _levels[index];
                 SceneManager.LoadScene(levelToLoad.name);
             }
-            
+
+#if YG_PLUGIN_YANDEX_GAME
             if (showAd && YandexGame.Instance.CanShowAd)
             {
                 YandexGame.ErrorFullAdEvent += loadNextLevel;
@@ -51,6 +57,9 @@ namespace Faza
             {
                 loadNextLevel();
             }
+#else
+            loadNextLevel();
+#endif
         }
 
         public void OnWinLevel(LevelData level)
