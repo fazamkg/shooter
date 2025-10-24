@@ -1,2 +1,0 @@
-Build path: C:/Repos/shooter/Build/82
-Build number: 47
