@@ -143,14 +143,6 @@ namespace Faza
             }
         }
 
-        public string IncrementAnimationSet()
-        {
-            _animationSetIndex++;
-            _animationSetIndex %= _animationSets.Length;
-            _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
-            return _animator.runtimeAnimatorController.name;
-        }
-
         /// <summary>
         /// Animation Event
         /// </summary>
@@ -186,24 +178,6 @@ namespace Faza
         {
         }
 
-        public void Footstep()
-        {
-            _source.PlayOneShot(_stepClips.GetRandom());
-        }
-
-        public void PlayOutOpenChestAnimation(Chest chest)
-        {
-            foreach (var rig in _rigs)
-            {
-                rig.DOWeight(1f, CHEST_ANIMATION_TRANSITION);
-            }
-
-            _currentChest = chest;
-            _character.enabled = false;
-            _character.CharacterController.enabled = false;
-            _animator.CrossFadeInFixedTime(AnimatorKey.OpenChest, CHEST_ANIMATION_TRANSITION);
-        }
-
         /// <summary>
         /// Animation Event
         /// </summary>
@@ -224,6 +198,32 @@ namespace Faza
 
             _character.enabled = true;
             _character.CharacterController.enabled = true;
+        }
+
+        public string IncrementAnimationSet()
+        {
+            _animationSetIndex++;
+            _animationSetIndex %= _animationSets.Length;
+            _animator.runtimeAnimatorController = _animationSets[_animationSetIndex];
+            return _animator.runtimeAnimatorController.name;
+        }
+
+        public void Footstep()
+        {
+            _source.PlayOneShot(_stepClips.GetRandom());
+        }
+
+        public void PlayOutOpenChestAnimation(Chest chest)
+        {
+            foreach (var rig in _rigs)
+            {
+                rig.DOWeight(1f, CHEST_ANIMATION_TRANSITION);
+            }
+
+            _currentChest = chest;
+            _character.enabled = false;
+            _character.CharacterController.enabled = false;
+            _animator.CrossFadeInFixedTime(AnimatorKey.OpenChest, CHEST_ANIMATION_TRANSITION);
         }
 
         private IEnumerator SwitchIdleCoroutine()
