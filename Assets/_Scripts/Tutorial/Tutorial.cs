@@ -38,31 +38,31 @@ namespace Faza
 
         private bool _triggerTouched;
 
-        private bool TutorialCompletedPref_1
+        private bool TutorialCompletedPref1
         {
             get => Storage.GetBool(StorageKey.TUTORIAL1);
             set => Storage.SetBool(StorageKey.TUTORIAL1, value);
         }
 
-        private bool TutorialCompletedPref_2
+        private bool TutorialCompletedPref2
         {
             get => Storage.GetBool(StorageKey.TUTORIAL2);
             set => Storage.SetBool(StorageKey.TUTORIAL2, value);
         }
 
-        private bool TutorialCompletedPref_3
+        private bool TutorialCompletedPref3
         {
             get => Storage.GetBool(StorageKey.TUTORIAL3);
             set => Storage.SetBool(StorageKey.TUTORIAL3, value);
         }
 
-        private bool TutorialCompletedPref_4
+        private bool TutorialCompletedPref4
         {
             get => Storage.GetBool(StorageKey.TUTORIAL4);
             set => Storage.SetBool(StorageKey.TUTORIAL4, value);
         }
 
-        private bool TutorialCompletedPref_5
+        private bool TutorialCompletedPref5
         {
             get => Storage.GetBool(StorageKey.TUTORIAL5);
             set => Storage.SetBool(StorageKey.TUTORIAL5, value);
@@ -96,7 +96,7 @@ namespace Faza
 
         public void StartTutorial1()
         {
-            if (TutorialCompletedPref_1) return;
+            if (TutorialCompletedPref1) return;
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
@@ -110,7 +110,7 @@ namespace Faza
 
         public void StartTutorial2()
         {
-            if (TutorialCompletedPref_2) return;
+            if (TutorialCompletedPref2) return;
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
@@ -124,7 +124,7 @@ namespace Faza
 
         public void StartTutorial3()
         {
-            if (TutorialCompletedPref_3) return;
+            if (TutorialCompletedPref3) return;
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
@@ -137,7 +137,7 @@ namespace Faza
 
         public void StartTutorial4()
         {
-            if (TutorialCompletedPref_4) return;
+            if (TutorialCompletedPref4) return;
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
@@ -150,7 +150,7 @@ namespace Faza
 
         public void StartTutorial5()
         {
-            if (TutorialCompletedPref_5) return;
+            if (TutorialCompletedPref5) return;
 
             SetTarget(_initialTarget, TransformType.Screen, true);
 
@@ -219,7 +219,7 @@ namespace Faza
 
             yield return new WaitUntil(() => PlayerInput.Instance.Shooter.StartedShooting);
 
-            TutorialCompletedPref_1 = true;
+            TutorialCompletedPref1 = true;
 
             yield return pop.Disappear().WaitForCompletion();
         }
@@ -249,7 +249,7 @@ namespace Faza
 
             PlayerInput.Instance.Enable();
 
-            TutorialCompletedPref_2 = true;
+            TutorialCompletedPref2 = true;
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
@@ -274,7 +274,7 @@ namespace Faza
 
             PlayerInput.Instance.Enable();
 
-            TutorialCompletedPref_3 = true;
+            TutorialCompletedPref3 = true;
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
@@ -302,7 +302,7 @@ namespace Faza
 
             PlayerInput.Instance.Enable();
 
-            TutorialCompletedPref_4 = true;
+            TutorialCompletedPref4 = true;
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
@@ -330,7 +330,7 @@ namespace Faza
 
             PlayerInput.Instance.Enable();
 
-            TutorialCompletedPref_5 = true;
+            TutorialCompletedPref5 = true;
 
             var seq = DOTween.Sequence();
             seq.Append(pop.Disappear());
