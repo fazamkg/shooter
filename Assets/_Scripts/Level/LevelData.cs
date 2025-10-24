@@ -44,6 +44,8 @@ namespace Faza
             var amountAround = 0;
             YandexGame.GetLeaderboard(LeaderboardName,
                 maxAmountPlayers, amountTop, amountAround, PHOTO_SIZE);
+#else
+            onFailure?.Invoke();
 #endif
         }
 
