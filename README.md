@@ -23,3 +23,10 @@ https://fazamkg.github.io/shooter/
 3) Remove ```YG_PLUGIN_YANDEX_GAME``` define from project settings
 4) Disable YandexGame GameObject from Init scene
 5) Build 
+
+## Code
+
+This is also not the best code I have written.  
+I tried to follow atleast some MV separation here for UI code.  
+Check out my own custom console feature. It's pretty handy when testing stuff in builds.  
+Also I did a little bit of shaders in this project. Check them out under Assets/_Shaders
